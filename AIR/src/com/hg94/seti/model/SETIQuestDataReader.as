@@ -18,7 +18,7 @@ package com.hg94.seti.model {
 		public function getTargetSet():TargetSet {
 			var targetSet:TargetSet = new TargetSet();
 
-			var observation;
+			var observation:Observation;
 			
 			var tauCeti:Target = new Target("Tau Ceti");
 			tauCeti.setSETICoordinates(1.734467472, 15.93748);
