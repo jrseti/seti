@@ -10,7 +10,9 @@
 			import com.google.maps.MapOptions;
 			import com.google.maps.MapType;
 			import com.google.maps.extras.planetary.Sky;
+			import com.google.maps.overlays.Marker;
 			import com.google.maps.styles.FillStyle;
+			import com.hg94.seti.model.CelestialLocation;
 			
 			import flashx.textLayout.formats.Float;
 			
@@ -21,12 +23,9 @@
 				opts.mapTypes = [Sky.VISIBLE_MAP_TYPE];
 //				opts.center = new LatLng(01.73447, -15.93748 );
 				
-				
-				var tauceti_ra:Number = 1.734467472;
-				var tauceti_decl:Number = 15.93748;
-				var tauceti_lat:Number = 0.0 - tauceti_decl;
-				var tauceti_long:Number = 180.0 - (tauceti_ra/24.0)*360.0
-				opts.center = new LatLng(tauceti_lat,tauceti_long);
+				var tauCeti:CelestialLocation = new CelestialLocation();
+				tauCeti.setSETICoordinates(1.734467472, 15.93748);
+				opts.center = tauCeti.getGoogleSkyCoordinates();
 				opts.zoom = 7;
 				opts.backgroundFillStyle = new FillStyle();
 				opts.backgroundFillStyle.color = 0x000000;
