@@ -13,7 +13,9 @@
 			import com.google.maps.extras.planetary.Sky;
 			import com.google.maps.overlays.Marker;
 			import com.google.maps.styles.FillStyle;
-			import com.hg94.seti.model.CelestialLocation;
+			import com.hg94.seti.model.SETIQuestDataReader;
+			import com.hg94.seti.model.Target;
+			import com.hg94.seti.model.TargetSet;
 			
 			import flashx.textLayout.formats.Float;
 			
@@ -22,7 +24,7 @@
 			
 			private static const HATHERSAGE_MAP_API_KEY:String = "ABQIAAAAEwk3rg5igZgbfHAAaPpdnhS3hwEVAxBLwgX-yCFBjg8qlFo5UxTVUCdE50GpyF9WvX4b62ZJcx0ASA";
 			
-			protected var _targetLocations:ArrayCollection;
+			protected var _targetSet:TargetSet;
 			
 			
 			
@@ -50,7 +52,7 @@
 				// Just testing markers
 				// TODO: Refactor
 				
-				for each (var target:CelestialLocation in this._targetLocations) {
+				for each (var target:Target in this._targetSet.targetArray) {
 					var marker:Marker = new Marker(target.getGoogleSkyCoordinates());
 					event.target.addOverlay(marker);
 				}
@@ -88,20 +90,9 @@
 
 
 			protected function view1_preinitializeHandler(event:FlexEvent):void {
-				this._targetLocations = new ArrayCollection();
-
-				var tauCeti:CelestialLocation = new CelestialLocation();
-				tauCeti.setSETICoordinates(1.734467472, 15.93748);
-				this._targetLocations.addItem(tauCeti);
 				
-				var epsilonEridani:CelestialLocation = new CelestialLocation();
-				epsilonEridani.setSETICoordinates(3.5488456,9.45826);
-				this._targetLocations.addItem(epsilonEridani);
-				
-				
-				var gliese581:CelestialLocation = new CelestialLocation();
-				gliese581.setSETICoordinates(15.324118,7.72228028);
-				this._targetLocations.addItem(gliese581);
+				var setiQuestDataReader:SETIQuestDataReader = new SETIQuestDataReader();
+				this._targetSet = setiQuestDataReader.getTargetSet();
 
 			}
 
