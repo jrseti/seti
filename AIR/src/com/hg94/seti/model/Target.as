@@ -52,7 +52,10 @@ package com.hg94.seti.model {
 			this._defaultObservation = defaultObservation;
 		}
 		
-
+		public function get defaultObservation():Observation
+		{
+			return this._defaultObservation;
+		}
 		
 		// Constructor
 		
