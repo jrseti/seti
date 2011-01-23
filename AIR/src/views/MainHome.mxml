@@ -30,11 +30,22 @@
 				opts.backgroundFillStyle = new FillStyle();
 				opts.backgroundFillStyle.color = 0x000000;
 				event.target.setInitOptions(opts);
+				
+				
 			}
 			
 			private function onMapReady(event:MapEvent):void
 			{
 				event.target.addMapType(Sky.VISIBLE_MAP_TYPE);
+
+				
+				// Just testing markers
+				// TODO: Refactor
+				
+				var tauCeti:CelestialLocation = new CelestialLocation();
+				tauCeti.setSETICoordinates(1.734467472, 15.93748);
+				var marker:Marker = new Marker(tauCeti.getGoogleSkyCoordinates());
+				event.target.addOverlay(marker);
 			}
 			
 			private function onZoom(event:TouchEvent):void
