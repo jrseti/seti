@@ -15,6 +15,7 @@
 			import com.google.maps.extras.planetary.Sky;
 			import com.google.maps.overlays.Marker;
 			import com.google.maps.styles.FillStyle;
+			import com.hg94.seti.model.Observation;
 			import com.hg94.seti.model.SETIQuestDataReader;
 			import com.hg94.seti.model.Target;
 			import com.hg94.seti.model.TargetSet;
@@ -57,14 +58,8 @@
 			
 			private function onMarkerInteraction(event:MapMouseEvent):void
 			{
-				var starObject:Object = locationToStarObject(event.latLng);
-				navigator.pushView(com.hg94.seti.views.WaterfallExplorerView, starObject);
-			}
-			
-			private function locationToStarObject(latLong:LatLng):Object
-			{
-				// TODO: implement
-				return {};
+				var target:Target = this._targetSet.getTargetByGoogleSkyCoordinates(event.latLng);
+				navigator.pushView(com.hg94.seti.views.WaterfallExplorerView, target);
 			}
 			
 			private function onZoom(event:TouchEvent):void

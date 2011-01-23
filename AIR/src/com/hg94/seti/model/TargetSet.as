@@ -59,5 +59,13 @@ package com.hg94.seti.model {
 			var latLng:LatLng = target.getGoogleSkyCoordinates();
 			this._targetIndex[latLng] = target;
 		}
+		
+		
+		/** Get a target for a lat and long, after user clicks
+		 */
+		
+		public function getTargetByGoogleSkyCoordinates(latLng:LatLng):Target {
+			return this._targetIndex[latLng];
+		}
 	}
 }
