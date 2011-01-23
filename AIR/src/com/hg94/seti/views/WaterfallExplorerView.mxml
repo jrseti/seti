@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		xmlns:s="library://ns.adobe.com/flex/spark" 
-		title="WaterfallScroller">
+		xmlns:s="library://ns.adobe.com/flex/spark">
 	<s:layout>
 		<s:HorizontalLayout/>
 	</s:layout>
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
+	<s:navigationContent>
+		<s:Button label="Back to the Stars" click="onSkyButtonInteraction(event)"/>
+	</s:navigationContent>
 	<s:List direction="ltr" 
 			width="100%" height="100%"
 			dataProvider="{KNOWN_WATERFALL_IMAGES}"
-			itemRenderer="com.hg94.components.WaterfallItemRenderer">
+			itemRenderer="com.hg94.seti.views.components.WaterfallTileRenderer">
 		<s:layout>
 			<s:HorizontalLayout gap="0"/>
 		</s:layout>
@@ -19,6 +21,7 @@
 	<fx:Script>
 		<![CDATA[
 			import mx.collections.ArrayCollection;
+			
 			protected static const KNOWN_WATERFALL_IMAGES:ArrayCollection = new ArrayCollection([
 				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0000/chan+0000-0-1419.998934-1419.999201.png",
 				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0000/chan+0000-1-1419.999201-1419.999467.png",
@@ -37,6 +40,26 @@
 				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0001/chan+0001-6-1420.002667-1420.002934.png",
 				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0001/chan+0001-7-1420.002934-1420.003200.png"
 			]);
+			
+			private function onSkyButtonInteraction(event:Event):void
+			{
+				navigator.popView();
+			}
+			
+			override public function set data(value:Object):void
+			{
+				// TODO: Handle data passed in from GSkyMap.
+				super.data = value;
+			}
+			
+			/**
+			 * When a user presses-and-holds (long-touches) an image open it in
+			 * its own view.
+			 */
+			private function onLongTouch(event:Event):void
+			{
+				navigator.pushView(com.hg94.seti.views.WaterfallImageView, event.target.data);
+			}
 		]]>
 	</fx:Script>
 </s:View>

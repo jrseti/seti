@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark" 
-		title="Home" preinitialize="view1_preinitializeHandler(event)">
+		title="Stars" 
+		preinitialize="view1_preinitializeHandler(event)">
 	<fx:Script>
 		<![CDATA[
 			import com.google.maps.LatLng;
 			import com.google.maps.Map;
 			import com.google.maps.MapEvent;
+			import com.google.maps.MapMouseEvent;
 			import com.google.maps.MapOptions;
 			import com.google.maps.MapType;
 			import com.google.maps.controls.ZoomControl;
@@ -26,12 +28,10 @@
 			
 			protected var _targetSet:TargetSet;
 			
-			
-			
 			private function onMapPreinitialize(event:Event):void {
 				var opts:MapOptions = new MapOptions();
 				opts.mapTypes = [Sky.VISIBLE_MAP_TYPE];
-//				opts.center = new LatLng(01.73447, -15.93748 );
+				//				opts.center = new LatLng(01.73447, -15.93748 );
 				
 				//var tauCeti:CelestialLocation = new CelestialLocation();
 				//tauCeti.setSETICoordinates(1.734467472, 15.93748);
@@ -40,25 +40,36 @@
 				opts.backgroundFillStyle = new FillStyle();
 				opts.backgroundFillStyle.color = 0x000000;
 				event.target.setInitOptions(opts);
-				
-				
 			}
 			
 			private function onMapReady(event:MapEvent):void
 			{
 				event.target.addMapType(Sky.VISIBLE_MAP_TYPE);
-
+				
 				
 				// Just testing markers
 				// TODO: Refactor
 				
 				for each (var target:Target in this._targetSet.targetArray) {
 					var marker:Marker = new Marker(target.getGoogleSkyCoordinates());
+					marker.addEventListener(MapMouseEvent.CLICK, onMarkerInteraction);
 					event.target.addOverlay(marker);
 				}
 				
 				var zoomControl:ZoomControl = new ZoomControl();
 				event.target.addControl(zoomControl);
+			}
+			
+			private function onMarkerInteraction(event:MapMouseEvent):void
+			{
+				var starObject:Object = locationToStarObject(event.latLng);
+				navigator.pushView(com.hg94.seti.views.WaterfallExplorerView, starObject);
+			}
+			
+			private function locationToStarObject(latLong:LatLng):Object
+			{
+				// TODO: implement
+				return {};
 			}
 			
 			private function onZoom(event:TouchEvent):void
@@ -82,27 +93,45 @@
 				map.setZoom(currentZoomLevel);
 			}
 			
-
+			
 			protected function button1_clickHandler(event:MouseEvent):void
 			{
 				
 			}
-
-
+			
+			
 			protected function view1_preinitializeHandler(event:FlexEvent):void {
+<<<<<<< HEAD:AIR/src/views/MainHome.mxml
 				
 				var setiQuestDataReader:SETIQuestDataReader = new SETIQuestDataReader();
 				this._targetSet = setiQuestDataReader.getTargetSet();
 
+=======
+				this._targetLocations = new ArrayCollection();
+				
+				var tauCeti:CelestialLocation = new CelestialLocation();
+				tauCeti.setSETICoordinates(1.734467472, 15.93748);
+				this._targetLocations.addItem(tauCeti);
+				
+				var epsilonEridani:CelestialLocation = new CelestialLocation();
+				epsilonEridani.setSETICoordinates(3.5488456,9.45826);
+				this._targetLocations.addItem(epsilonEridani);
+				
+				
+				var gliese581:CelestialLocation = new CelestialLocation();
+				gliese581.setSETICoordinates(15.324118,7.72228028);
+				this._targetLocations.addItem(gliese581);
+				
+>>>>>>> 839a3ccba814485a5c487da5f0887f70aba9eee3:AIR/src/com/hg94/seti/views/StarfieldView.mxml
 			}
-
+			
 		]]>
 	</fx:Script>
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 	<s:Group width="100%" height="100%">
- 		<maps:Map xmlns:maps="com.google.maps.*"
+		<maps:Map xmlns:maps="com.google.maps.*"
 				  id="map"
 				  mapevent_mappreinitialize="onMapPreinitialize(event)"
 				  mapevent_mapready="onMapReady(event)"
