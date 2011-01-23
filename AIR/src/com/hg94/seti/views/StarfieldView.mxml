@@ -61,7 +61,7 @@
 			private function onMarkerInteraction(event:MapMouseEvent):void
 			{
 				var starObject:Object = locationToStarObject(event.latLng);
-				navigator.pushView(com.hg94.seti.views.WaterfallScroller, starObject);
+				navigator.pushView(com.hg94.seti.views.WaterfallExplorerView, starObject);
 			}
 			
 			private function locationToStarObject(latLong:LatLng):Object
