@@ -31,11 +31,6 @@
 			private function onMapPreinitialize(event:Event):void {
 				var opts:MapOptions = new MapOptions();
 				opts.mapTypes = [Sky.VISIBLE_MAP_TYPE];
-				//				opts.center = new LatLng(01.73447, -15.93748 );
-				
-				//var tauCeti:CelestialLocation = new CelestialLocation();
-				//tauCeti.setSETICoordinates(1.734467472, 15.93748);
-				//opts.center = tauCeti.getGoogleSkyCoordinates();
 				opts.zoom = 2;
 				opts.backgroundFillStyle = new FillStyle();
 				opts.backgroundFillStyle.color = 0x000000;
@@ -101,28 +96,9 @@
 			
 			
 			protected function view1_preinitializeHandler(event:FlexEvent):void {
-<<<<<<< HEAD:AIR/src/views/MainHome.mxml
 				
 				var setiQuestDataReader:SETIQuestDataReader = new SETIQuestDataReader();
 				this._targetSet = setiQuestDataReader.getTargetSet();
-
-=======
-				this._targetLocations = new ArrayCollection();
-				
-				var tauCeti:CelestialLocation = new CelestialLocation();
-				tauCeti.setSETICoordinates(1.734467472, 15.93748);
-				this._targetLocations.addItem(tauCeti);
-				
-				var epsilonEridani:CelestialLocation = new CelestialLocation();
-				epsilonEridani.setSETICoordinates(3.5488456,9.45826);
-				this._targetLocations.addItem(epsilonEridani);
-				
-				
-				var gliese581:CelestialLocation = new CelestialLocation();
-				gliese581.setSETICoordinates(15.324118,7.72228028);
-				this._targetLocations.addItem(gliese581);
-				
->>>>>>> 839a3ccba814485a5c487da5f0887f70aba9eee3:AIR/src/com/hg94/seti/views/StarfieldView.mxml
 			}
 			
 		]]>
