@@ -15,7 +15,6 @@
 			import com.google.maps.extras.planetary.Sky;
 			import com.google.maps.overlays.Marker;
 			import com.google.maps.styles.FillStyle;
-			import com.hg94.seti.components.WaterfallScroller;
 			import com.hg94.seti.model.CelestialLocation;
 			
 			import flashx.textLayout.formats.Float;
@@ -30,7 +29,7 @@
 			private function onMapPreinitialize(event:Event):void {
 				var opts:MapOptions = new MapOptions();
 				opts.mapTypes = [Sky.VISIBLE_MAP_TYPE];
-//				opts.center = new LatLng(01.73447, -15.93748 );
+				//				opts.center = new LatLng(01.73447, -15.93748 );
 				
 				//var tauCeti:CelestialLocation = new CelestialLocation();
 				//tauCeti.setSETICoordinates(1.734467472, 15.93748);
@@ -44,7 +43,7 @@
 			private function onMapReady(event:MapEvent):void
 			{
 				event.target.addMapType(Sky.VISIBLE_MAP_TYPE);
-
+				
 				
 				// Just testing markers
 				// TODO: Refactor
@@ -62,7 +61,7 @@
 			private function onMarkerInteraction(event:MapMouseEvent):void
 			{
 				var starObject:Object = locationToStarObject(event.latLng);
-				navigator.pushView(com.hg94.seti.components.WaterfallScroller, starObject);
+				navigator.pushView(com.hg94.seti.views.WaterfallExplorerView, starObject);
 			}
 			
 			private function locationToStarObject(latLong:LatLng):Object
@@ -92,16 +91,16 @@
 				map.setZoom(currentZoomLevel);
 			}
 			
-
+			
 			protected function button1_clickHandler(event:MouseEvent):void
 			{
 				
 			}
-
-
+			
+			
 			protected function view1_preinitializeHandler(event:FlexEvent):void {
 				this._targetLocations = new ArrayCollection();
-
+				
 				var tauCeti:CelestialLocation = new CelestialLocation();
 				tauCeti.setSETICoordinates(1.734467472, 15.93748);
 				this._targetLocations.addItem(tauCeti);
@@ -114,16 +113,16 @@
 				var gliese581:CelestialLocation = new CelestialLocation();
 				gliese581.setSETICoordinates(15.324118,7.72228028);
 				this._targetLocations.addItem(gliese581);
-
+				
 			}
-
+			
 		]]>
 	</fx:Script>
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 	<s:Group width="100%" height="100%">
- 		<maps:Map xmlns:maps="com.google.maps.*"
+		<maps:Map xmlns:maps="com.google.maps.*"
 				  id="map"
 				  mapevent_mappreinitialize="onMapPreinitialize(event)"
 				  mapevent_mapready="onMapReady(event)"
