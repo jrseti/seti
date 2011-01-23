@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="Home" xmlns:mx="library://ns.adobe.com/flex/mx">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Image id="img" source="picture.jpg" />
+	<s:HGroup width="100%" horizontalAlign="left" paddingTop="10">
+		<s:Label id="imgX" text="{img.scaleX + ''}" />
+		<s:Label id="imgY" text="{img.scaleY + ''}" />
+		<mx:Spacer width="20"/>
+		<s:Label id="eventX" text="" />
+		<s:Label id="eventY" text="" />
+	</s:HGroup>
+	<s:creationComplete>
+		<![CDATA[
+			webView = new StageWebView();
+			var stage : Stage = this.systemManager.stage;
+			webView.stage = stage;
+			webView.viewPort = new Rectangle( 0, 0, stage.stageWidth, stage.stageHeight );
+			webView.loadURL( FACEBOOK_AUTHORIZE_URL );
+			webView.addEventListener( LocationChangeEvent.LOCATION_CHANGE, onLocationChange);
+		]]>
+	</s:creationComplete>
+	<fx:Script>
+		<![CDATA[
+			import com.hg94.common.facebook.FacebookAirAndroid;
+			
+			public static const APP_ID : String = "141090135950302";
+			public static const APP_URL : String = "http://www.hathersagegroup.com/SETI/FacebookLogin/";
+			public static const APP_SECRET : String = "2a41489f6bf8a5e100d2813421f38b45";
+
+			public static const FACEBOOK_AUTHORIZE_URL:String = 
+				"http://www.facebook.com/connect/uiserver.php?app_id=" + APP_ID + "&method=permissions.request&display=touch&next=" + 
+				 encodeURIComponent(APP_URL) + "&response_type=code&fbconnect=1";
+//			public static const FACEBOOK_AUTHORIZE_URL:String = "" +
+//				"https://graph.facebook.com/oauth/authorize?" +
+//				"client_id="+APP_ID+"&" +
+//				"redirect_uri="+APP_URL+"&" +
+//				"display=touch";
+			
+			private var webView:StageWebView;
+			
+			private function onLocationChange(event:LocationChangeEvent):void
+			{
+				var codeUrl:String = APP_URL + "?code=";
+				var code:String = event.location.substr(codeUrl.length);
+				
+				var fb:FacebookAirAndroid = new FacebookAirAndroid(APP_ID, APP_URL, APP_SECRET);
+				fb.login(code);
+				webView.dispose();
+			}
+			
+		]]>
+	</fx:Script>
+</s:View>
