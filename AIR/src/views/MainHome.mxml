@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark" 
-		title="Home">
+		title="Home" preinitialize="view1_preinitializeHandler(event)">
 	<fx:Script>
 		<![CDATA[
 			import com.google.maps.LatLng;
@@ -16,17 +16,24 @@
 			
 			import flashx.textLayout.formats.Float;
 			
+			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
+			
 			private static const HATHERSAGE_MAP_API_KEY:String = "ABQIAAAAEwk3rg5igZgbfHAAaPpdnhS3hwEVAxBLwgX-yCFBjg8qlFo5UxTVUCdE50GpyF9WvX4b62ZJcx0ASA";
+			
+			protected var _targetLocations:ArrayCollection;
+			
+			
 			
 			private function onMapPreinitialize(event:Event):void {
 				var opts:MapOptions = new MapOptions();
 				opts.mapTypes = [Sky.VISIBLE_MAP_TYPE];
 //				opts.center = new LatLng(01.73447, -15.93748 );
 				
-				var tauCeti:CelestialLocation = new CelestialLocation();
-				tauCeti.setSETICoordinates(1.734467472, 15.93748);
-				opts.center = tauCeti.getGoogleSkyCoordinates();
-				opts.zoom = 7;
+				//var tauCeti:CelestialLocation = new CelestialLocation();
+				//tauCeti.setSETICoordinates(1.734467472, 15.93748);
+				//opts.center = tauCeti.getGoogleSkyCoordinates();
+				opts.zoom = 1;
 				opts.backgroundFillStyle = new FillStyle();
 				opts.backgroundFillStyle.color = 0x000000;
 				event.target.setInitOptions(opts);
@@ -42,10 +49,10 @@
 				// Just testing markers
 				// TODO: Refactor
 				
-				var tauCeti:CelestialLocation = new CelestialLocation();
-				tauCeti.setSETICoordinates(1.734467472, 15.93748);
-				var marker:Marker = new Marker(tauCeti.getGoogleSkyCoordinates());
-				event.target.addOverlay(marker);
+				for each (var target:CelestialLocation in this._targetLocations) {
+					var marker:Marker = new Marker(target.getGoogleSkyCoordinates());
+					event.target.addOverlay(marker);
+				}
 			}
 			
 			private function onZoom(event:TouchEvent):void
@@ -73,6 +80,25 @@
 			protected function button1_clickHandler(event:MouseEvent):void
 			{
 				trace(map.getCenter().lat(), ",",  map.getCenter().lng());
+			}
+
+
+			protected function view1_preinitializeHandler(event:FlexEvent):void {
+				this._targetLocations = new ArrayCollection();
+
+				var tauCeti:CelestialLocation = new CelestialLocation();
+				tauCeti.setSETICoordinates(1.734467472, 15.93748);
+				this._targetLocations.addItem(tauCeti);
+				
+				var epsilonEridani:CelestialLocation = new CelestialLocation();
+				epsilonEridani.setSETICoordinates(3.5488456,9.45826);
+				this._targetLocations.addItem(epsilonEridani);
+				
+				
+				var gliese581:CelestialLocation = new CelestialLocation();
+				gliese581.setSETICoordinates(15.324118,7.72228028);
+				this._targetLocations.addItem(gliese581);
+
 			}
 
 		]]>
