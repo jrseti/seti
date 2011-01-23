@@ -30,24 +30,10 @@
 			public static const APP_URL : String = "http://www.hathersagegroup.com/SETI/FacebookLogin/";
 			public static const APP_SECRET : String = "2a41489f6bf8a5e100d2813421f38b45";
 
-//			public static const FACEBOOK_AUTHORIZE_URL:String = "" +
-//			"http://touch.facebook.com/login.php?app_id=" + APP_ID + "&cancel=" + encodeURI(APP_URL) + "%3Ferror_reason%3Duser_denied%26error%3Daccess_denied%26error_description%3DThe%2Buser%2Bdenied%2Byour%2Brequest.&fbconnect=1&next=https%3A%2F%2Fwww.facebook.com%2Fconnect%2Fuiserver.php%3Fmethod%3Dpermissions.request%26app_id%3D" + APP_ID + "%26display%3Dtouch%26redirect_uri%3D" +
-//			encodeURI(APP_URL) + "2F%26response_type%3Dcode%26fbconnect%3D1%26from_login%3D1";
-			
-//			public static const FACEBOOK_AUTHORIZE_URL:String = 
-//				"https://www.facebook.com/connect/uiserver.php?app_id=" + APP_ID + "&method=permissions.request&next=" + 
-//				 encodeURIComponent(APP_URL) + "&response_type=code&fbconnect=1";
 
-			public static const FACEBOOK_AUTHORIZE_URL:String = 
-				"https://www.facebook.com/connect/uiserver.php?app_id=" + APP_ID + "&method=permissions.request&display=touch&next=" + 
-				encodeURIComponent(APP_URL) + "&response_type=code&fbconnect=1";
+			public static const FACEBOOK_AUTHORIZE_URL:String =
+				"https://www.facebook.com/dialog/oauth?client_id=" + APP_ID + "&redirect_uri=" + APP_URL;
 
-			
-//			public static const FACEBOOK_AUTHORIZE_URL:String = "" + // old way
-//				"https://graph.facebook.com/oauth/authorize?" +
-//				"client_id="+APP_ID+"&" +
-//				"redirect_uri="+APP_URL+"&" +
-//				"display=touch";
 			
 			private var webView:StageWebView;
 			private var fb:FacebookAirAndroid; 
