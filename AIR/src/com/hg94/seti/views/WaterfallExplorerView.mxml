@@ -43,7 +43,13 @@
 			
 			private function onSkyButtonInteraction(event:Event):void
 			{
-				navigator.pushView(com.hg94.seti.views.StarfieldView);
+				navigator.popView();
+			}
+			
+			override public function set data(value:Object):void
+			{
+				// TODO: Handle data passed in from GSkyMap.
+				super.data = value;
 			}
 		]]>
 	</fx:Script>
