@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" 
+		title="WaterfallScroller">
+	<s:layout>
+		<s:HorizontalLayout/>
+	</s:layout>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:List direction="ltr" 
+			width="100%" height="100%"
+			dataProvider="{KNOWN_WATERFALL_IMAGES}"
+			itemRenderer="com.hg94.components.WaterfallItemRenderer">
+		<s:layout>
+			<s:HorizontalLayout gap="0"/>
+		</s:layout>
+	</s:List>
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayCollection;
+			protected static const KNOWN_WATERFALL_IMAGES:ArrayCollection = new ArrayCollection([
+				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0000/chan+0000-0-1419.998934-1419.999201.png",
+				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0000/chan+0000-1-1419.999201-1419.999467.png",
+				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0000/chan+0000-2-1419.999467-1419.999734.png",
+				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0000/chan+0000-3-1419.999734-1420.000000.png",
+				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0000/chan+0000-4-1420.000000-1420.000267.png",
+				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0000/chan+0000-5-1420.000267-1420.000534.png",
+				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0000/chan+0000-6-1420.000534-1420.000800.png",
+				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0000/chan+0000-7-1420.000800-1420.001067.png",
+				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0001/chan+0001-0-1420.001067-1420.001334.png",
+				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0001/chan+0001-1-1420.001334-1420.001600.png",
+				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0001/chan+0001-2-1420.001600-1420.001867.png",
+				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0001/chan+0001-3-1420.001867-1420.002134.png",
+				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0001/chan+0001-4-1420.002134-1420.002400.png",
+				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0001/chan+0001-5-1420.002400-1420.002667.png",
+				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0001/chan+0001-6-1420.002667-1420.002934.png",
+				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0001/chan+0001-7-1420.002934-1420.003200.png"
+			]);
+		]]>
+	</fx:Script>
+</s:View>
