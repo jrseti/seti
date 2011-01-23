@@ -16,8 +16,7 @@
 		webView.addEventListener( LocationChangeEvent.LOCATION_CHANGE, onLocationChange);
 		webView.loadURL( FACEBOOK_AUTHORIZE_URL );
 		trace(FACEBOOK_AUTHORIZE_URL);
-		//			webView.addEventListener( Event.COMPLETE, onComplete );
-		//			webView.addEventListener( ErrorEvent.ERROR, onError );
+		webView.addEventListener( ErrorEvent.ERROR, onError );
 		]]>
 	</s:creationComplete>
 	<fx:Script>
@@ -52,12 +51,9 @@
 				navigateToURL(new URLRequest("http://m.facebook.com/logout.php"));
 			}
 			
-			private function onComplete( event : Event ) : void {
-				trace(event);
-			}
 			
 			private function onError( event : ErrorEvent ) : void {
-				trace(event);
+				trace(event); // TODO: Handle this gracefully
 			}
 			
 		]]>

@@ -25,6 +25,7 @@
 			
 			import mx.collections.ArrayCollection;
 			
+			
 			protected static const KNOWN_WATERFALL_IMAGES:ArrayCollection = new ArrayCollection([
 				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0000/chan+0000-0-1419.998934-1419.999201.png",
 				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0000/chan+0000-1-1419.999201-1419.999467.png",
@@ -44,8 +45,11 @@
 				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0001/chan+0001-7-1420.002934-1420.003200.png"
 			]);
 			
+<<<<<<< HEAD
 			[Bindable]
 			protected var target:Target;
+=======
+>>>>>>> 300d27156e5e23ccddd3159ae12c3276efd4059e
 			
 			private function onSkyButtonInteraction(event:Event):void
 			{
