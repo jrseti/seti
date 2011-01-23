@@ -4,36 +4,31 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<s:HGroup width="100%" horizontalAlign="left" paddingTop="10">
-		<s:Button id="logout" label="logout" click="onLogout()" />
+	<s:HGroup width="100%" horizontalAlign="center" paddingTop="10">
+		<!--s:Button id="logout" label="logout" click="onLogout()" /-->
+		<s:Label text="Please wait..." />
 	</s:HGroup>
 	<s:creationComplete>
 		<![CDATA[
-			webView = new StageWebView();
-			webView.stage = this.systemManager.stage;
-			webView.viewPort = new Rectangle( 0, 0, this.systemManager.stage.stageWidth, this.systemManager.stage.stageHeight );
-			webView.addEventListener( LocationChangeEvent.LOCATION_CHANGE, onLocationChange);
-			webView.loadURL( FACEBOOK_AUTHORIZE_URL );
-			trace(FACEBOOK_AUTHORIZE_URL);
-//			webView.addEventListener( Event.COMPLETE, onComplete );
-//			webView.addEventListener( ErrorEvent.ERROR, onError );
+		webView = new StageWebView();
+		webView.stage = this.systemManager.stage;
+		webView.viewPort = new Rectangle( 0, 0, this.systemManager.stage.stageWidth, this.systemManager.stage.stageHeight );
+		webView.addEventListener( LocationChangeEvent.LOCATION_CHANGE, onLocationChange);
+		webView.loadURL( FACEBOOK_AUTHORIZE_URL );
+		trace(FACEBOOK_AUTHORIZE_URL);
+		webView.addEventListener( ErrorEvent.ERROR, onError );
 		]]>
 	</s:creationComplete>
 	<fx:Script>
 		<![CDATA[
-			import com.facebook.graph.Facebook;
 			import com.hg94.common.facebook.FacebookAirAndroid;
-			
-			import flash.net.navigateToURL;
 			
 			public static const APP_ID : String = "141090135950302";
 			public static const APP_URL : String = "http://www.hathersagegroup.com/SETI/FacebookLogin/";
 			public static const APP_SECRET : String = "2a41489f6bf8a5e100d2813421f38b45";
-
-
+			
 			public static const FACEBOOK_AUTHORIZE_URL:String =
 				"https://www.facebook.com/dialog/oauth?client_id=" + APP_ID + "&redirect_uri=" + APP_URL;
-
 			
 			private var webView:StageWebView;
 			private var fb:FacebookAirAndroid; 
@@ -48,6 +43,7 @@
 					fb.login(code);
 					webView.dispose();
 					
+					navigator.pushView(com.hg94.seti.views.StarfieldView);
 				}
 			}
 			
@@ -55,12 +51,9 @@
 				navigateToURL(new URLRequest("http://m.facebook.com/logout.php"));
 			}
 			
-			private function onComplete( event : Event ) : void {
-				trace(event);
-			}
 			
 			private function onError( event : ErrorEvent ) : void {
-				trace(event);
+				trace(event); // TODO: Handle this gracefully
 			}
 			
 		]]>
