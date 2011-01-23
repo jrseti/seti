@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark" 
-		title="Home" preinitialize="view1_preinitializeHandler(event)">
+		title="Stars" 
+		preinitialize="view1_preinitializeHandler(event)">
 	<fx:Script>
 		<![CDATA[
 			import com.google.maps.LatLng;
 			import com.google.maps.Map;
 			import com.google.maps.MapEvent;
+			import com.google.maps.MapMouseEvent;
 			import com.google.maps.MapOptions;
 			import com.google.maps.MapType;
 			import com.google.maps.controls.ZoomControl;
 			import com.google.maps.extras.planetary.Sky;
 			import com.google.maps.overlays.Marker;
 			import com.google.maps.styles.FillStyle;
+			import com.hg94.seti.components.WaterfallScroller;
 			import com.hg94.seti.model.CelestialLocation;
 			
 			import flashx.textLayout.formats.Float;
@@ -23,8 +26,6 @@
 			private static const HATHERSAGE_MAP_API_KEY:String = "ABQIAAAAEwk3rg5igZgbfHAAaPpdnhS3hwEVAxBLwgX-yCFBjg8qlFo5UxTVUCdE50GpyF9WvX4b62ZJcx0ASA";
 			
 			protected var _targetLocations:ArrayCollection;
-			
-			
 			
 			private function onMapPreinitialize(event:Event):void {
 				var opts:MapOptions = new MapOptions();
@@ -38,8 +39,6 @@
 				opts.backgroundFillStyle = new FillStyle();
 				opts.backgroundFillStyle.color = 0x000000;
 				event.target.setInitOptions(opts);
-				
-				
 			}
 			
 			private function onMapReady(event:MapEvent):void
@@ -52,11 +51,24 @@
 				
 				for each (var target:CelestialLocation in this._targetLocations) {
 					var marker:Marker = new Marker(target.getGoogleSkyCoordinates());
+					marker.addEventListener(MapMouseEvent.CLICK, onMarkerInteraction);
 					event.target.addOverlay(marker);
 				}
 				
 				var zoomControl:ZoomControl = new ZoomControl();
 				event.target.addControl(zoomControl);
+			}
+			
+			private function onMarkerInteraction(event:MapMouseEvent):void
+			{
+				var starObject:Object = locationToStarObject(event.latLng);
+				navigator.pushView(com.hg94.seti.components.WaterfallScroller, starObject);
+			}
+			
+			private function locationToStarObject(latLong:LatLng):Object
+			{
+				// TODO: implement
+				return {};
 			}
 			
 			private function onZoom(event:TouchEvent):void
