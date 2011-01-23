@@ -3,8 +3,8 @@
 					 xmlns:s="library://ns.adobe.com/flex/spark"
 					 firstView="com.hg94.seti.views.AuthenticationView">
 	<fx:Declarations>
-		<!-- Place non-visual elements (e.g., services, value objects) here 
-					 firstView="com.hg94.seti.components.WaterfallScroller">
+		<!-- 
+			Place non-visual elements (e.g., services, value objects) here 
 		-->
 	</fx:Declarations>
 	<s:creationComplete>
