@@ -73,5 +73,21 @@ package com.hg94.seti.model {
 		public function addWaterfallTile(waterfallTile:WaterfallTile):void {
 			this._waterfallTiles.addItem(waterfallTile);
 		}
+		
+		public function get waterfallTilePaths():ArrayCollection
+		{
+			var tiles:ArrayCollection = this._waterfallTiles;
+			for each (var tile:Object in this._waterfallTiles)
+			{
+				if (tile is WaterfallTile)
+				{
+					tiles.addItem((tile as WaterfallTile).imageURL);
+				} else if (tile is String)
+				{
+					tiles.addItem(tile.toString());
+				}
+			}
+			return tiles;
+		}
 	}
 }
