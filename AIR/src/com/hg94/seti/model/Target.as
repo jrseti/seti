@@ -48,11 +48,14 @@ package com.hg94.seti.model {
 			return this._friendlyName;
 		}
 		
-		public function set defaultObservation(defaultObservation:Observation):void {
+		[Bindable] public function set defaultObservation(defaultObservation:Observation):void {
 			this._defaultObservation = defaultObservation;
 		}
 		
-
+		public function get defaultObservation():Observation
+		{
+			return this._defaultObservation;
+		}
 		
 		// Constructor
 		

@@ -73,5 +73,10 @@ package com.hg94.seti.model {
 		public function addWaterfallTile(waterfallTile:WaterfallTile):void {
 			this._waterfallTiles.addItem(waterfallTile);
 		}
+		
+		public function get waterfallTiles():ArrayCollection
+		{
+			return this._waterfallTiles;
+		}
 	}
 }

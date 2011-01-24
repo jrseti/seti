@@ -3,6 +3,10 @@
 		xmlns:s="library://ns.adobe.com/flex/spark" 
 		title="Stars" 
 		preinitialize="view1_preinitializeHandler(event)">
+	<s:states>
+		<s:State name="starsOnly"/>
+		<s:State name="showDetails"/>
+	</s:states>
 	<fx:Script>
 		<![CDATA[
 			import com.google.maps.LatLng;
@@ -28,6 +32,8 @@
 			private static const HATHERSAGE_MAP_API_KEY:String = "ABQIAAAAEwk3rg5igZgbfHAAaPpdnhS3hwEVAxBLwgX-yCFBjg8qlFo5UxTVUCdE50GpyF9WvX4b62ZJcx0ASA";
 			
 			protected var _targetSet:TargetSet;
+			[Bindable]
+			protected var _currentTarget:Target;
 			
 			private function onMapPreinitialize(event:Event):void {
 				var opts:MapOptions = new MapOptions();
@@ -58,8 +64,10 @@
 			
 			private function onMarkerInteraction(event:MapMouseEvent):void
 			{
-				var target:Target = this._targetSet.getTargetByGoogleSkyCoordinates(event.latLng);
-				navigator.pushView(com.hg94.seti.views.WaterfallExplorerView, target);
+				var currentLatLng:LatLng = event.latLng;
+				var currentPoint:Point = map.fromLatLngToPoint(event.latLng);
+				_currentTarget = this._targetSet.getTargetByGoogleSkyCoordinates(currentLatLng);
+				currentState = "showDetails";
 			}
 			
 			private function onZoom(event:TouchEvent):void
@@ -83,12 +91,11 @@
 				map.setZoom(currentZoomLevel);
 			}
 			
-			
-			protected function button1_clickHandler(event:MouseEvent):void
+			protected function onExploreObservation(event:Event):void
 			{
-				
+				currentState = "starsOnly";
+				navigator.pushView(com.hg94.seti.views.WaterfallExplorerView, _currentTarget);
 			}
-			
 			
 			protected function view1_preinitializeHandler(event:FlexEvent):void {
 				
@@ -109,5 +116,16 @@
 				  key="{HATHERSAGE_MAP_API_KEY}" url="http://hathersagegroup.com"
 				  sensor="false"
 				  width="100%" height="100%"/>
+		<s:Group right="0" top="10"
+				 width.showDetails="30%" width.starsOnly="0" 
+				 height="100%">
+			<s:layout>
+				<s:VerticalLayout gap="10"/>
+			</s:layout>
+			<s:Button label="Explore observation:" click="onExploreObservation(event)"/>
+			<s:Label text="{'Ra: ' + _currentTarget.rightAscension }"/>
+			<s:Label text="{'Decl: ' + _currentTarget.declination }"/>
+			<s:Label text="{_currentTarget.friendlyName}"/>
+		</s:Group>
 	</s:Group>
 </s:View>

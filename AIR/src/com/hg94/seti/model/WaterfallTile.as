@@ -40,5 +40,10 @@ package com.hg94.seti.model {
 			this._maxWavelength = maxWavelength;
 			this._imageURL = imageURL;
 		}
+		
+		public function get imageURL():String
+		{
+			return this._imageURL;
+		}
 	}
 }
