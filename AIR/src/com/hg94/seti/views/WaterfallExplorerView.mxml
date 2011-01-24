@@ -11,9 +11,11 @@
 	<s:navigationContent>
 		<s:Button label="Back to the Stars" click="onSkyButtonInteraction(event)"/>
 	</s:navigationContent>
-	<s:List direction="ltr" 
+	<s:List id="waterfallList"
+			direction="ltr" 
 			width="100%" height="100%"
 			dataProvider="{observationImages}"
+			click="onLongTouch(event)"
 			itemRenderer="com.hg94.seti.views.components.WaterfallTileRenderer">
 		<s:layout>
 			<s:HorizontalLayout gap="0"/>
@@ -21,8 +23,10 @@
 	</s:List>
 	<fx:Script>
 		<![CDATA[
+			import com.hg94.common.facebook.FacebookAirAndroid;
 			import com.hg94.seti.model.Observation;
 			import com.hg94.seti.model.Target;
+			import com.hg94.seti.model.WaterfallTile;
 			
 			import mx.collections.ArrayCollection;
 			
@@ -56,13 +60,24 @@
 			}
 			
 			/**
+			 * TODO: Listen for press-and-hold or long touch on the list.
 			 * When a user presses-and-holds (long-touches) an image open it in
 			 * its own view.
 			 */
 			private function onLongTouch(event:Event):void
 			{
+				var selectedWaterfallTile:WaterfallTile = waterfallList.selectedItem as WaterfallTile;
+				
+				if (!selectedWaterfallTile) return;
+				
+				var imageUrlToUse:String = selectedWaterfallTile.imageURL;
+				var messageString:String = "found something interesting in this image using the Personal SETI App";
+				
+				// TODO: Make this less spammy
+//				FacebookAirAndroid.api("me/feed", function(arg0:Object, arg1:Object):void{}, {message:messageString, picture:imageUrlToUse, link:imageUrlToUse}, 'POST'); 
 //				navigator.pushView(com.hg94.seti.views.WaterfallImageView, event.target.data);
 			}
+			
 		]]>
 	</fx:Script>
 </s:View>
