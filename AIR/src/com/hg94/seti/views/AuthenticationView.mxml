@@ -28,7 +28,9 @@
 			public static const APP_SECRET : String = "2a41489f6bf8a5e100d2813421f38b45";
 			
 			public static const FACEBOOK_AUTHORIZE_URL:String =
-				"https://www.facebook.com/dialog/oauth?client_id=" + APP_ID + "&redirect_uri=" + APP_URL;
+				"https://www.facebook.com/dialog/oauth?client_id=" + APP_ID + 
+				"&redirect_uri=" + APP_URL +
+				"&scope=read_stream,publish_stream";
 			
 			private var webView:StageWebView;
 			private var fb:FacebookAirAndroid; 
@@ -38,9 +40,8 @@
 				if (event.location.indexOf("?code=") > 0) {
 					var codeUrl:String = APP_URL + "?code=";
 					var code:String = event.location.substr(codeUrl.length);
-					
-					fb = new FacebookAirAndroid(APP_ID, APP_URL, APP_SECRET);
-					fb.login(code);
+					FacebookAirAndroid.init(APP_ID, APP_URL, APP_SECRET); // TODO: better way to init the Singleton
+					FacebookAirAndroid.login(code);
 					webView.dispose();
 					
 					navigator.pushView(com.hg94.seti.views.StarfieldView);
