@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		xmlns:s="library://ns.adobe.com/flex/spark">
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		title="{target.friendlyName + ' '+ target.defaultObservation.date.toString()}">
 	<s:layout>
 		<s:HorizontalLayout/>
 	</s:layout>
@@ -20,6 +21,8 @@
 	</s:List>
 	<fx:Script>
 		<![CDATA[
+			import com.hg94.seti.model.Target;
+			
 			import mx.collections.ArrayCollection;
 			
 			
@@ -42,6 +45,11 @@
 				"http://184.73.240.15/analysis/2010-03-26-crab/images/chan+0001/chan+0001-7-1420.002934-1420.003200.png"
 			]);
 			
+<<<<<<< HEAD
+			[Bindable]
+			protected var target:Target;
+=======
+>>>>>>> 300d27156e5e23ccddd3159ae12c3276efd4059e
 			
 			private function onSkyButtonInteraction(event:Event):void
 			{
@@ -50,7 +58,10 @@
 			
 			override public function set data(value:Object):void
 			{
-				// TODO: Handle data passed in from GSkyMap.
+				if (value is Target)
+				{
+					target = value as Target;
+				}
 				super.data = value;
 			}
 			
