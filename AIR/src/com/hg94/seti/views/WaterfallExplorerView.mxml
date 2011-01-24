@@ -61,7 +61,7 @@
 			 */
 			private function onLongTouch(event:Event):void
 			{
-				navigator.pushView(com.hg94.seti.views.WaterfallImageView, event.target.data);
+//				navigator.pushView(com.hg94.seti.views.WaterfallImageView, event.target.data);
 			}
 		]]>
 	</fx:Script>

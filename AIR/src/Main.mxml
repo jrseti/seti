@@ -14,6 +14,8 @@
 			NativeApplication.nativeApplication.addEventListener(Event.ACTIVATE, handleActivate, false, 0, true);
 			NativeApplication.nativeApplication.addEventListener(Event.DEACTIVATE, handleDeactivate, false, 0, true);
 			NativeApplication.nativeApplication.addEventListener(KeyboardEvent.KEY_DOWN, handleKeys, false, 0, true);
+			
+			this.systemManager.stage.setAspectRatio(StageAspectRatio.LANDSCAPE);
 		}
 		]]>
 	</s:creationComplete>
