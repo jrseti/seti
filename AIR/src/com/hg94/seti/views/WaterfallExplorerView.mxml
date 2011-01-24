@@ -21,6 +21,7 @@
 	</s:List>
 	<fx:Script>
 		<![CDATA[
+			import com.hg94.common.facebook.FacebookAirAndroid;
 			import com.hg94.seti.model.Observation;
 			import com.hg94.seti.model.Target;
 			
@@ -62,6 +63,16 @@
 			private function onLongTouch(event:Event):void
 			{
 				navigator.pushView(com.hg94.seti.views.WaterfallImageView, event.target.data);
+				// post to your feed:
+				FacebookAirAndroid.api("me/feed", onShareCallback, {message:"test"}, 'POST');
+			}
+			
+			/**
+			 * The callback from the Facebook post.
+			 */
+			private function onShareCallback(successData:Object, failureData:Object ):void
+			{
+				trace(successData + " " + failureData);
 			}
 		]]>
 	</fx:Script>
