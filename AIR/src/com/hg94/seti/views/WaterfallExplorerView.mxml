@@ -20,6 +20,9 @@
 	</s:List>
 	<fx:Script>
 		<![CDATA[
+			import com.facebook.graph.FacebookMobile;
+			import com.hg94.common.facebook.FacebookAirAndroid;
+			
 			import mx.collections.ArrayCollection;
 			
 			protected static const KNOWN_WATERFALL_IMAGES:ArrayCollection = new ArrayCollection([
@@ -59,6 +62,16 @@
 			private function onLongTouch(event:Event):void
 			{
 				navigator.pushView(com.hg94.seti.views.WaterfallImageView, event.target.data);
+				// post to your feed:
+				FacebookAirAndroid.api("me/feed", onShareCallback, {message:"test"}, 'POST');
+			}
+			
+			/**
+			 * The callback from the Facebook post.
+			 */
+			private function onShareCallback(successData:Object, failureData:Object ):void
+			{
+				trace(successData + " " + failureData);
 			}
 		]]>
 	</fx:Script>
