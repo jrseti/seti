@@ -1,0 +1,32 @@
+
+Personal SETI Application
+Pre-Alpha
+
+This app is for demo purposes only.
+It is not yet fully functional,
+and it contains known bugs.
+
+[OK]
+
+
+
+----------
+
+
+The Personal SETI Application allows you to view interstellar radio signals, look for signs of intelligent life.
+
+In order to report your findings to the SETI Institute and your friends and family, please log in via Facebook.
+
+[Log in via Facebook]
+
+[No log in, Read Only]
+
+
+-----------
+
+Move left and right through the plot to see signals received at different wavelengths.
+
+The brightness of the dot represents the strength of the signal received at a particular moment in time, at a particular wavelength, from this source.
+
+If you see any patterns that are not random, touch and hold on the pattern to report it.
+
