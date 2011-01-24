@@ -49,8 +49,8 @@
 				{
 					target = value as Target;
 					observation = target.defaultObservation;
-					observationImages = observation.waterfallTilePaths;
-					observationDescription = target.friendlyName + ' '+ target.defaultObservation.date.toString();
+					observationImages = observation.waterfallTiles;
+					observationDescription = target.friendlyName + ' ' + target.defaultObservation.date.toString();
 				}
 				super.data = value;
 			}
