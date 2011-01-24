@@ -48,6 +48,8 @@ package com.hg94.seti.model {
 			tauCetiObservation.addWaterfallTile(new WaterfallTile(1419.983201, 1419.983467, "http://184.73.240.15/analysis/2010-11-06-dorothy_tauceti_1420_1/images/chan-0008/chan-0008-5-1419.983201-1419.983467.png"));
 			tauCetiObservation.addWaterfallTile(new WaterfallTile(1419.983467, 1419.983734, "http://184.73.240.15/analysis/2010-11-06-dorothy_tauceti_1420_1/images/chan-0008/chan-0008-6-1419.983467-1419.983734.png"));
 			tauCetiObservation.addWaterfallTile(new WaterfallTile(1419.983734, 1419.984000, "http://184.73.240.15/analysis/2010-11-06-dorothy_tauceti_1420_1/images/chan-0008/chan-0008-7-1419.983734-1419.984000.png"));
+			
+			/*
 			tauCetiObservation.addWaterfallTile(new WaterfallTile(1419.984001, 1419.984267, "http://184.73.240.15/analysis/2010-11-06-dorothy_tauceti_1420_1/images/chan-0007/chan-0007-0-1419.984001-1419.984267.png"));
 			tauCetiObservation.addWaterfallTile(new WaterfallTile(1419.984267, 1419.984534, "http://184.73.240.15/analysis/2010-11-06-dorothy_tauceti_1420_1/images/chan-0007/chan-0007-1-1419.984267-1419.984534.png"));
 			tauCetiObservation.addWaterfallTile(new WaterfallTile(1419.984534, 1419.984801, "http://184.73.240.15/analysis/2010-11-06-dorothy_tauceti_1420_1/images/chan-0007/chan-0007-2-1419.984534-1419.984801.png"));
@@ -176,6 +178,7 @@ package com.hg94.seti.model {
 			tauCetiObservation.addWaterfallTile(new WaterfallTile(1420.017334, 1420.017600, "http://184.73.240.15/analysis/2010-11-06-dorothy_tauceti_1420_1/images/chan+0008/chan+0008-5-1420.017334-1420.017600.png"));
 			tauCetiObservation.addWaterfallTile(new WaterfallTile(1420.017600, 1420.017867, "http://184.73.240.15/analysis/2010-11-06-dorothy_tauceti_1420_1/images/chan+0008/chan+0008-6-1420.017600-1420.017867.png"));
 			tauCetiObservation.addWaterfallTile(new WaterfallTile(1420.017867, 1420.018134, "http://184.73.240.15/analysis/2010-11-06-dorothy_tauceti_1420_1/images/chan+0008/chan+0008-7-1420.017867-1420.018134.png"));
+			*/
 			epsilonEridaniObservation.addWaterfallTile(new WaterfallTile(1419.979734, 1419.980001, "http://184.73.240.15/analysis/2010-11-06-dorothy_epsiloneridani_1420_1/images/chan-0009/chan-0009-0-1419.979734-1419.980001.png"));
 			epsilonEridaniObservation.addWaterfallTile(new WaterfallTile(1419.980001, 1419.980267, "http://184.73.240.15/analysis/2010-11-06-dorothy_epsiloneridani_1420_1/images/chan-0009/chan-0009-1-1419.980001-1419.980267.png"));
 			epsilonEridaniObservation.addWaterfallTile(new WaterfallTile(1419.980267, 1419.980534, "http://184.73.240.15/analysis/2010-11-06-dorothy_epsiloneridani_1420_1/images/chan-0009/chan-0009-2-1419.980267-1419.980534.png"));
@@ -192,6 +195,7 @@ package com.hg94.seti.model {
 			epsilonEridaniObservation.addWaterfallTile(new WaterfallTile(1419.983201, 1419.983467, "http://184.73.240.15/analysis/2010-11-06-dorothy_epsiloneridani_1420_1/images/chan-0008/chan-0008-5-1419.983201-1419.983467.png"));
 			epsilonEridaniObservation.addWaterfallTile(new WaterfallTile(1419.983467, 1419.983734, "http://184.73.240.15/analysis/2010-11-06-dorothy_epsiloneridani_1420_1/images/chan-0008/chan-0008-6-1419.983467-1419.983734.png"));
 			epsilonEridaniObservation.addWaterfallTile(new WaterfallTile(1419.983734, 1419.984000, "http://184.73.240.15/analysis/2010-11-06-dorothy_epsiloneridani_1420_1/images/chan-0008/chan-0008-7-1419.983734-1419.984000.png"));
+			/*
 			epsilonEridaniObservation.addWaterfallTile(new WaterfallTile(1419.984001, 1419.984267, "http://184.73.240.15/analysis/2010-11-06-dorothy_epsiloneridani_1420_1/images/chan-0007/chan-0007-0-1419.984001-1419.984267.png"));
 			epsilonEridaniObservation.addWaterfallTile(new WaterfallTile(1419.984267, 1419.984534, "http://184.73.240.15/analysis/2010-11-06-dorothy_epsiloneridani_1420_1/images/chan-0007/chan-0007-1-1419.984267-1419.984534.png"));
 			epsilonEridaniObservation.addWaterfallTile(new WaterfallTile(1419.984534, 1419.984801, "http://184.73.240.15/analysis/2010-11-06-dorothy_epsiloneridani_1420_1/images/chan-0007/chan-0007-2-1419.984534-1419.984801.png"));
@@ -320,6 +324,7 @@ package com.hg94.seti.model {
 			epsilonEridaniObservation.addWaterfallTile(new WaterfallTile(1420.017334, 1420.017600, "http://184.73.240.15/analysis/2010-11-06-dorothy_epsiloneridani_1420_1/images/chan+0008/chan+0008-5-1420.017334-1420.017600.png"));
 			epsilonEridaniObservation.addWaterfallTile(new WaterfallTile(1420.017600, 1420.017867, "http://184.73.240.15/analysis/2010-11-06-dorothy_epsiloneridani_1420_1/images/chan+0008/chan+0008-6-1420.017600-1420.017867.png"));
 			epsilonEridaniObservation.addWaterfallTile(new WaterfallTile(1420.017867, 1420.018134, "http://184.73.240.15/analysis/2010-11-06-dorothy_epsiloneridani_1420_1/images/chan+0008/chan+0008-7-1420.017867-1420.018134.png"));
+			*/
 			gliese581Observation.addWaterfallTile(new WaterfallTile(1419.979734, 1419.980001, "http://184.73.240.15/analysis/2010-11-05-dorothy_exo-gl581-1420_1/images/chan-0009/chan-0009-0-1419.979734-1419.980001.png"));
 			gliese581Observation.addWaterfallTile(new WaterfallTile(1419.980001, 1419.980267, "http://184.73.240.15/analysis/2010-11-05-dorothy_exo-gl581-1420_1/images/chan-0009/chan-0009-1-1419.980001-1419.980267.png"));
 			gliese581Observation.addWaterfallTile(new WaterfallTile(1419.980267, 1419.980534, "http://184.73.240.15/analysis/2010-11-05-dorothy_exo-gl581-1420_1/images/chan-0009/chan-0009-2-1419.980267-1419.980534.png"));
@@ -336,6 +341,7 @@ package com.hg94.seti.model {
 			gliese581Observation.addWaterfallTile(new WaterfallTile(1419.983201, 1419.983467, "http://184.73.240.15/analysis/2010-11-05-dorothy_exo-gl581-1420_1/images/chan-0008/chan-0008-5-1419.983201-1419.983467.png"));
 			gliese581Observation.addWaterfallTile(new WaterfallTile(1419.983467, 1419.983734, "http://184.73.240.15/analysis/2010-11-05-dorothy_exo-gl581-1420_1/images/chan-0008/chan-0008-6-1419.983467-1419.983734.png"));
 			gliese581Observation.addWaterfallTile(new WaterfallTile(1419.983734, 1419.984000, "http://184.73.240.15/analysis/2010-11-05-dorothy_exo-gl581-1420_1/images/chan-0008/chan-0008-7-1419.983734-1419.984000.png"));
+			/*
 			gliese581Observation.addWaterfallTile(new WaterfallTile(1419.984001, 1419.984267, "http://184.73.240.15/analysis/2010-11-05-dorothy_exo-gl581-1420_1/images/chan-0007/chan-0007-0-1419.984001-1419.984267.png"));
 			gliese581Observation.addWaterfallTile(new WaterfallTile(1419.984267, 1419.984534, "http://184.73.240.15/analysis/2010-11-05-dorothy_exo-gl581-1420_1/images/chan-0007/chan-0007-1-1419.984267-1419.984534.png"));
 			gliese581Observation.addWaterfallTile(new WaterfallTile(1419.984534, 1419.984801, "http://184.73.240.15/analysis/2010-11-05-dorothy_exo-gl581-1420_1/images/chan-0007/chan-0007-2-1419.984534-1419.984801.png"));
@@ -464,6 +470,7 @@ package com.hg94.seti.model {
 			gliese581Observation.addWaterfallTile(new WaterfallTile(1420.017334, 1420.017600, "http://184.73.240.15/analysis/2010-11-05-dorothy_exo-gl581-1420_1/images/chan+0008/chan+0008-5-1420.017334-1420.017600.png"));
 			gliese581Observation.addWaterfallTile(new WaterfallTile(1420.017600, 1420.017867, "http://184.73.240.15/analysis/2010-11-05-dorothy_exo-gl581-1420_1/images/chan+0008/chan+0008-6-1420.017600-1420.017867.png"));
 			gliese581Observation.addWaterfallTile(new WaterfallTile(1420.017867, 1420.018134, "http://184.73.240.15/analysis/2010-11-05-dorothy_exo-gl581-1420_1/images/chan+0008/chan+0008-7-1420.017867-1420.018134.png"));
+			*/
 			
 			
 			
