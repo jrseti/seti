@@ -94,6 +94,14 @@
 				map.setZoom(currentZoomLevel);
 			}
 			
+			protected function onMapClick(event:MouseEvent):void
+			{
+				var point:Point = new Point(event.localX,event.localY); 
+				var latLongOfClick:LatLng = map.fromPointToLatLng(point);
+				// TODO: possibly count things that are close to known stars as 
+				// requests to explore an observation.
+			}
+			
 			protected function onExploreObservation(event:Event):void
 			{
 				currentState = "starsOnly";
@@ -116,6 +124,7 @@
 				  id="map"
 				  mapevent_mappreinitialize="onMapPreinitialize(event)"
 				  mapevent_mapready="onMapReady(event)"
+				  click="onMapClick(event)"
 				  key="{HATHERSAGE_MAP_API_KEY}" url="http://hathersagegroup.com"
 				  sensor="false"
 				  width="100%" height="100%"/>
