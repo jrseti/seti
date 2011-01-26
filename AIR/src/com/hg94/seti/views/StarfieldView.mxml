@@ -18,6 +18,7 @@
 			import com.google.maps.controls.ZoomControl;
 			import com.google.maps.extras.planetary.Sky;
 			import com.google.maps.overlays.Marker;
+			import com.google.maps.overlays.MarkerOptions;
 			import com.google.maps.styles.FillStyle;
 			import com.hg94.seti.model.Observation;
 			import com.hg94.seti.model.SETIQuestDataReader;
@@ -48,13 +49,15 @@
 			{
 				event.target.addMapType(Sky.VISIBLE_MAP_TYPE);
 				
-				
 				// Just testing markers
 				// TODO: Refactor
 				
 				for each (var target:Target in this._targetSet.targetArray) {
 					var marker:Marker = new Marker(target.getGoogleSkyCoordinates());
 					marker.addEventListener(MapMouseEvent.CLICK, onMarkerInteraction);
+					var markerOptions:MarkerOptions = marker.getOptions();
+					markerOptions.radius = 20;
+					marker.setOptions(markerOptions);
 					event.target.addOverlay(marker);
 				}
 				
@@ -91,6 +94,14 @@
 				map.setZoom(currentZoomLevel);
 			}
 			
+			protected function onMapClick(event:MouseEvent):void
+			{
+				var point:Point = new Point(event.localX,event.localY); 
+				var latLongOfClick:LatLng = map.fromPointToLatLng(point);
+				// TODO: possibly count things that are close to known stars as 
+				// requests to explore an observation.
+			}
+			
 			protected function onExploreObservation(event:Event):void
 			{
 				currentState = "starsOnly";
@@ -113,6 +124,7 @@
 				  id="map"
 				  mapevent_mappreinitialize="onMapPreinitialize(event)"
 				  mapevent_mapready="onMapReady(event)"
+				  click="onMapClick(event)"
 				  key="{HATHERSAGE_MAP_API_KEY}" url="http://hathersagegroup.com"
 				  sensor="false"
 				  width="100%" height="100%"/>
