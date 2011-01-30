@@ -2,6 +2,7 @@
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark" 
 		title="Stars" 
+		actionBarVisible="false"
 		preinitialize="view1_preinitializeHandler(event)">
 	<s:states>
 		<s:State name="starsOnly"/>
@@ -14,29 +15,34 @@
 			import com.google.maps.MapEvent;
 			import com.google.maps.MapMouseEvent;
 			import com.google.maps.MapOptions;
-			import com.google.maps.MapType;
 			import com.google.maps.controls.ZoomControl;
 			import com.google.maps.extras.planetary.Sky;
 			import com.google.maps.overlays.Marker;
 			import com.google.maps.overlays.MarkerOptions;
 			import com.google.maps.styles.FillStyle;
-			import com.hg94.seti.model.Observation;
 			import com.hg94.seti.model.SETIQuestDataReader;
 			import com.hg94.seti.model.Target;
 			import com.hg94.seti.model.TargetSet;
 			
-			import flashx.textLayout.formats.Float;
-			
-			import mx.collections.ArrayCollection;
 			import mx.events.FlexEvent;
 			
+			private static const STATE_STARS_ONLY:String = "starsOnly";
+			private static const STATE_SHOW_DETAILS:String = "showDetails";
 			private static const HATHERSAGE_MAP_API_KEY:String = "ABQIAAAAEwk3rg5igZgbfHAAaPpdnhS3hwEVAxBLwgX-yCFBjg8qlFo5UxTVUCdE50GpyF9WvX4b62ZJcx0ASA";
 			
 			protected var _targetSet:TargetSet;
-			[Bindable]
 			protected var _currentTarget:Target;
+			protected var _targetArray:Array = [];
 			
-			private function onMapPreinitialize(event:Event):void {
+			protected function view1_preinitializeHandler(event:FlexEvent):void 
+			{
+				
+				var setiQuestDataReader:SETIQuestDataReader = new SETIQuestDataReader();
+				this._targetSet = setiQuestDataReader.getTargetSet();
+			}
+			
+			private function onMapPreinitialize(event:Event):void 
+			{
 				var opts:MapOptions = new MapOptions();
 				opts.mapTypes = [Sky.VISIBLE_MAP_TYPE];
 				opts.zoom = 2;
@@ -53,6 +59,7 @@
 				// TODO: Refactor
 				
 				for each (var target:Target in this._targetSet.targetArray) {
+					_targetArray.push(target.getGoogleSkyCoordinates());
 					var marker:Marker = new Marker(target.getGoogleSkyCoordinates());
 					marker.addEventListener(MapMouseEvent.CLICK, onMarkerInteraction);
 					var markerOptions:MarkerOptions = marker.getOptions();
@@ -70,48 +77,31 @@
 				var currentLatLng:LatLng = event.latLng;
 				var currentPoint:Point = map.fromLatLngToPoint(event.latLng);
 				_currentTarget = this._targetSet.getTargetByGoogleSkyCoordinates(currentLatLng);
-				currentState = "showDetails";
-			}
-			
-			private function onZoom(event:TouchEvent):void
-			{
-				// TODO: Translate zoom-event into zoom level. 
-				// Zoom levels are 0 -- fully zoomed out, 
-				// to 21+ (or as far as the map can zoom based on 
-				// map.getMaxZoomLevel())
-				var maxZoomLevel:Number = map.getMaxZoomLevel(Sky.VISIBLE_MAP_TYPE, map.getCenter());
-				var currentZoomLevel:Number = map.getZoom();
-				
-				var zooming:Boolean = true && (maxZoomLevel > currentZoomLevel);
-				
-				if (zooming)
-				{
-					currentZoomLevel += 1;
-				} else {
-					currentZoomLevel -= 1;
-				}
-				
-				map.setZoom(currentZoomLevel);
-			}
-			
-			protected function onMapClick(event:MouseEvent):void
-			{
-				var point:Point = new Point(event.localX,event.localY); 
-				var latLongOfClick:LatLng = map.fromPointToLatLng(point);
-				// TODO: possibly count things that are close to known stars as 
-				// requests to explore an observation.
+				currentState = STATE_SHOW_DETAILS;
 			}
 			
 			protected function onExploreObservation(event:Event):void
 			{
-				currentState = "starsOnly";
+				currentState = STATE_SHOW_DETAILS;
 				navigator.pushView(com.hg94.seti.views.WaterfallExplorerView, _currentTarget);
 			}
 			
-			protected function view1_preinitializeHandler(event:FlexEvent):void {
-				
-				var setiQuestDataReader:SETIQuestDataReader = new SETIQuestDataReader();
-				this._targetSet = setiQuestDataReader.getTargetSet();
+			[Bindable (event="click")]
+			private function get rightAscension():String 
+			{
+				return _currentTarget.rightAscension.toString();
+			}
+			
+			[Bindable (event="click")]
+			private function get declination():String 
+			{
+				return _currentTarget.declination.toString();
+			}
+			
+			[Bindable (event="click")]
+			private function get friendlyName():String
+			{
+				return _currentTarget.friendlyName;
 			}
 			
 		]]>
@@ -124,8 +114,8 @@
 				  id="map"
 				  mapevent_mappreinitialize="onMapPreinitialize(event)"
 				  mapevent_mapready="onMapReady(event)"
-				  click="onMapClick(event)"
-				  key="{HATHERSAGE_MAP_API_KEY}" url="http://hathersagegroup.com"
+				  key="{HATHERSAGE_MAP_API_KEY}" 
+				  url="http://hathersagegroup.com"
 				  sensor="false"
 				  width="100%" height="100%"/>
 		<s:Group right="0" top="10"
@@ -135,9 +125,9 @@
 				<s:VerticalLayout gap="10"/>
 			</s:layout>
 			<s:Button label="Explore observation:" click="onExploreObservation(event)"/>
-			<s:Label text="{'Ra: ' + _currentTarget.rightAscension }"/>
-			<s:Label text="{'Decl: ' + _currentTarget.declination }"/>
-			<s:Label text="{_currentTarget.friendlyName}"/>
+			<s:Label text="{'Ra: ' + rightAscension }"/>
+			<s:Label text="{'Decl: ' + declination }"/>
+			<s:Label text="{friendlyName}"/>
 		</s:Group>
 	</s:Group>
 </s:View>

@@ -31,8 +31,11 @@
 				NativeApplication.nativeApplication.exit();
 			}
 			
+			// This was a bit too aggressive, disabled for now.
 			private function handleKeys(event:KeyboardEvent):void
 			{
+				return;
+				
 				if(event.keyCode == Keyboard.BACK)
 					NativeApplication.nativeApplication.exit();
 			}
