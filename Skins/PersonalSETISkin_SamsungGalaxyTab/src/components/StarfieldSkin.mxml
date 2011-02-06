@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:fc="http://ns.adobe.com/flashcatalyst/2009"
+		xmlns:d="http://ns.adobe.com/fxg/2008/dt"
+		fc:resizable="false">
+	<fx:Metadata>[HostComponent("com.hg94.seti.skinnablecomponents.StarfieldSkinnableComponent")]</fx:Metadata>
+	<s:Button id="zoomOutButton" x="923" y="515" skinClass="components.StarfieldSkinZoomOutButton"/>
+	<s:Button id="zoomInButton" x="964" y="515" skinClass="components.StarfieldSkinZoomInButton"/>
+	<s:Rect x="0.5" y="0.5" width="1" height="1" alpha="0">
+		<s:fill>
+			<s:SolidColor alpha="0" color="#504f50"/>
+		</s:fill>
+		<s:stroke>
+			<s:SolidColorStroke alpha="0" caps="none" color="#FFFFFF" joints="miter" miterLimit="4"
+								weight="0"/>
+		</s:stroke>
+	</s:Rect>
+</s:Skin>
