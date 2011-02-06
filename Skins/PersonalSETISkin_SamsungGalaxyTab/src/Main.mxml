@@ -9,12 +9,15 @@
 	<fx:Style source="Main.css"/>
 	<fx:Script>
 		<![CDATA[
+			import com.hg94.seti.skinnablecomponents.ControlBarSkinnableComponent;
 			import com.hg94.seti.skinnablecomponents.StarfieldTargetMarkerSkinnableComponent;
 			import com.hg94.seti.skinnablecomponents.StarfieldSkinnableComponent;
 			
 			private var com_hg94_seti_skinnablecomponents_StarfieldSkinnableComponent_obj:com.hg94.seti.skinnablecomponents.StarfieldSkinnableComponent;
 			
 			private var com_hg94_seti_skinnablecomponents_StarfieldTargetMarkerSkinnableComponent_obj:com.hg94.seti.skinnablecomponents.StarfieldTargetMarkerSkinnableComponent;
+			
+			private var com_hg94_seti_skinnablecomponents_ControlBarSkinnableComponent_obj:com.hg94.seti.skinnablecomponents.ControlBarSkinnableComponent;
 		]]>
 	</fx:Script>
 	<fx:DesignLayer d:userLabel="Layer_1">
@@ -23,15 +26,6 @@
 														 skinClass="components.StarfieldSkin"/>
 		<skinnablecomponents:StarfieldTargetMarkerSkinnableComponent x="495" y="339"
 																	 skinClass="components.StarfieldTargetMarkerSkin"/>
-		<s:Path x="0" y="0" alpha="1" blendMode="normal"
-				data="M 0 0 L 1024 0 L 1024 40 L 0 40 L 0 0 Z" winding="evenOdd">
-			<s:fill>
-				<s:LinearGradient x="-781" y="0" scaleX="40" rotation="90">
-					<s:GradientEntry color="#504f50" ratio="0" alpha="1"/>
-					<s:GradientEntry color="#323232" ratio="1" alpha="1"/>
-				</s:LinearGradient>
-			</s:fill>
-		</s:Path>
 		<s:Path x="-0.5" y="-0.5" alpha="0.050980392156862744" blendMode="normal"
 				data="M 0.5 0.5 L 1024.5 0.5 L 1024.5 40.5 L 0.5 40.5 L 0.5 0.5 Z" winding="evenOdd">
 			<s:stroke>
@@ -382,53 +376,5 @@
 			</s:Path>
 		</s:Group>
 		<s:BitmapImage source="@Embed('/assets/images/StarfieldView/Image_2.png')" x="985" y="10" blendMode="normal" smooth="true"/>
-		<s:RichText d:userLabel="PERSONALSETI" x="33" y="13" alpha="1" blendMode="normal"
-					color="#000000" fontFamily="Arial" whiteSpaceCollapse="preserve">
-			<s:content><s:p fontSize="18" color="#ffffff" fontFamily="Myriad Pro Light">PERSONAL<s:span fontFamily="Myriad Pro Black">SETI</s:span></s:p></s:content>
-		</s:RichText>
-		<s:Group d:userLabel="Group_7" x="14" y="10">
-			<s:Path d:userLabel="Ellipse" x="4.609" y="10.342" alpha="1" blendMode="normal"
-					data="M 2.391 6.658 C 0.391 4.658 -0.609 2.658 0.391 0.658 C 2.391 -0.342 4.391 -0.342 6.391 1.658 C 9.391 3.658 10.391 6.658 8.391 7.658 C 7.391 9.658 4.391 8.658 2.391 6.658 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Path d:userLabel="Ellipse" x="2" y="17" alpha="1" blendMode="normal"
-					data="M 1 3 C 0 2 0 1 0 0 C 1 0 3 0 4 1 C 5 3 5 4 4 5 C 3 5 2 5 1 3 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Path d:userLabel="Ellipse" x="4.609" y="4" alpha="1" blendMode="normal"
-					data="M 0.391 3 C 0.391 1 1.391 0 3.391 0 C 4.391 0 5.391 2 5.391 3 C 5.391 5 3.391 6 2.391 6 C 0.391 6 -0.609 4 0.391 3 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Path d:userLabel="Ellipse" x="0" y="4" alpha="1" blendMode="normal"
-					data="M 1 2 C 2 1 3 0 3 0 C 4 0 4 2 3 3 C 2 4 1 5 0 5 C 0 5 0 3 1 2 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Path d:userLabel="Ellipse" x="6" y="0" alpha="1" blendMode="normal"
-					data="M 2 1 C 3 0 4 0 4 0 C 4 0 4 1 3 2 C 2 3 0 3 0 3 C 0 2 0 1 2 1 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Path d:userLabel="Ellipse" x="2.563" y="0.589" alpha="1" blendMode="normal"
-					data="M 0.438 1.411 C 1.438 0.411 2.438 -0.589 2.438 0.411 C 2.438 0.411 2.438 0.411 1.438 1.411 C 1.438 2.411 0.438 3.411 0.438 2.411 C -0.563 2.411 0.438 1.411 0.438 1.411 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-		</s:Group>
 	</fx:DesignLayer>
 </s:Application>

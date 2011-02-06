@@ -58,9 +58,6 @@
 			{
 				event.target.addMapType(Sky.VISIBLE_MAP_TYPE);
 				
-				// Just testing markers
-				// TODO: Refactor
-				
 				for each (var target:Target in this._targetSet.targetArray) {
 					_targetArray.push(target.getGoogleSkyCoordinates());
 					var marker:Marker = new Marker(target.getGoogleSkyCoordinates());
