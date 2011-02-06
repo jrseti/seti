@@ -9,4 +9,7 @@
 													  skinClass="components.ControlBarSkin"/>
 	<skinnablecomponents:DataVizScrollBarSkinnableComponent x="10" y="487"
 															skinClass="components.DataVizScrollBarSkin"/>
+	<s:RichText id="starNameText" x="8" y="388" width="544" height="20" color="#FFFFFF"
+				fontFamily="Myriad Pro" fontSize="16" lineHeight="100%"
+				tabStops="S0 S50 S100 S150 S200 S250 S300 S350" text="-"/>
 </s:Skin>

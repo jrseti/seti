@@ -9,7 +9,7 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<skinnablecomponents:DataVizSkinnableComponent skinClass="components.DataVizSkin"/>
+	<skinnablecomponents:DataVizSkinnableComponent id="skinLayer" skinClass="components.DataVizSkin"/>
 	<s:List id="waterfallList"
 			direction="ltr" width="100%" y="41"
 			dataProvider="{observationImages}"
@@ -78,6 +78,7 @@
 				observationImages = new ArrayCollection(request.imageUrls);
 				
 				currentState = "loaded";
+				//this.skinLayer.starNameText.text = request.observation.date.toString();
 			}
 			
 			/**
