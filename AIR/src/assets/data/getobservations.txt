@@ -1,0 +1,30 @@
+2010-01-22  "Kepler Exoplanet 4"             http://184.73.233.127/analysis/2010-01-22-kepler-exo4
+2010-03-19  "Exoplanet 060"                  http://184.73.240.113/analysis/2010-03-19-exo060
+2010-03-19  "Kepler Exoplanet 4"             http://184.73.240.113/analysis/2010-03-19-exo4
+2010-03-19  "Exoplanet 144"                  http://184.73.240.113/analysis/2010-03-19-exo144
+2010-03-19  "Exoplanet 202"                  http://184.73.240.113/analysis/2010-03-19-exo202
+2010-03-26  "Crab Nebula and Pulsar"         http://184.73.240.15/analysis/2010-03-26-crab
+2010-03-26  "Exoplanet 134"                  http://184.73.240.15/analysis/2010-03-26-exo134
+2010-03-26  "W3(OH) Maser"                   http://184.73.240.15/analysis/2010-03-26-w3oh
+2010-04-02  "AMC-7"                          http://184.73.233.127/analysis/2010-04-02-amc7
+2010-05-07  "galanticenter-2"                http://184.73.186.167/analysis/2010-05-07-galanticenter-2
+2010-05-14  "Kepler Exoplanet 4"             http://184.73.186.167/analysis/2010-05-14-kepler04-3
+2010-05-14  "Pulsar B0809+74"                http://184.73.186.167/analysis/2010-05-14-psrb0809+74-1
+2010-06-04  "Rosetta"                        http://184.73.186.167/analysis/2010-06-04-rosetta
+2010-10-01  "Exoplanet 211"                  http://184.73.173.203/analysis/2010-10-01-exo211_1
+2010-10-01  "Exoplanet 225"                  http://184.73.173.203/analysis/2010-10-01-exo225_1
+2010-10-01  "Gliese 581"                     http://184.73.173.203/analysis/2010-10-01-exo-gl581_1
+2010-10-08  "Off galanticenter 3991 1"       http://184.73.186.167/analysis/2010-10-08-off_galanticenter_3991_1
+2010-10-08  "Lagrange 3991"                  http://184.73.186.167/analysis/2010-10-08-Lagrange-4_3991_3
+2010-10-08  "GPS-27 1575"                    http://184.73.186.167/analysis/2010-10-08-GPS-27_1575_1
+2010-10-08  "Galanticenter 3991 1"           http://184.73.186.167/analysis/2010-10-08-galanticenter_3991_1
+2010-10-08  "Galanticenter 3991 2"           http://184.73.186.167/analysis/2010-10-08-galanticenter_3991_2
+2010-10-15  "Crab Pulsar 1420"               http://184.73.233.127/analysis/2010-10-15-crab_1420_1
+2010-11-05  "Kepler Exo 4 1420"              http://184.73.240.15/analysis/2010-11-05-kepler04-1420_1
+2010-11-05  "Gliese 581 1420 (Dorothy)"      http://184.73.240.15/analysis/2010-11-05-dorothy_exo-gl581-1420_1
+2010-11-05  "55cnc 1420 (Dorothy)"           http://184.73.240.15/analysis/2010-11-05-dorothy-55cnc
+2010-11-06  "Tau Ceti 1420 (Dorothy)"        http://184.73.240.15/analysis/2010-11-06-dorothy_tauceti_1420_1
+2010-11-06  "HD69830 1420 (Dorothy)"         http://184.73.240.15/analysis/2010-11-06-dorothy_HD69830_1420_1
+2010-11-06  "etaareitus 1420 (Dorothy)"      http://184.73.240.15/analysis/2010-11-06-dorothy_etaareitus_1420_1
+2010-11-06  "epsiloneridani 1420 (Dorothy)"  http://184.73.240.15/analysis/2010-11-06-dorothy_epsiloneridani_1420_1
+
