@@ -17,7 +17,6 @@
 			import com.google.maps.MapEvent;
 			import com.google.maps.MapMouseEvent;
 			import com.google.maps.MapOptions;
-			import com.google.maps.controls.ZoomControl;
 			import com.google.maps.extras.planetary.Sky;
 			import com.google.maps.overlays.Marker;
 			import com.google.maps.overlays.MarkerOptions;
@@ -69,9 +68,6 @@
 					marker.setOptions(markerOptions);
 					event.target.addOverlay(marker);
 				}
-				
-				var zoomControl:ZoomControl = new ZoomControl();
-				event.target.addControl(zoomControl);
 			}
 			
 			private function onMarkerInteraction(event:MapMouseEvent):void
