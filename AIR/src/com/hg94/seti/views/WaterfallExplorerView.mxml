@@ -65,6 +65,9 @@
 				if (value is Target)
 				{
 					target = value as Target;
+					
+					observationDescription = target.friendlyName;
+					
 					var request:ObservationRequest = new ObservationRequest();
 					request.addEventListener(Event.COMPLETE, onObservationLoadComplete);
 					request.observation = target.defaultObservation;
