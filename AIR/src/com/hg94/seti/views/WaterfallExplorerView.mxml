@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark"
-		actionBarVisible="true"
-		title="{observationDescription}">
-	<s:layout>
+		actionBarVisible="false" xmlns:skinnablecomponents="com.hg94.seti.skinnablecomponents.*" xmlns:components="components.*">
+	<!--<s:layout>
 		<s:HorizontalLayout/>
-	</s:layout>
+	</s:layout>-->
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<s:navigationContent>
-		<s:Button label="Back to the Stars" click="onSkyButtonInteraction(event)"/>
-	</s:navigationContent>
+	<skinnablecomponents:DataVizSkinnableComponent skinClass="components.DataVizSkin"/>
 	<s:List id="waterfallList"
-			direction="ltr" 
-			width="100%" height="100%"
+			direction="ltr" width="100%" y="41"
 			dataProvider="{observationImages}"
 			click="onLongTouch(event)"
 			itemRenderer="com.hg94.seti.views.components.WaterfallTileRenderer">

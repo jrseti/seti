@@ -64,7 +64,7 @@
 					marker.addEventListener(MapMouseEvent.CLICK, onMarkerInteraction);
 					var markerOptions:MarkerOptions = marker.getOptions();
 					markerOptions.icon = new StarfieldTargetMarkerSkin();
-					markerOptions.iconOffset = new Point(-8,-8);
+					markerOptions.iconOffset = new Point(-16,-16);
 					marker.setOptions(markerOptions);
 					event.target.addOverlay(marker);
 				}
