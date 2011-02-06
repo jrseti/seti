@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark"
+<<<<<<< HEAD
 		actionBarVisible="false" xmlns:skinnablecomponents="com.hg94.seti.skinnablecomponents.*" xmlns:components="components.*">
 	<!--<s:layout>
+=======
+		actionBarVisible="true"
+		title="{observationDescription}">
+	<s:states>
+		<s:State name="loading"/>
+		<s:State name="loaded"/>
+	</s:states>
+	<s:layout>
+>>>>>>> f106e944ed8a70e11cf6409cfb01204ca7d70141
 		<s:HorizontalLayout/>
 	</s:layout>-->
 	<fx:Declarations>
@@ -18,14 +28,21 @@
 			<s:HorizontalLayout gap="0"/>
 		</s:layout>
 	</s:List>
+	
+	<!--s:Group width="100%" height="100%" visible.loading="true" visible.loaded="false">
+		<s:Label text="Loading..." verticalAlign="middle"/>
+	</s:Group-->
+	
 	<fx:Script>
 		<![CDATA[
 			import com.hg94.common.facebook.FacebookAirAndroid;
+			import com.hg94.seti.controller.remote.ObservationRequest;
 			import com.hg94.seti.model.Observation;
 			import com.hg94.seti.model.Target;
 			import com.hg94.seti.model.WaterfallTile;
 			
 			import mx.collections.ArrayCollection;
+			import mx.utils.object_proxy;
 			
 			[Bindable] 
 			protected var observationDescription:String;
@@ -46,14 +63,27 @@
 			
 			override public function set data(value:Object):void
 			{
+				currentState = "loading";
 				if (value is Target)
 				{
 					target = value as Target;
-					observation = target.defaultObservation;
-					observationImages = observation.waterfallTiles;
-					observationDescription = target.friendlyName + ' ' + target.defaultObservation.date.toString();
+					var request:ObservationRequest = new ObservationRequest();
+					request.addEventListener(Event.COMPLETE, onObservationLoadComplete);
+					request.observation = target.defaultObservation;
+					request.execute();
 				}
 				super.data = value;
+			}
+			
+			private function onObservationLoadComplete(event:Event):void {
+				
+				event.currentTarget.removeEventListener(event.type, onObservationLoadComplete);
+				
+				var request:ObservationRequest = event.target as ObservationRequest;
+				
+				observationImages = new ArrayCollection(request.imageUrls);
+				
+				currentState = "loaded";
 			}
 			
 			/**

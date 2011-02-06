@@ -39,9 +39,15 @@ package com.hg94.seti.model {
 		public function get rightAscension():Number {
 			return this._rightAscension;
 		}
+		public function set rightAscension(value:Number):void {
+			_rightAscension = value;
+		}
 		
 		public function get declination():Number {
 			return this._declination;
+		}
+		public function set declination(value:Number):void {
+			_declination = value;
 		}
 		
 		public function get friendlyName():String {
