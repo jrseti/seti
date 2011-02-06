@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		xmlns:s="library://ns.adobe.com/flex/spark" 
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:components="components.*"
+		currentState="loading"
 		title="Stars" 
 		actionBarVisible="false"
-		xmlns:components="components.*"
 		creationComplete="view1_creationCompleteHandler(event)">
 	<s:states>
+		<s:State name="loading"/>
 		<s:State name="starsOnly"/>
 		<s:State name="showDetails"/>
 	</s:states>
@@ -59,6 +61,8 @@
 					marker.setOptions(markerOptions);
 					map.addOverlay(marker);
 				}
+				
+				currentState=STATE_STARS_ONLY;
 			}
 			
 			private function onMapPreinitialize(event:Event):void 
@@ -74,21 +78,7 @@
 			private function onMapReady(event:MapEvent):void
 			{
 				event.target.addMapType(Sky.VISIBLE_MAP_TYPE);
-<<<<<<< HEAD
 				loadTargetList();
-=======
-				
-				for each (var target:Target in this._targetSet.targetArray) {
-					_targetArray.push(target.getGoogleSkyCoordinates());
-					var marker:Marker = new Marker(target.getGoogleSkyCoordinates());
-					marker.addEventListener(MapMouseEvent.CLICK, onMarkerInteraction);
-					var markerOptions:MarkerOptions = marker.getOptions();
-					markerOptions.icon = new StarfieldTargetMarkerSkin();
-					markerOptions.iconOffset = new Point(-8,-8);
-					marker.setOptions(markerOptions);
-					event.target.addOverlay(marker);
-				}
->>>>>>> eb9e3611ab3f10a2c58c0be53f6f0b790ae9f8eb
 			}
 			
 			private function onMarkerInteraction(event:MapMouseEvent):void
@@ -134,12 +124,24 @@
 			{
 				this.map.zoomOut();
 			}
-
-
+			
+			private var map:Map;
+			
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
 				this.starfieldSkin.zoomInButton.addEventListener(MouseEvent.CLICK, this.zoomInButton_clickHandler);
 				this.starfieldSkin.zoomOutButton.addEventListener(MouseEvent.CLICK, this.zoomOutButton_clickHandler);
+				
+				map = new Map();
+				map.key=HATHERSAGE_MAP_API_KEY;
+				map.url="http://hathersagegroup.com"
+				map.sensor="false"
+				map.percentWidth=100;
+				map.percentHeight=100;
+				map.addEventListener(MapEvent.MAP_PREINITIALIZE,onMapPreinitialize);
+				map.addEventListener(MapEvent.MAP_READY,onMapReady);
+				
+				mapGroup.addElement(map);
 			}
 
 		]]>
@@ -148,17 +150,11 @@
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
 	<s:Group width="100%" height="100%">
-		<maps:Map xmlns:maps="com.google.maps.*"
-				  id="map"
-				  mapevent_mappreinitialize="onMapPreinitialize(event)"
-				  mapevent_mapready="onMapReady(event)"
-				  key="{HATHERSAGE_MAP_API_KEY}" 
-				  url="http://hathersagegroup.com"
-				  sensor="false"
-				  width="100%" height="100%"/>
+		<components:SplashSkin visible="false" visible.loading="true"/>
+		<s:Group id="mapGroup" width="100%" height="100%"/>
 		<components:StarfieldSkin id="starfieldSkin"/>
 		<s:Group right="0" top="10"
-				 width.showDetails="30%" width.starsOnly="0" 
+				 width.showDetails="30%" width="0" 
 				 height="100%">
 			<s:layout>
 				<s:VerticalLayout gap="10"/>
