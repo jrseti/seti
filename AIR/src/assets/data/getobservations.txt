@@ -22,4 +22,3 @@
 2010-11-06  "HD69830 1420 (Dorothy)"         http://184.73.240.15/analysis/2010-11-06-dorothy_HD69830_1420_1			8.30665,12.63217
 2010-11-06  "etaareitus 1420 (Dorothy)"      http://184.73.240.15/analysis/2010-11-06-dorothy_etaareitus_1420_1			2.21336,21.21083
 2010-11-06  "epsiloneridani 1420 (Dorothy)"  http://184.73.240.15/analysis/2010-11-06-dorothy_epsiloneridani_1420_1		3.5488456,9.45826
-

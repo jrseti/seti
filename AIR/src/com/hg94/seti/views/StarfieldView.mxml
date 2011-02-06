@@ -3,7 +3,6 @@
 		xmlns:s="library://ns.adobe.com/flex/spark" 
 		title="Stars" 
 		actionBarVisible="false"
-		preinitialize="view1_preinitializeHandler(event)"
 		xmlns:components="components.*"
 		creationComplete="view1_creationCompleteHandler(event)">
 	<s:states>
@@ -21,6 +20,7 @@
 			import com.google.maps.overlays.Marker;
 			import com.google.maps.overlays.MarkerOptions;
 			import com.google.maps.styles.FillStyle;
+			import com.hg94.seti.controller.remote.TargetListRequest;
 			import com.hg94.seti.model.SETIQuestDataReader;
 			import com.hg94.seti.model.Target;
 			import com.hg94.seti.model.TargetSet;
@@ -37,11 +37,28 @@
 			protected var _currentTarget:Target;
 			protected var _targetArray:Array = [];
 			
-			protected function view1_preinitializeHandler(event:FlexEvent):void 
+			protected function loadTargetList():void 
 			{
+				var targetRequest:TargetListRequest = new TargetListRequest();
+				targetRequest.addEventListener(Event.COMPLETE, onTargetLoadComplete);
+				targetRequest.execute();
+			}
+			
+			private function onTargetLoadComplete(event:Event):void 
+			{
+				event.currentTarget.removeEventListener(event.type, onTargetLoadComplete);
+				_targetSet = (event.currentTarget as TargetListRequest).targetSet;
 				
-				var setiQuestDataReader:SETIQuestDataReader = new SETIQuestDataReader();
-				this._targetSet = setiQuestDataReader.getTargetSet();
+				for each (var target:Target in this._targetSet.targetArray) {
+					_targetArray.push(target.getGoogleSkyCoordinates());
+					var marker:Marker = new Marker(target.getGoogleSkyCoordinates());
+					marker.addEventListener(MapMouseEvent.CLICK, onMarkerInteraction);
+					var markerOptions:MarkerOptions = marker.getOptions();
+					markerOptions.icon = new StarfieldTargetMarkerSkin();
+					markerOptions.iconOffset = new Point(-8,-8);
+					marker.setOptions(markerOptions);
+					map.addOverlay(marker);
+				}
 			}
 			
 			private function onMapPreinitialize(event:Event):void 
@@ -57,20 +74,7 @@
 			private function onMapReady(event:MapEvent):void
 			{
 				event.target.addMapType(Sky.VISIBLE_MAP_TYPE);
-				
-				// Just testing markers
-				// TODO: Refactor
-				
-				for each (var target:Target in this._targetSet.targetArray) {
-					_targetArray.push(target.getGoogleSkyCoordinates());
-					var marker:Marker = new Marker(target.getGoogleSkyCoordinates());
-					marker.addEventListener(MapMouseEvent.CLICK, onMarkerInteraction);
-					var markerOptions:MarkerOptions = marker.getOptions();
-					markerOptions.icon = new StarfieldTargetMarkerSkin();
-					markerOptions.iconOffset = new Point(-8,-8);
-					marker.setOptions(markerOptions);
-					event.target.addOverlay(marker);
-				}
+				loadTargetList();
 			}
 			
 			private function onMarkerInteraction(event:MapMouseEvent):void

@@ -36,7 +36,10 @@ package com.hg94.seti.model {
 		
 		protected var _waterfallTiles:ArrayCollection;
 		
+		/** Url the observation is based on.
+		 */
 		
+		protected var _baseUrl:String;
 		
 		
 		// Getters and setters
@@ -49,7 +52,14 @@ package com.hg94.seti.model {
 			return this._date;
 		}
 		
-		
+		public function get baseUrl():String
+		{
+			return _baseUrl;
+		}
+		public function set baseUrl(value:String):void
+		{
+			_baseUrl = value;
+		}
 		
 		// Constructor
 		
@@ -59,10 +69,7 @@ package com.hg94.seti.model {
 			this._waterfallTiles = new ArrayCollection();
 		}
 		
-		
-		
 		// Public methods
-		
 		
 		/** Adds a waterfall tile to the observation
 		 * 	Assumes it's next in order
