@@ -15,4 +15,7 @@
 	</s:Path>
 	<s:BitmapImage x="13" y="9" smooth="true"
 				   source="@Embed('/assets/images/RasterizedItems.png')"/>
+	<s:Button x="851" y="0" skinClass="components.StarfieldButton"/>
+	<s:Button x="911" y="0" skinClass="components.DataVizButton"/>
+	<s:Button x="972" y="1" skinClass="components.SettingsButton"/>
 </s:Skin>

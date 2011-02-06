@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:fc="http://ns.adobe.com/flashcatalyst/2009"
+		xmlns:d="http://ns.adobe.com/fxg/2008/dt"
+		fc:resizable="false">
+	<fx:Metadata>[HostComponent("spark.components.Button")]</fx:Metadata>
+	<s:states>
+		<s:State name="up"/>
+		<s:State name="over"/>
+		<s:State name="down"/>
+		<s:State name="disabled"/>
+	</s:states>
+	<s:Group d:userLabel="Rectangle" includeIn="down" x="2" y="0"><!-- scaleX="0.859" scaleY="0.556">-->
+		<s:Rect x="-0.05" y="0" width="55" height="39" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
+			<s:fill>
+				<s:SolidColor color="#303030"/>
+			</s:fill>
+		</s:Rect>
+	</s:Group>
+	<s:Rect x="0.5" y="0.5" width="1" height="38" alpha="0.050980392156862744" blendMode="normal"
+			radiusX="0" radiusY="0"
+>
+		<s:stroke>
+			<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
+		</s:stroke>
+	</s:Rect>
+	<s:BitmapImage x="19" y="9" blendMode="normal" smooth="true"
+				   source="@Embed('/assets/images/StarfieldView/Image_2.png')"
+/>
+</s:Skin>

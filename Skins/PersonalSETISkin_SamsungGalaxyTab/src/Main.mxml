@@ -10,10 +10,13 @@
 			   xmlns:flm="http://ns.adobe.com/flame/2008"
 			   xmlns:lib2="assets.graphics.HathersageGroupLogo.*"
 			   xmlns:components="components.*"
+			   xmlns:lib3="assets.graphics.DataVizView.*"
 			   width="1024" height="562" backgroundColor="#000000" preloaderChromeColor="#000000">
 	<fx:Style source="Main.css"/>
 	<fx:Script>
 		<![CDATA[
+			import com.hg94.seti.skinnablecomponents.DataVizScrollBarSkinnableComponent;
+			import com.hg94.seti.skinnablecomponents.DataVizSkinnableComponent;
 			import com.hg94.seti.skinnablecomponents.ControlBarSkinnableComponent;
 			import com.hg94.seti.skinnablecomponents.StarfieldTargetMarkerSkinnableComponent;
 			import com.hg94.seti.skinnablecomponents.StarfieldSkinnableComponent;
@@ -23,11 +26,16 @@
 			private var com_hg94_seti_skinnablecomponents_StarfieldTargetMarkerSkinnableComponent_obj:com.hg94.seti.skinnablecomponents.StarfieldTargetMarkerSkinnableComponent;
 			
 			private var com_hg94_seti_skinnablecomponents_ControlBarSkinnableComponent_obj:com.hg94.seti.skinnablecomponents.ControlBarSkinnableComponent;
+			
+			private var com_hg94_seti_skinnablecomponents_DataVizSkinnableComponent_obj:com.hg94.seti.skinnablecomponents.DataVizSkinnableComponent;
+			
+			private var com_hg94_seti_skinnablecomponents_DataVizScrollBarSkinnableComponent_obj:com.hg94.seti.skinnablecomponents.DataVizScrollBarSkinnableComponent;
 		]]>
 	</fx:Script>
 	<s:states>
 		<s:State name="Starfield"/>
 		<s:State name="Splash"/>
+		<s:State name="DataViz"/>
 	</s:states>
 	<fx:DesignLayer d:userLabel="Layer_1">
 		<skinnablecomponents:StarfieldSkinnableComponent d:userLabel="Starfield Skinnable Component"
@@ -43,358 +51,24 @@
 				<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
 			</s:stroke>
 		</s:Path>
-		<s:Rect includeIn="Starfield" x="905.5" y="1.5" width="1" height="38"
-				alpha="0.050980392156862744" blendMode="normal" radiusX="0" radiusY="0">
-			<s:stroke>
-				<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-			</s:stroke>
-		</s:Rect>
-		<s:Rect includeIn="Starfield" x="964.5" y="1.5" width="1" height="38"
-				alpha="0.050980392156862744" blendMode="normal" radiusX="0" radiusY="0">
-			<s:stroke>
-				<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-			</s:stroke>
-		</s:Rect>
-		<s:Rect includeIn="Starfield" x="966.5" y="1.5" width="1" height="38"
-				alpha="0.050980392156862744" blendMode="normal" radiusX="0" radiusY="0">
-			<s:stroke>
-				<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-			</s:stroke>
-		</s:Rect>
-		<s:Rect includeIn="Starfield" x="845.5" y="1.5" width="1" height="38"
-				alpha="0.050980392156862744" blendMode="normal" radiusX="0" radiusY="0">
-			<s:stroke>
-				<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-			</s:stroke>
-		</s:Rect>
-		<s:Group d:userLabel="Rectangle" includeIn="Starfield" x="845.562" y="-0.4"><!-- scaleX="0.859" scaleY="0.556">-->
-			<s:Rect x="0.5" y="0.7" width="79.2" height="129.5" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#303030"/>
-				</s:fill>
-			</s:Rect>
-		</s:Group>
-		<s:Rect includeIn="Starfield" x="846" y="0" width="1" height="40" alpha="0.5019607843137255"
-				blendMode="normal" radiusX="0" radiusY="0">
-			<s:fill>
-				<s:SolidColor color="#000000"/>
-			</s:fill>
-		</s:Rect>
-		<s:Rect includeIn="Starfield" x="904" y="0" width="1" height="40" alpha="0.5019607843137255"
-				blendMode="normal" radiusX="0" radiusY="0">
-			<s:fill>
-				<s:SolidColor color="#000000"/>
-			</s:fill>
-		</s:Rect>
 		<s:Rect includeIn="Starfield" x="965" y="0" width="1" height="40" alpha="0.5019607843137255"
 				blendMode="normal" radiusX="0" radiusY="0">
 			<s:fill>
 				<s:SolidColor color="#000000"/>
 			</s:fill>
 		</s:Rect>
-		<s:Group d:userLabel="Group_4" includeIn="Starfield" x="854" y="11">
-			<s:Path d:userLabel="Ellipse" x="13" y="17" alpha="1" blendMode="normal"
-					data="M 0 2 C 0 1 1 0 2 0 C 2 0 3 1 3 2 C 3 2 2 3 2 3 C 1 3 0 2 0 2 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Path d:userLabel="Ellipse" x="14" y="9" alpha="1" blendMode="normal"
-					data="M 0 2 C 0 1 1 0 2 0 C 2 0 3 1 3 2 C 3 2 2 3 2 3 C 1 3 0 2 0 2 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Path d:userLabel="Ellipse" x="7" y="0" alpha="1" blendMode="normal"
-					data="M 0 2 C 0 1 1 0 2 0 C 2 0 3 1 3 2 C 3 2 2 3 2 3 C 1 3 0 2 0 2 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Path d:userLabel="Ellipse" x="10" y="3" alpha="1" blendMode="normal"
-					data="M 0 2 C 0 1 1 0 2 0 C 2 0 3 1 3 2 C 3 2 2 3 2 3 C 1 3 0 2 0 2 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Path d:userLabel="Ellipse" x="0" y="0" alpha="1" blendMode="normal"
-					data="M 0 2 C 0 1 1 0 2 0 C 2 0 3 1 3 2 C 3 2 2 3 2 3 C 1 3 0 2 0 2 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Path d:userLabel="Ellipse" x="21" y="22" alpha="1" blendMode="normal"
-					data="M 0 2 C 0 1 1 0 2 0 C 2 0 3 1 3 2 C 3 2 2 3 2 3 C 1 3 0 2 0 2 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Path d:userLabel="Ellipse" x="25" y="17" alpha="1" blendMode="normal"
-					data="M 0 2 C 0 1 1 0 2 0 C 2 0 3 1 3 2 C 3 2 2 3 2 3 C 1 3 0 2 0 2 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Line x="10.5" y="2.5" alpha="1" blendMode="normal" xTo="5" yTo="7">
-				<s:stroke>
-					<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-				</s:stroke>
-			</s:Line>
-			<s:Line x="3.5" y="1.5" alpha="1" blendMode="normal" xFrom="5">
-				<s:stroke>
-					<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-				</s:stroke>
-			</s:Line>
-			<s:Line x="15.5" y="13.5" alpha="1" blendMode="normal" xFrom="1" yTo="3">
-				<s:stroke>
-					<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-				</s:stroke>
-			</s:Line>
-			<s:Line x="18.5" y="12.5" alpha="1" blendMode="normal" xTo="7" yTo="5">
-				<s:stroke>
-					<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-				</s:stroke>
-			</s:Line>
-			<s:Line x="24.5" y="20.5" alpha="1" blendMode="normal" xFrom="2" yTo="3">
-				<s:stroke>
-					<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-				</s:stroke>
-			</s:Line>
-			<s:Line x="15.5" y="19.5" alpha="1" blendMode="normal" xFrom="6" yFrom="4">
-				<s:stroke>
-					<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-				</s:stroke>
-			</s:Line>
-		</s:Group>
-		<s:Group d:userLabel="Group_5" includeIn="Starfield" x="870" y="6">
-			<s:Path d:userLabel="Ellipse" x="16" y="6" alpha="1" blendMode="normal"
-					data="M 0 2 C 0 1 1 0 2 0 C 2 0 3 1 3 2 C 3 2 2 3 2 3 C 1 3 0 2 0 2 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Path d:userLabel="Ellipse" x="8" y="4" alpha="1" blendMode="normal"
-					data="M 0 2 C 0 1 1 0 2 0 C 2 0 3 1 3 2 C 3 2 2 3 2 3 C 1 3 0 2 0 2 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Path d:userLabel="Ellipse" x="0" y="3" alpha="1" blendMode="normal"
-					data="M 0 2 C 0 1 1 0 2 0 C 2 0 3 1 3 2 C 3 2 2 3 2 3 C 1 3 0 2 0 2 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Path d:userLabel="Ellipse" x="2" y="7" alpha="1" blendMode="normal"
-					data="M 0 2 C 0 1 1 0 2 0 C 2 0 3 1 3 2 C 3 2 2 3 2 3 C 1 3 0 2 0 2 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Path d:userLabel="Ellipse" x="7" y="0" alpha="1" blendMode="normal"
-					data="M 0 2 C 0 1 1 0 2 0 C 2 0 3 1 3 2 C 3 2 2 3 2 3 C 1 3 0 2 0 2 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Path d:userLabel="Ellipse" x="22" y="11" alpha="1" blendMode="normal"
-					data="M 0 2 C 0 1 1 0 2 0 C 2 0 3 1 3 2 C 3 2 2 3 2 3 C 1 3 0 2 0 2 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Line x="4.5" y="2.5" alpha="1" blendMode="normal" xFrom="3" yTo="1">
-				<s:stroke>
-					<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-				</s:stroke>
-			</s:Line>
-			<s:Line x="2.5" y="6.5" alpha="1" blendMode="normal" xTo="1" yTo="1">
-				<s:stroke>
-					<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-				</s:stroke>
-			</s:Line>
-			<s:Line x="6.5" y="7.5" alpha="1" blendMode="normal" xFrom="2" yTo="1">
-				<s:stroke>
-					<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-				</s:stroke>
-			</s:Line>
-			<s:Line x="19.5" y="8.5" alpha="1" blendMode="normal" xFrom="3" yFrom="3">
-				<s:stroke>
-					<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-				</s:stroke>
-			</s:Line>
-			<s:Line x="9.5" y="4.5" alpha="1" blendMode="normal" yTo="1">
-				<s:stroke>
-					<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-				</s:stroke>
-			</s:Line>
-			<s:Line x="11.5" y="6.5" alpha="1" blendMode="normal" xFrom="4" yFrom="1">
-				<s:stroke>
-					<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-				</s:stroke>
-			</s:Line>
-		</s:Group>
-		<s:Group d:userLabel="Group_6" includeIn="Starfield" x="923" y="10">
-			<s:Rect x="0" y="10" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="4" y="7" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="8" y="5" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="12" y="4" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="16" y="4" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="24" y="6" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="0" y="14" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="8" y="9" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="12" y="8" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="16" y="8" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="20" y="9" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="24" y="10" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="0" y="18" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="4" y="15" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="8" y="13" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="12" y="12" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="16" y="12" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="20" y="13" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="24" y="14" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="0" y="6" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="4" y="3" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="8" y="1" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="12" y="0" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="16" y="0" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="20" y="1" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Rect x="24" y="2" width="2" height="2" alpha="1" blendMode="normal" radiusX="0" radiusY="0">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Rect>
-			<s:Path d:userLabel="Ellipse" x="19" y="4" alpha="1" blendMode="normal"
-					data="M 0 2 C 0 1 1 0 2 0 C 3 0 4 1 4 2 C 4 3 3 4 2 4 C 1 4 0 3 0 2 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-			<s:Path d:userLabel="Ellipse" x="3" y="10" alpha="1" blendMode="normal"
-					data="M 0 2 C 0 1 1 0 2 0 C 3 0 4 1 4 2 C 4 3 3 4 2 4 C 1 4 0 3 0 2 Z"
-					winding="evenOdd">
-				<s:fill>
-					<s:SolidColor color="#ffffff"/>
-				</s:fill>
-			</s:Path>
-		</s:Group>
-		<s:BitmapImage includeIn="Starfield" x="985" y="10" blendMode="normal" smooth="true"
-					   source="@Embed('/assets/images/StarfieldView/Image_2.png')"/>
 		<components:SplashSkin d:userLabel="SplashSkin" includeIn="Splash" x="0" y="0"/>
+		<fx:DesignLayer d:userLabel="Layer_1">
+			<s:Path includeIn="DataViz" x="-27.5" y="80.5" alpha="0.050980392156862744"
+					blendMode="normal"
+					data="M 0.5 0.5 L 1024.5 0.5 L 1024.5 40.5 L 0.5 40.5 L 0.5 0.5 Z"
+					winding="evenOdd">
+				<s:stroke>
+					<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
+				</s:stroke>
+			</s:Path>
+			<skinnablecomponents:DataVizSkinnableComponent includeIn="DataViz" x="0" y="0"
+														   skinClass="components.DataVizSkin"/>
+		</fx:DesignLayer>
 	</fx:DesignLayer>
 </s:Application>
