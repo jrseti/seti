@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		xmlns:s="library://ns.adobe.com/flex/spark" title="Personal SETI Application  Pre-Alpha (Version 20110201)">
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:components="components.*"
+		actionBarVisible="false">
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
+	<components:SplashSkin/>
+	<!--
 	<s:layout>
 		<s:VerticalLayout horizontalAlign="center" verticalAlign="middle"/>
 	</s:layout>
 	<s:TextArea text="This app is for demo purposes only. It is not yet fully functional, and it contains known bugs."/>
 	<s:Button label="Log in via Facebook" click="this.navigator.pushView(com.hg94.seti.views.AuthenticationView);"/>
 	<s:Button label="Browse Only" click="this.navigator.pushView(com.hg94.seti.views.StarfieldView);"/>
+	-->
 </s:View>
