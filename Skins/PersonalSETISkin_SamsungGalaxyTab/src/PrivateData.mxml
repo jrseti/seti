@@ -1,11 +1,28 @@
 <s:Group xmlns:s="library://ns.adobe.com/flex/spark"
 		 xmlns:fx="http://ns.adobe.com/mxml/2009"
-		 xmlns:d="http://ns.adobe.com/fxg/2008/dt">
+		 xmlns:d="http://ns.adobe.com/fxg/2008/dt"
+		 xmlns:ai="http://ns.adobe.com/ai/2009"
+		 xmlns:flm="http://ns.adobe.com/flame/2008">
 	<fx:Private>
+		<ai:PrivateElement d:ref="#1">
+			<ai:SaveOptions>
+				<ai:Dict data="I versionKey 2 I preserveFilterPolicy 2 I preserveGradientPolicy 4 B includeSymbol 0 I preserveTextPolicy 2 B includeXMP 0 I rasterizeResolution 72 B downsampleLinkedImages 1 B includeObjectOutsideArtboard 0 I expandBlendsOption 1 B aiEditCap 1 B writeImages 1 "/>
+			</ai:SaveOptions>
+			<ai:DocData base="HathersageGroupLogo.assets/images" globalOffsetH="-0.5" globalOffsetV="842.5" rulerCanvasDiffH="297" rulerCanvasDiffV="-421">
+				<ai:DocRasterSettings>
+					<ai:Dict data="I colr 4 I dpi. 72 B alis 0 B spot 1 B mask 0 R padd 36 "/>
+				</ai:DocRasterSettings>
+			</ai:DocData>
+			<ai:AutoGenImageList>
+				<ai:Dict/>
+			</ai:AutoGenImageList>
+		</ai:PrivateElement>
+		<ai:PrivateElement flm:hashcode="AB368175862017063953D7C8B61BB760" d:ref="#2">
+			<ai:LayerOptions color="5 31.122 23.09 26.102"/>
+		</ai:PrivateElement>
 		<d:FontMap>
-			<d:Map fontFamily="Arial" postScriptName="ArialMT"/>
-			<d:Map fontFamily="Myriad Pro Black" postScriptName="MyriadPro-Black"/>
-			<d:Map fontFamily="Myriad Pro Light" postScriptName="MyriadPro-Light"/>
+			<d:Map fontFamily="Myriad Pro Semibold" postScriptName="MyriadPro-Semibold"/>
+			<d:Map fontFamily="Myriad Pro" postScriptName="MyriadPro-Regular"/>
 		</d:FontMap>
 	</fx:Private>
 	<!-- This file contains metadata shared between Flash Catalyst and Flash Builder. It does not affect your compiled application. -->

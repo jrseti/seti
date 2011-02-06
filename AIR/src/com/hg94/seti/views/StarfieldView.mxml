@@ -74,7 +74,21 @@
 			private function onMapReady(event:MapEvent):void
 			{
 				event.target.addMapType(Sky.VISIBLE_MAP_TYPE);
+<<<<<<< HEAD
 				loadTargetList();
+=======
+				
+				for each (var target:Target in this._targetSet.targetArray) {
+					_targetArray.push(target.getGoogleSkyCoordinates());
+					var marker:Marker = new Marker(target.getGoogleSkyCoordinates());
+					marker.addEventListener(MapMouseEvent.CLICK, onMarkerInteraction);
+					var markerOptions:MarkerOptions = marker.getOptions();
+					markerOptions.icon = new StarfieldTargetMarkerSkin();
+					markerOptions.iconOffset = new Point(-8,-8);
+					marker.setOptions(markerOptions);
+					event.target.addOverlay(marker);
+				}
+>>>>>>> eb9e3611ab3f10a2c58c0be53f6f0b790ae9f8eb
 			}
 			
 			private function onMarkerInteraction(event:MapMouseEvent):void
