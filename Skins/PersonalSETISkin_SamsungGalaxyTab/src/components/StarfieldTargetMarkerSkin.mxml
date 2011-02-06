@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:fc="http://ns.adobe.com/flashcatalyst/2009"
+		xmlns:d="http://ns.adobe.com/fxg/2008/dt"
+		fc:resizable="false">
+	<fx:Metadata>[HostComponent("com.hg94.seti.skinnablecomponents.StarfieldTargetMarkerSkinnableComponent")]</fx:Metadata>
+	<s:Path d:userLabel="Ellipse" x="-0.5" y="-0.5" alpha="1" blendMode="normal"
+			data="M 1.5 8.5 C 1.5 4.5 4.5 1.5 8.5 1.5 C 11.5 1.5 14.5 4.5 14.5 8.5 C 14.5 11.5 11.5 14.5 8.5 14.5 C 4.5 14.5 1.5 11.5 1.5 8.5 Z"
+			winding="evenOdd">
+		<s:fill>
+			<s:SolidColor color="#5caaed"/>
+		</s:fill>
+		<s:stroke>
+			<s:SolidColorStroke color="#ffffff" weight="3" caps="none"/>
+		</s:stroke>
+	</s:Path>
+</s:Skin>

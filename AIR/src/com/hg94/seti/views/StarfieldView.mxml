@@ -25,6 +25,8 @@
 			import com.hg94.seti.model.Target;
 			import com.hg94.seti.model.TargetSet;
 			
+			import components.StarfieldTargetMarkerSkin;
+			
 			import mx.events.FlexEvent;
 			
 			private static const STATE_STARS_ONLY:String = "starsOnly";
@@ -64,7 +66,8 @@
 					var marker:Marker = new Marker(target.getGoogleSkyCoordinates());
 					marker.addEventListener(MapMouseEvent.CLICK, onMarkerInteraction);
 					var markerOptions:MarkerOptions = marker.getOptions();
-					markerOptions.radius = 20;
+					markerOptions.icon = new StarfieldTargetMarkerSkin();
+					markerOptions.iconOffset = new Point(-8,-8);
 					marker.setOptions(markerOptions);
 					event.target.addOverlay(marker);
 				}

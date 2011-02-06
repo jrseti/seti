@@ -9,75 +9,20 @@
 	<fx:Style source="Main.css"/>
 	<fx:Script>
 		<![CDATA[
+			import com.hg94.seti.skinnablecomponents.StarfieldTargetMarkerSkinnableComponent;
 			import com.hg94.seti.skinnablecomponents.StarfieldSkinnableComponent;
 			
 			private var com_hg94_seti_skinnablecomponents_StarfieldSkinnableComponent_obj:com.hg94.seti.skinnablecomponents.StarfieldSkinnableComponent;
+			
+			private var com_hg94_seti_skinnablecomponents_StarfieldTargetMarkerSkinnableComponent_obj:com.hg94.seti.skinnablecomponents.StarfieldTargetMarkerSkinnableComponent;
 		]]>
 	</fx:Script>
 	<fx:DesignLayer d:userLabel="Layer_1">
 		<skinnablecomponents:StarfieldSkinnableComponent d:userLabel="Starfield Skinnable Component"
 														 x="0" y="0"
 														 skinClass="components.StarfieldSkin"/>
-		<s:Path d:userLabel="Ellipse" x="609.5" y="293.5" alpha="1" blendMode="normal"
-				data="M 1.5 8.5 C 1.5 4.5 4.5 1.5 8.5 1.5 C 11.5 1.5 14.5 4.5 14.5 8.5 C 14.5 11.5 11.5 14.5 8.5 14.5 C 4.5 14.5 1.5 11.5 1.5 8.5 Z"
-				winding="evenOdd">
-			<s:fill>
-				<s:SolidColor color="#5caaed"/>
-			</s:fill>
-			<s:stroke>
-				<s:SolidColorStroke color="#ffffff" weight="3" caps="none"/>
-			</s:stroke>
-		</s:Path>
-		<s:Path d:userLabel="Ellipse" x="689.5" y="184.5" alpha="1" blendMode="normal"
-				data="M 1.5 8.5 C 1.5 4.5 4.5 1.5 8.5 1.5 C 11.5 1.5 14.5 4.5 14.5 8.5 C 14.5 11.5 11.5 14.5 8.5 14.5 C 4.5 14.5 1.5 11.5 1.5 8.5 Z"
-				winding="evenOdd">
-			<s:fill>
-				<s:SolidColor color="#5caaed"/>
-			</s:fill>
-			<s:stroke>
-				<s:SolidColorStroke color="#ffffff" weight="3" caps="none"/>
-			</s:stroke>
-		</s:Path>
-		<s:Path d:userLabel="Ellipse" x="79.5" y="361.5" alpha="1" blendMode="normal"
-				data="M 1.5 8.5 C 1.5 4.5 4.5 1.5 8.5 1.5 C 11.5 1.5 14.5 4.5 14.5 8.5 C 14.5 11.5 11.5 14.5 8.5 14.5 C 4.5 14.5 1.5 11.5 1.5 8.5 Z"
-				winding="evenOdd">
-			<s:fill>
-				<s:SolidColor color="#5caaed"/>
-			</s:fill>
-			<s:stroke>
-				<s:SolidColorStroke color="#ffffff" weight="3" caps="none"/>
-			</s:stroke>
-		</s:Path>
-		<s:Path d:userLabel="Ellipse" x="159.5" y="184.5" alpha="1" blendMode="normal"
-				data="M 1.5 8.5 C 1.5 4.5 4.5 1.5 8.5 1.5 C 11.5 1.5 14.5 4.5 14.5 8.5 C 14.5 11.5 11.5 14.5 8.5 14.5 C 4.5 14.5 1.5 11.5 1.5 8.5 Z"
-				winding="evenOdd">
-			<s:fill>
-				<s:SolidColor color="#5caaed"/>
-			</s:fill>
-			<s:stroke>
-				<s:SolidColorStroke color="#ffffff" weight="3" caps="none"/>
-			</s:stroke>
-		</s:Path>
-		<s:Path d:userLabel="Ellipse" x="890.5" y="351.5" alpha="1" blendMode="normal"
-				data="M 1.5 8.5 C 1.5 4.5 4.5 1.5 8.5 1.5 C 11.5 1.5 14.5 4.5 14.5 8.5 C 14.5 11.5 11.5 14.5 8.5 14.5 C 4.5 14.5 1.5 11.5 1.5 8.5 Z"
-				winding="evenOdd">
-			<s:fill>
-				<s:SolidColor color="#5caaed"/>
-			</s:fill>
-			<s:stroke>
-				<s:SolidColorStroke color="#ffffff" weight="3" caps="none"/>
-			</s:stroke>
-		</s:Path>
-		<s:Path d:userLabel="Ellipse" x="494.5" y="338.5" alpha="1" blendMode="normal"
-				data="M 1.5 8.5 C 1.5 4.5 4.5 1.5 8.5 1.5 C 11.5 1.5 14.5 4.5 14.5 8.5 C 14.5 11.5 11.5 14.5 8.5 14.5 C 4.5 14.5 1.5 11.5 1.5 8.5 Z"
-				winding="evenOdd">
-			<s:fill>
-				<s:SolidColor color="#5caaed"/>
-			</s:fill>
-			<s:stroke>
-				<s:SolidColorStroke color="#ffffff" weight="3" caps="none"/>
-			</s:stroke>
-		</s:Path>
+		<skinnablecomponents:StarfieldTargetMarkerSkinnableComponent x="495" y="339"
+																	 skinClass="components.StarfieldTargetMarkerSkin"/>
 		<s:Path x="0" y="0" alpha="1" blendMode="normal"
 				data="M 0 0 L 1024 0 L 1024 40 L 0 40 L 0 0 Z" winding="evenOdd">
 			<s:fill>
