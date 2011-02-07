@@ -9,7 +9,7 @@
 	<s:states>
 		<s:State name="loading"/>
 		<s:State name="starsOnly"/>
-		<s:State name="showDetails"/>
+		<!--<s:State name="showDetails"/>-->
 	</s:states>
 	<fx:Script>
 		<![CDATA[
@@ -32,7 +32,7 @@
 			import mx.events.FlexEvent;
 			
 			private static const STATE_STARS_ONLY:String = "starsOnly";
-			private static const STATE_SHOW_DETAILS:String = "showDetails";
+			//private static const STATE_SHOW_DETAILS:String = "showDetails";
 			private static const HATHERSAGE_MAP_API_KEY:String = "ABQIAAAAEwk3rg5igZgbfHAAaPpdnhS3hwEVAxBLwgX-yCFBjg8qlFo5UxTVUCdE50GpyF9WvX4b62ZJcx0ASA";
 			
 			protected var _targetSet:TargetSet;
@@ -87,14 +87,16 @@
 				var currentLatLng:LatLng = event.latLng;
 				var currentPoint:Point = map.fromLatLngToPoint(event.latLng);
 				_currentTarget = this._targetSet.getTargetByGoogleSkyCoordinates(currentLatLng);
-				currentState = STATE_SHOW_DETAILS;
+				navigator.pushView(com.hg94.seti.views.WaterfallExplorerView, _currentTarget);
+				//currentState = STATE_SHOW_DETAILS;
 			}
-			
+			/*
 			protected function onExploreObservation(event:Event):void
 			{
 				currentState = STATE_SHOW_DETAILS;
 				navigator.pushView(com.hg94.seti.views.WaterfallExplorerView, _currentTarget);
 			}
+			*/
 			
 			[Bindable (event="click")]
 			private function get rightAscension():String 
@@ -154,7 +156,7 @@
 		<components:SplashSkin visible="false" visible.loading="true"/>
 		<s:Group id="mapGroup" width="100%" height="100%"/>
 		<components:StarfieldSkin id="starfieldSkin" visible.loading="false"/>
-		<s:Group right="0" top="10"
+<!--		<s:Group right="0" top="10"
 				 width.showDetails="30%" width="0" 
 				 height="100%">
 			<s:layout>
@@ -165,5 +167,6 @@
 			<s:Label text="{'Decl: ' + declination }"/>
 			<s:Label text="{friendlyName}"/>
 		</s:Group>
+		-->
 	</s:Group>
 </s:View>
