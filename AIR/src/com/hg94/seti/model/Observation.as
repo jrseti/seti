@@ -36,10 +36,18 @@ package com.hg94.seti.model {
 		
 		protected var _waterfallTiles:ArrayCollection;
 		
+		
 		/** Url the observation is based on.
 		 */
 		
 		protected var _baseUrl:String;
+		
+		
+		/** Target in the sky
+		 */
+		
+		protected var _target:Target;
+		
 		
 		
 		// Getters and setters
@@ -61,13 +69,32 @@ package com.hg94.seti.model {
 			_baseUrl = value;
 		}
 		
+		public function get waterfallTiles():ArrayCollection
+		{
+			return this._waterfallTiles;
+		}
+
+		
+		public function get target():Target {
+			return this._target;
+		}
+		
+		public function get averageWavelength():int {
+			return Math.round((this._maxWavelength + this._minWavelength) / 2); 
+		}
+		
+		
+		
 		// Constructor
 		
 
-		public function Observation(date:Date) {
+		public function Observation(date:Date, target:Target) {
 			this._date = date;
 			this._waterfallTiles = new ArrayCollection();
+			this._target = target;
 		}
+
+		
 		
 		// Public methods
 		
@@ -81,9 +108,6 @@ package com.hg94.seti.model {
 			this._waterfallTiles.addItem(waterfallTile);
 		}
 		
-		public function get waterfallTiles():ArrayCollection
-		{
-			return this._waterfallTiles;
-		}
+		
 	}
 }

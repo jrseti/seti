@@ -43,7 +43,7 @@ package com.hg94.seti.controller.remote
 			for each (var rawObservation:String in rawResults)
 			{
 				// observation parsing
-				var date:String = rawObservation.split('"')[0].toString().replace(new RegExp(" ","g"),"");
+				var dateString:String = rawObservation.split('"')[0].toString().replace(new RegExp(" ","g"),"");
 				var friendlyName:String = rawObservation.split('"')[1];
 				var baseUrl:String = "http://" + rawObservation.split('http://')[1].toString().split("	")[0];
 				
@@ -55,7 +55,10 @@ package com.hg94.seti.controller.remote
 				var target:Target = new Target(friendlyName);
 				target.setSETICoordinates(ra, dec);
 				
-				var observation:Observation = new Observation(null);
+				var date:Date = new Date();
+				
+				
+				var observation:Observation = new Observation(date, target);
 				observation.baseUrl = baseUrl;
 				
 				target.defaultObservation = observation;

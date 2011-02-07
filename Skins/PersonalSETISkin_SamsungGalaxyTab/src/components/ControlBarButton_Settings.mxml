@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Skin xmlns:s="library://ns.adobe.com/flex/spark"
+		xmlns:fx="http://ns.adobe.com/mxml/2009"
+		xmlns:fc="http://ns.adobe.com/flashcatalyst/2009"
+		xmlns:d="http://ns.adobe.com/fxg/2008/dt"
+		fc:resizable="false">
+	<fx:Metadata>[HostComponent("spark.components.Button")]</fx:Metadata>
+	<s:states>
+		<s:State name="up"/>
+		<s:State name="over"/>
+		<s:State name="down"/>
+		<s:State name="disabled"/>
+	</s:states>
+	<s:Rect d:userLabel="OverRegion" includeIn="over" x="0" y="0" width="60" height="40" alpha="1"
+			blendMode="normal" radiusX="0" radiusY="0">
+		<s:fill>
+			<s:LinearGradient rotation="90">
+				<s:GradientEntry alpha="1.0" color="#2C2C2C" ratio="0"/>
+				<s:GradientEntry alpha="1.0" color="#2C2C2C" ratio="1"/>
+			</s:LinearGradient>
+		</s:fill>
+	</s:Rect>
+	<s:Rect d:userLabel="DownRegion" includeIn="down" x="0" y="0" width="60" height="40" alpha="1"
+			blendMode="normal" radiusX="0" radiusY="0">
+		<s:fill>
+			<s:SolidColor color="#197BCE"/>
+		</s:fill>
+	</s:Rect>
+	<s:Rect d:userLabel="UpRegion" includeIn="up" x="1" y="0" width="58" height="40" alpha="1"
+			blendMode="normal" radiusX="0" radiusY="0">
+		<s:fill>
+			<s:LinearGradient rotation="90">
+				<s:GradientEntry alpha="1.0" color="#484848" ratio="0"/>
+				<s:GradientEntry alpha="1.0" color="#3E3E3E" ratio="1"/>
+			</s:LinearGradient>
+		</s:fill>
+	</s:Rect>
+	<s:Rect d:userLabel="RightBorder" includeIn="up" x="59" y="0" width="1" height="40"
+			alpha="0.5019607843137255" blendMode="normal" radiusX="0" radiusY="0">
+		<s:fill>
+			<s:SolidColor color="#383838"/>
+		</s:fill>
+	</s:Rect>
+	<s:Rect d:userLabel="LeftBorder" includeIn="up" x="0" y="0" width="1" height="40">
+		<s:fill>
+			<s:LinearGradient rotation="90">
+				<s:GradientEntry alpha="1.0" color="#4A4A4A" ratio="0.03529411764705882"/>
+				<s:GradientEntry alpha="1.0" color="#404040" ratio="1"/>
+			</s:LinearGradient>
+		</s:fill>
+	</s:Rect>
+	<s:BitmapImage x="18.75" y="9.3" height="20" blendMode="normal" smooth="true"
+				   source="@Embed('/assets/images/StarfieldView/Image_2.png')"/>
+</s:Skin>

@@ -7,9 +7,24 @@
 	<fx:Metadata>[HostComponent("com.hg94.seti.skinnablecomponents.DataVizSkinnableComponent")]</fx:Metadata>
 	<skinnablecomponents:ControlBarSkinnableComponent x="0" y="0"
 													  skinClass="components.ControlBarSkin"/>
-	<skinnablecomponents:DataVizScrollBarSkinnableComponent x="10" y="487"
+	<skinnablecomponents:DataVizScrollBarSkinnableComponent x="11" y="477"
 															skinClass="components.DataVizScrollBarSkin"/>
-	<s:RichText id="starNameText" x="8" y="388" width="544" height="20" color="#FFFFFF"
+	<s:RichText id="starNameText" x="15" y="391" width="544" height="20" color="#FFFFFF"
+				fontFamily="Myriad Pro Semibold" fontSize="24" lineHeight="100%"
+				tabStops="S0 S50 S100 S150 S200 S250 S300 S350 S400 S450 S500" text="Tau Ceti"/>
+	<s:RichText id="starNameText1" x="783" y="413" width="224" height="16" color="#CCCCCC"
+				fontFamily="Myriad Pro" fontSize="18" lineHeight="100%"
+				tabStops="S0 S50 S100 S150 S200" text="November 4, 2010"
+				textAlign="end"/>
+	<s:RichText id="starNameText2" x="15" y="417" width="336" height="47" color="#999999"
 				fontFamily="Myriad Pro" fontSize="16" lineHeight="100%"
-				tabStops="S0 S50 S100 S150 S200 S250 S300 S350" text="-"/>
+				tabStops="S0 S50 S100 S150 S200 S250 S300" text="Fourth star in the constellation Taurus, 12 light  years away. Tau Ceti is known to have planets and was first observed for SETI purposes in 1967."/>
+	<s:RichText id="starNameText0" x="783" y="393" width="224" height="16" color="#CCCCCC"
+				fontFamily="Myriad Pro" fontSize="18" lineHeight="100%"
+				tabStops="S0 S50 S100 S150 S200" text="1400 MHz"
+				textAlign="end"/>
+	<s:RichText id="starNameText3" x="783" y="433" width="224" height="16" color="#CCCCCC"
+				fontFamily="Myriad Pro" fontSize="18" lineHeight="100%"
+				tabStops="S0 S50 S100 S150 S200" text="RA: 34.576, Decl: -15.676"
+				textAlign="end"/>
 </s:Skin>

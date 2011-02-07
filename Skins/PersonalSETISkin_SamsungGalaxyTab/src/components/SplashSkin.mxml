@@ -13,16 +13,17 @@
 		</s:fill>
 	</s:Rect>
 	<s:BitmapImage x="227" y="65" smooth="true" source="@Embed('/assets/images/Image2.png')"/>
-	<s:BitmapImage x="115" y="394" width="143" height="92" smooth="true"
+	<s:BitmapImage x="832" y="404" width="143" height="92" smooth="true"
 				   source="@Embed('/assets/images/Image1.png')"/>
-	<s:BitmapImage x="370" y="367" smooth="true" source="@Embed('/assets/images/Group.png')"/>
-	<s:BitmapImage x="832" y="393" width="78" height="96" smooth="true"
+	<s:BitmapImage x="36" y="397" width="195" height="99" smooth="true"
+				   source="@Embed('/assets/images/Group.png')"/>
+	<s:BitmapImage x="370" y="408" width="78" height="96" smooth="true"
 				   source="@Embed('/assets/images/AdobeLogo_192wBlack1.jpg')"/>
-	<s:RichText x="122" y="373" color="#999999" fontFamily="Myriad Pro" fontSize="18"
-				tabStops="S0 S50 S100" text="Data provided by"/>
-	<s:RichText x="469" y="373" color="#999999" fontFamily="Myriad Pro" fontSize="18"
-				tabStops="S0 S50 S100" text="A project of"/>
-	<s:RichText x="816" y="373" color="#999999" fontFamily="Myriad Pro" fontSize="18"
+	<s:RichText x="860" y="375" color="#999999" fontFamily="Myriad Pro" fontSize="18"
+				tabStops="S0 S50 S100" text="A Project of"/>
+	<s:RichText x="81" y="375" color="#999999" fontFamily="Myriad Pro" fontSize="18"
+				tabStops="S0 S50 S100" text="Developed by"/>
+	<s:RichText x="357" y="375" color="#999999" fontFamily="Myriad Pro" fontSize="18"
 				tabStops="S0 S50 S100" text="Sponsored by"/>
 	<s:RichText x="443" y="268" width="139" height="27" color="#999999" fontFamily="Myriad Pro"
 				fontSize="12" tabStops="S0 S50 S100" textAlign="center"
@@ -31,4 +32,8 @@
 	</s:RichText>
 	<s:RichText x="436" y="230" color="#CCCCCC" fontFamily="Myriad Pro Semibold" fontSize="36"
 				tabStops="S0 S50 S100 S150" text="Loading..."/>
+	<s:RichText x="578" y="375" color="#999999" fontFamily="Myriad Pro" fontSize="18"
+				tabStops="S0 S50 S100" text="With Support from"/>
+	<s:BitmapImage x="576" y="409" smooth="true"
+				   source="@Embed('/assets/images/FirefoxScreenSnapz005.png')"/>
 </s:Group>

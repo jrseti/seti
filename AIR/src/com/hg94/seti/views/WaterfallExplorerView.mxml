@@ -9,7 +9,7 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<skinnablecomponents:DataVizSkinnableComponent id="skinLayer" skinClass="components.DataVizSkin"/>
+	<skinnablecomponents:DataVizSkinnableComponent id="skinLayer" skinClass="components.DataVizSkin" creationComplete="skinLayer_creationCompleteHandler(event)"/>
 	<s:List id="waterfallList"
 			direction="ltr" width="100%" y="41"
 			dataProvider="{observationImages}"
@@ -33,6 +33,7 @@
 			import com.hg94.seti.model.WaterfallTile;
 			
 			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
 			import mx.utils.object_proxy;
 			
 			[Bindable] 
@@ -79,6 +80,7 @@
 				
 				currentState = "loaded";
 				//this.skinLayer.starNameText.text = request.observation.date.toString();
+				
 			}
 			
 			/**
@@ -100,6 +102,12 @@
 //				navigator.pushView(com.hg94.seti.views.WaterfallImageView, event.target.data);
 			}
 			
+
+			protected function skinLayer_creationCompleteHandler(event:FlexEvent):void
+			{
+				//this.skinLayer.starNameText.text = "Star name here";
+			}
+
 		]]>
 	</fx:Script>
 </s:View>

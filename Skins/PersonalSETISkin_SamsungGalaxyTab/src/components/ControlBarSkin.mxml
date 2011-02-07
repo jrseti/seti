@@ -15,7 +15,7 @@
 	</s:Path>
 	<s:BitmapImage x="13" y="9" smooth="true"
 				   source="@Embed('/assets/images/RasterizedItems.png')"/>
-	<s:Button x="851" y="0" skinClass="components.StarfieldButton"/>
-	<s:Button x="911" y="0" skinClass="components.DataVizButton"/>
-	<s:Button x="972" y="1" skinClass="components.SettingsButton"/>
+	<s:Button x="844" y="0" label="Button" skinClass="components.ControlBarButton_Starfield"/>
+	<s:Button x="904" y="0" label="Button" skinClass="components.ControlBarButton_DataViz"/>
+	<s:Button x="964" y="0" label="Button" skinClass="components.ControlBarButton_Settings"/>
 </s:Skin>

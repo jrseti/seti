@@ -2,15 +2,34 @@
 @font-face
 {
 	fontFamily: "Myriad Pro";
-	src: url("/assets/fonts/MyriadPro-Regular.otf");
+	src: url("/Library/Fonts/MyriadPro-Regular.otf");
 	embedAsCFF: true;
 }
 @font-face
 {
 	fontFamily: "Myriad Pro Semibold";
-	src: url("/assets/fonts/MyriadPro-Semibold.otf");
+	src: url("/Library/Fonts/MyriadPro-Semibold.otf");
 	embedAsCFF: true;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
