@@ -55,13 +55,23 @@ package com.hg94.seti.controller.remote
 				var target:Target = new Target(friendlyName);
 				target.setSETICoordinates(ra, dec);
 				
-				var date:Date = new Date();
+				var date:Date = new Date(dateString.split("-")[0], dateString.split("-")[1], dateString.split("-")[2]);
 				
 				
 				var observation:Observation = new Observation(date, target);
 				observation.baseUrl = baseUrl;
 				
 				target.defaultObservation = observation;
+				
+				target.description = "[Description to be completed]";
+				switch (target.friendlyName) {
+					case "Gliese 581":
+						target.description = "A red dwarf star with spectral type M3V, located 20.3 light years away from Earth in the constellation Libra."
+						break;
+					case "Tau Ceti":
+						target.description = "A star in the constellation Cetus that is similar to the Sun in mass and spectral type."
+						break;
+				}
 				
 				_targetSet.addTarget( target );
 			}

@@ -9,7 +9,13 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<skinnablecomponents:DataVizSkinnableComponent id="skinLayer" skinClass="components.DataVizSkin" creationComplete="skinLayer_creationCompleteHandler(event)"/>
+	<skinnablecomponents:DataVizSkinnableComponent id="skinLayer" 
+												   skinClass="components.DataVizSkin"
+												   targetName="{this.target.friendlyName}"
+												   observationDate="{this.observation.date.toDateString()}"
+												   observationFrequency="{this.observation.averageWavelength}" 
+												   observationCoordinates="{this.target.coordinateString}" targetDescription="{this.target.description}"
+												   />
 	<s:List id="waterfallList"
 			direction="ltr" width="100%" y="41"
 			dataProvider="{observationImages}"
@@ -36,9 +42,6 @@
 			import mx.events.FlexEvent;
 			import mx.utils.object_proxy;
 			
-			[Bindable] 
-			protected var observationDescription:String;
-			
 			[Bindable]
 			protected var observationImages:ArrayCollection;
 			
@@ -60,10 +63,9 @@
 				{
 					target = value as Target;
 					
-					observationDescription = target.friendlyName;
-					
 					var request:ObservationRequest = new ObservationRequest();
 					request.addEventListener(Event.COMPLETE, onObservationLoadComplete);
+					this.observation = target.defaultObservation;
 					request.observation = target.defaultObservation;
 					request.execute();
 				}
@@ -105,7 +107,7 @@
 
 			protected function skinLayer_creationCompleteHandler(event:FlexEvent):void
 			{
-				//this.skinLayer.starNameText.text = "Star name here";
+				this.skinLayer.starNameText.text = observation.target.friendlyName;
 			}
 
 		]]>

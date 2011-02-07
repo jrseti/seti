@@ -46,7 +46,9 @@ package com.hg94.seti.model {
 		/** Target in the sky
 		 */
 		
-		protected var _target:Target;
+		[Bindable] public var target:Target;
+		
+		[Bindable] public var date:Date;
 		
 		
 		
@@ -55,10 +57,6 @@ package com.hg94.seti.model {
 		
 		/** Date of the observation
 		 */
-		
-		public function get date():Date {
-			return this._date;
-		}
 		
 		public function get baseUrl():String
 		{
@@ -75,23 +73,18 @@ package com.hg94.seti.model {
 		}
 
 		
-		public function get target():Target {
-			return this._target;
-		}
-		
 		public function get averageWavelength():int {
 			return Math.round((this._maxWavelength + this._minWavelength) / 2); 
 		}
-		
 		
 		
 		// Constructor
 		
 
 		public function Observation(date:Date, target:Target) {
-			this._date = date;
+			this.date = date;
 			this._waterfallTiles = new ArrayCollection();
-			this._target = target;
+			this.target = target;
 		}
 
 		

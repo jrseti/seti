@@ -32,23 +32,31 @@ package com.hg94.seti.model {
 		protected var _defaultObservation:Observation;
 		
 		
+		public var description:String;
+		
 		
 		// Getters and Setters
 
 		
-		public function get rightAscension():Number {
+		[Bindable] public function get rightAscension():Number {
 			return this._rightAscension;
 		}
 		public function set rightAscension(value:Number):void {
 			_rightAscension = value;
 		}
 		
-		public function get declination():Number {
+		[Bindable] public function get declination():Number {
 			return this._declination;
 		}
 		public function set declination(value:Number):void {
 			_declination = value;
 		}
+		
+		
+		public function get coordinateString():String {
+			return 'RA: ' + Math.round(this.rightAscension * 1000)/1000 + ', Decl: ' + Math.round(this.declination * 1000)/1000 
+		}
+		
 		
 		public function get friendlyName():String {
 			return this._friendlyName;

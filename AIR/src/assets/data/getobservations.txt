@@ -17,8 +17,8 @@
 2010-10-08  "Galanticenter 3991 2"           http://184.73.186.167/analysis/2010-10-08-galanticenter_3991_2				5.760325017,28.93616421
 2010-10-15  "Crab Pulsar 1420"               http://184.73.233.127/analysis/2010-10-15-crab_1420_1						5.575548,22.01446
 2010-11-05  "Kepler Exo 4 1420"              http://184.73.240.15/analysis/2010-11-05-kepler04-1420_1					19.041021,50.135753
-2010-11-05  "Gliese 581 1420 (Dorothy)"      http://184.73.240.15/analysis/2010-11-05-dorothy_exo-gl581-1420_1			15.324118,7.72228028
-2010-11-06  "Tau Ceti 1420 (Dorothy)"        http://184.73.240.15/analysis/2010-11-06-dorothy_tauceti_1420_1			1.734467472,15.93748
+2010-11-05  "Gliese 581"      http://184.73.240.15/analysis/2010-11-05-dorothy_exo-gl581-1420_1			15.324118,7.72228028
+2010-11-06  "Tau Ceti"        http://184.73.240.15/analysis/2010-11-06-dorothy_tauceti_1420_1			1.734467472,15.93748
 2010-11-06  "HD69830 1420 (Dorothy)"         http://184.73.240.15/analysis/2010-11-06-dorothy_HD69830_1420_1			8.30665,12.63217
 2010-11-06  "etaareitus 1420 (Dorothy)"      http://184.73.240.15/analysis/2010-11-06-dorothy_etaareitus_1420_1			2.21336,21.21083
 2010-11-06  "epsiloneridani 1420 (Dorothy)"  http://184.73.240.15/analysis/2010-11-06-dorothy_epsiloneridani_1420_1		3.5488456,9.45826
