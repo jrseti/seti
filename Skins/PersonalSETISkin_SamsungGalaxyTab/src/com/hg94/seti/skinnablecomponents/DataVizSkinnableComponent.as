@@ -3,6 +3,10 @@ package com.hg94.seti.skinnablecomponents
 	/* For guidance on writing an ActionScript Skinnable Component please refer to the Flex documentation: 
 	www.adobe.com/go/actionscriptskinnablecomponents */
 	
+	import components.ControlBarSkin;
+	
+	import flash.events.MouseEvent;
+	
 	import mx.binding.utils.BindingUtils;
 	import mx.events.FlexEvent;
 	
@@ -17,15 +21,18 @@ package com.hg94.seti.skinnablecomponents
 	public class DataVizSkinnableComponent extends SkinnableComponent
 	{
 		[SkinPart(required="false")]
+		public var controlBar:ControlBarSkinnableComponent;
+		
+		[SkinPart(required="true")]
 		public var starNameText:RichText;
 		
-		[SkinPart(required="false")]
+		[SkinPart(required="true")]
 		public var targetDescriptionField:RichText;
-		[SkinPart(required="false")]
+		[SkinPart(required="true")]
 		public var observationDateField:RichText;
-		[SkinPart(required="false")]
+		[SkinPart(required="true")]
 		public var observationFrequencyField:RichText;
-		[SkinPart(required="false")]
+		[SkinPart(required="true")]
 		public var observationCoordinatesField:RichText;
 		
 		
@@ -46,10 +53,10 @@ package com.hg94.seti.skinnablecomponents
 			BindingUtils.bindProperty(this.starNameText, "text", this, "targetName");
 			BindingUtils.bindProperty(this.targetDescriptionField, "text", this, "targetDescription");
 			BindingUtils.bindProperty(this.observationDateField, "text", this, "observationDate");
-			//BindingUtils.bindProperty(this.observationFrequencyField, "text", this, "observationFrequency");
+			this.observationFrequencyField.text = "[Frequency]";
 			BindingUtils.bindProperty(this.observationCoordinatesField, "text", this, "observationCoordinates");
 		} 
-		
+				
 		/* Implement the getCurrentSkinState() method to set the view state of the skin class. */
 		override protected function getCurrentSkinState():String
 		{

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark"
-		actionBarVisible="false" xmlns:skinnablecomponents="com.hg94.seti.skinnablecomponents.*" xmlns:components="components.*">
+		actionBarVisible="false" xmlns:skinnablecomponents="com.hg94.seti.skinnablecomponents.*" xmlns:components="components.*" creationComplete="view1_creationCompleteHandler(event)">
 	<s:states>
 		<s:State name="loading"/>
 		<s:State name="loaded"/>
@@ -14,7 +14,8 @@
 												   targetName="{this.target.friendlyName}"
 												   observationDate="{this.observation.date.toDateString()}"
 												   observationFrequency="{this.observation.averageWavelength}" 
-												   observationCoordinates="{this.target.coordinateString}" targetDescription="{this.target.description}"
+												   observationCoordinates="{this.target.coordinateString}"
+												   targetDescription="{this.target.description}"
 												   />
 	<s:List id="waterfallList"
 			direction="ltr" width="100%" y="41"
@@ -108,6 +109,12 @@
 			protected function skinLayer_creationCompleteHandler(event:FlexEvent):void
 			{
 				this.skinLayer.starNameText.text = observation.target.friendlyName;
+			}
+
+
+			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			{
+				this.skinLayer.controlBar.starfieldButton.addEventListener(MouseEvent.CLICK, this.onSkyButtonInteraction);
 			}
 
 		]]>

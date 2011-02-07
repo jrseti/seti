@@ -63,6 +63,8 @@ package com.hg94.seti.controller.remote
 				
 				target.defaultObservation = observation;
 				
+				observation.
+				
 				target.description = "[Description to be completed]";
 				switch (target.friendlyName) {
 					case "Gliese 581":
