@@ -15,6 +15,7 @@
 			import com.hg94.seti.model.Target;
 			import com.hg94.seti.model.TargetSet;
 			import com.hg94.seti.model.WaterfallTile;
+
 			public var observation:Observation;
 			public var target:Target;
 			public var targetSet:TargetSet;
@@ -23,6 +24,7 @@
 			public var observationRequest:ObservationRequest;
 			public var remoteCall:RemoteCall;
 			public var targetListRequest:TargetListRequest;
+
 		]]>
 	</fx:Script>
 </s:WindowedApplication>

@@ -1,11 +1,6 @@
 /.fxpTemp/
 /.metadata/
-/AIR/.actionScriptProperties
-/AIR/.flexProperties
-/AIR/.fxpProperties
-/AIR/.project
-/AIR/.settings/
-/AIR/build/
 bin-release
 *.fxp
 bin-debug/
+*~

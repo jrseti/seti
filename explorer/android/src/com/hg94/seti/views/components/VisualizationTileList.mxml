@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:List xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark"
+		direction="ltr" width="100%"
+		click="onLongTouch(event)"
+		itemRenderer="com.hg94.seti.views.components.WaterfallTileRenderer">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:layout>
+		<s:HorizontalLayout gap="0"/>
+	</s:layout>
+	<fx:Script>
+		<![CDATA[
+			import com.hg94.common.facebook.FacebookAirAndroid;
+			import com.hg94.seti.controller.ObservationRequest;
+			import com.hg94.seti.model.Observation;
+			import com.hg94.seti.model.Target;
+			import com.hg94.seti.model.WaterfallTile;
+			
+			import mx.events.FlexEvent;
+			import mx.utils.object_proxy;
+			/**
+			 * TODO: Listen for press-and-hold or long touch on the list.
+			 * When a user presses-and-holds (long-touches) an image open it in
+			 * its own view.
+			 */
+			private function onLongTouch(event:Event):void
+			{
+				var selectedWaterfallTile:WaterfallTile = this.selectedItem as WaterfallTile;
+				
+				if (!selectedWaterfallTile) return;
+				
+				var imageUrlToUse:String = selectedWaterfallTile.imageURL;
+				var messageString:String = "found something interesting in this image using the Personal SETI App";
+				
+				// TODO: Make this less spammy
+				//				FacebookAirAndroid.api("me/feed", function(arg0:Object, arg1:Object):void{}, {message:messageString, picture:imageUrlToUse, link:imageUrlToUse}, 'POST'); 
+				//				navigator.pushView(com.hg94.seti.views.WaterfallImageView, event.target.data);
+			}
+			
+		]]>
+	</fx:Script>
+</s:List>

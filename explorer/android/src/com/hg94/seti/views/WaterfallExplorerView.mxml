@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark"
-		actionBarVisible="false" xmlns:skinnablecomponents="com.hg94.seti.skinnablecomponents.*" xmlns:components="components.*" creationComplete="view1_creationCompleteHandler(event)">
+		actionBarVisible="false" xmlns:skinnablecomponents="com.hg94.seti.skinnablecomponents.*" xmlns:components="components.*" creationComplete="view1_creationCompleteHandler(event)" xmlns:components1="com.hg94.seti.views.components.*">
 	<s:states>
 	</s:states>
 	<fx:Declarations>
@@ -15,30 +15,14 @@
 												   observationCoordinates="{this.target.coordinateString}"
 												   targetDescription="{this.target.description}"
 												   />
-	<s:List id="waterfallList"
-			direction="ltr" width="100%" y="41"
-			dataProvider="{observationImages}"
-			click="onLongTouch(event)"
-			itemRenderer="com.hg94.seti.views.components.WaterfallTileRenderer">
-		<s:layout>
-			<s:HorizontalLayout gap="0"/>
-		</s:layout>
-	</s:List>
-	
+	<components1:VisualizationTileList id="visualizationTileList" y="41"/>
 	<fx:Script>
 		<![CDATA[
-			import com.hg94.common.facebook.FacebookAirAndroid;
 			import com.hg94.seti.controller.ObservationRequest;
 			import com.hg94.seti.model.Observation;
 			import com.hg94.seti.model.Target;
-			import com.hg94.seti.model.WaterfallTile;
-			
-			import mx.collections.ArrayCollection;
 			import mx.events.FlexEvent;
-			import mx.utils.object_proxy;
-			
-			[Bindable]
-			protected var observationImages:ArrayCollection;
+			import mx.collections.ArrayCollection;
 			
 			[Bindable]
 			internal var target:Target;
@@ -46,10 +30,26 @@
 			[Bindable]
 			internal var observation:Observation;
 			
+			[Bindable]
+			protected var observationImages:ArrayCollection;
+			
 			private function onSkyButtonInteraction(event:Event):void
 			{
 				navigator.popView();
 			}
+			
+			
+			protected function skinLayer_creationCompleteHandler(event:FlexEvent):void
+			{
+				this.skinLayer.starNameText.text = observation.target.friendlyName;
+			}
+			
+			
+			protected function view1_creationCompleteHandler(event:FlexEvent):void
+			{
+				this.skinLayer.controlBar.starfieldButton.addEventListener(MouseEvent.CLICK, this.onSkyButtonInteraction);
+			}
+
 			
 			override public function set data(value:Object):void
 			{
@@ -72,43 +72,10 @@
 				
 				var request:ObservationRequest = event.target as ObservationRequest;
 				
-				observationImages = new ArrayCollection(request.imageUrls);
-				
-				//this.skinLayer.starNameText.text = request.observation.date.toString();
-				
-			}
-			
-			/**
-			 * TODO: Listen for press-and-hold or long touch on the list.
-			 * When a user presses-and-holds (long-touches) an image open it in
-			 * its own view.
-			 */
-			private function onLongTouch(event:Event):void
-			{
-				var selectedWaterfallTile:WaterfallTile = waterfallList.selectedItem as WaterfallTile;
-				
-				if (!selectedWaterfallTile) return;
-				
-				var imageUrlToUse:String = selectedWaterfallTile.imageURL;
-				var messageString:String = "found something interesting in this image using the Personal SETI App";
-				
-				// TODO: Make this less spammy
-//				FacebookAirAndroid.api("me/feed", function(arg0:Object, arg1:Object):void{}, {message:messageString, picture:imageUrlToUse, link:imageUrlToUse}, 'POST'); 
-//				navigator.pushView(com.hg94.seti.views.WaterfallImageView, event.target.data);
-			}
-			
-
-			protected function skinLayer_creationCompleteHandler(event:FlexEvent):void
-			{
-				this.skinLayer.starNameText.text = observation.target.friendlyName;
-			}
-
-
-			protected function view1_creationCompleteHandler(event:FlexEvent):void
-			{
-				this.skinLayer.controlBar.starfieldButton.addEventListener(MouseEvent.CLICK, this.onSkyButtonInteraction);
+				this.visualizationTileList.dataProvider = new ArrayCollection(request.imageUrls);
 			}
 
 		]]>
 	</fx:Script>
+
 </s:View>
