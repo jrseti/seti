@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/2.5">
+<application xmlns="http://ns.adobe.com/air/application/2.6">
 
 <!-- Adobe AIR Application Descriptor File Template.
 
@@ -15,7 +15,7 @@
 
 	<!-- A universally unique application identifier. Must be unique across all AIR applications.
 	Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-	<id>Main</id>
+	<id>com.hg94.seti.explorer.android</id>
 
 	<!-- Used as the filename for the application. Required. -->
 	<filename>Main</filename>
@@ -88,8 +88,9 @@
 		<!-- <maxSize></maxSize> -->
 	<autoOrients>true</autoOrients>
     <fullScreen>false</fullScreen>
-    <visible>false</visible>
-  </initialWindow>
+    <visible>true</visible>
+  <softKeyboardBehavior>none</softKeyboardBehavior>
+    </initialWindow>
 
 	<!-- We recommend omitting the supportedProfiles element, -->
 	<!-- which in turn permits your application to be deployed to all -->
