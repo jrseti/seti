@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>PersonalSETISkin_SamsungGalaxyTab</name>
+	<name>seti-skin</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -15,11 +15,4 @@
 		<nature>com.adobe.flexbuilder.project.flexnature</nature>
 		<nature>com.adobe.flexbuilder.project.actionscriptnature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>[source path] src</name>
-			<type>2</type>
-			<location>/Users/francispotter/Documents/Git/Personal-SETI-Application/AIR/src</location>
-		</link>
-	</linkedResources>
 </projectDescription>

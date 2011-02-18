@@ -5,8 +5,6 @@ package com.hg94.seti.skinnablecomponents
 	
 	import components.ControlBarSkin;
 	
-	import flash.events.MouseEvent;
-	
 	import mx.binding.utils.BindingUtils;
 	import mx.events.FlexEvent;
 	
@@ -53,10 +51,12 @@ package com.hg94.seti.skinnablecomponents
 			BindingUtils.bindProperty(this.starNameText, "text", this, "targetName");
 			BindingUtils.bindProperty(this.targetDescriptionField, "text", this, "targetDescription");
 			BindingUtils.bindProperty(this.observationDateField, "text", this, "observationDate");
-			this.observationFrequencyField.text = "[Frequency]";
+			//BindingUtils.bindProperty(this.observationFrequencyField, "text", this, "observationFrequency");
 			BindingUtils.bindProperty(this.observationCoordinatesField, "text", this, "observationCoordinates");
+			
+			
 		} 
-				
+		
 		/* Implement the getCurrentSkinState() method to set the view state of the skin class. */
 		override protected function getCurrentSkinState():String
 		{

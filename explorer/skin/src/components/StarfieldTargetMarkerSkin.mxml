@@ -2,8 +2,7 @@
 <s:Skin xmlns:s="library://ns.adobe.com/flex/spark"
 		xmlns:fx="http://ns.adobe.com/mxml/2009"
 		xmlns:fc="http://ns.adobe.com/flashcatalyst/2009"
-		xmlns:d="http://ns.adobe.com/fxg/2008/dt"
-		fc:resizable="false">
+		xmlns:d="http://ns.adobe.com/fxg/2008/dt">
 	<fx:Metadata>[HostComponent("com.hg94.seti.skinnablecomponents.StarfieldTargetMarkerSkinnableComponent")]</fx:Metadata>
 	<s:Path d:userLabel="Ellipse" x="-2.346" y="-2.346" width="29" height="29" alpha="0"
 			blendMode="normal"

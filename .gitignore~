@@ -5,7 +5,7 @@
 /AIR/.fxpProperties
 /AIR/.project
 /AIR/.settings/
+/AIR/bin-debug/
 /AIR/build/
 bin-release
 *.fxp
-bin-debug/

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:Group xmlns:s="library://ns.adobe.com/flex/spark"
 		 xmlns:fx="http://ns.adobe.com/mxml/2009"
-		 xmlns:fc="http://ns.adobe.com/flashcatalyst/2009"
-		 fc:resizable="false">
+		 xmlns:fc="http://ns.adobe.com/flashcatalyst/2009">
 	<s:Rect x="0.5" y="0.5" width="1024" height="562">
 		<s:stroke>
 			<s:SolidColorStroke alpha="0" caps="none" color="#000000" joints="miter"

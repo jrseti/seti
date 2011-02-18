@@ -2,8 +2,7 @@
 <s:Skin xmlns:s="library://ns.adobe.com/flex/spark"
 		xmlns:fx="http://ns.adobe.com/mxml/2009"
 		xmlns:fc="http://ns.adobe.com/flashcatalyst/2009"
-		xmlns:skinnablecomponents="com.hg94.seti.skinnablecomponents.*"
-		fc:resizable="false">
+		xmlns:skinnablecomponents="com.hg94.seti.skinnablecomponents.*">
 	<fx:Metadata>[HostComponent("com.hg94.seti.skinnablecomponents.DataVizSkinnableComponent")]</fx:Metadata>
 	<skinnablecomponents:ControlBarSkinnableComponent id="controlBar" x="0" y="0"
 													  skinClass="components.ControlBarSkin"/>

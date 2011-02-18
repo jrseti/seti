@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:Skin xmlns:s="library://ns.adobe.com/flex/spark"
 		xmlns:fx="http://ns.adobe.com/mxml/2009"
-		xmlns:fc="http://ns.adobe.com/flashcatalyst/2009"
-		fc:resizable="false">
+		xmlns:fc="http://ns.adobe.com/flashcatalyst/2009">
 	<fx:Metadata>[HostComponent("com.hg94.seti.skinnablecomponents.ControlBarSkinnableComponent")]</fx:Metadata>
 	<s:Path x="0" y="0" alpha="1" blendMode="normal"
 			data="M 0 0 L 1024 0 L 1024 40 L 0 40 L 0 0 Z" winding="evenOdd">

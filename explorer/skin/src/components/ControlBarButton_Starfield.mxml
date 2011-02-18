@@ -2,8 +2,7 @@
 <s:Skin xmlns:s="library://ns.adobe.com/flex/spark"
 		xmlns:fx="http://ns.adobe.com/mxml/2009"
 		xmlns:fc="http://ns.adobe.com/flashcatalyst/2009"
-		xmlns:d="http://ns.adobe.com/fxg/2008/dt"
-		fc:resizable="false">
+		xmlns:d="http://ns.adobe.com/fxg/2008/dt">
 	<fx:Metadata>[HostComponent("spark.components.Button")]</fx:Metadata>
 	<s:states>
 		<s:State name="up"/>
