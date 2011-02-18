@@ -28,7 +28,7 @@
 	<fx:Script>
 		<![CDATA[
 			import com.hg94.common.facebook.FacebookAirAndroid;
-			import com.hg94.seti.controller.remote.ObservationRequest;
+			import com.hg94.seti.controller.ObservationRequest;
 			import com.hg94.seti.model.Observation;
 			import com.hg94.seti.model.Target;
 			import com.hg94.seti.model.WaterfallTile;

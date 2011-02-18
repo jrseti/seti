@@ -21,8 +21,7 @@
 			import com.google.maps.overlays.Marker;
 			import com.google.maps.overlays.MarkerOptions;
 			import com.google.maps.styles.FillStyle;
-			import com.hg94.seti.controller.remote.TargetListRequest;
-			import com.hg94.seti.model.SETIQuestDataReader;
+			import com.hg94.seti.controller.TargetListRequest;
 			import com.hg94.seti.model.Target;
 			import com.hg94.seti.model.TargetSet;
 			

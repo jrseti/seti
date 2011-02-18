@@ -1,4 +1,4 @@
-package com.hg94.seti.controller.remote
+package com.hg94.seti.controller
 {
 	import com.hg94.seti.model.Observation;
 	import com.hg94.seti.model.Target;

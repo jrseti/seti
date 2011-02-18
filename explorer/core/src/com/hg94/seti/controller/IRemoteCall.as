@@ -1,4 +1,4 @@
-package com.hg94.seti.controller.remote
+package com.hg94.seti.controller
 {
 	import flash.events.Event;
 

@@ -24,7 +24,12 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>[source path] src</name>
+			<name>[source path] core-src</name>
+			<type>2</type>
+			<location>/Users/francispotter/Documents/Git/SETIQuest/explorer/core/src</location>
+		</link>
+		<link>
+			<name>[source path] skin-src</name>
 			<type>2</type>
 			<location>/Users/francispotter/Documents/Git/SETIQuest/explorer/skin/src</location>
 		</link>
