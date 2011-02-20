@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:s="library://ns.adobe.com/flex/spark"
+		 xmlns:fx="http://ns.adobe.com/mxml/2009"
+		 xmlns:fc="http://ns.adobe.com/flashcatalyst/2009"
+		 width="803" height="482" fc:manageBounds="false">
+	<fx:Script>
+		<![CDATA[
+			protected function button_clickHandler():void
+			{
+				const state:String = currentState;
+				if ( state == 'State1' ) {
+					currentState='State2';
+				}
+				if ( state == 'State2' ) {
+					currentState='State3';
+				}
+				if ( state == 'State3' ) {
+					currentState='State4';
+				}
+			}
+		]]>
+
+	</fx:Script>
+	<s:states>
+		<s:State fc:color="0xcc0000" name="State1"/>
+		<s:State fc:color="0x00cc21" name="State2"/>
+		<s:State fc:color="0x0003a3" name="State3"/>
+		<s:State name="State4"/>
+	</s:states>
+	<s:RichText width="291" height="143" color="#FFFFFF" fontFamily="Myriad Pro"
+				fontSize="20" tabStops="S0 S50 S100 S150 S200 S250"
+				left.State1="55" top.State1="80"
+				text.State1="The Allen Telescope Array in California receives radio signals from target stars and galaxies... "
+				left.State2="58" top.State2="75" text.State2="Mostly we see only noise..."
+				left.State3="71" top.State3="86" width.State3="368" height.State3="149"
+				fontSize.State3="36"
+				tabStops.State3="S0 S50 S100 S150 S200 S250 S300 S350 S400 S450 S500 S550 S600 S650"
+				text.State3="What would a signal from an extraterrestrial look like?..."
+				left.State4="50" top.State4="96"
+				text.State4="Look through the data from one target at a time..."/>
+	<s:RichText includeIn="State4,State2,State1" width="291" height="143"
+				color="#FFFFFF" fontFamily="Myriad Pro" fontSize="20"
+				tabStops="S0 S50 S100 S150 S200 S250" text="The SETI Institute plots the data..."
+				left.State1="405" top.State1="80"
+				left.State2="413" top.State2="70" tabStops.State2="S0 S50 S100 S150 S200 S250 S300"
+				text.State2="Sometimes we see lines and other patterns we recognize as coming from Earth-based sources..."
+				left.State4="398" top.State4="89"
+				text.State4="When you see a pattern, mark it and categorize it."/>
+	<s:Button label="Button" click="button_clickHandler()"
+			  skinClass="components.ControlBarButton"
+			  right.State1="38" bottom.State1="30"
+			  right.State2="57" bottom.State2="103"
+			  right.State3="57" bottom.State3="103"
+			  right.State4="57" bottom.State4="103"/>
+</s:Group>

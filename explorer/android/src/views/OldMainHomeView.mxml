@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ViewNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+							xmlns:s="library://ns.adobe.com/flex/spark"
+							firstView="com.hg94.seti.views.TutorialView" backgroundColor="#000000">
+	<fx:Declarations>
+		<!-- 
+		Place non-visual elements (e.g., services, value objects) here 
+		-->
+	</fx:Declarations>
+	<s:creationComplete>
+		<![CDATA[
+		if(Capabilities.cpuArchitecture=="ARM")
+		{
+		NativeApplication.nativeApplication.addEventListener(Event.ACTIVATE, handleActivate, false, 0, true);
+		NativeApplication.nativeApplication.addEventListener(Event.DEACTIVATE, handleDeactivate, false, 0, true);
+		NativeApplication.nativeApplication.addEventListener(KeyboardEvent.KEY_DOWN, handleKeys, false, 0, true);
+		
+		this.systemManager.stage.setAspectRatio(StageAspectRatio.LANDSCAPE);
+		}
+		]]>
+	</s:creationComplete>
+	<fx:Script>
+		<![CDATA[
+			
+			
+			private function handleActivate(event:Event):void
+			{
+				NativeApplication.nativeApplication.systemIdleMode = SystemIdleMode.KEEP_AWAKE;
+			}
+			
+			private function handleDeactivate(event:Event):void
+			{
+				NativeApplication.nativeApplication.exit();
+			}
+			
+			// This was a bit too aggressive, disabled for now.
+			private function handleKeys(event:KeyboardEvent):void
+			{
+				return;
+				
+				if(event.keyCode == Keyboard.BACK)
+					NativeApplication.nativeApplication.exit();
+			}
+		]]>
+	</fx:Script>
+</s:ViewNavigatorApplication>

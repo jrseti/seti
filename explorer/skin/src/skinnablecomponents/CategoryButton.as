@@ -1,9 +1,8 @@
-package com.hg94.seti.skinnablecomponents
+package skinnablecomponents
 {
 	/* For guidance on writing an ActionScript Skinnable Component please refer to the Flex documentation: 
 	www.adobe.com/go/actionscriptskinnablecomponents */
 	
-	import spark.components.Button;
 	import spark.components.supportClasses.SkinnableComponent;
 	
 	
@@ -11,16 +10,12 @@ package com.hg94.seti.skinnablecomponents
 	Use the [SkinState] metadata tag to define the view states in the component class. 
 	[SkinState("normal")] */
 	
-	public class ControlBarSkinnableComponent extends SkinnableComponent
+	public class CategoryButton extends SkinnableComponent
 	{
-		[SkinPart(required="false")]
-		public var starfieldButton:Button;
-		[SkinPart(required="false")]
-		public var datavizButton:Button;
-		[SkinPart(required="false")]
-		public var settingsButton:Button;
+		/* To declare a skin part on a component, you use the [SkinPart] metadata. 
+		[SkinPart(required="true")] */
 		
-		public function ControlBarSkinnableComponent()
+		public function CategoryButton()
 		{
 			//TODO: implement function
 			super();

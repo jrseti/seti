@@ -2,37 +2,4 @@
 <s:Group xmlns:s="library://ns.adobe.com/flex/spark"
 		 xmlns:fx="http://ns.adobe.com/mxml/2009"
 		 xmlns:fc="http://ns.adobe.com/flashcatalyst/2009">
-	<s:Rect x="0.5" y="0.5" width="1024" height="562">
-		<s:stroke>
-			<s:SolidColorStroke alpha="0" caps="none" color="#000000" joints="miter"
-								miterLimit="4" weight="0"/>
-		</s:stroke>
-		<s:fill>
-			<s:SolidColor alpha="1" color="#000000"/>
-		</s:fill>
-	</s:Rect>
-	<s:BitmapImage x="227" y="65" smooth="true" source="@Embed('/assets/images/Image2.png')"/>
-	<s:BitmapImage x="832" y="404" width="143" height="92" smooth="true"
-				   source="@Embed('/assets/images/Image1.png')"/>
-	<s:BitmapImage x="36" y="397" width="195" height="99" smooth="true"
-				   source="@Embed('/assets/images/Group.png')"/>
-	<s:BitmapImage x="370" y="408" width="78" height="96" smooth="true"
-				   source="@Embed('/assets/images/AdobeLogo_192wBlack1.jpg')"/>
-	<s:RichText x="860" y="375" color="#999999" fontFamily="Myriad Pro" fontSize="18"
-				tabStops="S0 S50 S100" text="A Project of"/>
-	<s:RichText x="81" y="375" color="#999999" fontFamily="Myriad Pro" fontSize="18"
-				tabStops="S0 S50 S100" text="Developed by"/>
-	<s:RichText x="357" y="375" color="#999999" fontFamily="Myriad Pro" fontSize="18"
-				tabStops="S0 S50 S100" text="Sponsored by"/>
-	<s:RichText x="443" y="268" width="139" height="27" color="#999999" fontFamily="Myriad Pro"
-				fontSize="12" tabStops="S0 S50 S100" textAlign="center"
-				whiteSpaceCollapse="preserve">
-		<s:content><s:p><s:span>Pre-alpha version 20100207</s:span></s:p><s:p><s:span>For internal use only</s:span></s:p></s:content>
-	</s:RichText>
-	<s:RichText x="436" y="230" color="#CCCCCC" fontFamily="Myriad Pro Semibold" fontSize="36"
-				tabStops="S0 S50 S100 S150" text="Loading..."/>
-	<s:RichText x="578" y="375" color="#999999" fontFamily="Myriad Pro" fontSize="18"
-				tabStops="S0 S50 S100" text="With Support from"/>
-	<s:BitmapImage x="576" y="409" smooth="true"
-				   source="@Embed('/assets/images/FirefoxScreenSnapz005.png')"/>
 </s:Group>

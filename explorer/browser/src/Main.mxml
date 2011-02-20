@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" minWidth="955" minHeight="600"
+			   xmlns:view="com.hg94.seti.view.*"
+			   xmlns:components="components.*"
+			   currentState="Splash"
+			   >
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			
+			protected function splashscreen_creationCompleteHandler(event:FlexEvent):void
+			{
+				this.currentState = "Starfield"
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:states>
+		<s:State name="Starfield"/>
+		<s:State name="Splash"/>
+		<s:State name="DataViz"/>
+	</s:states>
+	<fx:DesignLayer>
+		<view:Splashscreen includeIn="Splash" creationComplete="splashscreen_creationCompleteHandler(event)"/>
+		<view:Starfield includeIn="Starfield"/>
+	</fx:DesignLayer>
+</s:Application>

@@ -19,8 +19,8 @@
 			</s:LinearGradient>
 		</s:fill>
 	</s:Rect>
-	<s:Rect d:userLabel="DownRegion" includeIn="down" x="0" y="0" width="60" height="40" alpha="1"
-			blendMode="normal" radiusX="0" radiusY="0">
+	<s:Rect d:userLabel="DownRegion" includeIn="disabled,down" x="0" y="0" width="60" height="40"
+			alpha="1" blendMode="normal" radiusX="0" radiusY="0">
 		<s:fill>
 			<s:SolidColor color="#197BCE"/>
 		</s:fill>

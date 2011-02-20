@@ -10,74 +10,28 @@
 			   xmlns:flm="http://ns.adobe.com/flame/2008"
 			   xmlns:lib2="assets.graphics.HathersageGroupLogo.*"
 			   xmlns:components="components.*"
-			   xmlns:lib3="assets.graphics.DataVizView.*"
-			   width="1024" height="562" backgroundColor="#000000" preloaderChromeColor="#000000">
+			   xmlns:lib3="assets.graphics.DataVizView.*" width="100%" height="100%"
+			   fc:previewWidth="800" fc:previewHeight="480"
+			   backgroundColor="#000000" preloaderChromeColor="#000000">
 	<fx:Style source="Main.css"/>
 	<fx:Script>
 		<![CDATA[
-			import com.hg94.seti.skinnablecomponents.DataVizScrollBarSkinnableComponent;
-			import com.hg94.seti.skinnablecomponents.DataVizSkinnableComponent;
-			import com.hg94.seti.skinnablecomponents.ControlBarSkinnableComponent;
-			import com.hg94.seti.skinnablecomponents.StarfieldTargetMarkerSkinnableComponent;
-			import com.hg94.seti.skinnablecomponents.StarfieldSkinnableComponent;
+			import skinnablecomponents.CategoryButton;
 			
-			private var com_hg94_seti_skinnablecomponents_StarfieldSkinnableComponent_obj:com.hg94.seti.skinnablecomponents.StarfieldSkinnableComponent;
+			private var skinnablecomponents_CategoryButton_obj:skinnablecomponents.CategoryButton;
+			protected function button_clickHandler():void
+			{
+				const state:String = currentState;
+				if ( state == 'Splash' ) {
+					currentState='Starfield';
+				}
+			}
 			
-			private var com_hg94_seti_skinnablecomponents_StarfieldTargetMarkerSkinnableComponent_obj:com.hg94.seti.skinnablecomponents.StarfieldTargetMarkerSkinnableComponent;
-			
-			private var com_hg94_seti_skinnablecomponents_ControlBarSkinnableComponent_obj:com.hg94.seti.skinnablecomponents.ControlBarSkinnableComponent;
-			
-			private var com_hg94_seti_skinnablecomponents_DataVizSkinnableComponent_obj:com.hg94.seti.skinnablecomponents.DataVizSkinnableComponent;
-			
-			private var com_hg94_seti_skinnablecomponents_DataVizScrollBarSkinnableComponent_obj:com.hg94.seti.skinnablecomponents.DataVizScrollBarSkinnableComponent;
 		]]>
 	</fx:Script>
 	<s:states>
-		<s:State name="Starfield"/>
-		<s:State name="Splash"/>
-		<s:State name="DataViz"/>
+		<s:State fc:color="0xff5f08" name="MainState"/>
 	</s:states>
-	<fx:DesignLayer d:userLabel="Layer_1">
-		<skinnablecomponents:StarfieldSkinnableComponent d:userLabel="Starfield Skinnable Component"
-														 includeIn="Starfield" x="0" y="0"
-														 skinClass="components.StarfieldSkin"/>
-		<skinnablecomponents:StarfieldTargetMarkerSkinnableComponent includeIn="Starfield" x="495"
-																	 y="339"
-																	 skinClass="components.StarfieldTargetMarkerSkin"/>
-		<s:Path includeIn="Starfield" x="-0.5" y="-0.5" alpha="0.050980392156862744"
-				blendMode="normal"
-				data="M 0.5 0.5 L 1024.5 0.5 L 1024.5 40.5 L 0.5 40.5 L 0.5 0.5 Z" winding="evenOdd">
-			<s:stroke>
-				<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-			</s:stroke>
-		</s:Path>
-		<s:Rect includeIn="Starfield" x="965" y="0" width="1" height="40" alpha="0.5019607843137255"
-				blendMode="normal" radiusX="0" radiusY="0">
-			<s:fill>
-				<s:SolidColor color="#000000"/>
-			</s:fill>
-		</s:Rect>
-		<components:SplashSkin d:userLabel="SplashSkin" includeIn="Splash" x="0" y="0"/>
-		<fx:DesignLayer d:userLabel="Layer_1">
-			<s:Path includeIn="DataViz" x="-27.5" y="80.5" alpha="0.050980392156862744"
-					blendMode="normal"
-					data="M 0.5 0.5 L 1024.5 0.5 L 1024.5 40.5 L 0.5 40.5 L 0.5 0.5 Z"
-					winding="evenOdd">
-				<s:stroke>
-					<s:SolidColorStroke color="#ffffff" weight="1" caps="none"/>
-				</s:stroke>
-			</s:Path>
-			<skinnablecomponents:DataVizSkinnableComponent includeIn="DataViz" x="0" y="0"
-														   skinClass="components.DataVizSkin"/>
-		</fx:DesignLayer>
-		<s:Rect includeIn="Starfield" x="719.5" y="185.5" width="58" height="23">
-			<s:stroke>
-				<s:SolidColorStroke caps="none" color="#5C5C5C" joints="miter" miterLimit="4"
-									weight="1"/>
-			</s:stroke>
-			<s:fill>
-				<s:SolidColor color="#FFFFFF"/>
-			</s:fill>
-		</s:Rect>
-	</fx:DesignLayer>
+	<components:MainSkin left="0" right="-1" top="0" bottom="0">
+	</components:MainSkin>
 </s:Application>

@@ -48,6 +48,8 @@
 			</s:LinearGradient>
 		</s:fill>
 	</s:Rect>
-	<s:BitmapImage x="18.75" y="9.3" height="20" blendMode="normal" smooth="true"
-				   source="@Embed('/assets/images/StarfieldView/Image_2.png')"/>
+	<s:RichText x="21" y="7" width="18" height="25" color="#FFFFFF" fontFamily="Arial" fontSize="12"
+				tabStops="S0 S50" textAlign="center" whiteSpaceCollapse="preserve">
+		<s:content><s:p><s:span alignmentBaseline="useDominantBaseline" backgroundAlpha="1" backgroundColor="transparent" breakOpportunity="auto" cffHinting="horizontalStem" digitCase="default" digitWidth="default" dominantBaseline="auto" fontFamily="Arial Rounded MT Bold" fontLookup="embeddedCFF" fontSize="32" ligatureLevel="common" locale="en" renderingMode="cff" textRotation="auto" trackingLeft="0" typographicCase="default">?</s:span><s:span alignmentBaseline="useDominantBaseline" backgroundAlpha="1" backgroundColor="transparent" breakOpportunity="auto" cffHinting="horizontalStem" digitCase="default" digitWidth="default" dominantBaseline="auto" fontLookup="embeddedCFF" fontSize="20" ligatureLevel="common" locale="en" renderingMode="cff" textRotation="auto" trackingLeft="0" typographicCase="default"><s:tab/></s:span></s:p></s:content>
+	</s:RichText>
 </s:Skin>

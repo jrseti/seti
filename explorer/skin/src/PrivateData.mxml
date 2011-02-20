@@ -21,7 +21,9 @@
 			<ai:LayerOptions color="5 31.122 23.09 26.102"/>
 		</ai:PrivateElement>
 		<d:FontMap>
+			<d:Map fontFamily="Arial" postScriptName="ArialMT"/>
 			<d:Map fontFamily="Myriad Pro Semibold" postScriptName="MyriadPro-Semibold"/>
+			<d:Map fontFamily="Arial Rounded MT Bold" postScriptName="ArialRoundedMTBold"/>
 			<d:Map fontFamily="Myriad Pro" postScriptName="MyriadPro-Regular"/>
 		</d:FontMap>
 	</fx:Private>

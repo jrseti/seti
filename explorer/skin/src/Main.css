@@ -1,16 +1,54 @@
 
 @font-face
 {
-	fontFamily: "Myriad Pro";
-	src: url("/Library/Fonts/MyriadPro-Regular.otf");
-	embedAsCFF: true;
-}
-@font-face
-{
 	fontFamily: "Myriad Pro Semibold";
 	src: url("/Library/Fonts/MyriadPro-Semibold.otf");
 	embedAsCFF: true;
 }
+@font-face
+{
+	fontFamily: "Arial Rounded MT Bold";
+	src: url("/Library/Fonts/Arial Rounded Bold.ttf");
+	embedAsCFF: true;
+}
+@font-face
+{
+	fontFamily: "Myriad Pro";
+	src: url("/Library/Fonts/MyriadPro-Regular.otf");
+	embedAsCFF: true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
