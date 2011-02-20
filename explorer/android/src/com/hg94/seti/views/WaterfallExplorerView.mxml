@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark"
-		actionBarVisible="false" xmlns:skinnablecomponents="com.hg94.seti.skinnablecomponents.*" xmlns:components="components.*" creationComplete="view1_creationCompleteHandler(event)" xmlns:components1="com.hg94.seti.views.components.*">
+		xmlns:skinnablecomponents="com.hg94.seti.skinnablecomponents.*" 
+		xmlns:components="com.hg94.seti.views.components.*"
+		actionBarVisible="false" 
+		currentState="loading"
+		creationComplete="view1_creationCompleteHandler(event)">
 	<s:states>
+		<s:State name="loading"/>
+		<s:State name="exploring"/>
 	</s:states>
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
@@ -15,14 +21,28 @@
 												   observationCoordinates="{this.target.coordinateString}"
 												   targetDescription="{this.target.description}"
 												   />
-	<components1:VisualizationTileList id="visualizationTileList" y="41"/>
+	
+	<s:Group width="100%" height="100%">
+		<s:layout>
+			<s:VerticalLayout horizontalAlign="center" verticalAlign.loading="middle" verticalAlign.exploring="top"/>
+		</s:layout>
+
+		
+		<s:BusyIndicator includeIn="loading" />
+		
+		<components:VisualizationTileList id="visualizationTileList" top="41" width="100%" includeIn="exploring"/>
+		<components:FrequencyMarker id="freqMarker" frequency="{visualizationTileList.midFrequency}" includeIn="exploring" />
+
+
+	</s:Group>
 	<fx:Script>
 		<![CDATA[
 			import com.hg94.seti.controller.ObservationRequest;
 			import com.hg94.seti.model.Observation;
 			import com.hg94.seti.model.Target;
-			import mx.events.FlexEvent;
+			
 			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
 			
 			[Bindable]
 			internal var target:Target;
@@ -33,8 +53,12 @@
 			[Bindable]
 			protected var observationImages:ArrayCollection;
 			
+			[Bindable]
+			protected var _midFrequency:String;
+			
 			private function onSkyButtonInteraction(event:Event):void
 			{
+				visualizationTileList.waterfallContentCache.removeAllCacheEntries();
 				navigator.popView();
 			}
 			
@@ -50,7 +74,6 @@
 				this.skinLayer.controlBar.starfieldButton.addEventListener(MouseEvent.CLICK, this.onSkyButtonInteraction);
 			}
 
-			
 			override public function set data(value:Object):void
 			{
 				if (value is Target)
@@ -67,12 +90,14 @@
 			}
 			
 			private function onObservationLoadComplete(event:Event):void {
+				currentState = "exploring";
 				
 				event.currentTarget.removeEventListener(event.type, onObservationLoadComplete);
 				
 				var request:ObservationRequest = event.target as ObservationRequest;
 				
 				this.visualizationTileList.dataProvider = new ArrayCollection(request.imageUrls);
+				
 			}
 
 		]]>

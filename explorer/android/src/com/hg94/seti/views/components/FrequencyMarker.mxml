@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" creationComplete="onCreationComplete()">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import spark.formatters.NumberFormatter;
+			
+			[Bindable]
+			protected var _freq:Number;
+			public function set frequency(value:Number):void{
+				_freq = value;
+			}
+			public function get frequency():Number{
+				return _freq;
+			}
+			
+			[Bindable]
+			protected var numberFormatter:NumberFormatter;
+			
+			protected function onCreationComplete(event:Event=null):void{
+				numberFormatter = new NumberFormatter();
+				numberFormatter.fractionalDigits = 5;
+			}
+		]]>
+	</fx:Script>
+	<s:layout>
+		<s:VerticalLayout horizontalAlign="center" verticalAlign="middle" />
+	</s:layout>
+	<s:Graphic id="triangle" height="20" width="20">
+		<s:Path data="M 0 {triangle.height} L {triangle.width} {triangle.height} L {triangle.width/2} 0  L 0 {triangle.height} Z">
+			<s:stroke>
+				<s:SolidColorStroke caps="none" color="#000000" joints="miter" miterLimit="4" weight="1"/>
+			</s:stroke>
+			<s:fill>
+				<s:LinearGradient rotation="90">
+					<s:GradientEntry alpha="1.0" color="#0000FF" ratio="0"/>
+					<s:GradientEntry alpha="1" color="#000000" ratio="1"/>
+				</s:LinearGradient>
+			</s:fill>
+		</s:Path>
+	</s:Graphic>
+	<s:Label text="{numberFormatter.format(_freq) + ' MHz'}" />
+</s:Group>

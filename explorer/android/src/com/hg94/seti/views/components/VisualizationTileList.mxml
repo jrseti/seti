@@ -2,24 +2,35 @@
 <s:List xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark"
 		direction="ltr" width="100%"
+		verticalScrollPolicy="off"
 		click="onLongTouch(event)"
+		creationComplete="onCreationComplete()"
 		itemRenderer="com.hg94.seti.views.components.WaterfallTileRenderer">
+	<!--
+		Explanation of why we are setting the "verticalScrollPolicy" on an s:List with a Horizontal layout
+		http://opensource.adobe.com/wiki/display/flexsdk/Bounce+and+Pull+Effects+for+List+Specification
+	-->
 	<fx:Declarations>
-		<!-- Place non-visual elements (e.g., services, value objects) here -->
+		<s:ContentCache id="waterfallContentCache" enableQueueing="true" enableCaching="true" maxCacheEntries="100" />
 	</fx:Declarations>
 	<s:layout>
 		<s:HorizontalLayout gap="0"/>
 	</s:layout>
 	<fx:Script>
 		<![CDATA[
-			import com.hg94.common.facebook.FacebookAirAndroid;
-			import com.hg94.seti.controller.ObservationRequest;
-			import com.hg94.seti.model.Observation;
-			import com.hg94.seti.model.Target;
 			import com.hg94.seti.model.WaterfallTile;
 			
-			import mx.events.FlexEvent;
-			import mx.utils.object_proxy;
+			import mx.binding.utils.ChangeWatcher;
+			import mx.collections.ArrayCollection;
+			import mx.collections.IList;
+			
+			
+			[Bindable]
+			public var midFrequency:Number;
+			
+			protected var minWavelength:Number;
+			protected var maxWavelength:Number;
+			
 			/**
 			 * TODO: Listen for press-and-hold or long touch on the list.
 			 * When a user presses-and-holds (long-touches) an image open it in
@@ -32,13 +43,101 @@
 				if (!selectedWaterfallTile) return;
 				
 				var imageUrlToUse:String = selectedWaterfallTile.imageURL;
-				var messageString:String = "found something interesting in this image using the Personal SETI App";
+				var messageString:String = "found something interesting in this image using the SETI Explorer Mobile App";
 				
 				// TODO: Make this less spammy
 				//				FacebookAirAndroid.api("me/feed", function(arg0:Object, arg1:Object):void{}, {message:messageString, picture:imageUrlToUse, link:imageUrlToUse}, 'POST'); 
 				//				navigator.pushView(com.hg94.seti.views.WaterfallImageView, event.target.data);
 			}
 			
+			override public function set dataProvider(value:IList):void{
+				
+				// clear existing cache
+				waterfallContentCache.removeAllCacheEntries();
+				
+				super.dataProvider = value;
+				// start precaching of the images
+				startPrecachingImages();
+				
+				setMinMaxHz();
+				callLater(computeFreq);
+			}
+			
+			//-----------------------------------------------------------------
+			// Image precaching.
+			//-----------------------------------------------------------------
+			
+			/**
+			 * Useful documentation on the 4.5 i6 SDK implementation of the interaction between spark:image and ContentCache
+			 * http://opensource.adobe.com/wiki/display/flexsdk/Spark+Image
+			 */
+			private function startPrecachingImages():void 
+			{
+				for (var i:uint = 0; i<100; i++)
+				{
+					var imageUrl:String = dataProvider.getItemAt(i).toString();
+					waterfallContentCache.load( imageUrl );
+				}
+			}
+			
+			//-----------------------------------------------------------------
+			// Frequency label.
+			//-----------------------------------------------------------------
+			
+			protected function calcCurrentIndex():Number{
+				return Math.floor(scroller.viewport.horizontalScrollPosition/256);
+			}
+			
+			protected function onViewportUpdate(event:Event=null):void{
+				computeFreq();
+			}
+			
+			protected function onCreationComplete(event:Event=null):void{
+				ChangeWatcher.watch(scroller.viewport, "horizontalScrollPosition", onViewportUpdate);
+			}
+			
+			protected function setMinMaxHz():void{
+				var dp:ArrayCollection = dataProvider as ArrayCollection;
+				var firstFile:String = dp.getItemAt(0).toString();
+				var lastFile:String = dp.getItemAt(dp.length -1).toString();
+				var i:uint = 2;
+				while ((lastFile.indexOf("images") == -1) && i < 5){
+					//filenames are malformed from time to time
+					lastFile = dp.getItemAt(dp.length -i).toString();
+					++i;
+				}
+				
+				minWavelength = Number(getMhzFromFileName(firstFile)[0]);
+				maxWavelength = Number(getMhzFromFileName(lastFile)[1]);			
+			}
+			
+			protected function getMhzFromFileName(file:String):Array{
+				//images/chan-1532/chan-1532-3-4458.731468-4458.731734.png
+				var parts:Array = file.split("/");
+				var stuff:Array = parts[parts.length -1].split("-");
+				var first:String = stuff[stuff.length-2].toString();
+				var last:String = stuff[stuff.length-1].toString().split(".")[0].toString();
+				return [first, last];
+			}
+			
+			protected function computeFreq():void{
+				
+				var max:Number = dataGroup.contentWidth;
+				var current:Number = scroller.viewport.horizontalScrollPosition;
+				//var toEnd:Number = Math.abs(visualizationTileList.layout.getHorizontalScrollPositionDelta(NavigationUnit.END));
+				//var toBeginning:Number = Math.abs(visualizationTileList.layout.getHorizontalScrollPositionDelta(NavigationUnit.HOME));
+				if (current == 0){
+					var fractional:Number = (scroller.viewport.width/max) * (maxWavelength - minWavelength);
+					midFrequency = minWavelength + (fractional/2);
+					return;
+				}
+				
+				var percThrough:Number = current/max;
+				var freq:Number = ((maxWavelength - minWavelength) * percThrough) + minWavelength;
+				if (!isNaN(freq)){
+					midFrequency = freq;
+				}
+			}
 		]]>
 	</fx:Script>
 </s:List>

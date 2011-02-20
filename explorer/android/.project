@@ -3,6 +3,7 @@
 	<name>seti-android</name>
 	<comment></comment>
 	<projects>
+		<project>seti-skin</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

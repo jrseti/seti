@@ -3,6 +3,7 @@
 	<name>seti-core</name>
 	<comment></comment>
 	<projects>
+		<project>seti-skin</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
