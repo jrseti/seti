@@ -8,7 +8,7 @@
 
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
-				navigator.pushView(com.hg94.seti.views.StarfieldView);
+				//navigator.pushView(com.hg94.seti.views.StarfieldView);
 
 			}
 

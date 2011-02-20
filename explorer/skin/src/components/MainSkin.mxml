@@ -8,7 +8,8 @@
 		 xmlns:skinnablecomponents2="skinnablecomponents.*"
 		 xmlns:lib="assets.graphics.setiQuestExplorerLogo.*"
 		 xmlns:graphics="assets.graphics.*"
-		 width="800" height="480" fc:manageBounds="false">
+		 width="800" height="480" fc:manageBounds="false"
+		 >
 	<fx:Script>
 		<![CDATA[
 			
@@ -214,7 +215,7 @@
 			  skinClass="components.StarfieldSkinZoomOutButton"/>
 	<s:Button id="zoomInButton1" includeIn="ExploreSky" right="9" bottom="27"
 			  skinClass="components.StarfieldSkinZoomInButton"/>
-	<components:AssignmentStarfieldPlaceholder id="assignmentStarfieldPlaceholder"
+	<components:AssignmentStarfieldPlaceholder id="assignmentStarfieldPlaceholder" itemCreationPolicy="immediate"
 											   includeIn="Assignment" left="0" right="0" top="40"
 											   bottom="0"/>
 	<components:DataVizTileListPlaceholder d:userLabel="TileListPlaceholder"

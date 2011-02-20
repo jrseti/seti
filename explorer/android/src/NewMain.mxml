@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
 			   xmlns:s="library://ns.adobe.com/flex/spark" xmlns:components="components.*" backgroundColor="#000000">
+	<fx:Script>
+		<![CDATA[
+			import com.hg94.seti.view.AssignmentStarfield;
+			private var assignmentStarfield:AssignmentStarfield;
+		]]>
+	</fx:Script>
+	<s:creationComplete>
+		<![CDATA[
+			assignmentStarfield = new AssignmentStarfield(this.mainSkin.assignmentStarfieldPlaceholder);
+		]]>
+	</s:creationComplete>
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
