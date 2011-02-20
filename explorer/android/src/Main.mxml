@@ -23,6 +23,19 @@
 	<fx:Script>
 		<![CDATA[
 			
+			/**
+			 * Flex 4.5 i6 Hero SDK reference and documentation can be found here:
+			 * http://opensource.adobe.com/wiki/display/flexsdk/Hero
+			 * 
+			 * 
+			 * Might be interesting to possibly implement one of these:
+			 * http://opensource.adobe.com/wiki/display/flexsdk/Mobile+Splash+Screen
+			 * http://opensource.adobe.com/wiki/display/flexsdk/Busy+Indicator
+			 * 
+			 * 
+			 * The docs on view transitions, for switching between views:
+			 * http://opensource.adobe.com/wiki/display/flexsdk/View+Transitions
+			 */
 			
 			private function handleActivate(event:Event):void
 			{

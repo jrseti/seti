@@ -6,6 +6,10 @@
 		click="onLongTouch(event)"
 		creationComplete="onCreationComplete()"
 		itemRenderer="com.hg94.seti.views.components.WaterfallTileRenderer">
+	<!--
+		Explanation of why we are setting the "verticalScrollPolicy" on an s:List with a Horizontal layout
+		http://opensource.adobe.com/wiki/display/flexsdk/Bounce+and+Pull+Effects+for+List+Specification
+	-->
 	<fx:Declarations>
 		<s:ContentCache id="waterfallContentCache" enableQueueing="true" enableCaching="true" maxCacheEntries="100" />
 	</fx:Declarations>
@@ -63,6 +67,10 @@
 			// Image precaching.
 			//-----------------------------------------------------------------
 			
+			/**
+			 * Useful documentation on the 4.5 i6 SDK implementation of the interaction between spark:image and ContentCache
+			 * http://opensource.adobe.com/wiki/display/flexsdk/Spark+Image
+			 */
 			private function startPrecachingImages():void 
 			{
 				for (var i:uint = 0; i<100; i++)

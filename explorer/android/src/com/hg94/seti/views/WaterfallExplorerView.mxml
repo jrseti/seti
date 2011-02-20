@@ -87,6 +87,7 @@
 			}
 			
 			private function onObservationLoadComplete(event:Event):void {
+				currentState = "exploring";
 				
 				event.currentTarget.removeEventListener(event.type, onObservationLoadComplete);
 				
@@ -94,7 +95,6 @@
 				
 				this.visualizationTileList.dataProvider = new ArrayCollection(request.imageUrls);
 				
-				currentState = "exploring";
 			}
 
 		]]>
