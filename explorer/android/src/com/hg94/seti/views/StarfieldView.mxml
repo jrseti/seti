@@ -2,18 +2,15 @@
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark"
 		xmlns:components="components.*"
-		currentState="loading"
 		title="Stars" 
 		actionBarVisible="false"
 		creationComplete="view1_creationCompleteHandler(event)" xmlns:skinnablecomponents="com.hg94.seti.skinnablecomponents.*">
 	<s:states>
-		<s:State name="loading"/>
-		<s:State name="starsOnly"/>
 	</s:states>
 	<fx:Script>
 		<![CDATA[
 			import com.google.maps.LatLng;
-			import com.google.maps.Map;
+			import com.google.maps.Map3D;
 			import com.google.maps.MapEvent;
 			import com.google.maps.MapMouseEvent;
 			import com.google.maps.MapOptions;
@@ -29,7 +26,6 @@
 			
 			import mx.events.FlexEvent;
 			
-			private static const STATE_STARS_ONLY:String = "starsOnly";
 			private static const HATHERSAGE_MAP_API_KEY:String = "ABQIAAAAEwk3rg5igZgbfHAAaPpdnhS3hwEVAxBLwgX-yCFBjg8qlFo5UxTVUCdE50GpyF9WvX4b62ZJcx0ASA";
 			
 			protected var _targetSet:TargetSet;
@@ -50,16 +46,24 @@
 				
 				for each (var target:Target in this._targetSet.targetArray) {
 					_targetArray.push(target.getGoogleSkyCoordinates());
-					var marker:Marker = new Marker(target.getGoogleSkyCoordinates());
-					marker.addEventListener(MapMouseEvent.CLICK, onMarkerInteraction);
-					var markerOptions:MarkerOptions = marker.getOptions();
-					markerOptions.icon = new StarfieldTargetMarkerSkin();
-					markerOptions.iconOffset = new Point(-8,-8);
-					marker.setOptions(markerOptions);
-					map.addOverlay(marker);
+					if (false)
+					{
+						addMarkerForTarget( target );
+					}
 				}
 				
-				currentState=STATE_STARS_ONLY;
+				goToAssignment();
+			}
+			
+			private function addMarkerForTarget(target:Target):void
+			{
+				var marker:Marker = new Marker(target.getGoogleSkyCoordinates());
+				marker.addEventListener(MapMouseEvent.CLICK, onMarkerInteraction);
+				var markerOptions:MarkerOptions = marker.getOptions();
+				markerOptions.icon = new StarfieldTargetMarkerSkin();
+				markerOptions.iconOffset = new Point(-8,-8);
+				marker.setOptions(markerOptions);
+				map.addOverlay(marker);
 			}
 			
 			private function onMapPreinitialize(event:Event):void 
@@ -74,9 +78,28 @@
 			
 			private function onMapReady(event:MapEvent):void
 			{
-				event.target.addMapType(Sky.VISIBLE_MAP_TYPE);
-			
 				loadTargetList();
+			}
+			
+			private function goToAssignment():void
+			{
+				var assignmetIndex:int = int(Math.round((Math.random() * _targetSet.targetArray.length)));
+				var assignment:Target = _targetSet.targetArray.getItemAt( assignmetIndex ) as Target;
+				_currentTarget = assignment;
+				addMarkerForTarget( assignment );
+				map.flyTo(assignment.getGoogleSkyCoordinates(), map.getZoom() + 3, map.getAttitude(), 3);
+			}
+			
+			[Bindable(event="mapevent_mapready")]
+			private function get targetFriendlyName():String
+			{
+				return _currentTarget.friendlyName;
+			}
+			
+			[Bindable(event="mapevent_mapready")]
+			private function get observationInfo():String
+			{
+				return _currentTarget.defaultObservation.date.toString();
 			}
 			
 			private function onMarkerInteraction(event:MapMouseEvent):void
@@ -105,15 +128,18 @@
 				return _currentTarget.friendlyName;
 			}
 			
+			protected function get maxZoomLevel():Number
+			{
+				return map.getMaxZoomLevel();
+			}
 
 			protected function zoomInButton_clickHandler(event:MouseEvent):void
 			{
-				if (map.getZoom() < map.getMaxZoomLevel()){
+				if (map.getZoom() < maxZoomLevel){
 					this.map.zoomIn();
 				}
 			}
-
-
+			
 			protected function zoomOutButton_clickHandler(event:MouseEvent):void
 			{
 				if (map.getZoom() > map.getMinZoomLevel()){
@@ -121,25 +147,27 @@
 				}
 			}
 			
-			private var map:Map;
+			private var map:Map3D;
 			
 			protected function view1_creationCompleteHandler(event:FlexEvent):void
 			{
 				this.starfieldSkin.zoomInButton.addEventListener(MouseEvent.CLICK, this.zoomInButton_clickHandler);
 				this.starfieldSkin.zoomOutButton.addEventListener(MouseEvent.CLICK, this.zoomOutButton_clickHandler);
 				
-				map = new Map();
+				map = new Map3D();
+//				map = new HathersageMap3D();
 				map.key=HATHERSAGE_MAP_API_KEY;
 				map.url="http://hathersagegroup.com"
 				map.sensor="false"
 				map.percentWidth=100;
 				map.percentHeight=100;
 				map.addEventListener(MapEvent.MAP_PREINITIALIZE,onMapPreinitialize);
+				
 				map.addEventListener(MapEvent.MAP_READY,onMapReady);
 				
 				mapGroup.addElement(map);
 			}
-
+			
 		]]>
 	</fx:Script>
 	<fx:Declarations>
@@ -147,6 +175,11 @@
 	</fx:Declarations>
 	<s:Group width="100%" height="100%">
 		<s:Group id="mapGroup" width="100%" height="100%"/>
-		<components:StarfieldSkin id="starfieldSkin" visible.loading="false"/>
+		<s:Group id="infoGroup" width="100%" height="100%">
+			<s:Label text="Your Assignment" left="15" top="15" color="0xffffff"/>
+			<s:Label text="{targetFriendlyName}" left="15" bottom="50" color="0xffffff"/>
+			<s:Label text="{observationInfo}" left="15" bottom="30" color="0xffffff"/>
+		</s:Group>
+		<components:StarfieldSkin id="starfieldSkin"/>
 	</s:Group>
 </s:View>

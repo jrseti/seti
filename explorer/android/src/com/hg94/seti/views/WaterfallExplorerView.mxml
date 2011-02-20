@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark"
-		actionBarVisible="false" xmlns:skinnablecomponents="com.hg94.seti.skinnablecomponents.*" xmlns:components="components.*" creationComplete="view1_creationCompleteHandler(event)" xmlns:components1="com.hg94.seti.views.components.*">
+		xmlns:skinnablecomponents="com.hg94.seti.skinnablecomponents.*" 
+		xmlns:components="com.hg94.seti.views.components.*"
+		actionBarVisible="false" 
+		currentState="loading"
+		creationComplete="view1_creationCompleteHandler(event)">
 	<s:states>
+		<s:State name="loading"/>
+		<s:State name="exploring"/>
 	</s:states>
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
@@ -20,8 +26,11 @@
 		<s:layout>
 			<s:VerticalLayout horizontalAlign="center"/>
 		</s:layout>
-		<components1:VisualizationTileList id="visualizationTileList" top="41"   width="100%"   />
-		<components1:HzMarker id="freqMarker" label="{visualizationTileList.midFrequency}" visible="false" />
+		
+		<s:BusyIndicator includeIn="loading" />
+		
+		<components:VisualizationTileList id="visualizationTileList" top="41" width="100%" includeIn="exploring"/>
+		<components:HzMarker id="freqMarker" label="{visualizationTileList.midFrequency}" includeIn="exploring" />
 	</s:Group>
 	<fx:Script>
 		<![CDATA[
@@ -29,7 +38,6 @@
 			import com.hg94.seti.model.Observation;
 			import com.hg94.seti.model.Target;
 			
-			import mx.binding.utils.ChangeWatcher;
 			import mx.collections.ArrayCollection;
 			import mx.events.FlexEvent;
 			
@@ -45,10 +53,9 @@
 			[Bindable]
 			protected var _midFrequency:String;
 			
-			
-			
 			private function onSkyButtonInteraction(event:Event):void
 			{
+				visualizationTileList.waterfallContentCache.removeAllCacheEntries();
 				navigator.popView();
 			}
 			
@@ -64,7 +71,6 @@
 				this.skinLayer.controlBar.starfieldButton.addEventListener(MouseEvent.CLICK, this.onSkyButtonInteraction);
 			}
 
-			
 			override public function set data(value:Object):void
 			{
 				if (value is Target)
@@ -88,10 +94,8 @@
 				
 				this.visualizationTileList.dataProvider = new ArrayCollection(request.imageUrls);
 				
-				freqMarker.visible = true;
+				currentState = "exploring";
 			}
-			
-			
 
 		]]>
 	</fx:Script>
