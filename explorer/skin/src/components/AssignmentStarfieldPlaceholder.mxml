@@ -6,7 +6,7 @@
 	<s:Rect id="assignmentStarfieldPlaceholder" d:userLabel="Assignment_Starfield_Placeholder"
 			left="0" right="0" top="0" bottom="0">
 		<s:fill>
-			<s:SolidColor color="#FF00CF"/>
+			<s:SolidColor color="#130D4F"/>
 		</s:fill>
 	</s:Rect>
 </s:Group>

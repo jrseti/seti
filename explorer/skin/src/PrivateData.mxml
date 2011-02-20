@@ -25,6 +25,8 @@
 			<d:Map fontFamily="Myriad Pro Semibold" postScriptName="MyriadPro-Semibold"/>
 			<d:Map fontFamily="Arial Rounded MT Bold" postScriptName="ArialRoundedMTBold"/>
 			<d:Map fontFamily="Myriad Pro" postScriptName="MyriadPro-Regular"/>
+			<d:Map fontFamily="Myriad Pro Black" postScriptName="MyriadPro-Black"/>
+			<d:Map fontFamily="Myriad Pro Light" postScriptName="MyriadPro-Light"/>
 		</d:FontMap>
 	</fx:Private>
 	<!-- This file contains metadata shared between Flash Catalyst and Flash Builder. It does not affect your compiled application. -->

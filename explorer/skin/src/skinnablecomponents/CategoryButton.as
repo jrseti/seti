@@ -40,8 +40,5 @@ package skinnablecomponents
 			super.partRemoved(partName, instance);
 		}
 		
-		[Bindable] public var horizontalScrollPosition:Number;
-		[Bindable] public var horizontalScrollPercentage:Number;
-		
 	}
 }

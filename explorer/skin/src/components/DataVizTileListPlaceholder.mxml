@@ -5,7 +5,7 @@
 		 width="800" height="340">
 	<s:Rect d:userLabel="DataViz_TileList_Placeholder" left="0" right="0" top="0" bottom="0">
 		<s:fill>
-			<s:SolidColor color="#00DE00"/>
+			<s:SolidColor color="#024702"/>
 		</s:fill>
 	</s:Rect>
 </s:Group>

@@ -6,45 +6,23 @@
 		 xmlns:d="http://ns.adobe.com/fxg/2008/dt"
 		 xmlns:components="components.*"
 		 xmlns:skinnablecomponents2="skinnablecomponents.*"
+		 xmlns:lib="assets.graphics.setiQuestExplorerLogo.*"
+		 xmlns:graphics="assets.graphics.*"
 		 width="800" height="480" fc:manageBounds="false">
 	<fx:Script>
 		<![CDATA[
-			protected function button_clickHandler():void
-			{
-				currentState='Tutorial1';
-			}
+			
 
-			protected function button_clickHandler_1():void
-			{
-				const state:String = currentState;
-				if ( state == 'Tutorial1' ) {
-					currentState='Tutorial2';
-				}
-				if ( state == 'Tutorial2' ) {
-					currentState='Tutorial3';
-				}
-				if ( state == 'Tutorial3' ) {
-					currentState='Assignment';
-				}
-			}
+			
 
 
-			protected function button_clickHandler_2():void
-			{
-				currentState='DataViz';
-			}
+			
 
 
-			protected function button_clickHandler_3():void
-			{
-				currentState='Categorize';
-			}
+			
 
 
-			protected function button_clickHandler_4():void
-			{
-				currentState='DataViz';
-			}
+			
 
 
 			protected function categoryButton_clickHandler():void
@@ -119,36 +97,78 @@
 				currentState='Assignment';
 			}
 
+
+			protected function button_clickHandler():void
+			{
+				const state:String = currentState;
+				if ( state == 'Loading_Othertimes' ) {
+					currentState='Assignment';
+				}
+				if ( state == 'Loading_Firsttime' ) {
+					currentState='Tutorial1';
+				}
+				if ( state == 'Tutorial1' ) {
+					currentState='Tutorial2';
+				}
+				if ( state == 'Tutorial2' ) {
+					currentState='Tutorial3';
+				}
+				if ( state == 'Tutorial3' ) {
+					currentState='Tutorial4';
+				}
+				if ( state == 'Tutorial4' ) {
+					currentState='Tutorial5';
+				}
+				if ( state == 'Tutorial5' ) {
+					currentState='Tutorial6';
+				}
+				if ( state == 'Tutorial6' ) {
+					currentState='Tutorial7';
+				}
+				if ( state == 'Tutorial7' ) {
+					currentState='Tutorial8';
+				}
+				if ( state == 'Tutorial8' ) {
+					currentState='Assignment';
+				}
+				if ( state == 'Assignment' ) {
+					currentState='DataViz';
+				}
+				if ( state == 'DataViz' ) {
+					currentState='Categorize';
+				}
+				if ( state == 'Signal' ) {
+					currentState='DataViz';
+				}
+			}
+
 		]]>
 
 	</fx:Script>
 	<s:states>
-		<s:State name="Loading"/>
-		<s:State name="Tutorial1"/>
-		<s:State name="Tutorial2"/>
-		<s:State name="Tutorial3"/>
-		<s:State name="ExploreSky"/>
-		<s:State name="DataViz"/>
-		<s:State name="Assignment"/>
-		<s:State name="Categorize"/>
-		<s:State name="Signal"/>
-		<s:State name="Settings"/>
+		<s:State fc:color="0xcc0000" name="Loading_Firsttime"/>
+		<s:State fc:color="0x0081cc" name="Tutorial1"/>
+		<s:State fc:color="0x00cc21" name="Tutorial2"/>
+		<s:State fc:color="0x0003a3" name="Tutorial3"/>
+		<s:State fc:color="0xff5f08" name="ExploreSky"/>
+		<s:State fc:color="0xdf08ff" name="DataViz"/>
+		<s:State fc:color="0x82ff36" name="Assignment"/>
+		<s:State fc:color="0x919410" name="Categorize"/>
+		<s:State fc:color="0xa30017" name="Signal"/>
+		<s:State fc:color="0x08ffb6" name="Settings"/>
+		<s:State fc:color="0x510900" name="Loading_Othertimes"/>
+		<s:State fc:color="0xbbcc00" name="Tutorial4"/>
+		<s:State fc:color="0x9308ff" name="Tutorial5"/>
+		<s:State name="Tutorial6"/>
+		<s:State name="Tutorial7"/>
+		<s:State name="Tutorial8"/>
 	</s:states>
-	<s:BitmapImage d:userLabel="Galaxy Image" smooth="true"
-				   source="@Embed('/assets/images/SpiralGalaxyNGC2841.jpg')"
-				   x.Assignment="0" y.Assignment="-9" width.Assignment="800" height.Assignment="501"
-				   x.Categorize="0" y.Categorize="-9" width.Categorize="800" height.Categorize="501"
-				   x.DataViz="0" y.DataViz="-9" width.DataViz="800" height.DataViz="501"
-				   x.ExploreSky="0" y.ExploreSky="-9" width.ExploreSky="800" height.ExploreSky="501"
-				   left.Loading="0" right.Loading="0" top.Loading="-9" bottom.Loading="-12"
-				   x.Settings="0" y.Settings="-9" width.Settings="800" height.Settings="501"
-				   x.Signal="0" y.Signal="-9" width.Signal="800" height.Signal="501"
-				   x.Tutorial1="0" y.Tutorial1="-9" width.Tutorial1="800" height.Tutorial1="501"
-				   x.Tutorial2="0" y.Tutorial2="-9" width.Tutorial2="800" height.Tutorial2="501"
-				   x.Tutorial3="0" y.Tutorial3="-9" width.Tutorial3="800" height.Tutorial3="501"/>
-	<s:Rect includeIn="Loading" left="0" right="0" top="0" bottom="0" alpha="0">
+	<s:BitmapImage d:userLabel="Galaxy Image" includeIn="Loading_Othertimes,Loading_Firsttime" left="0" right="0" top="-9"
+				   bottom="-12" smooth="true"
+				   source="@Embed('/assets/images/SpiralGalaxyNGC2841.jpg')"/>
+	<s:Rect includeIn="Loading_Othertimes,Loading_Firsttime" left="0" right="0" top="0" bottom="0" alpha="0">
 	</s:Rect>
-	<s:Path includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Tutorial3,Tutorial2,Tutorial1,Categorize"
+	<s:Path includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
 			alpha="1" blendMode="normal" data="M 0 0 L 1024 0 L 1024 40 L 0 40 L 0 0 Z"
 			winding="evenOdd"
 			left.Assignment="0" right.Assignment="0" top.Assignment="0"
@@ -159,7 +179,12 @@
 			left.Signal="0" right.Signal="0" top.Signal="0"
 			left.Tutorial1="0" right.Tutorial1="0" top.Tutorial1="0"
 			left.Tutorial2="0" right.Tutorial2="0" top.Tutorial2="0"
-			left.Tutorial3="0" right.Tutorial3="0" top.Tutorial3="0">
+			left.Tutorial3="0" right.Tutorial3="0" top.Tutorial3="0"
+			left.Tutorial4="0" right.Tutorial4="0" top.Tutorial4="0"
+			left.Tutorial5="0" right.Tutorial5="0" top.Tutorial5="0"
+			left.Tutorial6="0" right.Tutorial6="0" top.Tutorial6="0"
+			left.Tutorial7="0" right.Tutorial7="0" top.Tutorial7="0"
+			left.Tutorial8="0" right.Tutorial8="0" top.Tutorial8="0">
 		<s:fill>
 			<s:LinearGradient x="-476.685" y="0" scaleX="24.415" rotation="90">
 				<s:GradientEntry color="#504f50" ratio="0" alpha="1"/>
@@ -167,51 +192,24 @@
 			</s:LinearGradient>
 		</s:fill>
 	</s:Path>
-	<s:BitmapImage smooth="true" source="@Embed('/assets/images/RasterizedItems.png')"
-				   left.Assignment="12" top.Assignment="8"
-				   left.Categorize="12" top.Categorize="8"
-				   left.DataViz="12" top.DataViz="8"
-				   x.ExploreSky="12" y.ExploreSky="8"
-				   visible.Loading="false" left.Loading="12" top.Loading="8"
-				   x.Settings="12" y.Settings="8"
-				   left.Signal="12" top.Signal="8"
-				   left.Tutorial1="12" top.Tutorial1="8"
-				   left.Tutorial2="12" top.Tutorial2="8"
-				   x.Tutorial3="12" y.Tutorial3="8"/>
 	<s:Button id="starfieldButton1"
-			  includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Tutorial3,Tutorial2,Tutorial1,Categorize"
+			  includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
 			  right="180" top="0" label="Button" click="button_clickHandler_8()"
 			  skinClass="components.ControlBarButton_Assignment"
 			  enabled.Assignment="false"/>
 	<s:Button id="datavizButton1"
-			  includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Tutorial3,Tutorial2,Tutorial1,Categorize"
+			  includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
 			  right="120" top="0" label="Button" click="button_clickHandler_7()"
 			  skinClass="components.ControlBarButton_DataViz"
 			  enabled.DataViz="false"/>
 	<s:Button id="settingsButton1"
-			  includeIn="Assignment,Categorize,DataViz,ExploreSky,Settings,Signal,Tutorial1,Tutorial2,Tutorial3"
+			  includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
 			  right="60" top="0" label="Button" click="button_clickHandler_6()"
 			  skinClass="components.ControlBarButton_Settings"
 			  enabled.Settings="false"/>
-	<s:BitmapImage includeIn="Loading" left="114" right="114" top="60" fillMode="clip" smooth="true"
-				   source="@Embed('/assets/images/Image2.png')"/>
-	<s:BitmapImage includeIn="Loading" right="74" bottom="63" width="143" height="92" smooth="true"
-				   source="@Embed('/assets/images/Image1.png')"/>
-	<s:BitmapImage includeIn="Loading" x="364" y="332" width="78" height="96" fillMode="scale"
-				   smooth="true" source="@Embed('/assets/images/AdobeLogo_192wBlack1.jpg')"/>
-	<s:RichText includeIn="Loading" right="102" bottom="166" color="#999999" fontFamily="Myriad Pro"
-				fontSize="18" tabStops="S0 S50 S100" text="A Project of"/>
-	<s:RichText includeIn="Loading" left="79" bottom="155" color="#999999" fontFamily="Myriad Pro"
-				fontSize="18" tabStops="S0 S50 S100" text="Developed by"/>
-	<s:RichText includeIn="Loading" left="351" right="345" bottom="163" color="#999999"
-				fontFamily="Myriad Pro" fontSize="18" tabStops="S0 S50 S100" text="Sponsored by"
-				textAlign="center"/>
-	<s:RichText includeIn="Loading" left="330" right="331" top="238" bottom="225" color="#999999"
-				fontFamily="Myriad Pro" fontSize="12" tabStops="S0 S50 S100"
+	<s:RichText includeIn="Loading_Othertimes,Loading_Firsttime" left="10" bottom="7" width="139" height="17" color="#CCCCCC"
+				fontFamily="Myriad Pro" fontSize="16" tabStops="S0 S50 S100"
 				text="Pre-Release Version" textAlign="center" whiteSpaceCollapse="preserve"/>
-	<s:RichText includeIn="Loading" left="323" right="324" top="197" bottom="247" color="#CCCCCC"
-				fontFamily="Myriad Pro Semibold" fontSize="36" tabStops="S0 S50 S100 S150"
-				text="Loading..." textAlign="center"/>
 	<s:Button id="zoomOutButton1" includeIn="ExploreSky" right="49" bottom="27"
 			  skinClass="components.StarfieldSkinZoomOutButton"/>
 	<s:Button id="zoomInButton1" includeIn="ExploreSky" right="9" bottom="27"
@@ -226,50 +224,33 @@
 				left="10" bottom="72" width="394" height="20" color="#FFFFFF"
 				fontFamily="Myriad Pro Semibold" fontSize="24" lineHeight="100%"
 				tabStops="S0 S50 S100 S150 S200 S250 S300 S350 S400 S450 S500" text="Tau Ceti"/>
-	<s:RichText id="observationDateField1" d:userLabel="Observation_Date"
-				includeIn="Assignment,DataViz,Signal" right="9" bottom="67" width="224" height="22"
-				color="#FFFFFF" fontFamily="Myriad Pro" fontSize="24" lineHeight="100%"
+	<s:RichText id="observationDateField1" d:userLabel="Observation_Date" includeIn="Assignment,DataViz,Signal"
+				right="11" bottom="70" width="224" height="22" color="#FFFFFF"
+				fontFamily="Myriad Pro" fontSize="24" lineHeight="100%"
 				tabStops="S0 S50 S100 S150 S200" text="November 4, 2010" textAlign="end"/>
-	<s:RichText id="targetDescriptionField1" d:userLabel="Target_Description" includeIn="Assignment"
-				left="7" bottom="5" width="288" height="63" color="#999999" fontFamily="Myriad Pro"
+	<s:RichText id="targetDescriptionField1" d:userLabel="Target_Description" includeIn="Assignment,DataViz"
+				left="10" bottom="11" width="288" height="52" color="#999999" fontFamily="Myriad Pro"
 				fontSize="16" lineHeight="100%" tabStops="S0 S50 S100 S150 S200 S250 S300"
 				whiteSpaceCollapse="preserve">
 		<s:content><s:p><s:span>Fourth star in the constellation Taurus</s:span></s:p><s:p><s:span>12 Light years away</s:span></s:p><s:p><s:span>Thought to have 7 planets</s:span></s:p></s:content>
 	</s:RichText>
-	<s:RichText id="observationFrequencyField1" d:userLabel="Observation_Frequency"
-				includeIn="Assignment" right="15" bottom="26" width="224" height="16"
-				color="#CCCCCC" fontFamily="Myriad Pro" fontSize="18" lineHeight="100%"
-				tabStops="S0 S50 S100 S150 S200" text="1400 - 1542 MHz" textAlign="end"/>
+	<s:RichText id="observationFrequencyField1" d:userLabel="Frequency"
+				includeIn="Assignment,DataViz,Signal" left="288" right="288" height="16"
+				color="#999999" fontFamily="Myriad Pro" fontSize="16" lineHeight="100%"
+				tabStops="S0 S50 S100 S150 S200" text="9999.99999 MHz" textAlign="center"
+				bottom.Assignment="68" text.Assignment="9999 - 9999 MHz"
+				top.DataViz="396"
+				top.Signal="396"/>
 	<s:RichText id="observationCoordinatesField1" d:userLabel="Target_Coordinates"
-				includeIn="Assignment" right="10" bottom="48" width="224" height="16"
-				color="#CCCCCC" fontFamily="Myriad Pro" fontSize="18" lineHeight="100%"
+				includeIn="Assignment,DataViz" right="13" bottom="51" width="224" height="16"
+				color="#666666" fontFamily="Myriad Pro" fontSize="12" lineHeight="100%"
 				tabStops="S0 S50 S100 S150 S200" text="RA: 34.576, Decl: -15.676" textAlign="end"/>
-	<s:Button includeIn="Loading" right="27" bottom="17" label="Get Started"
-			  click="button_clickHandler()" skinClass="components.Loading_Button_GetStarted"/>
-	<s:Button includeIn="Tutorial1,Tutorial2,Tutorial3" bottom="22" label="&gt;"
-			  click="button_clickHandler_1()"
-			  right.Tutorial1="20"
-			  right.Tutorial2="20"
-			  right.Tutorial3="8" label.Tutorial3="Get Started"/>
-	<s:Button includeIn="Assignment" left="321" right="328" bottom="31" height="26" label="View Data"
-			  click="button_clickHandler_2()"/>
-	<s:Path includeIn="DataViz,Signal" left="377.705" right="408.005" top="383.506" height="11.49"
-			data="M 30.30 26.50 L 0.01 25.99 15.59 0.01 Z ">
-		<s:fill>
-			<s:SolidColor color="#00DE00"/>
-		</s:fill>
-	</s:Path>
-	<s:RichText d:userLabel="DataViz_Frequency" includeIn="DataViz,Signal" left="288" right="318"
-				top="398" height="13" color="#FFFFFF" fontFamily="Arial" fontSize="14"
-				tabStops="S0 S50 S100 S150" text="9999.999999 MHz" textAlign="center"/>
-	<s:Button includeIn="DataViz" left="343" right="373" bottom="12" label="Mark Signal"
-			  click="button_clickHandler_3()"/>
-	<s:RichText includeIn="Categorize" left="13" top="397" width="178" height="57" color="#FFFFFF"
+	<s:RichText includeIn="Categorize" left="10" top="393" width="178" height="37" color="#FFFFFF"
 				fontFamily="Arial" fontSize="16" tabStops="S0 S50 S100 S150 S200"
 				whiteSpaceCollapse="preserve">
-		<s:content><s:p><s:span>What type of signal</s:span></s:p><s:p><s:span>do you see above?</s:span></s:p><s:p><s:span>(Choose one)</s:span></s:p></s:content>
+		<s:content><s:p><s:span>What type of signal</s:span></s:p><s:p><s:span>do you see above?</s:span></s:p></s:content>
 	</s:RichText>
-	<s:Rect includeIn="Signal" left="219" bottom="9" width="62" height="48">
+	<s:Rect d:userLabel="Rectangle" includeIn="Signal" left="10" bottom="12" width="62" height="48">
 		<s:fill>
 			<s:LinearGradient rotation="90">
 				<s:GradientEntry alpha="1" color="#504f50" ratio="0"/>
@@ -277,12 +258,12 @@
 			</s:LinearGradient>
 		</s:fill>
 	</s:Rect>
-	<s:RichText includeIn="Signal" left="27" bottom="13" width="187" height="44" color="#FFFFFF"
-				fontFamily="Arial" fontSize="12" tabStops="S0 S50 S100" textAlign="end"
+	<s:RichText includeIn="Signal" left="81" bottom="13" width="187" height="44" color="#FFFFFF"
+				fontFamily="Arial" fontSize="12" tabStops="S0 S50 S100" textAlign="start"
 				whiteSpaceCollapse="preserve">
 		<s:content><s:p><s:span>Categorized as Diagonal</s:span></s:p><s:p><s:span>Believed to be an artificial satellite in declining orbit</s:span></s:p></s:content>
 	</s:RichText>
-	<s:Rect includeIn="Signal" right="238" bottom="9" width="62" height="48">
+	<s:Rect includeIn="Signal" right="370" bottom="12" width="62" height="48">
 		<s:fill>
 			<s:LinearGradient rotation="90">
 				<s:GradientEntry alpha="1" color="#504f50" ratio="0"/>
@@ -290,44 +271,204 @@
 			</s:LinearGradient>
 		</s:fill>
 	</s:Rect>
-	<s:RichText includeIn="Signal" right="30" bottom="12" width="202" height="41" color="#FFFFFF"
+	<s:RichText includeIn="Signal" right="162" bottom="16" width="202" height="41" color="#FFFFFF"
 				fontFamily="Arial" fontSize="12" tabStops="S0 S50 S100" textAlign="start"
 				whiteSpaceCollapse="preserve">
 		<s:content><s:p><s:span>Discovered by Francis Potter</s:span></s:p><s:p><s:span>February 11, 2011</s:span></s:p><s:p><s:span>Marked by 279 citizen scientists</s:span></s:p></s:content>
 	</s:RichText>
-	<s:Button includeIn="Signal" left="344" right="364" bottom="24" label="Explore More"
-			  click="button_clickHandler_4()"/>
-	<s:RichText includeIn="Tutorial1,Tutorial2,Tutorial3" x="45" y="63" width="359" height="137"
-				color="#FFFFFF" fontFamily="Arial" fontSize="12"
-				tabStops="S0 S50 S100 S150 S200 S250 S300 S350" text="Some tutorial..."
-				text.Tutorial2="More tutorial..."
-				text.Tutorial3="... and the end of tutorial"/>
-	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="9"
+	<s:RichText id="richtext1" d:userLabel="TutorialText"
+				includeIn="Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
+				x="24" width="326" height="93" color="#FFFFFF" fontFamily="Myriad Pro" fontSize="24"
+				tabStops="S0 S50 S100 S150 S200 S250 S300 S350"
+				text="The Allen Telescope Array in California receives radio signals from target stars and galaxies..."
+				y.Tutorial1="62"
+				y.Tutorial2="146"
+				text.Tutorial2="The SETI Institute analyzes the data and generates visualizations..."
+				x.Tutorial3="25" y.Tutorial3="247" height.Tutorial3="58"
+				text.Tutorial3="Mostly we see only noise (static) in the visualizations..."
+				x.Tutorial4="24" y.Tutorial4="316" height.Tutorial4="115"
+				text.Tutorial4="Occasionally we see signals in the noise that represent airplanes, satellites, and radio transmitters on Earth..."
+				x.Tutorial5="420" y.Tutorial5="62" height.Tutorial5="115"
+				text.Tutorial5="We're looking for signs of intelligent life, but of course nobody knows exactly what that will look like..."
+				x.Tutorial6="420" y.Tutorial6="187" height.Tutorial6="91"
+				text.Tutorial6="You will be assigned to review some data from a target we've recently observed..."
+				x.Tutorial7="420" y.Tutorial7="292" height.Tutorial7="91"
+				text.Tutorial7="Scroll through the data from left to right, and indicate when you see an interesting pattern..."
+				x.Tutorial8="421" y.Tutorial8="353" height.Tutorial8="91"
+				text.Tutorial8="Then categorize the pattern if it fits one of the known signal types displayed..."/>
+	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="9" buttonMode="true"
 										 click="categoryButton_clickHandler()"
 										 skinClass="components.CategoryButtonSkin_Unknown"/>
-	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="85"
+	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="85" buttonMode="true"
 										 click="categoryButton_clickHandler_1()"
 										 skinClass="components.CategoryButtonSkin_Radar"/>
-	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="159"
+	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="159" buttonMode="true"
 										 click="categoryButton_clickHandler_2()"
 										 skinClass="components.CategoryButtonSkin_Modulation"/>
-	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="237"
+	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="237" buttonMode="true"
 										 click="categoryButton_clickHandler_3()"
 										 skinClass="components.CategoryButtonSkin_Broadband"/>
-	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="394" right="312"
+	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="394" right="312" buttonMode="true"
 										 click="categoryButton_clickHandler_4()"
 										 skinClass="components.CategoryButtonSkin_Pulse"/>
-	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="385"
+	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="385" buttonMode="true"
 										 click="categoryButton_clickHandler_5()"
 										 skinClass="components.CategoryButtonSkin_Squiggle"/>
-	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="460"
+	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="460" buttonMode="true"
 										 click="categoryButton_clickHandler_6()"
 										 skinClass="components.CategoryButtonSkin_Diagonal"/>
-	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="533"
+	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="533" buttonMode="true"
 										 click="categoryButton_clickHandler_7()"
 										 skinClass="components.CategoryButtonSkin_Local"/>
-	<s:Button includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Tutorial3,Tutorial2,Tutorial1,Categorize"
+	<s:Button includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
 			  right="0" top="0" label="Button" click="button_clickHandler_5()"
 			  skinClass="components.ControlBarButton_Tutorial"
 			  enabled.Tutorial1="false"/>
+	<s:BitmapImage includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Tutorial3,Tutorial2"
+				   left="12" top="8" smooth="true" source="@Embed('/assets/images/Image3.png')"/>
+	<fx:DesignLayer d:userLabel="Layer_1">
+		<graphics:Graphic1 id="graphic11" d:userLabel="SetiQuestExplorerLogo"
+						   includeIn="Loading_Othertimes,Tutorial1,Loading_Firsttime"
+						   left.Loading_Firsttime="9" top.Loading_Firsttime="7"
+						   width.Loading_Firsttime="569" height.Loading_Firsttime="79"
+						   blendMode.Loading_Firsttime="overlay"
+						   left.Loading_Othertimes="9" top.Loading_Othertimes="7"
+						   width.Loading_Othertimes="569" height.Loading_Othertimes="79"
+						   blendMode.Loading_Othertimes="overlay"
+						   x.Tutorial1="9" y.Tutorial1="8" width.Tutorial1="175"
+						   height.Tutorial1="24">
+			<graphics:filters>
+				<s:GlowFilter includeIn="Loading_Othertimes,Loading_Firsttime" alpha="1.0" blurX="12" blurY="12" color="#000000"
+							  inner="false" knockout="false" quality="2" strength="1"/>
+			</graphics:filters>
+		</graphics:Graphic1>
+		<s:Button includeIn="Assignment,DataViz,Loading_Firsttime,Loading_Othertimes,Signal,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
+				  right="12" bottom="10" click="button_clickHandler()"
+				  skinClass="components.NextScreenButton"
+				  height.Assignment="36" label.Assignment="View Data" buttonMode.Assignment="true"
+				  height.DataViz="36" label.DataViz="I see a Signal!" buttonMode.DataViz="true"
+				  height.Loading_Firsttime="36" label.Loading_Firsttime="Begin"
+				  buttonMode.Loading_Firsttime="true"
+				  label.Loading_Othertimes="Begin"
+				  height.Signal="36" label.Signal="Continue" buttonMode.Signal="true"
+				  label.Tutorial1="Next &gt;" buttonMode.Tutorial1="true"
+				  label.Tutorial2="Next &gt;" buttonMode.Tutorial2="true"
+				  label.Tutorial3="Next &gt;" buttonMode.Tutorial3="true"
+				  label.Tutorial4="Next &gt;" buttonMode.Tutorial4="true"
+				  label.Tutorial5="Next &gt;" buttonMode.Tutorial5="true"
+				  label.Tutorial6="Next &gt;" buttonMode.Tutorial6="true"
+				  label.Tutorial7="Next &gt;" buttonMode.Tutorial7="true"
+				  label.Tutorial8="Get Started" buttonMode.Tutorial8="true"/>
+		<s:RichText includeIn="DataViz,Signal" left="392" right="392" top="385" height="9"
+					color="#999999" fontFamily="Arial" fontSize="20" tabStops="S0" text="^"
+					textAlign="center"/>
+		<s:Button includeIn="Categorize" x="9" y="432" label="Cancel"
+				  skinClass="components.NextScreenButton"/>
+	</fx:DesignLayer>
+	<s:transitions>
+		<s:Transition fromState="Loading_Firsttime" interruptionBehavior="stop" toState="Tutorial1">
+			<s:Parallel>
+				<s:Parallel target="{graphic11}">
+					<s:Animate duration="500">
+						<s:SimpleMotionPath property="width"/>
+						<s:SimpleMotionPath property="height"/>
+					</s:Animate>
+					<s:Animate duration="500">
+						<s:SimpleMotionPath property="top"/>
+						<s:SimpleMotionPath property="y"/>
+						<s:SimpleMotionPath property="left"/>
+						<s:SimpleMotionPath property="x"/>
+					</s:Animate>
+				</s:Parallel>
+			</s:Parallel>
+		</s:Transition>
+		<s:Transition fromState="Tutorial1" interruptionBehavior="stop" toState="Tutorial2">
+			<s:Parallel>
+				<s:Animate duration="500" target="{richtext1}">
+					<s:SimpleMotionPath property="x"/>
+					<s:SimpleMotionPath property="y"/>
+				</s:Animate>
+			</s:Parallel>
+		</s:Transition>
+		<s:Transition fromState="Tutorial2" interruptionBehavior="stop" toState="Tutorial3">
+			<s:Parallel>
+				<s:Parallel target="{richtext1}">
+					<s:Animate duration="500">
+						<s:SimpleMotionPath property="x"/>
+						<s:SimpleMotionPath property="y"/>
+					</s:Animate>
+					<s:Animate duration="500">
+						<s:SimpleMotionPath property="width"/>
+						<s:SimpleMotionPath property="height"/>
+					</s:Animate>
+				</s:Parallel>
+			</s:Parallel>
+		</s:Transition>
+		<s:Transition fromState="Tutorial3" interruptionBehavior="stop" toState="Tutorial4">
+			<s:Parallel>
+				<s:Parallel target="{richtext1}">
+					<s:Animate duration="500">
+						<s:SimpleMotionPath property="x"/>
+						<s:SimpleMotionPath property="y"/>
+					</s:Animate>
+					<s:Animate duration="500">
+						<s:SimpleMotionPath property="width"/>
+						<s:SimpleMotionPath property="height"/>
+					</s:Animate>
+				</s:Parallel>
+			</s:Parallel>
+		</s:Transition>
+		<s:Transition fromState="Tutorial4" interruptionBehavior="stop" toState="Tutorial5">
+			<s:Parallel>
+				<s:Animate duration="500" target="{richtext1}">
+					<s:SimpleMotionPath property="x"/>
+					<s:SimpleMotionPath property="y"/>
+				</s:Animate>
+			</s:Parallel>
+		</s:Transition>
+		<s:Transition fromState="Tutorial4" interruptionBehavior="stop" toState="Tutorial6">
+			<s:Parallel>
+				<s:Parallel target="{richtext1}">
+					<s:Animate duration="500">
+						<s:SimpleMotionPath property="x"/>
+						<s:SimpleMotionPath property="y"/>
+					</s:Animate>
+					<s:Animate duration="500">
+						<s:SimpleMotionPath property="width"/>
+						<s:SimpleMotionPath property="height"/>
+					</s:Animate>
+				</s:Parallel>
+			</s:Parallel>
+		</s:Transition>
+		<s:Transition fromState="Tutorial5" interruptionBehavior="stop" toState="Tutorial6">
+			<s:Parallel>
+				<s:Parallel target="{richtext1}">
+					<s:Animate duration="500">
+						<s:SimpleMotionPath property="x"/>
+						<s:SimpleMotionPath property="y"/>
+					</s:Animate>
+					<s:Animate duration="500">
+						<s:SimpleMotionPath property="width"/>
+						<s:SimpleMotionPath property="height"/>
+					</s:Animate>
+				</s:Parallel>
+			</s:Parallel>
+		</s:Transition>
+		<s:Transition fromState="Tutorial6" interruptionBehavior="stop" toState="Tutorial7">
+			<s:Parallel>
+				<s:Animate duration="500" target="{richtext1}">
+					<s:SimpleMotionPath property="x"/>
+					<s:SimpleMotionPath property="y"/>
+				</s:Animate>
+			</s:Parallel>
+		</s:Transition>
+		<s:Transition fromState="Tutorial7" interruptionBehavior="stop" toState="Tutorial8">
+			<s:Parallel>
+				<s:Animate duration="500" target="{richtext1}">
+					<s:SimpleMotionPath property="x"/>
+					<s:SimpleMotionPath property="y"/>
+				</s:Animate>
+			</s:Parallel>
+		</s:Transition>
+	</s:transitions>
 </s:Group>
