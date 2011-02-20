@@ -15,14 +15,23 @@
 												   observationCoordinates="{this.target.coordinateString}"
 												   targetDescription="{this.target.description}"
 												   />
-	<components1:VisualizationTileList id="visualizationTileList" y="41"/>
+	
+	<s:Group width="100%" height="100%">
+		<s:layout>
+			<s:VerticalLayout horizontalAlign="center"/>
+		</s:layout>
+		<components1:VisualizationTileList id="visualizationTileList" top="41"   width="100%"   />
+		<components1:HzMarker id="freqMarker" label="{visualizationTileList.midFrequency}" visible="false" />
+	</s:Group>
 	<fx:Script>
 		<![CDATA[
 			import com.hg94.seti.controller.ObservationRequest;
 			import com.hg94.seti.model.Observation;
 			import com.hg94.seti.model.Target;
-			import mx.events.FlexEvent;
+			
+			import mx.binding.utils.ChangeWatcher;
 			import mx.collections.ArrayCollection;
+			import mx.events.FlexEvent;
 			
 			[Bindable]
 			internal var target:Target;
@@ -32,6 +41,11 @@
 			
 			[Bindable]
 			protected var observationImages:ArrayCollection;
+			
+			[Bindable]
+			protected var _midFrequency:String;
+			
+			
 			
 			private function onSkyButtonInteraction(event:Event):void
 			{
@@ -73,7 +87,11 @@
 				var request:ObservationRequest = event.target as ObservationRequest;
 				
 				this.visualizationTileList.dataProvider = new ArrayCollection(request.imageUrls);
+				
+				freqMarker.visible = true;
 			}
+			
+			
 
 		]]>
 	</fx:Script>

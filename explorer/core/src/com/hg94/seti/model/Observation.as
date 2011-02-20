@@ -101,6 +101,15 @@ package com.hg94.seti.model {
 			this._waterfallTiles.addItem(waterfallTile);
 		}
 		
+		public function get minWavelength():Number{
+			return _minWavelength;
+		}
+		
+		public function get maxWavelength():Number{
+			return _maxWavelength;
+		}
+			
+		
 		
 	}
 }
