@@ -2,9 +2,9 @@
 <s:Skin xmlns:s="library://ns.adobe.com/flex/spark"
 		xmlns:fx="http://ns.adobe.com/mxml/2009"
 		xmlns:fc="http://ns.adobe.com/flashcatalyst/2009"
-		xmlns:d="http://ns.adobe.com/fxg/2008/dt">
+		xmlns:d="http://ns.adobe.com/fxg/2008/dt"  >
 	<fx:Metadata>[HostComponent("com.hg94.seti.skinnablecomponents.DataVizScrollBarSkinnableComponent")]</fx:Metadata>
-	<s:Group d:userLabel="Group_2" x="0" y="6">
+	<s:Group id="track" d:userLabel="Group_2" x="0" y="6">
 		<s:Path x="0" y="0" alpha="1" blendMode="normal"
 				data="M 0 4 C 0 1 1 0 4 0 C 4 0 1000 0 1000 0 C 1003 0 1004 1 1004 4 C 1004 4 1004 56 1004 56 C 1004 59 1003 60 1000 60 C 1000 60 4 60 4 60 C 1 60 0 59 0 56 C 0 56 0 4 0 4 Z"
 				winding="evenOdd">
@@ -16,7 +16,7 @@
 			</s:fill>
 		</s:Path>
 	</s:Group>
-	<s:Group d:userLabel="Group_52" x="76" y="0">
+	<s:Group id="scrubber" d:userLabel="Group_52" x="76" y="0"  mouseDown="onMouseDown(event)" >
 		<s:Group d:userLabel="Group_53" x="1" y="1">
 			<s:Path x="0" y="0" alpha="1" blendMode="normal"
 					data="M 0 4 C 0 1 1 0 4 0 C 4 0 16 0 16 0 C 19 0 20 1 20 4 C 20 4 20 66 20 66 C 20 69 19 70 16 70 C 16 70 4 70 4 70 C 1 70 0 69 0 66 C 0 66 0 4 0 4 Z"
@@ -40,4 +40,35 @@
 			<s:DropShadowFilter angle="90" color="#000000" distance="0" quality="2" blurX="10" blurY="10"/>
 		</s:filters>
 	</s:Group>
+	<fx:Script>
+		<![CDATA[
+			
+			protected var _mouseDown:Boolean= false;
+			protected function onMouseDown(event:MouseEvent):void{
+				_mouseDown = true;
+				hostComponent.stage.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+				hostComponent.stage.addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
+			}
+			
+			protected function onMouseUp(event:MouseEvent):void{
+				_mouseDown = false;	
+				hostComponent.stage.removeEventListener(MouseEvent.MOUSE_UP, onMouseUp);
+				hostComponent.stage.removeEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
+			}
+			
+			protected function onMouseMove(event:MouseEvent):void{
+				if(_mouseDown){
+					var newX:Number = hostComponent.globalToLocal(new Point(event.stageX,0)).x;
+					if (newX < 0){ newX = 0;};
+					var end:Number = track.width - (scrubber.width/2);
+					if (newX > end) newX = end;
+					scrubber.x = newX ;
+					hostComponent.horizontalScrollPosition = newX;
+					hostComponent.horizontalScrollPercentage = newX/end;
+				}
+			}
+										   
+			
+		]]>
+	</fx:Script>
 </s:Skin>

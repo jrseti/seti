@@ -21,7 +21,7 @@
 			<s:VerticalLayout horizontalAlign="center"/>
 		</s:layout>
 		<components1:VisualizationTileList id="visualizationTileList" top="41"   width="100%"   />
-		<components1:HzMarker id="freqMarker" label="{visualizationTileList.midFrequency}" visible="false" />
+		<components1:FrequencyMarker id="freqMarker" frequency="{visualizationTileList.midFrequency}" visible="false" />
 	</s:Group>
 	<fx:Script>
 		<![CDATA[
