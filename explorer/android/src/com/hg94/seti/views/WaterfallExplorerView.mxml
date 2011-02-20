@@ -24,14 +24,14 @@
 	
 	<s:Group width="100%" height="100%">
 		<s:layout>
-			<s:VerticalLayout horizontalAlign="center"/>
+			<s:VerticalLayout horizontalAlign="center" verticalAlign.loading="middle" verticalAlign.exploring="top"/>
 		</s:layout>
 
 		
 		<s:BusyIndicator includeIn="loading" />
 		
 		<components:VisualizationTileList id="visualizationTileList" top="41" width="100%" includeIn="exploring"/>
-		<components:FrequencyMarker id="freqMarker" frequency="{visualizationTileList.midFrequency}" visible="false" includeIn="exploring" />
+		<components:FrequencyMarker id="freqMarker" frequency="{visualizationTileList.midFrequency}" includeIn="exploring" />
 
 
 	</s:Group>
