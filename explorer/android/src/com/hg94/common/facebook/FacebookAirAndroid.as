@@ -10,6 +10,11 @@ package com.hg94.common.facebook
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.net.URLRequestMethod;
+	
+	import mx.rpc.events.FaultEvent;
+	import mx.rpc.events.ResultEvent;
+	import mx.rpc.http.HTTPService;
+	import mx.utils.URLUtil;
 
 	/**
 	 * Class used for authentication with Facebook
@@ -155,11 +160,26 @@ package com.hg94.common.facebook
 		}
 		
 		protected function onLoadUser(event:Event):void{
-			var response:String = "[" + event.target.data.toString() + "]";
-			var userInfo:Array = JSON.decode(response) as Array;
-			trace(userInfo.toString());
+			var response:String = event.target.data.toString();
+			var userInfo:Object = JSON.decode(response);
+			var userId:int = userInfo["id"];
+			
+			// Just hack it now, to see whether we can hit the rails api
+			var httpService:HTTPService = new HTTPService();
+			httpService.url = "http://localhost:3000/users/121212.xml";
+			httpService.resultFormat = HTTPService.RESULT_FORMAT_E4X;
+			httpService.method = "GET" // Shouldn't I reference a static constant here?
+			httpService.addEventListener(ResultEvent.RESULT, this.onHTTPServiceResult);
+			httpService.addEventListener(FaultEvent.FAULT, this.onHTTPServiceFault);
+			httpService.send();
 		}
-
+		
+		private function onHTTPServiceFault(event:FaultEvent):void {
+			trace("FAULT");
+		}
+		private function onHTTPServiceResult(event:ResultEvent):void {
+			var resultXML:XML = event.result as XML;
+			trace(resultXML.toString());
+		}
 	}
-	
 }

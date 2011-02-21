@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @target.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @target.description %>
+</p>
+
+<p>
+  <b>Right ascension:</b>
+  <%= @target.right_ascension %>
+</p>
+
+<p>
+  <b>Declination:</b>
+  <%= @target.declination %>
+</p>
+
+
+<%= link_to 'Edit', edit_target_path(@target) %> |
+<%= link_to 'Back', targets_path %>

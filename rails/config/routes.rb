@@ -1,4 +1,6 @@
 Seti::Application.routes.draw do
+  resources :targets
+
   resources :users
 
   get "home/index"

@@ -56,7 +56,7 @@
 					FacebookAirAndroid.login(code);
 					webView.dispose();
 					
-					navigator.pushView(com.hg94.seti.views.StarfieldView);
+					//navigator.pushView(com.hg94.seti.views.StarfieldView);
 				}
 			}
 			

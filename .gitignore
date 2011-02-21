@@ -4,3 +4,4 @@ bin-release
 *.fxp
 bin-debug/
 *~
+.git_local/

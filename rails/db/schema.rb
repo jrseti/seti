@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110221072852) do
+ActiveRecord::Schema.define(:version => 20110221173715) do
+
+  create_table "targets", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.decimal  "right_ascension", :precision => 15, :scale => 12
+    t.decimal  "declination",     :precision => 15, :scale => 12
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "first_name"
