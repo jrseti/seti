@@ -143,6 +143,12 @@
 				}
 			}
 
+
+			protected function button_clickHandler_1():void
+			{
+				currentState='DataViz';
+			}
+
 		]]>
 
 	</fx:Script>
@@ -218,7 +224,8 @@
 	<components:AssignmentStarfieldPlaceholder id="assignmentStarfieldPlaceholder" itemCreationPolicy="immediate"
 											   includeIn="Assignment" left="0" right="0" top="40"
 											   bottom="0"/>
-	<components:DataVizTileListPlaceholder d:userLabel="TileListPlaceholder"
+	<components:DataVizTileListPlaceholder id="dataVizTileListPlaceholder" itemCreationPolicy="immediate"
+										   d:userLabel="TileListPlaceholder"
 										   includeIn="Categorize,DataViz,Signal" left="0" right="0"
 										   top="41"/>
 	<s:RichText id="starNameText1" d:userLabel="Target_Name" includeIn="Assignment,DataViz,Signal"
@@ -245,7 +252,8 @@
 	<s:RichText id="observationCoordinatesField1" d:userLabel="Target_Coordinates"
 				includeIn="Assignment,DataViz" right="13" bottom="51" width="224" height="16"
 				color="#666666" fontFamily="Myriad Pro" fontSize="12" lineHeight="100%"
-				tabStops="S0 S50 S100 S150 S200" text="RA: 34.576, Decl: -15.676" textAlign="end"/>
+				tabStops="S0 S50 S100 S150 S200" text="RA: 34.576, Decl: -15.676" textAlign="end"
+				text.Assignment="RA: 34.576, Decl: -15.476"/>
 	<s:RichText includeIn="Categorize" left="10" top="393" width="178" height="37" color="#FFFFFF"
 				fontFamily="Arial" fontSize="16" tabStops="S0 S50 S100 S150 S200"
 				whiteSpaceCollapse="preserve">
@@ -343,10 +351,9 @@
 							  inner="false" knockout="false" quality="2" strength="1"/>
 			</graphics:filters>
 		</graphics:Graphic1>
-		<s:Button includeIn="Assignment,DataViz,Loading_Firsttime,Loading_Othertimes,Signal,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
+		<s:Button includeIn="DataViz,Loading_Firsttime,Loading_Othertimes,Signal,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
 				  right="12" bottom="10" click="button_clickHandler()"
 				  skinClass="components.NextScreenButton"
-				  height.Assignment="36" label.Assignment="View Data" buttonMode.Assignment="true"
 				  height.DataViz="36" label.DataViz="I see a Signal!" buttonMode.DataViz="true"
 				  height.Loading_Firsttime="36" label.Loading_Firsttime="Begin"
 				  buttonMode.Loading_Firsttime="true"
@@ -365,6 +372,8 @@
 					textAlign="center"/>
 		<s:Button includeIn="Categorize" x="9" y="432" label="Cancel"
 				  skinClass="components.NextScreenButton"/>
+		<s:Button id="viewDataButton" includeIn="Assignment" itemCreationPolicy="immediate" x="678" y="434" label="View Data"
+				  click="button_clickHandler_1()" skinClass="components.ViewDataButton"/>
 	</fx:DesignLayer>
 	<s:transitions>
 		<s:Transition fromState="Loading_Firsttime" interruptionBehavior="stop" toState="Tutorial1">

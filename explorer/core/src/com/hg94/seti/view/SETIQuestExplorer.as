@@ -1,7 +1,10 @@
 package com.hg94.seti.view
 {
-	import components.MainSkin;
 	import com.hg94.seti.view.AssignmentStarfield;
+	
+	import components.MainSkin;
+	
+	import flash.events.MouseEvent;
 	
 	import mx.events.FlexEvent;
 	
@@ -13,6 +16,8 @@ package com.hg94.seti.view
 		public var mainSkin:MainSkin;
 
 		private var assignmentStarfield:AssignmentStarfield;
+		
+		private var waterfallDataVisualization:WaterfallDataVisualization;
 
 		public function SETIQuestExplorer()
 		{
@@ -21,7 +26,13 @@ package com.hg94.seti.view
 		}
 
 		private function creationCompleteHandler(event:FlexEvent):void {
-			assignmentStarfield = new AssignmentStarfield(this.mainSkin.assignmentStarfieldPlaceholder);
+			this.assignmentStarfield = new AssignmentStarfield(this.mainSkin.assignmentStarfieldPlaceholder);
+			this.waterfallDataVisualization = new WaterfallDataVisualization(this.mainSkin.dataVizTileListPlaceholder);
+			this.mainSkin.viewDataButton.addEventListener(MouseEvent.CLICK, this.viewDataButtonClickHandler);
+		}
+		
+		private function viewDataButtonClickHandler(event:MouseEvent):void {
+			this.waterfallDataVisualization.target = this.assignmentStarfield.target; 
 		}
 		
 		protected override function createChildren():void {

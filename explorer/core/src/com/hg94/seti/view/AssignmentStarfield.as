@@ -24,6 +24,7 @@ package com.hg94.seti.view {
 	import com.google.maps.overlays.MarkerOptions;
 	import com.google.maps.styles.FillStyle;
 	import com.hg94.seti.controller.TargetListRequest;
+	import com.hg94.seti.model.Observation;
 	import com.hg94.seti.model.Target;
 	import com.hg94.seti.model.TargetSet;
 	
@@ -41,11 +42,12 @@ package com.hg94.seti.view {
 		private static const HATHERSAGE_MAP_API_KEY:String = "ABQIAAAAEwk3rg5igZgbfHAAaPpdnhS3hwEVAxBLwgX-yCFBjg8qlFo5UxTVUCdE50GpyF9WvX4b62ZJcx0ASA";
 		
 		protected var _targetSet:TargetSet;
-		protected var _currentTarget:Target;
 		protected var _targetArray:Array = [];
 
 		
 		private var map:Map3D;
+		
+		public var target:Target;
 		
 		public function AssignmentStarfield(placeholder:AssignmentStarfieldPlaceholder) {
 			//this.starfieldSkin.zoomInButton.addEventListener(MouseEvent.CLICK, this.zoomInButton_clickHandler);
@@ -116,7 +118,8 @@ package com.hg94.seti.view {
 		{
 			var assignmetIndex:int = int(Math.round((Math.random() * _targetSet.targetArray.length)));
 			var assignment:Target = _targetSet.targetArray.getItemAt( assignmetIndex ) as Target;
-			_currentTarget = assignment;
+			this.target = assignment;
+			trace("Assigning " + target.friendlyName);
 			addMarkerForTarget( assignment );
 			map.flyTo(assignment.getGoogleSkyCoordinates(), map.getZoom() + 3, map.getAttitude(), 3);
 		}
@@ -125,26 +128,26 @@ package com.hg94.seti.view {
 		{
 			var currentLatLng:LatLng = event.latLng;
 			var currentPoint:Point = map.fromLatLngToPoint(event.latLng);
-			_currentTarget = this._targetSet.getTargetByGoogleSkyCoordinates(currentLatLng);
-			//navigator.pushView(com.hg94.seti.views.WaterfallExplorerView, _currentTarget);
+			this.target = this._targetSet.getTargetByGoogleSkyCoordinates(currentLatLng);
+			//navigator.pushView(com.hg94.seti.views.WaterfallExplorerView, this.target);
 		}
 		
 		[Bindable (event="click")]
 		private function get rightAscension():String 
 		{
-			return _currentTarget.rightAscension.toString();
+			return this.target.rightAscension.toString();
 		}
 		
 		[Bindable (event="click")]
 		private function get declination():String 
 		{
-			return _currentTarget.declination.toString();
+			return this.target.declination.toString();
 		}
 		
 		[Bindable (event="click")]
 		private function get friendlyName():String
 		{
-			return _currentTarget.friendlyName;
+			return this.target.friendlyName;
 		}
 		
 		protected function get maxZoomLevel():Number
