@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :observation_range %><br />
-    <%= f.text_field :observation_range %>
+    <%= f.collection_select :observation_range_id, ObservationRange.all, :id, :friendly_name %>
   </div>
   <div class="field">
     <%= f.label :user %><br />
-    <%= f.text_field :user %>
+    <%= f.collection_select :user_id, User.all, :id, :friendly_name %>
   </div>
   <div class="field">
     <%= f.label :status %><br />

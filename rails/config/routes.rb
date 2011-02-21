@@ -1,13 +1,13 @@
 Seti::Application.routes.draw do
-  resources :assignments
+  resources :assignments do
+    get :current_assignment_for_user, :on => :collection
+  end
 
   resources :observation_ranges
 
   resources :observations
 
-  resources :targets do
-    resources :observations
-  end
+  resources :targets
 
   resources :users
 

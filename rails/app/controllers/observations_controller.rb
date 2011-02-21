@@ -41,9 +41,9 @@ class ObservationsController < ApplicationController
   # POST /observations.xml
   def create
     
-    @target = Target.find(params[:observation][:target])
-    @observation = @target.observations.create(:date => params[:observation][:date])
-    #@observation = Observation.new(params[:observation])
+    #@target = Target.find(params[:observation][:target])
+    #@observation = @target.observations.create(:date => params[:observation][:date])
+    @observation = Observation.new(params[:observation])
 
     respond_to do |format|
       if @observation.save

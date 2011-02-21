@@ -55,6 +55,19 @@ class AssignmentsController < ApplicationController
     end
   end
 
+  # This is where the main app calls to get the next assignment for a user. It may create an assignment or return one that's already in progress.
+  # For now, just return assignment number one.
+  
+  def current_assignment_for_user
+    @assignment = Assignment.find(1)
+
+    respond_to do |format|
+      format.html {render :action => 'show'}# show.html.erb
+      format.xml  { render :xml => @assignment }
+    end
+    
+  end 
+
   # PUT /assignments/1
   # PUT /assignments/1.xml
   def update

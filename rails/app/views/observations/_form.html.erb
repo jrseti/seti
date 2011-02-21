@@ -15,9 +15,10 @@
     <%= f.label :date %><br />
     <%= f.date_select :date %>
   </div>
+  
   <div class="field">
     <%= f.label :target %><br />
-    <%= f.text_field :target %>
+    <%= f.collection_select :target_id, Target.all, :id, :name %>
   </div>
   <div class="actions">
     <%= f.submit %>

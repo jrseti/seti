@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :observation %><br />
-    <%= f.text_field :observation %>
+    <%= f.collection_select :observation_id, Observation.all, :id, :friendly_name %>
   </div>
   <div class="field">
     <%= f.label :lo_mhz %><br />

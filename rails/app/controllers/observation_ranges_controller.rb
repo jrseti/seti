@@ -40,9 +40,7 @@ class ObservationRangesController < ApplicationController
   # POST /observation_ranges
   # POST /observation_ranges.xml
   def create
-    @observation = Observation.find(params[:observation_range][:observation])
-    @observation_range = @observation.observation_ranges.create(:status => params[:observation_range][:status], :lo_mhz => params[:observation_range][:lo_mhz], :hi_mhz => params[:observation_range][:hi_mhz])
-    #@observation_range = ObservationRange.new(params[:observation_range])
+    @observation_range = ObservationRange.new(params[:observation_range])
 
     respond_to do |format|
       if @observation_range.save

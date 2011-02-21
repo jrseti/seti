@@ -1,8 +1,10 @@
+<h1>Observation Range <%= @observation_range.id%></h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Target:</b>
-  <%= @observation_range.observation.target %>
+  <b>Observation:</b>
+  <%= @observation_range.observation.friendly_name %>
 </p>
 
 <p>
@@ -23,6 +25,12 @@
 <p>
   <b>Status:</b>
   <%= @observation_range.status %>
+</p>
+
+
+<p>
+  <b>Friendly Name:</b>
+  <%= @observation_range.friendly_name %>
 </p>
 
 

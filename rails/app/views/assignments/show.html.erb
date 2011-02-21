@@ -1,13 +1,15 @@
+<h1>Assignment <%= @assignment.id%></h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
   <b>Observation range:</b>
-  <%= @assignment.observation_range %>
+  <%= @assignment.observation_range.friendly_name %>
 </p>
 
 <p>
   <b>User:</b>
-  <%= @assignment.user %>
+  <%= @assignment.user.friendly_name %>
 </p>
 
 <p>

@@ -1,3 +1,6 @@
+
+<h1>Observation <%= @observation.id%></h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -9,6 +12,13 @@
   <b>Target:</b>
   <%= @observation.target.name %>
 </p>
+
+
+<p>
+  <b>Friendly Name:</b>
+  <%= @observation.friendly_name %>
+</p>
+
 
 
 <%= link_to 'Edit', edit_observation_path(@observation) %> |

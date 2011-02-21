@@ -1,3 +1,5 @@
+<h1>User <%= @user.id%></h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -11,9 +13,16 @@
 </p>
 
 <p>
-  <b>Facebook:</b>
+  <b>Facebook ID:</b>
   <%= @user.facebook_id %>
 </p>
+
+<p>
+  <b>Friendly name</b>
+  <%= @user.friendly_name %>
+</p>
+
+
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
