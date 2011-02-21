@@ -1,12 +1,15 @@
 package com.hg94.common.facebook
 {
+	import com.adobe.serialization.json.JSON;
 	import com.facebook.graph.core.AbstractFacebook;
 	import com.facebook.graph.data.FacebookSession;
+	import com.hg94.seti.model.User;
 	
 	import flash.events.Event;
 	import flash.events.IOErrorEvent;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
+	import flash.net.URLRequestMethod;
 
 	/**
 	 * Class used for authentication with Facebook
@@ -115,6 +118,8 @@ package com.hg94.common.facebook
 			this.session = new FacebookSession();
 			session.accessToken = token;
 			session.secret = appSecret;
+			
+			loadUser();
 		}
 		
 		private function onIOError(event:Event):void {
@@ -133,6 +138,26 @@ package com.hg94.common.facebook
 				_canInit = false;
 			}
 			return _instance;
+		}
+		
+		
+		
+		public function loadUser():void{
+			var urlLoader:URLLoader = new URLLoader();
+			urlLoader.addEventListener(Event.COMPLETE, onLoadUser);
+			var urlRequest:URLRequest = new URLRequest("https://graph.facebook.com/me/?access_token=" + session.accessToken);
+			urlRequest.method = URLRequestMethod.GET;
+			try{
+				urlLoader.load(urlRequest);
+			}catch(e:Error){
+				//oops
+			}
+		}
+		
+		protected function onLoadUser(event:Event):void{
+			var response:String = "[" + event.target.data.toString() + "]";
+			var userInfo:Array = JSON.decode(response) as Array;
+			trace(userInfo.toString());
 		}
 
 	}
