@@ -1,0 +1,9 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+[remote "heroku"]
+	url = git@heroku.com:blazing-ice-588.git
+	fetch = +refs/heads/*:refs/remotes/heroku/*
