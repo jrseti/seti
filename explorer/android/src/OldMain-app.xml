@@ -5,7 +5,7 @@
 
 	Specifies parameters for identifying, installing, and launching AIR applications.
 
-	xmlns - The Adobe AIR namespace: http://ns.adobe.com/air/application/2.6
+	xmlns - The Adobe AIR namespace: http://ns.adobe.com/air/application/2.5
 			The last segment of the namespace specifies the version 
 			of the AIR runtime required for this application to run.
 			
@@ -15,19 +15,19 @@
 
 	<!-- A universally unique application identifier. Must be unique across all AIR applications.
 	Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-	<id>com.hg94.seti</id>
+	<id>com.hg94.seti.explorer.android</id>
 
 	<!-- Used as the filename for the application. Required. -->
-	<filename>NewMain</filename>
+	<filename>OldMain</filename>
 
 	<!-- The name that is displayed in the AIR application installer. 
 	May have multiple values for each language. See samples or xsd schema file. Optional. -->
-	<name>NewMain</name>
+	<name>SETI</name>
 	
 	<!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade. 
 	Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
 	An updated version of application must have a versionNumber value higher than the previous version. Required for namespace >= 2.5 . -->
-	<versionNumber>0.0.0</versionNumber>
+	<versionNumber>0.0.1</versionNumber>
 		         
 	<!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the application, as it should be shown to users. Optional. -->
 	<!-- <versionLabel></versionLabel> -->
@@ -86,14 +86,10 @@
 
 		<!-- The window's initial maximum size, specified as a width/height pair in pixels, such as "1600 1200". Optional. -->
 		<!-- <maxSize></maxSize> -->
-
-		<!-- Whether or not to pan when a soft keyboard is raised or lowered (either "pan" or "none").  Optional.  Defaults "pan." -->
-		<!-- <softKeyboardBehavior></softKeyboardBehavior> -->
-	<autoOrients>false</autoOrients>
-        <fullScreen>true</fullScreen>
-        <visible>false</visible>
-        <softKeyboardBehavior>none</softKeyboardBehavior>
-        <aspectRatio>landscape</aspectRatio>
+	<autoOrients>true</autoOrients>
+    <fullScreen>false</fullScreen>
+    <visible>true</visible>
+  <softKeyboardBehavior>none</softKeyboardBehavior>
     </initialWindow>
 
 	<!-- We recommend omitting the supportedProfiles element, -->
@@ -111,15 +107,13 @@
 
 	<!-- The icon the system uses for the application. For at least one resolution,
 	specify the path to a PNG file included in the AIR package. Optional. -->
-	<!-- <icon>
-		<image16x16></image16x16>
-		<image32x32></image32x32>
-		<image36x36></image36x36>
-		<image48x48></image48x48>
-		<image72x72></image72x72>
-		<image114x114></image114x114>
-		<image128x128></image128x128>
-	</icon> -->
+	<icon>
+  	<image16x16>assets/images/icon_16x16.png</image16x16>
+  	<image32x32>assets/images/icon_32x32.png</image32x32>
+  	<image48x48>assets/images/icon_48x48.png</image48x48>
+  	<image72x72>assets/images/icon_72x72.png</image72x72>
+  	<image128x128>assets/images/icon_128x128.png</image128x128>
+	</icon>
 
 	<!-- Whether the application handles the update when a user double-clicks an update version
 	of the AIR file (true), or the default AIR application installer handles the update (false).
@@ -149,34 +143,17 @@
 			<!-- <contentType></contentType> -->
 			
 			<!-- The icon to display for the file type. Optional. -->
-			<!-- <icon>
-				<image16x16></image16x16>
-				<image32x32></image32x32>
-				<image48x48></image48x48>
-				<image128x128></image128x128>
-			</icon> -->
+			<!--
+			<icon>
+				<image16x16>assets/images/icon_16x16.png</image16x16>
+				<image32x32>assets/images/icon_32x32.png</image32x32>
+				<image48x48>assets/images/icon_48x48.png</image48x48>
+				<image128x128>assets/images/icon_128x128.png</image128x128>
+			</icon>
+			-->
 			
 		<!-- </fileType> -->
 	<!-- </fileTypes> -->
-
-    <!-- iOS specific capabilities -->
-	<!-- <iPhone> -->
-		<!-- A list of plist key/value pairs to be added to the application Info.plist -->
-		<!-- <InfoAdditions>
-            <![CDATA[
-                <key>UIDeviceFamily</key>
-                <array>
-                    <string>1</string>
-                    <string>2</string>
-                </array>
-                <key>UIStatusBarStyle</key>
-                <string>UIStatusBarStyleBlackOpaque</string>
-                <key>UIRequiresPersistentWiFi</key>
-                <string>YES</string>
-            ]]>
-        </InfoAdditions> -->
-        <!-- <requestedDisplayResolution></requestedDisplayResolution> -->
-	<!-- </iPhone> -->
 
 	<!-- Specify Android specific tags that get passed to AndroidManifest.xml file. -->
 	<!--<android> 
@@ -204,27 +181,16 @@
 	<!-- End of the schema for adding the android specific tags in AndroidManifest.xml file -->
 
 <android>
-        <manifestAdditions><![CDATA[
-			<manifest installLocation="auto">
-			    <!--See the Adobe AIR documentation for more information about setting Google Android permissions-->
-			    <!--Removing the permission android.permission.INTERNET will have the side effect
-					of preventing you from debugging your application on your device-->
-			    <uses-permission name="android.permission.INTERNET"/>
-			    <!--<uses-permission name="android.permission.WRITE_EXTERNAL_STORAGE"/>-->
-			    <!--<uses-permission name="android.permission.READ_PHONE_STATE"/>-->
-			    <!--<uses-permission name="android.permission.ACCESS_FINE_LOCATION"/>-->
-			    <!--The DISABLE_KEYGUARD and WAKE_LOCK permissions should be toggled together
-					in order to access AIR's SystemIdleMode APIs-->
-			    <!--<uses-permission name="android.permission.DISABLE_KEYGUARD"/>-->
-			    <!--<uses-permission name="android.permission.WAKE_LOCK"/>-->
-			    <!--<uses-permission name="android.permission.CAMERA"/>-->
-			    <!--<uses-permission name="android.permission.RECORD_AUDIO"/>-->
-			    <!--The ACCESS_NETWORK_STATE and ACCESS_WIFI_STATE permissions should be toggled
-					together in order to use AIR's NetworkInfo APIs-->
-			    <!--<uses-permission name="android.permission.ACCESS_NETWORK_STATE"/>-->
-			    <!--<uses-permission name="android.permission.ACCESS_WIFI_STATE"/>-->
-			</manifest>
-			
-		]]></manifestAdditions>
-    </android>
+    <manifestAdditions>
+	&lt;manifest&gt;
+		&lt;!-- See the Adobe AIR documentation for more information about setting Google Android permissions --&gt;
+		&lt;uses-permission android:name="android.permission.INTERNET"/&gt;
+	&lt;/manifest&gt;
+<![CDATA[
+	<manifest>
+		<!-- See the Adobe AIR documentation for more information about setting Google Android permissions -->
+		<uses-permission android:name="android.permission.INTERNET"/>
+	</manifest>
+]]></manifestAdditions>
+  </android>
 </application>
