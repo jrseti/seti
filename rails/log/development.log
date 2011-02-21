@@ -451,3 +451,890 @@ Started GET "/users/121212.xml" for 127.0.0.1 at Mon Feb 21 12:13:05 -0800 2011
   Parameters: {"id"=>"121212"}
   [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."facebook_id" = '121212' LIMIT 1
 Completed 200 OK in 10ms (Views: 5.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/121212.xml" for 127.0.0.1 at Mon Feb 21 12:56:28 -0800 2011
+  Processing by UsersController#show as XML
+  Parameters: {"id"=>"121212"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."facebook_id" = '121212' LIMIT 1[0m
+Completed 200 OK in 10ms (Views: 4.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/121212/1" for 127.0.0.1 at Mon Feb 21 12:56:41 -0800 2011
+
+ActionController::RoutingError (No route matches "/users/121212/1"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/121212" for 127.0.0.1 at Mon Feb 21 12:59:55 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"121212"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."facebook_id" = '121212' LIMIT 1
+Rendered users/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 15ms (Views: 9.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/121212/next_assignment" for 127.0.0.1 at Mon Feb 21 13:00:07 -0800 2011
+
+ActionController::RoutingError (No route matches "/users/121212/next_assignment"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/users/121212/next_assignment.xml" for 127.0.0.1 at Mon Feb 21 13:00:14 -0800 2011
+
+ActionController::RoutingError (No route matches "/users/121212/next_assignment.xml"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110221072852)
+Migrating to CreateTargets (20110221173715)
+Migrating to CreateObservations (20110221210559)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "observations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "date" date, "target_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110221210559')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("observations")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("targets")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+
+
+Started GET "/" for 127.0.0.1 at Mon Feb 21 13:08:35 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Feb 21 13:08:37 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Feb 21 13:09:07 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/targets" for 127.0.0.1 at Mon Feb 21 13:09:09 -0800 2011
+  Processing by TargetsController#index as HTML
+  [1m[36mTarget Load (0.3ms)[0m  [1mSELECT "targets".* FROM "targets"[0m
+Rendered targets/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 87ms (Views: 7.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/targets/new" for 127.0.0.1 at Mon Feb 21 13:09:12 -0800 2011
+  Processing by TargetsController#new as HTML
+Rendered targets/_form.html.erb (6.7ms)
+Rendered targets/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 20ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/targets" for 127.0.0.1 at Mon Feb 21 13:09:33 -0800 2011
+  Processing by TargetsController#create as HTML
+  Parameters: {"commit"=>"Create Target", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "target"=>{"name"=>"Tau Ceti", "right_ascension"=>"", "description"=>"", "declination"=>""}}
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "targets" ("name", "right_ascension", "description", "updated_at", "created_at", "declination") VALUES ('Tau Ceti', NULL, '', '2011-02-21 21:09:33.278430', '2011-02-21 21:09:33.278430', NULL)
+Redirected to http://localhost:3000/targets/1
+Completed 302 Found in 15ms
+
+
+Started GET "/targets/1" for 127.0.0.1 at Mon Feb 21 13:09:33 -0800 2011
+  Processing by TargetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered targets/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 23ms (Views: 15.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/targets" for 127.0.0.1 at Mon Feb 21 13:09:37 -0800 2011
+  Processing by TargetsController#index as HTML
+  [1m[35mTarget Load (0.3ms)[0m  SELECT "targets".* FROM "targets"
+Rendered targets/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 18ms (Views: 12.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/targets/new" for 127.0.0.1 at Mon Feb 21 13:09:39 -0800 2011
+  Processing by TargetsController#new as HTML
+Rendered targets/_form.html.erb (6.3ms)
+Rendered targets/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 20ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/targets" for 127.0.0.1 at Mon Feb 21 13:09:44 -0800 2011
+  Processing by TargetsController#create as HTML
+  Parameters: {"commit"=>"Create Target", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "target"=>{"name"=>"Gliese 581", "right_ascension"=>"", "description"=>"", "declination"=>""}}
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "targets" ("right_ascension", "updated_at", "created_at", "declination", "description", "name") VALUES (NULL, '2011-02-21 21:09:44.490042', '2011-02-21 21:09:44.490042', NULL, '', 'Gliese 581')[0m
+Redirected to http://localhost:3000/targets/2
+Completed 302 Found in 60ms
+
+
+Started GET "/targets/2" for 127.0.0.1 at Mon Feb 21 13:09:44 -0800 2011
+  Processing by TargetsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1
+Rendered targets/show.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 18ms (Views: 10.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/targets" for 127.0.0.1 at Mon Feb 21 13:09:47 -0800 2011
+  Processing by TargetsController#index as HTML
+  [1m[36mTarget Load (0.4ms)[0m  [1mSELECT "targets".* FROM "targets"[0m
+Rendered targets/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 19ms (Views: 13.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/targets/1" for 127.0.0.1 at Mon Feb 21 13:09:52 -0800 2011
+  Processing by TargetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTarget Load (0.1ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered targets/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 18ms (Views: 11.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Feb 21 13:10:00 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 13:10:02 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[36mObservation Load (0.3ms)[0m  [1mSELECT "observations".* FROM "observations"[0m
+Rendered observations/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 51ms (Views: 8.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/observations/new" for 127.0.0.1 at Mon Feb 21 13:10:04 -0800 2011
+  Processing by ObservationsController#new as HTML
+Rendered observations/_form.html.erb (6.5ms)
+Rendered observations/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 20ms (Views: 14.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/observations" for 127.0.0.1 at Mon Feb 21 13:10:12 -0800 2011
+  Processing by ObservationsController#create as HTML
+  Parameters: {"commit"=>"Create Observation", "observation"=>{"date(1i)"=>"2011", "date(2i)"=>"2", "date(3i)"=>"21", "target"=>"1"}, "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓"}
+Completed   in 12ms
+
+ActiveRecord::AssociationTypeMismatch (Target(#2191000200) expected, got String(#2148287480)):
+  app/controllers/observations_controller.rb:43:in `new'
+  app/controllers/observations_controller.rb:43:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.1ms)
+
+
+Started POST "/observations" for 127.0.0.1 at Mon Feb 21 13:12:27 -0800 2011
+  Processing by ObservationsController#create as HTML
+  Parameters: {"commit"=>"Create Observation", "observation"=>{"date(1i)"=>"2011", "date(2i)"=>"2", "date(3i)"=>"21", "target"=>"1"}, "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓"}
+Completed   in 6ms
+
+ActiveRecord::RecordNotFound (Couldn't find Target without an ID):
+  app/controllers/observations_controller.rb:44:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.9ms)
+
+
+Started POST "/observations" for 127.0.0.1 at Mon Feb 21 13:12:55 -0800 2011
+  Processing by ObservationsController#create as HTML
+  Parameters: {"commit"=>"Create Observation", "observation"=>{"date(1i)"=>"2011", "date(2i)"=>"2", "date(3i)"=>"21", "target"=>"1"}, "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓"}
+Completed   in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find Target without an ID):
+  app/controllers/observations_controller.rb:44:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.2ms)
+
+
+Started POST "/observations" for 127.0.0.1 at Mon Feb 21 13:15:57 -0800 2011
+  Processing by ObservationsController#create as HTML
+  Parameters: {"commit"=>"Create Observation", "observation"=>{"date(1i)"=>"2011", "date(2i)"=>"2", "date(3i)"=>"21", "target"=>"1"}, "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓"}
+Completed   in 6ms
+
+ActiveRecord::RecordNotFound (Couldn't find Target without an ID):
+  app/controllers/observations_controller.rb:44:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.7ms)
+
+
+Started POST "/observations" for 127.0.0.1 at Mon Feb 21 13:16:09 -0800 2011
+  Processing by ObservationsController#create as HTML
+  Parameters: {"commit"=>"Create Observation", "observation"=>{"date(1i)"=>"2011", "date(2i)"=>"2", "date(3i)"=>"21", "target"=>"1"}, "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓"}
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Completed   in 70ms
+
+ActiveRecord::AssociationTypeMismatch (Target(#2189457560) expected, got String(#2148287480)):
+  app/controllers/observations_controller.rb:46:in `new'
+  app/controllers/observations_controller.rb:46:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.8ms)
+
+
+Started POST "/observations" for 127.0.0.1 at Mon Feb 21 13:18:20 -0800 2011
+  Processing by ObservationsController#create as HTML
+  Parameters: {"commit"=>"Create Observation", "observation"=>{"date(1i)"=>"2011", "date(2i)"=>"2", "date(3i)"=>"21", "target"=>"1"}, "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓"}
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Completed   in 23ms
+
+ActiveRecord::AssociationTypeMismatch (Target(#2190474640) expected, got String(#2148287480)):
+  app/controllers/observations_controller.rb:45:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (15.3ms)
+
+
+Started POST "/observations" for 127.0.0.1 at Mon Feb 21 13:23:48 -0800 2011
+  Processing by ObservationsController#create as HTML
+  Parameters: {"commit"=>"Create Observation", "observation"=>{"date(1i)"=>"2011", "date(2i)"=>"2", "date(3i)"=>"21", "target"=>"1"}, "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓"}
+  [1m[35mTarget Load (0.1ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Completed   in 68ms
+
+ActiveRecord::AssociationTypeMismatch (Target(#2189346420) expected, got String(#2148287480)):
+  app/controllers/observations_controller.rb:45:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.7ms)
+
+
+Started POST "/observations" for 127.0.0.1 at Mon Feb 21 13:27:49 -0800 2011
+  Processing by ObservationsController#create as HTML
+  Parameters: {"commit"=>"Create Observation", "observation"=>{"date(1i)"=>"2011", "date(2i)"=>"2", "date(3i)"=>"21", "target"=>"1"}, "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓"}
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.6ms)[0m  [1mINSERT INTO "observations" ("date", "target_id", "created_at", "updated_at") VALUES (NULL, 1, '2011-02-21 21:27:49.160478', '2011-02-21 21:27:49.160478')[0m
+Redirected to http://localhost:3000/observations/1
+Completed 302 Found in 25ms
+
+
+Started GET "/observations/1" for 127.0.0.1 at Mon Feb 21 13:27:49 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mObservation Load (0.1ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observations/show.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 26ms (Views: 18.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/observations/1" for 127.0.0.1 at Mon Feb 21 13:28:30 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observations/show.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 25ms (Views: 18.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/observations/1" for 127.0.0.1 at Mon Feb 21 13:28:50 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.5ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mObservation Load (0.1ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observations/show.html.erb within layouts/application (43.2ms)
+Completed   in 54ms
+
+ActionView::Template::Error (undefined method `path' for "#<Target:0x1054093d0>":Target):
+    7: 
+    8: <p>
+    9:   <b>Target:</b>
+    10:   <%= @observation.target.path %>
+    11: </p>
+    12: 
+    13: 
+  app/views/observations/show.html.erb:10:in `_app_views_observations_show_html_erb___1267715059_2191804620_0'
+  app/controllers/observations_controller.rb:18:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.8ms)
+
+
+Started GET "/observations/1" for 127.0.0.1 at Mon Feb 21 13:29:03 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mObservation Load (0.1ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observations/show.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 24ms (Views: 18.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 13:29:30 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[35mObservation Load (0.3ms)[0m  SELECT "observations".* FROM "observations"
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observations/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 26ms (Views: 20.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/observations/new" for 127.0.0.1 at Mon Feb 21 13:29:32 -0800 2011
+  Processing by ObservationsController#new as HTML
+Rendered observations/_form.html.erb (6.4ms)
+Rendered observations/new.html.erb within layouts/application (57.5ms)
+Completed 200 OK in 67ms (Views: 62.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/observations" for 127.0.0.1 at Mon Feb 21 13:29:37 -0800 2011
+  Processing by ObservationsController#create as HTML
+  Parameters: {"commit"=>"Create Observation", "observation"=>{"date(1i)"=>"2011", "date(2i)"=>"2", "date(3i)"=>"21", "target"=>"1"}, "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓"}
+  [1m[35mTarget Load (0.1ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "observations" ("target_id", "created_at", "date", "updated_at") VALUES (1, '2011-02-21 21:29:37.077565', NULL, '2011-02-21 21:29:37.077565')
+Redirected to http://localhost:3000/observations/2
+Completed 302 Found in 22ms
+
+
+Started GET "/observations/2" for 127.0.0.1 at Mon Feb 21 13:29:37 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mObservation Load (0.1ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 2 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observations/show.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 25ms (Views: 19.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 13:29:40 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[35mObservation Load (0.4ms)[0m  SELECT "observations".* FROM "observations"
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observations/index.html.erb within layouts/application (19.1ms)
+Completed 200 OK in 29ms (Views: 24.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 13:30:00 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[36mObservation Load (0.4ms)[0m  [1mSELECT "observations".* FROM "observations"[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observations/index.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 28ms (Views: 22.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 13:30:11 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[35mObservation Load (0.4ms)[0m  SELECT "observations".* FROM "observations"
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observations/index.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 27ms (Views: 22.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/observations/1" for 127.0.0.1 at Mon Feb 21 13:30:19 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mObservation Load (0.1ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observations/show.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 26ms (Views: 20.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/observations/new" for 127.0.0.1 at Mon Feb 21 13:52:15 -0800 2011
+  Processing by ObservationsController#new as HTML
+Rendered observations/_form.html.erb (96.8ms)
+Rendered observations/new.html.erb within layouts/application (100.5ms)
+Completed 200 OK in 134ms (Views: 105.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/observations" for 127.0.0.1 at Mon Feb 21 13:52:19 -0800 2011
+  Processing by ObservationsController#create as HTML
+  Parameters: {"commit"=>"Create Observation", "observation"=>{"date(1i)"=>"2011", "date(2i)"=>"2", "date(3i)"=>"21", "target"=>"1"}, "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓"}
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mTarget Load (0.1ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "observations" ("updated_at", "created_at", "target_id", "date") VALUES ('2011-02-21 21:52:19.876517', '2011-02-21 21:52:19.876517', 1, NULL)[0m
+Redirected to http://localhost:3000/observations/3
+Completed 302 Found in 75ms
+
+
+Started GET "/observations/3" for 127.0.0.1 at Mon Feb 21 13:52:19 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mObservation Load (0.1ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 3 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observations/show.html.erb within layouts/application (61.3ms)
+Completed 200 OK in 72ms (Views: 66.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 13:52:40 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[35mObservation Load (0.4ms)[0m  SELECT "observations".* FROM "observations"
+  [1m[36mTarget Load (0.3ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observations/index.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 31ms (Views: 25.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/observations/new" for 127.0.0.1 at Mon Feb 21 13:52:42 -0800 2011
+  Processing by ObservationsController#new as HTML
+Rendered observations/_form.html.erb (9.0ms)
+Rendered observations/new.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 23ms (Views: 17.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/observations" for 127.0.0.1 at Mon Feb 21 13:53:16 -0800 2011
+  Processing by ObservationsController#create as HTML
+  Parameters: {"commit"=>"Create Observation", "observation"=>{"date(1i)"=>"2011", "date(2i)"=>"2", "date(3i)"=>"21", "target"=>"1"}, "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓"}
+Completed   in 11ms
+
+ActiveRecord::AssociationTypeMismatch (Target(#2190392620) expected, got String(#2148287480)):
+  app/controllers/observations_controller.rb:46:in `new'
+  app/controllers/observations_controller.rb:46:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (52.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (57.3ms)
+
+
+Started POST "/observations" for 127.0.0.1 at Mon Feb 21 13:55:27 -0800 2011
+  Processing by ObservationsController#create as HTML
+  Parameters: {"commit"=>"Create Observation", "observation"=>{"date(1i)"=>"2011", "date(2i)"=>"2", "date(3i)"=>"21", "target"=>"1"}, "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓"}
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "observations" ("created_at", "date", "updated_at", "target_id") VALUES ('2011-02-21 21:55:27.099316', NULL, '2011-02-21 21:55:27.099316', 1)[0m
+Redirected to http://localhost:3000/observations/4
+Completed 302 Found in 25ms
+
+
+Started GET "/observations/4" for 127.0.0.1 at Mon Feb 21 13:55:27 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 4 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observations/show.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 27ms (Views: 19.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 14:03:15 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[35mObservation Load (0.6ms)[0m  SELECT "observations".* FROM "observations"
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observations/index.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 34ms (Views: 25.7ms | ActiveRecord: 0.8ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110221072852)
+Migrating to CreateTargets (20110221173715)
+Migrating to CreateObservations (20110221210559)
+Migrating to CreateObservationRanges (20110221220523)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "observation_ranges" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "observation_id" integer, "lo_mhz" decimal, "hi_mhz" decimal, "status" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110221220523')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("observation_ranges")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("observations")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("targets")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+
+
+Started GET "/" for 127.0.0.1 at Mon Feb 21 14:06:01 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (7.9ms)
+Completed   in 13ms
+
+ActionView::Template::Error (undefined local variable or method `ranges_path' for #<#<Class:0x1052607e0>:0x10525c208>):
+    2: <%= link_to "Users", users_path %><br/>
+    3: <%= link_to "Targets", targets_path %><br/>
+    4: <%= link_to "Observations", observations_path %><br/>
+    5: <%= link_to "Ranges", ranges_path %><br/>
+  app/views/home/index.html.erb:5:in `_app_views_home_index_html_erb___1897282444_2190660700_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Feb 21 14:06:17 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (5.5ms)
+Completed   in 10ms
+
+ActionView::Template::Error (undefined local variable or method `observationranges_path' for #<#<Class:0x105088210>:0x1050865a0>):
+    2: <%= link_to "Users", users_path %><br/>
+    3: <%= link_to "Targets", targets_path %><br/>
+    4: <%= link_to "Observations", observations_path %><br/>
+    5: <%= link_to "Ranges", observationranges_path %><br/>
+  app/views/home/index.html.erb:5:in `_app_views_home_index_html_erb___1897282444_2189698640_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (51.4ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (55.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Mon Feb 21 14:06:28 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/observation_ranges" for 127.0.0.1 at Mon Feb 21 14:06:30 -0800 2011
+  Processing by ObservationRangesController#index as HTML
+  [1m[36mObservationRange Load (0.3ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges"[0m
+Rendered observation_ranges/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 13ms (Views: 7.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/observation_ranges/new" for 127.0.0.1 at Mon Feb 21 14:06:32 -0800 2011
+  Processing by ObservationRangesController#new as HTML
+Rendered observation_ranges/_form.html.erb (7.0ms)
+Rendered observation_ranges/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 20ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/observation_ranges" for 127.0.0.1 at Mon Feb 21 14:06:50 -0800 2011
+  Processing by ObservationRangesController#create as HTML
+  Parameters: {"commit"=>"Create Observation range", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "observation_range"=>{"observation"=>"1", "hi_mhz"=>"1500", "lo_mhz"=>"1400", "status"=>"IN_PROGRESS"}}
+Completed   in 11ms
+
+ActiveRecord::AssociationTypeMismatch (Observation(#2190135680) expected, got String(#2148287480)):
+  app/controllers/observation_ranges_controller.rb:43:in `new'
+  app/controllers/observation_ranges_controller.rb:43:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (52.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (57.3ms)
+
+
+Started POST "/observation_ranges" for 127.0.0.1 at Mon Feb 21 14:08:37 -0800 2011
+  Processing by ObservationRangesController#create as HTML
+  Parameters: {"commit"=>"Create Observation range", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "observation_range"=>{"observation"=>"1", "hi_mhz"=>"1500", "lo_mhz"=>"1400", "status"=>"IN_PROGRESS"}}
+Completed   in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find Observation without an ID):
+  app/controllers/observation_ranges_controller.rb:43:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.2ms)
+
+
+Started POST "/observation_ranges" for 127.0.0.1 at Mon Feb 21 14:09:11 -0800 2011
+  Processing by ObservationRangesController#create as HTML
+  Parameters: {"commit"=>"Create Observation range", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "observation_range"=>{"observation"=>"1", "hi_mhz"=>"1500", "lo_mhz"=>"1400", "status"=>"IN_PROGRESS"}}
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+Completed   in 10ms
+
+NoMethodError (Attempt to call private method):
+  app/controllers/observation_ranges_controller.rb:44:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (14.7ms)
+
+
+Started POST "/observation_ranges" for 127.0.0.1 at Mon Feb 21 14:09:46 -0800 2011
+  Processing by ObservationRangesController#create as HTML
+  Parameters: {"commit"=>"Create Observation range", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "observation_range"=>{"observation"=>"1", "hi_mhz"=>"1500", "lo_mhz"=>"1400", "status"=>"IN_PROGRESS"}}
+  [1m[36mObservation Load (0.1ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+Completed   in 8ms
+
+NoMethodError (undefined method `observation_ranges' for #<Observation:0x10546d7e0>):
+  app/controllers/observation_ranges_controller.rb:44:in `create'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.3ms)
+
+
+Started POST "/observation_ranges" for 127.0.0.1 at Mon Feb 21 14:10:21 -0800 2011
+  Processing by ObservationRangesController#create as HTML
+  Parameters: {"commit"=>"Create Observation range", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "observation_range"=>{"observation"=>"1", "hi_mhz"=>"1500", "lo_mhz"=>"1400", "status"=>"IN_PROGRESS"}}
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "observation_ranges" ("observation_id", "status", "hi_mhz", "lo_mhz", "updated_at", "created_at") VALUES (1, 'IN_PROGRESS', 1500.0, 1400.0, '2011-02-21 22:10:21.749624', '2011-02-21 22:10:21.749624')
+Redirected to http://localhost:3000/observation_ranges/1
+Completed 302 Found in 33ms
+
+
+Started GET "/observation_ranges/1" for 127.0.0.1 at Mon Feb 21 14:10:21 -0800 2011
+  Processing by ObservationRangesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mObservationRange Load (0.1ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 1 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+Rendered observation_ranges/show.html.erb within layouts/application (68.3ms)
+Completed 200 OK in 80ms (Views: 73.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/observation_ranges/1" for 127.0.0.1 at Mon Feb 21 14:11:04 -0800 2011
+  Processing by ObservationRangesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mObservationRange Load (0.1ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 1 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+Rendered observation_ranges/show.html.erb within layouts/application (10.8ms)
+Completed   in 21ms
+
+ActionView::Template::Error (undefined method `name' for #<Observation:0x105210358>):
+    2: 
+    3: <p>
+    4:   <b>Target:</b>
+    5:   <%= @observation_range.observation.target.name %>
+    6: </p>
+    7: 
+    8: <p>
+  app/views/observation_ranges/show.html.erb:5:in `_app_views_observation_ranges_show_html_erb___324634424_2190718140_0'
+  app/controllers/observation_ranges_controller.rb:18:in `show'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (57.0ms)
+
+
+Started GET "/observation_ranges/1" for 127.0.0.1 at Mon Feb 21 14:11:35 -0800 2011
+  Processing by ObservationRangesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mObservationRange Load (0.1ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 1 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+Rendered observation_ranges/show.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 26ms (Views: 20.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/observation_ranges" for 127.0.0.1 at Mon Feb 21 14:12:20 -0800 2011
+  Processing by ObservationRangesController#index as HTML
+  [1m[35mObservationRange Load (0.4ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges"
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+Rendered observation_ranges/index.html.erb within layouts/application (64.8ms)
+Completed 200 OK in 75ms (Views: 69.4ms | ActiveRecord: 0.6ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110221072852)
+Migrating to CreateTargets (20110221173715)
+Migrating to CreateObservations (20110221210559)
+Migrating to CreateObservationRanges (20110221220523)
+Migrating to CreateAssignments (20110221221459)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "assignments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "observation_range_id" integer, "user_id" integer, "status" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110221221459')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("assignments")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("observation_ranges")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("observations")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("targets")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+
+
+Started GET "/" for 127.0.0.1 at Mon Feb 21 14:17:53 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assignments" for 127.0.0.1 at Mon Feb 21 14:17:55 -0800 2011
+  Processing by AssignmentsController#index as HTML
+  [1m[35mAssignment Load (0.4ms)[0m  SELECT "assignments".* FROM "assignments"
+Rendered assignments/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 14ms (Views: 7.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assignments/new" for 127.0.0.1 at Mon Feb 21 14:17:56 -0800 2011
+  Processing by AssignmentsController#new as HTML
+Rendered assignments/_form.html.erb (6.1ms)
+Rendered assignments/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 66ms (Views: 14.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/assignments" for 127.0.0.1 at Mon Feb 21 14:18:05 -0800 2011
+  Processing by AssignmentsController#create as HTML
+  Parameters: {"commit"=>"Create Assignment", "assignment"=>{"user"=>"1", "status"=>"IN_PROGRESS", "observation_range"=>"1"}, "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mObservationRange Load (0.1ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "assignments" ("status", "updated_at", "created_at", "user_id", "observation_range_id") VALUES ('IN_PROGRESS', '2011-02-21 22:18:05.926687', '2011-02-21 22:18:05.926687', 1, 1)[0m
+Redirected to http://localhost:3000/assignments/1
+Completed 302 Found in 32ms
+
+
+Started GET "/assignments/1" for 127.0.0.1 at Mon Feb 21 14:18:05 -0800 2011
+  Processing by AssignmentsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAssignment Load (0.2ms)[0m  [1mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mObservationRange Load (0.1ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered assignments/show.html.erb within layouts/application (26.7ms)
+Completed 200 OK in 39ms (Views: 31.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assignments" for 127.0.0.1 at Mon Feb 21 14:18:24 -0800 2011
+  Processing by AssignmentsController#index as HTML
+  [1m[36mAssignment Load (0.4ms)[0m  [1mSELECT "assignments".* FROM "assignments"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mObservationRange Load (0.1ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered assignments/index.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 91ms (Views: 31.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assignments/new" for 127.0.0.1 at Mon Feb 21 14:18:25 -0800 2011
+  Processing by AssignmentsController#new as HTML
+Rendered assignments/_form.html.erb (5.9ms)
+Rendered assignments/new.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 20ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/assignments" for 127.0.0.1 at Mon Feb 21 14:18:35 -0800 2011
+  Processing by AssignmentsController#create as HTML
+  Parameters: {"commit"=>"Create Assignment", "assignment"=>{"user"=>"2", "status"=>"IN_PROGRESS", "observation_range"=>"1"}, "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "assignments" ("user_id", "created_at", "updated_at", "status", "observation_range_id") VALUES (2, '2011-02-21 22:18:35.222675', '2011-02-21 22:18:35.222675', 'IN_PROGRESS', 1)[0m
+Redirected to http://localhost:3000/assignments/2
+Completed 302 Found in 32ms
+
+
+Started GET "/assignments/2" for 127.0.0.1 at Mon Feb 21 14:18:35 -0800 2011
+  Processing by AssignmentsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAssignment Load (0.1ms)[0m  [1mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mObservationRange Load (0.1ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered assignments/show.html.erb within layouts/application (75.8ms)
+Completed 200 OK in 88ms (Views: 80.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assignments" for 127.0.0.1 at Mon Feb 21 14:18:39 -0800 2011
+  Processing by AssignmentsController#index as HTML
+  [1m[36mAssignment Load (0.4ms)[0m  [1mSELECT "assignments".* FROM "assignments"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mObservationRange Load (0.1ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+Rendered assignments/index.html.erb within layouts/application (81.0ms)
+Completed 200 OK in 92ms (Views: 85.2ms | ActiveRecord: 1.2ms)

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Target:</b>
+  <%= @observation_range.observation.target %>
+</p>
+
+<p>
+  <b>Observation Date:</b>
+  <%= @observation_range.observation.date %>
+</p>
+
+<p>
+  <b>Lo mhz:</b>
+  <%= @observation_range.lo_mhz %>
+</p>
+
+<p>
+  <b>Hi mhz:</b>
+  <%= @observation_range.hi_mhz %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @observation_range.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_observation_range_path(@observation_range) %> |
+<%= link_to 'Back', observation_ranges_path %>

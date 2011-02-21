@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Observation range:</b>
+  <%= @assignment.observation_range %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @assignment.user %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @assignment.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
+<%= link_to 'Back', assignments_path %>

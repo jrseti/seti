@@ -10,7 +10,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110221173715) do
+ActiveRecord::Schema.define(:version => 20110221221459) do
+
+  create_table "assignments", :force => true do |t|
+    t.integer  "observation_range_id"
+    t.integer  "user_id"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "observation_ranges", :force => true do |t|
+    t.integer  "observation_id"
+    t.decimal  "lo_mhz"
+    t.decimal  "hi_mhz"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "observations", :force => true do |t|
+    t.date     "date"
+    t.integer  "target_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "targets", :force => true do |t|
     t.string   "name"

@@ -1,0 +1,29 @@
+<h1>Listing observation_ranges</h1>
+
+<table>
+  <tr>
+    <th>Observation</th>
+    <th>Lo mhz</th>
+    <th>Hi mhz</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @observation_ranges.each do |observation_range| %>
+  <tr>
+    <td><%= observation_range.observation %></td>
+    <td><%= observation_range.lo_mhz %></td>
+    <td><%= observation_range.hi_mhz %></td>
+    <td><%= observation_range.status %></td>
+    <td><%= link_to 'Show', observation_range %></td>
+    <td><%= link_to 'Edit', edit_observation_range_path(observation_range) %></td>
+    <td><%= link_to 'Destroy', observation_range, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Observation range', new_observation_range_path %>

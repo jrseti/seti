@@ -1,5 +1,13 @@
 Seti::Application.routes.draw do
-  resources :targets
+  resources :assignments
+
+  resources :observation_ranges
+
+  resources :observations
+
+  resources :targets do
+    resources :observations
+  end
 
   resources :users
 

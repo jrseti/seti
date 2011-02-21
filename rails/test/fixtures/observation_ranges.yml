@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  observation: 
+  lo_mhz: 9.99
+  hi_mhz: 9.99
+  status: MyString
+
+two:
+  observation: 
+  lo_mhz: 9.99
+  hi_mhz: 9.99
+  status: MyString

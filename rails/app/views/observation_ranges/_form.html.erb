@@ -1,0 +1,33 @@
+<%= form_for(@observation_range) do |f| %>
+  <% if @observation_range.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@observation_range.errors.count, "error") %> prohibited this observation_range from being saved:</h2>
+
+      <ul>
+      <% @observation_range.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :observation %><br />
+    <%= f.text_field :observation %>
+  </div>
+  <div class="field">
+    <%= f.label :lo_mhz %><br />
+    <%= f.text_field :lo_mhz %>
+  </div>
+  <div class="field">
+    <%= f.label :hi_mhz %><br />
+    <%= f.text_field :hi_mhz %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

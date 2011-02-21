@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  observation_range: 
+  user: 
+  status: MyString
+
+two:
+  observation_range: 
+  user: 
+  status: MyString
