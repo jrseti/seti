@@ -5,6 +5,7 @@
     <th>Name</th>
     <th>Provider</th>
     <th>UID</th>
+    <th>Role</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,6 +16,7 @@
     <td><%= user.name %></td>
     <td><%= user.provider %></td>
     <td><%= user.uid %></td>
+    <td><%= user.friendly_role %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>

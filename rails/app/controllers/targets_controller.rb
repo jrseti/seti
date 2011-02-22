@@ -1,4 +1,7 @@
 class TargetsController < ApplicationController
+  
+  load_and_authorize_resource
+  
   # GET /targets
   # GET /targets.xml
   def index

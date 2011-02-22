@@ -5483,3 +5483,1654 @@ Started GET "/observation_ranges/1" for 127.0.0.1 at Mon Feb 21 18:10:36 -0800 2
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
 Rendered observation_ranges/show.html.erb within layouts/application (36.9ms)
 Completed 200 OK in 49ms (Views: 41.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Mon Feb 21 18:30:19 -0800 2011
+  Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at Mon Feb 21 18:30:19 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at Mon Feb 21 18:30:20 -0800 2011
+
+
+Started GET "/auth/facebook/callback?code=aca97120037bcab4cab98151-790800257%7CSR8Ptc-Ql7hIJxSK1t4Pe_jqS3Q" for 127.0.0.1 at Mon Feb 21 18:30:21 -0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"aca97120037bcab4cab98151-790800257|SR8Ptc-Ql7hIJxSK1t4Pe_jqS3Q", "provider"=>"facebook"}
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."uid" = '790800257' AND "users"."provider" = 'facebook' LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 42ms
+
+
+Started GET "/" for 127.0.0.1 at Mon Feb 21 18:30:22 -0800 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (60.6ms)
+Completed 200 OK in 66ms (Views: 65.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 18:30:24 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 20ms (Views: 13.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 18:30:26 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[35mObservation Load (0.5ms)[0m  SELECT "observations".* FROM "observations"
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered observations/index.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 43ms (Views: 35.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/observation_ranges" for 127.0.0.1 at Mon Feb 21 18:30:27 -0800 2011
+  Processing by ObservationRangesController#index as HTML
+  [1m[36mObservationRange Load (0.4ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges"[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 6 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1
+  [1m[36mTarget Load (0.1ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered observation_ranges/index.html.erb within layouts/application (41.4ms)
+Completed 200 OK in 104ms (Views: 45.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assignments" for 127.0.0.1 at Mon Feb 21 18:30:28 -0800 2011
+  Processing by AssignmentsController#index as HTML
+  [1m[36mAssignment Load (0.4ms)[0m  [1mSELECT "assignments".* FROM "assignments"[0m
+  [1m[35mObservationRange Load (0.2ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 1 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 6 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered assignments/index.html.erb within layouts/application (47.4ms)
+Completed 200 OK in 58ms (Views: 51.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 18:33:28 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 19ms (Views: 13.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 18:33:29 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/_form.html.erb (7.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/edit.html.erb within layouts/application (64.4ms)
+Completed 200 OK in 75ms (Views: 68.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/targets" for 127.0.0.1 at Mon Feb 21 18:33:32 -0800 2011
+  Processing by TargetsController#index as HTML
+  [1m[36mTarget Load (0.4ms)[0m  [1mSELECT "targets".* FROM "targets"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered targets/index.html.erb within layouts/application (18.3ms)
+Completed 200 OK in 29ms (Views: 23.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 18:39:28 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 18ms (Views: 12.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/targets" for 127.0.0.1 at Mon Feb 21 18:39:29 -0800 2011
+  Processing by TargetsController#index as HTML
+  [1m[36mTarget Load (0.4ms)[0m  [1mSELECT "targets".* FROM "targets"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered targets/index.html.erb within layouts/application (71.2ms)
+Completed 200 OK in 81ms (Views: 75.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 18:41:12 -0800 2011
+  Processing by UsersController#index as HTML
+Completed   in 7ms
+
+LoadError (Expected /Users/francispotter/Documents/Git/SETIQuest/rails/app/models/ability.rb to define Ability):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 18:41:30 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Completed   in 14ms
+
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ('t'='f')
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.6ms)
+
+
+Started GET "/targets" for 127.0.0.1 at Mon Feb 21 18:41:35 -0800 2011
+  Processing by TargetsController#index as HTML
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered targets/index.html.erb within layouts/application (17.6ms)
+Completed 200 OK in 28ms (Views: 21.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 18:41:37 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Completed   in 10ms
+
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ('t'='f')
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.4ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110221072852)
+Migrating to CreateTargets (20110221173715)
+Migrating to CreateObservations (20110221210559)
+Migrating to CreateObservationRanges (20110221220523)
+Migrating to CreateAssignments (20110221221459)
+Migrating to AddUidAndProviderToUsers (20110222004420)
+Migrating to RemoveFacebookIdFromUsers (20110222014616)
+Migrating to RemovePartialNamesFromUsers (20110222015346)
+Migrating to AddNameToUsers (20110222015406)
+Migrating to AddRoleToUsers (20110222024940)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mALTER TABLE "users" ADD "role" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110222024940')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("assignments")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("observation_ranges")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("observations")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("targets")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:02:38 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Completed   in 10ms
+
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE ('t'='f')
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:02:46 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 19ms (Views: 13.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:02:48 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/_form.html.erb (70.5ms)
+Rendered users/edit.html.erb within layouts/application (72.4ms)
+Completed   in 83ms
+
+ActionView::Template::Error (undefined method `select_tag' for #<ActionView::Helpers::FormBuilder:0x1030a8b48>):
+    28:   
+    29:   <div class="field">
+    30:     <%= f.label :role %><br />
+    31:     <%= f.select_tag(:role, options_for_select([['a','a'],['b','b']])) %>
+    32:   </div>
+    33:   
+    34:   <div class="actions">
+  app/views/users/_form.html.erb:31:in `_app_views_users__form_html_erb__2026781606_2173118020_874910'
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__2026781606_2173118020_874910'
+  app/views/users/edit.html.erb:3:in `_app_views_users_edit_html_erb___49052977_2173136500_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.9ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:03:16 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/_form.html.erb (6.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/edit.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 23ms (Views: 17.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:03:20 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "role"=>"a", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 10ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:03:20 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 22ms (Views: 14.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:03:23 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/_form.html.erb (6.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/edit.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 75ms (Views: 17.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:03:25 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "role"=>"b", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 11ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:03:25 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (62.9ms)
+Completed 200 OK in 74ms (Views: 67.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:03:27 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/_form.html.erb (7.0ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/edit.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 23ms (Views: 17.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:03:36 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/_form.html.erb (6.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/edit.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 23ms (Views: 16.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:03:39 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"b", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-02-22 03:03:39.364604', "role" = 'b' WHERE "users"."id" = 5[0m
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 14ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:03:39 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 73ms (Views: 12.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:03:40 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/_form.html.erb (6.9ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/edit.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 23ms (Views: 17.5ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:03:42 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"b", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 10ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:03:42 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 18ms (Views: 12.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:03:43 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/_form.html.erb (7.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/edit.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 23ms (Views: 17.4ms | ActiveRecord: 0.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:04:40 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 21ms (Views: 15.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:04:42 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 18ms (Views: 11.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:04:43 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/_form.html.erb (57.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/edit.html.erb within layouts/application (63.7ms)
+Completed 200 OK in 75ms (Views: 68.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:04:49 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"a", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "users" SET "role" = 'a', "updated_at" = '2011-02-22 03:04:49.797830' WHERE "users"."id" = 5
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 16ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:04:49 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 18ms (Views: 12.1ms | ActiveRecord: 0.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:08:20 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/_form.html.erb (7.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/edit.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 24ms (Views: 17.8ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:08:22 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"b", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "users" SET "role" = 'b', "updated_at" = '2011-02-22 03:08:23.062023' WHERE "users"."id" = 5
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 63ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:08:23 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 20ms (Views: 14.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:08:24 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/_form.html.erb (59.2ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/edit.html.erb within layouts/application (65.6ms)
+Completed 200 OK in 76ms (Views: 70.8ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:08:26 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"a", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "users" SET "role" = 'a', "updated_at" = '2011-02-22 03:08:26.565058' WHERE "users"."id" = 5
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 14ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:08:26 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 19ms (Views: 13.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:08:27 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/_form.html.erb (6.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/edit.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 22ms (Views: 16.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:09:24 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+Rendered users/_form.html.erb (7.1ms)
+Rendered users/edit.html.erb within layouts/application (8.7ms)
+Completed   in 68ms
+
+ActionView::Template::Error (undefined method `ROLES' for #<Class:0x103081d90>):
+    28:   
+    29:   <div class="field">
+    30:     <%= f.label :role %><br />
+    31:     <%= f.select(:role, User.ROLES) %>
+    32:   </div>
+    33:   
+    34:   <div class="actions">
+  app/views/users/_form.html.erb:31:in `_app_views_users__form_html_erb__2026781606_2175115140_874910'
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__2026781606_2175115140_874910'
+  app/views/users/edit.html.erb:3:in `_app_views_users_edit_html_erb___49052977_2175129200_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.4ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:09:33 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+Rendered users/_form.html.erb (6.9ms)
+Rendered users/edit.html.erb within layouts/application (8.3ms)
+Completed   in 18ms
+
+ActionView::Template::Error (undefined method `ROLES' for #<Class:0x10312a710>):
+    28:   
+    29:   <div class="field">
+    30:     <%= f.label :role %><br />
+    31:     <%= f.select(:role, User.ROLES) %>
+    32:   </div>
+    33:   
+    34:   <div class="actions">
+  app/views/users/_form.html.erb:31:in `_app_views_users__form_html_erb__2026781606_2173136800_874910'
+  app/views/users/_form.html.erb:1:in `_app_views_users__form_html_erb__2026781606_2173136800_874910'
+  app/views/users/edit.html.erb:3:in `_app_views_users_edit_html_erb___49052977_2173154900_0'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.2ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:10:22 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/_form.html.erb (7.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/edit.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 76ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:10:25 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"ADMIN", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "users" SET "role" = 'ADMIN', "updated_at" = '2011-02-22 03:10:25.920446' WHERE "users"."id" = 5
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 15ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:10:25 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (65.0ms)
+Completed 200 OK in 76ms (Views: 69.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:10:27 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/index.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 19ms (Views: 13.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:10:29 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/_form.html.erb (7.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/edit.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 25ms (Views: 18.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:10:32 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"EXPLORER", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "users" SET "role" = 'EXPLORER', "updated_at" = '2011-02-22 03:10:32.092435' WHERE "users"."id" = 5
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 13ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:10:32 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 69ms (Views: 11.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:10:33 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/index.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 20ms (Views: 13.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:10:35 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 19ms (Views: 12.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:10:36 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/_form.html.erb (6.6ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/edit.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 23ms (Views: 16.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:12:48 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 18ms (Views: 11.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:16:06 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 71ms (Views: 12.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:16:09 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 19ms (Views: 13.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:18:22 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 20ms (Views: 13.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:18:25 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/_form.html.erb (7.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/edit.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 23ms (Views: 17.3ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:18:27 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"ADMIN", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "users" SET "updated_at" = '2011-02-22 03:18:27.535565', "role" = 'ADMIN' WHERE "users"."id" = 5
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 13ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:18:27 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 19ms (Views: 13.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:18:29 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 19ms (Views: 13.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at Mon Feb 21 19:18:33 -0800 2011
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (55.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/new.html.erb within layouts/application (62.3ms)
+Completed 200 OK in 72ms (Views: 66.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at Mon Feb 21 19:18:40 -0800 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "user"=>{"name"=>"John", "role"=>"USER", "uid"=>"111", "provider"=>"Foo"}}
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "users" ("uid", "provider", "role", "name", "updated_at", "created_at") VALUES ('111', 'Foo', 'USER', 'John', '2011-02-22 03:18:40.449096', '2011-02-22 03:18:40.449096')
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 13ms
+
+
+Started GET "/users/6" for 127.0.0.1 at Mon Feb 21 19:18:40 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 19ms (Views: 12.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:18:42 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 21ms (Views: 15.9ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/6" for 127.0.0.1 at Mon Feb 21 19:18:47 -0800 2011
+  Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "users" WHERE "users"."id" = 6
+Redirected to http://localhost:3000/users
+Completed 302 Found in 70ms
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:18:47 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 20ms (Views: 14.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assignments" for 127.0.0.1 at Mon Feb 21 19:18:50 -0800 2011
+  Processing by AssignmentsController#index as HTML
+  [1m[36mAssignment Load (0.4ms)[0m  [1mSELECT "assignments".* FROM "assignments"[0m
+  [1m[35mObservationRange Load (0.2ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 1 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 6 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered assignments/index.html.erb within layouts/application (103.1ms)
+Completed 200 OK in 114ms (Views: 107.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assignments/new" for 127.0.0.1 at Mon Feb 21 19:18:52 -0800 2011
+  Processing by AssignmentsController#new as HTML
+  [1m[36mObservationRange Load (0.3ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges"[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 6 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1[0m
+  [1m[35mObservation Load (0.3ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+Rendered assignments/_form.html.erb (52.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered assignments/new.html.erb within layouts/application (59.9ms)
+Completed 200 OK in 123ms (Views: 63.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:21:08 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 19ms (Views: 14.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:21:11 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/_form.html.erb (6.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/edit.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 73ms (Views: 18.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:21:14 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"admin", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "users" SET "role" = 'admin', "updated_at" = '2011-02-22 03:21:14.237072' WHERE "users"."id" = 5[0m
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 14ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:21:14 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (58.9ms)
+Completed 200 OK in 70ms (Views: 63.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:21:16 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 19ms (Views: 13.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:21:45 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/_form.html.erb (6.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/edit.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 22ms (Views: 16.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:21:47 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"explorer", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "updated_at" = '2011-02-22 03:21:47.824748', "role" = 'explorer' WHERE "users"."id" = 5[0m
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 15ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:21:47 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 74ms (Views: 67.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:21:49 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 20ms (Views: 13.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:21:52 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/_form.html.erb (7.3ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/edit.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 24ms (Views: 18.1ms | ActiveRecord: 0.1ms)
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:42:16 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 21ms (Views: 14.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:42:19 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 20ms (Views: 14.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:42:20 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/_form.html.erb (56.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/edit.html.erb within layouts/application (62.6ms)
+Completed 200 OK in 73ms (Views: 67.1ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:42:22 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"user", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "users" SET "role" = 'user', "updated_at" = '2011-02-22 03:42:22.917174' WHERE "users"."id" = 5[0m
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 14ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:42:22 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 20ms (Views: 14.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:42:24 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 21ms (Views: 15.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:42:31 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/_form.html.erb (7.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/edit.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 74ms (Views: 16.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:42:34 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"admin", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "users" SET "role" = 'admin', "updated_at" = '2011-02-22 03:42:34.196797' WHERE "users"."id" = 5[0m
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 14ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:42:34 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 20ms (Views: 13.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/targets" for 127.0.0.1 at Mon Feb 21 19:43:44 -0800 2011
+  Processing by TargetsController#index as HTML
+  [1m[35mTarget Load (0.4ms)[0m  SELECT "targets".* FROM "targets"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered targets/index.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 30ms (Views: 23.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:43:46 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 21ms (Views: 14.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:43:50 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/_form.html.erb (7.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/edit.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 24ms (Views: 18.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:43:53 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"explorer", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "users" SET "role" = 'explorer', "updated_at" = '2011-02-22 03:43:53.937285' WHERE "users"."id" = 5[0m
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 13ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:43:53 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 19ms (Views: 13.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/targets" for 127.0.0.1 at Mon Feb 21 19:43:55 -0800 2011
+  Processing by TargetsController#index as HTML
+  [1m[35mTarget Load (0.4ms)[0m  SELECT "targets".* FROM "targets"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered targets/index.html.erb within layouts/application (18.4ms)
+Completed 200 OK in 29ms (Views: 22.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/targets/1/edit" for 127.0.0.1 at Mon Feb 21 19:43:57 -0800 2011
+  Processing by TargetsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mTarget Load (0.1ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered targets/_form.html.erb (6.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered targets/edit.html.erb within layouts/application (22.9ms)
+Completed 200 OK in 116ms (Views: 59.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/targets/1" for 127.0.0.1 at Mon Feb 21 19:44:00 -0800 2011
+  Processing by TargetsController#update as HTML
+  Parameters: {"commit"=>"Update Target", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"1", "target"=>{"name"=>"Tau Ceti", "right_ascension"=>"", "description"=>"", "declination"=>""}}
+  [1m[35mTarget Load (0.1ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/targets/1
+Completed 302 Found in 12ms
+
+
+Started GET "/targets/1" for 127.0.0.1 at Mon Feb 21 19:44:00 -0800 2011
+  Processing by TargetsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered targets/show.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 81ms (Views: 74.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:44:52 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/index.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 20ms (Views: 13.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 19:44:53 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Completed   in 13ms
+
+NameError (undefined local variable or method `current_user' for #<Ability:0x10330b368>):
+  app/models/ability.rb:5:in `initialize'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.4ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 19:49:55 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations"[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1
+Rendered observations/index.html.erb within layouts/application (73.1ms)
+Completed 200 OK in 98ms (Views: 78.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 19:51:37 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations"
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1[0m
+Rendered observations/index.html.erb within layouts/application (77.2ms)
+Completed 200 OK in 100ms (Views: 81.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/observations/1/edit" for 127.0.0.1 at Mon Feb 21 19:51:39 -0800 2011
+  Processing by ObservationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets"[0m
+Rendered observations/_form.html.erb (17.3ms)
+Rendered observations/edit.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 45ms (Views: 26.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/observations/1" for 127.0.0.1 at Mon Feb 21 19:51:41 -0800 2011
+  Processing by ObservationsController#update as HTML
+  Parameters: {"commit"=>"Update Observation", "observation"=>{"date(1i)"=>"2011", "date(2i)"=>"2", "target_id"=>"1", "date(3i)"=>"2"}, "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"1"}
+  [1m[35mObservation Load (0.1ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+Redirected to http://localhost:3000/observations/1
+Completed 302 Found in 23ms
+
+
+Started GET "/observations/1" for 127.0.0.1 at Mon Feb 21 19:51:41 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mObservation Load (0.1ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observations/show.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 93ms (Views: 73.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 19:51:43 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations"
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1[0m
+Rendered observations/index.html.erb within layouts/application (79.2ms)
+Completed 200 OK in 101ms (Views: 83.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:51:57 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 20ms (Views: 13.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 19:52:09 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations"[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1
+Rendered observations/index.html.erb within layouts/application (21.7ms)
+Completed 200 OK in 45ms (Views: 26.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/observations/1" for 127.0.0.1 at Mon Feb 21 19:52:10 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mObservation Load (0.1ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observations/show.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 94ms (Views: 21.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:52:13 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 20ms (Views: 13.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:52:15 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/_form.html.erb (6.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/edit.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 23ms (Views: 18.0ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:52:17 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"user", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "users" SET "updated_at" = '2011-02-22 03:52:17.479943', "role" = 'user' WHERE "users"."id" = 5
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 63ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:52:17 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 20ms (Views: 13.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 19:52:18 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mObservation Load (0.3ms)[0m  SELECT "observations".* FROM "observations"
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1[0m
+Rendered observations/index.html.erb within layouts/application (73.7ms)
+Completed 200 OK in 98ms (Views: 78.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/observations/1" for 127.0.0.1 at Mon Feb 21 19:52:19 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mObservation Load (0.1ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observations/show.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 40ms (Views: 21.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/observation_ranges" for 127.0.0.1 at Mon Feb 21 19:52:40 -0800 2011
+  Processing by ObservationRangesController#index as HTML
+  [1m[35mObservationRange Load (0.4ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges"
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 6 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1[0m
+  [1m[35mTarget Load (0.1ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered observation_ranges/index.html.erb within layouts/application (39.7ms)
+Completed 200 OK in 52ms (Views: 43.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 19:52:41 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations"[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1
+Rendered observations/index.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 44ms (Views: 24.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/observations/1" for 127.0.0.1 at Mon Feb 21 19:52:42 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mObservation Load (0.1ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observations/show.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 39ms (Views: 19.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 19:52:58 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Completed   in 17ms
+
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  [1m[35mObservation Load (0.3ms)[0m  SELECT "observations".* FROM "observations" WHERE ('t'='f')
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (12.5ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 19:53:20 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations"
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1[0m
+Rendered observations/index.html.erb within layouts/application (73.6ms)
+Completed 200 OK in 95ms (Views: 78.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:53:22 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 20ms (Views: 14.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:53:24 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/_form.html.erb (7.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/edit.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 24ms (Views: 18.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:53:27 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"explorer", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "users" SET "role" = 'explorer', "updated_at" = '2011-02-22 03:53:27.087140' WHERE "users"."id" = 5[0m
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 13ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:53:27 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 72ms (Views: 66.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 19:53:28 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mObservation Load (0.1ms)[0m  [1mSELECT "observations".* FROM "observations"[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1
+Rendered observations/index.html.erb within layouts/application (20.3ms)
+Completed 200 OK in 42ms (Views: 24.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 19:54:13 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Completed   in 18ms
+
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  [1m[35mObservation Load (0.3ms)[0m  SELECT "observations".* FROM "observations" WHERE ('t'='f')
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.1ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:54:16 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/index.html.erb within layouts/application (60.0ms)
+Completed 200 OK in 71ms (Views: 65.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:54:17 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/_form.html.erb (7.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/edit.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 25ms (Views: 19.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:54:20 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"admin", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "users" SET "updated_at" = '2011-02-22 03:54:20.310939', "role" = 'admin' WHERE "users"."id" = 5
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 13ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:54:20 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 19ms (Views: 12.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 19:54:21 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations"
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1[0m
+Rendered observations/index.html.erb within layouts/application (24.8ms)
+Completed 200 OK in 101ms (Views: 29.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 19:54:52 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Completed   in 17ms
+
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  [1m[36mObservation Load (0.4ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE ('t'='f')[0m
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (10.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:54:54 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/index.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 20ms (Views: 14.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 19:54:57 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Completed   in 71ms
+
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  [1m[36mObservation Load (0.5ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE ('t'='f')[0m
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.0ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 19:55:06 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations"[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1
+Rendered observations/index.html.erb within layouts/application (20.2ms)
+Completed 200 OK in 44ms (Views: 25.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/observations/1" for 127.0.0.1 at Mon Feb 21 19:55:07 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mObservation Load (0.1ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observations/show.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 39ms (Views: 20.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/observations/1/edit" for 127.0.0.1 at Mon Feb 21 19:55:10 -0800 2011
+  Processing by ObservationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mObservation Load (0.1ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.3ms)[0m  SELECT "targets".* FROM "targets"
+Rendered observations/_form.html.erb (18.2ms)
+Rendered observations/edit.html.erb within layouts/application (24.7ms)
+Completed 200 OK in 49ms (Views: 29.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:55:14 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 20ms (Views: 14.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:55:20 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/_form.html.erb (7.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/edit.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 23ms (Views: 17.4ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:55:23 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"user", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "users" SET "updated_at" = '2011-02-22 03:55:23.770587', "role" = 'user' WHERE "users"."id" = 5
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 13ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:55:23 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 20ms (Views: 13.5ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/observations/1" for 127.0.0.1 at Mon Feb 21 19:55:28 -0800 2011
+  Processing by ObservationsController#update as HTML
+  Parameters: {"commit"=>"Update Observation", "observation"=>{"date(1i)"=>"2011", "date(2i)"=>"2", "target_id"=>"1", "date(3i)"=>"2"}, "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"1"}
+  [1m[36mObservation Load (0.1ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Completed   in 18ms
+
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:55:34 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 20ms (Views: 13.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at Mon Feb 21 19:55:36 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered users/_form.html.erb (7.7ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/edit.html.erb within layouts/application (13.7ms)
+Completed 200 OK in 25ms (Views: 18.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/5" for 127.0.0.1 at Mon Feb 21 19:55:38 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"nSh+7YSdu6WFGkBkEXpgHCecyVMBcKt92gwlz17YDS0=", "utf8"=>"✓", "id"=>"5", "user"=>{"name"=>"Francis Potter", "role"=>"admin", "uid"=>"790800257", "provider"=>"facebook"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "role" = 'admin', "updated_at" = '2011-02-22 03:55:39.013445' WHERE "users"."id" = 5
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 17ms
+
+
+Started GET "/users/5" for 127.0.0.1 at Mon Feb 21 19:55:39 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered users/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 18ms (Views: 11.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at Mon Feb 21 19:57:08 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 24ms (Views: 10.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/targets" for 127.0.0.1 at Mon Feb 21 19:57:09 -0800 2011
+  Processing by TargetsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets"
+Rendered targets/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 34ms (Views: 16.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 19:57:09 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations"
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.3ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1[0m
+Rendered observations/index.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 100ms (Views: 28.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/observation_ranges" for 127.0.0.1 at Mon Feb 21 19:57:10 -0800 2011
+  Processing by ObservationRangesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges"[0m
+  [1m[35mObservation Load (0.6ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 6 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1
+  [1m[36mTarget Load (0.1ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observation_ranges/index.html.erb within layouts/application (29.5ms)
+Completed 200 OK in 105ms (Views: 33.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assignments" for 127.0.0.1 at Mon Feb 21 19:57:10 -0800 2011
+  Processing by AssignmentsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAssignment Load (0.2ms)[0m  [1mSELECT "assignments".* FROM "assignments"[0m
+  [1m[35mObservationRange Load (0.2ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 1 LIMIT 1
+  [1m[36mObservation Load (0.3ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 6 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered assignments/index.html.erb within layouts/application (42.0ms)
+Completed 200 OK in 121ms (Views: 46.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Mon Feb 21 19:57:11 -0800 2011
+  Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at Mon Feb 21 19:57:11 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at Mon Feb 21 19:57:12 -0800 2011
+
+
+Started GET "/auth/facebook/callback?code=aca97120037bcab4cab98151-790800257%7CSR8Ptc-Ql7hIJxSK1t4Pe_jqS3Q" for 127.0.0.1 at Mon Feb 21 19:57:13 -0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"aca97120037bcab4cab98151-790800257|SR8Ptc-Ql7hIJxSK1t4Pe_jqS3Q", "provider"=>"facebook"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."uid" = '790800257' AND "users"."provider" = 'facebook' LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms
+
+
+Started GET "/" for 127.0.0.1 at Mon Feb 21 19:57:13 -0800 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (66.0ms)
+Completed 200 OK in 71ms (Views: 70.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Mon Feb 21 19:57:15 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mObservation Load (0.3ms)[0m  [1mSELECT "observations".* FROM "observations"[0m
+  [1m[35mTarget Load (0.3ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.4ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1
+Rendered observations/index.html.erb within layouts/application (31.9ms)
+Completed 200 OK in 58ms (Views: 37.7ms | ActiveRecord: 1.0ms)

@@ -30,4 +30,12 @@ gem 'sqlite3'
 #   gem 'webrat'
 # end
 
+
+# Using OmniAuth to perform OAuth2 authentication with Facebook (and Twitter, and LinkedIn...)
+
 gem 'omniauth'
+
+
+# Using Cancan for authorization
+
+gem 'cancan'

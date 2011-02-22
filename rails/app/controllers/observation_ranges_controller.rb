@@ -1,4 +1,7 @@
 class ObservationRangesController < ApplicationController
+  
+  load_and_authorize_resource
+  
   # GET /observation_ranges
   # GET /observation_ranges.xml
   def index

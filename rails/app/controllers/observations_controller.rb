@@ -1,4 +1,7 @@
 class ObservationsController < ApplicationController
+  
+  load_and_authorize_resource
+  
   # GET /observations
   # GET /observations.xml
   def index
