@@ -39,7 +39,8 @@ package com.hg94.seti.view {
 	
 	public class AssignmentStarfield {
 			
-		private static const HATHERSAGE_MAP_API_KEY:String = "ABQIAAAAEwk3rg5igZgbfHAAaPpdnhS3hwEVAxBLwgX-yCFBjg8qlFo5UxTVUCdE50GpyF9WvX4b62ZJcx0ASA";
+		//private static const HATHERSAGE_MAP_API_KEY:String = "ABQIAAAAEwk3rg5igZgbfHAAaPpdnhS3hwEVAxBLwgX-yCFBjg8qlFo5UxTVUCdE50GpyF9WvX4b62ZJcx0ASA";
+		private static const HATHERSAGE_MAP_API_KEY:String = "ABQIAAAAvfCXHyG3_fr2KItfFudhNhRu45k_GoSHRmy8AvsVANhoXVrYpRRD4K1belmVZubunzBgbbEjN4EtwQ";
 		
 		protected var _targetSet:TargetSet;
 		protected var _targetArray:Array = [];
@@ -55,7 +56,7 @@ package com.hg94.seti.view {
 			
 			map = new Map3D();
 			map.key=HATHERSAGE_MAP_API_KEY;
-			map.url="http://hathersagegroup.com"
+			map.url="http://seti.hg94.com"
 			map.sensor="false"
 			map.percentWidth=100;
 			map.percentHeight=100;

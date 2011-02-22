@@ -11045,3 +11045,310 @@ Started GET "/" for 127.0.0.1 at Tue Feb 22 10:34:19 -0800 2011
   Processing by HomeController#index as HTML
 Rendered home/index.html.erb within layouts/application (2.4ms)
 Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/crossdomain.xml" for 127.0.0.1 at Tue Feb 22 10:39:42 -0800 2011
+
+ActionController::RoutingError (No route matches "/crossdomain.xml"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at Tue Feb 22 10:51:08 -0800 2011
+
+
+Started GET "/auth/facebook/callback?code=fb42892ebb2adb141477f69a-100002035454440%7CN4kICzvPo1LDZzvlitAdtrKO0ak" for 127.0.0.1 at Tue Feb 22 10:51:08 -0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"fb42892ebb2adb141477f69a-100002035454440|N4kICzvPo1LDZzvlitAdtrKO0ak", "provider"=>"facebook"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."uid" = '100002035454440' AND "users"."provider" = 'facebook' LIMIT 1
+Redirected to http://localhost.seti.hg94.com:3000/
+Completed 302 Found in 9ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 10:51:08 -0800 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 17ms (Views: 16.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users.xml" for 127.0.0.1 at Tue Feb 22 10:51:10 -0800 2011
+  Processing by UsersController#index as XML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+Completed   in 15ms
+
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ('t'='f')[0m
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.0ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Tue Feb 22 10:51:15 -0800 2011
+  Processing by SessionsController#destroy as HTML
+Redirected to http://localhost.seti.hg94.com:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 10:51:15 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at Tue Feb 22 10:51:17 -0800 2011
+
+
+Started GET "/auth/facebook/callback?code=fb42892ebb2adb141477f69a-100002035454440%7CN4kICzvPo1LDZzvlitAdtrKO0ak" for 127.0.0.1 at Tue Feb 22 10:51:17 -0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"fb42892ebb2adb141477f69a-100002035454440|N4kICzvPo1LDZzvlitAdtrKO0ak", "provider"=>"facebook"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."uid" = '100002035454440' AND "users"."provider" = 'facebook' LIMIT 1
+Redirected to http://localhost.seti.hg94.com:3000/
+Completed 302 Found in 9ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 10:51:18 -0800 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 77ms (Views: 76.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users.xml" for 127.0.0.1 at Tue Feb 22 10:51:19 -0800 2011
+  Processing by UsersController#index as XML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1
+Completed   in 17ms
+
+CanCan::AccessDenied (You are not authorized to access this page.):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ('t'='f')[0m
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (13.2ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Tue Feb 22 10:53:13 -0800 2011
+  Processing by SessionsController#destroy as HTML
+Redirected to http://localhost.seti.hg94.com:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 10:53:13 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at Tue Feb 22 10:53:14 -0800 2011
+
+
+Started GET "/auth/facebook/callback?code=4b567b46a075f822fa0db474-100002112051961%7CGJUiI3pXmp9WCdvBYb3o5au3whM" for 127.0.0.1 at Tue Feb 22 10:53:22 -0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"4b567b46a075f822fa0db474-100002112051961|GJUiI3pXmp9WCdvBYb3o5au3whM", "provider"=>"facebook"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."uid" = '100002112051961' AND "users"."provider" = 'facebook' LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "users" ("uid", "name", "role", "updated_at", "provider", "created_at") VALUES ('100002112051961', 'Seti Setiuser', 'user', '2011-02-22 18:53:22.810381', 'facebook', '2011-02-22 18:53:22.810381')[0m
+Redirected to http://localhost.seti.hg94.com:3000/
+Completed 302 Found in 13ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 10:53:22 -0800 2011
+  Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1
+Rendered home/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 10:53:28 -0800 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 16ms (Views: 15.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Tue Feb 22 10:54:47 -0800 2011
+  Processing by SessionsController#destroy as HTML
+Redirected to http://localhost.seti.hg94.com:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 10:54:47 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at Tue Feb 22 10:54:48 -0800 2011
+
+
+Started GET "/auth/facebook/callback?code=41fd7c8caac86348680a9f23-100002087002031%7CwBnBYFjbBFgMtBsSV2RMzFySvlU" for 127.0.0.1 at Tue Feb 22 10:54:51 -0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"41fd7c8caac86348680a9f23-100002087002031|wBnBYFjbBFgMtBsSV2RMzFySvlU", "provider"=>"facebook"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."uid" = '100002087002031' AND "users"."provider" = 'facebook' LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "role", "name", "updated_at", "provider", "uid") VALUES ('2011-02-22 18:54:52.223428', 'user', 'Seti Setiexplorer', '2011-02-22 18:54:52.223428', 'facebook', '100002087002031')[0m
+Redirected to http://localhost.seti.hg94.com:3000/
+Completed 302 Found in 12ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 10:54:52 -0800 2011
+  Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+Rendered home/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/logout" for 127.0.0.1 at Tue Feb 22 10:54:55 -0800 2011
+  Processing by SessionsController#destroy as HTML
+Redirected to http://localhost.seti.hg94.com:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 10:54:55 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at Tue Feb 22 10:55:12 -0800 2011
+
+
+Started GET "/auth/facebook/callback?code=aca97120037bcab4cab98151-790800257%7CbTWKi30ovC0ZUzSKIip1bj5JnxM" for 127.0.0.1 at Tue Feb 22 10:55:13 -0800 2011
+  Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"aca97120037bcab4cab98151-790800257|bTWKi30ovC0ZUzSKIip1bj5JnxM", "provider"=>"facebook"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."uid" = '790800257' AND "users"."provider" = 'facebook' LIMIT 1[0m
+Redirected to http://localhost.seti.hg94.com:3000/
+Completed 302 Found in 9ms
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 10:55:13 -0800 2011
+  Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered home/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users.xml" for 127.0.0.1 at Tue Feb 22 10:55:14 -0800 2011
+  Processing by UsersController#index as XML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+Completed 200 OK in 28ms (Views: 9.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Feb 22 10:55:16 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 25ms (Views: 13.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/9/edit" for 127.0.0.1 at Tue Feb 22 10:55:22 -0800 2011
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1[0m
+Rendered users/_form.html.erb (3.9ms)
+Rendered users/edit.html.erb within layouts/application (66.3ms)
+Completed 200 OK in 83ms (Views: 70.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/9" for 127.0.0.1 at Tue Feb 22 10:55:26 -0800 2011
+  Processing by UsersController#update as HTML
+  Parameters: {"commit"=>"Update User", "authenticity_token"=>"QCUW55gRNyR2swDF2RZ6JwwgPL7m/ECTI2kTtVnJcFU=", "utf8"=>"✓", "id"=>"9", "user"=>{"name"=>"Seti Setiexplorer", "role"=>"explorer", "uid"=>"100002087002031", "provider"=>"facebook"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "users" SET "role" = 'explorer', "updated_at" = '2011-02-22 18:55:26.101094' WHERE "users"."id" = 9[0m
+Redirected to http://localhost.seti.hg94.com:3000/users/9
+Completed 302 Found in 17ms
+
+
+Started GET "/users/9" for 127.0.0.1 at Tue Feb 22 10:55:26 -0800 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1
+Rendered users/show.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 22ms (Views: 9.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Feb 22 10:55:28 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 85ms (Views: 73.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Feb 22 11:00:09 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 28ms (Views: 13.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Feb 22 11:00:39 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 24ms (Views: 12.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Feb 22 11:00:45 -0800 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 24ms (Views: 12.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/crossdomain.xml" for 127.0.0.1 at Tue Feb 22 11:01:55 -0800 2011
+
+ActionController::RoutingError (No route matches "/crossdomain.xml"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/crossdomain.xml" for 127.0.0.1 at Tue Feb 22 11:02:41 -0800 2011
+
+ActionController::RoutingError (No route matches "/crossdomain.xml"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 11:21:54 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 11:21:54 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (72.2ms)
+Completed 200 OK in 78ms (Views: 77.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users.xml" for 127.0.0.1 at Tue Feb 22 11:21:56 -0800 2011
+  Processing by UsersController#index as XML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 25ms (Views: 7.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/data/getobservations.txt" for 127.0.0.1 at Tue Feb 22 11:22:02 -0800 2011
+
+ActionController::RoutingError (No route matches "/assets/data/getobservations.txt"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)

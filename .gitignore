@@ -6,3 +6,4 @@ bin-debug/
 *~
 .git_local/
 /rails/public/flex/
+*.log
