@@ -5,5 +5,5 @@
 	logallrefupdates = true
 	ignorecase = true
 [remote "heroku"]
-	url = git@heroku.com:blazing-ice-588.git
+	url = git@heroku.com:seti.git
 	fetch = +refs/heads/*:refs/remotes/heroku/*

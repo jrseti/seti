@@ -1,2 +1,7 @@
 0000000000000000000000000000000000000000 030bf545e9cec78589088449be964574159d2e06 Francis Potter <git@fpotter.com> 1298278311 -0800	commit (initial): .
 030bf545e9cec78589088449be964574159d2e06 babc74d48ec4e3d85f69e49836f6580a31aa7806 Francis Potter <git@fpotter.com> 1298278634 -0800	commit: Publishing to Heroku
+babc74d48ec4e3d85f69e49836f6580a31aa7806 b9de4f33e7c3ebb428a02b66fcd3b89afddc6760 Francis Potter <git@fpotter.com> 1298348878 -0800	commit: Big commit
+b9de4f33e7c3ebb428a02b66fcd3b89afddc6760 c7d862a2d66ad2e6c6226e7855e78c580101fa57 Francis Potter <git@fpotter.com> 1298349567 -0800	commit: Big commit
+c7d862a2d66ad2e6c6226e7855e78c580101fa57 1aabeb5e026b2ac02fdd5cde4982689c272e7ec9 Francis Potter <git@fpotter.com> 1298349943 -0800	commit: Opening a hole in Users so I can make myself Administrator
+1aabeb5e026b2ac02fdd5cde4982689c272e7ec9 2912fc87c7bccd1b4c788223fa65014cb5592fad Francis Potter <git@fpotter.com> 1298350433 -0800	commit: Fixing users acl
+2912fc87c7bccd1b4c788223fa65014cb5592fad 2a4d1e2432ac6f9f808453c91442928048a6d6a5 Francis Potter <git@fpotter.com> 1298388231 -0800	commit: Publishing to Heroku
