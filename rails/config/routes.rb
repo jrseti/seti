@@ -1,4 +1,8 @@
 Seti::Application.routes.draw do
+  
+  match "/auth/:provider/callback" => "sessions#create"
+  match "/logout" => "sessions#destroy", :as => :logout
+  
   resources :assignments do
     get :current_assignment_for_user, :on => :collection
   end

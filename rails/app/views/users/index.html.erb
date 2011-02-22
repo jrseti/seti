@@ -4,7 +4,8 @@
   <tr>
     <th>First name</th>
     <th>Last name</th>
-    <th>Facebook</th>
+    <th>Provider</th>
+    <th>UID</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,7 +15,8 @@
   <tr>
     <td><%= user.first_name %></td>
     <td><%= user.last_name %></td>
-    <td><%= user.facebook_id %></td>
+    <td><%= user.provider %></td>
+    <td><%= user.uid %></td>
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>

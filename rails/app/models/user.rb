@@ -1,9 +1,15 @@
 class User < ActiveRecord::Base
   has_many :assignments
-  def to_param
-    facebook_id
-  end
+  #def to_param
+  #  [provider, uid].join('-')
+  #end
   def friendly_name
-    first_name + " " + last_name + " / " + facebook_id
+    "<Friendly name>"
+  end
+  def self.create_with_omniauth(auth)
+    create! do |user|
+      user.provider = auth["provider"]
+      user.uid = auth["uid"]
+    end
   end
 end
