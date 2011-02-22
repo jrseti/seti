@@ -1,21 +1,17 @@
-<h1>Listing observations</h1>
+<h1>All Observations</h1>
 
 <table border="1">
   <tr>
     <th>Date</th>
     <th>Target</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Actions</th>
   </tr>
 
 <% @observations.each do |observation| %>
   <tr>
     <td><%= observation.date %></td>
     <td><%= observation.target.name %></td>
-    <td><%= link_to 'Show', observation %></td>
-    <td><%= link_to 'Edit', edit_observation_path(observation) %></td>
-    <td><%= link_to 'Destroy', observation, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', observation %> <%= link_to 'Edit', edit_observation_path(observation) %> <%= link_to 'Destroy', observation, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

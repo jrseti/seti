@@ -23,7 +23,6 @@ package com.hg94.seti.model {
 
 
         /** Celestial coordinates
-         * 	We will reverse the sign on the declination provided by SETIQuest, to make it the same as Wikipedia and Google Earth
          */
 
         protected var _rightAscension:Number;
@@ -97,12 +96,12 @@ package com.hg94.seti.model {
         // Public methods
 
 
-        /** For some reason, SETI Institute uses an incorrectly signed declination number in the metadata files
+        /** No longer reversing the sign. Let's get it right in our database.
          */
 
         public function setSETICoordinates(rightAscension:Number,declination:Number):void {
             this._rightAscension = rightAscension;
-            this._declination = 0.0-declination;
+            this._declination = declination;
         }
 
 

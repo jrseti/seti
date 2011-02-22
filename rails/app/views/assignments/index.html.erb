@@ -1,13 +1,11 @@
-<h1>Listing assignments</h1>
+<h1>All Assignments</h1>
 
 <table>
   <tr>
     <th>Observation range</th>
     <th>User</th>
     <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Actions</th>
   </tr>
 
 <% @assignments.each do |assignment| %>
@@ -15,9 +13,7 @@
     <td><%= assignment.observation_range.friendly_name %></td>
     <td><%= assignment.user.name %></td>
     <td><%= assignment.status %></td>
-    <td><%= link_to 'Show', assignment %></td>
-    <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
-    <td><%= link_to 'Destroy', assignment, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', assignment %> <%= link_to 'Edit', edit_assignment_path(assignment) %> <%= link_to 'Destroy', assignment, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

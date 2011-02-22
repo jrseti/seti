@@ -3,7 +3,7 @@ package com.hg94.seti.model {
 
     import mx.collections.ArrayCollection;
 
-    public class RangeStatus {
+    public class ObservationRangeStatus {
 
         public static const NASCENT:String = "NASCENT";
 
@@ -13,14 +13,14 @@ package com.hg94.seti.model {
 
         public static function valuesToArray():Array {
             var coll:Array = new Array();
-            var classInfo:XML = describeType(RangeStatus);
+            var classInfo:XML = describeType(ObservationRangeStatus);
             var constants:XMLList = classInfo..constant;
             var i:uint = 0;
             var l:uint = constants.length();
             for(i = 0;i<l;++i) {
                 var constant:XML = constants[i] as XML;
                 var constantName:String = constant.@name.toString();
-                var constantValue:String = RangeStatus[constantName] as String;
+                var constantValue:String = ObservationRangeStatus[constantName] as String;
                 coll.push(constantValue);
             }
             coll.sort(Array.CASEINSENSITIVE);
@@ -28,7 +28,7 @@ package com.hg94.seti.model {
         }
 
         public static function isValid(value:String):Boolean {
-            var coll:Array = RangeStatus.valuesToArray();
+            var coll:Array = ObservationRangeStatus.valuesToArray();
             for each(var item:String in coll) {
                 if(item==value) {
                     return true;

@@ -62,11 +62,11 @@ class AssignmentsController < ApplicationController
   # For now, just return assignment number one.
   
   def current_assignment_for_user
-    @assignment = Assignment.find(1)
+    @assignment = Assignment.find(4)
 
     respond_to do |format|
       format.html {render :action => 'show'}# show.html.erb
-      format.xml  { render :xml => @assignment }
+      format.xml  { render :xml => @assignment.to_xml(:include => {:observation_range => {:include => {:observation => {:include => :target}}}}) }
     end
     
   end 

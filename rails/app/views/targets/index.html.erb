@@ -1,4 +1,4 @@
-<h1>Listing targets</h1>
+<h1>All Targets</h1>
 
 <table>
   <tr>
@@ -6,9 +6,7 @@
     <th>Description</th>
     <th>Right ascension</th>
     <th>Declination</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Actions</th>
   </tr>
 
 <% @targets.each do |target| %>
@@ -17,9 +15,7 @@
     <td><%= target.description %></td>
     <td><%= target.right_ascension %></td>
     <td><%= target.declination %></td>
-    <td><%= link_to 'Show', target %></td>
-    <td><%= link_to 'Edit', edit_target_path(target) %></td>
-    <td><%= link_to 'Destroy', target, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', target %> <%= link_to 'Edit', edit_target_path(target) %> <%= link_to 'Destroy', target, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
