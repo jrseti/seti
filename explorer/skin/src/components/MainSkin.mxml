@@ -223,11 +223,12 @@
 			  skinClass="components.StarfieldSkinZoomInButton"/>
 	<components:AssignmentStarfieldPlaceholder id="assignmentStarfieldPlaceholder" itemCreationPolicy="immediate"
 											   includeIn="Assignment" left="0" right="0" top="40"
-											   bottom="0"/>
+											   height="340"/>
 	<components:DataVizTileListPlaceholder id="dataVizTileListPlaceholder" itemCreationPolicy="immediate"
 										   d:userLabel="TileListPlaceholder"
 										   includeIn="Categorize,DataViz,Signal" left="0" right="0"
-										   top="41"/>
+										   top="40"
+/>
 	<s:RichText id="starNameText1" d:userLabel="Target_Name" includeIn="Assignment,DataViz,Signal"
 				left="10" bottom="72" width="394" height="20" color="#FFFFFF"
 				fontFamily="Myriad Pro Semibold" fontSize="24" lineHeight="100%"
@@ -372,7 +373,7 @@
 					textAlign="center"/>
 		<s:Button includeIn="Categorize" x="9" y="432" label="Cancel"
 				  skinClass="components.NextScreenButton"/>
-		<s:Button id="viewDataButton" includeIn="Assignment" itemCreationPolicy="immediate" x="678" y="434" label="View Data"
+		<s:Button id="viewDataButton" includeIn="Assignment" x="678" y="434" label="View Data" itemCreationPolicy="immediate"
 				  click="button_clickHandler_1()" skinClass="components.ViewDataButton"/>
 	</fx:DesignLayer>
 	<s:transitions>

@@ -67,8 +67,13 @@ package com.hg94.seti.view {
 			map.percentHeight=100;
 			map.addEventListener(MapEvent.MAP_PREINITIALIZE,onMapPreinitialize);
 			map.addEventListener(MapEvent.MAP_READY,onMapReady);
+			placeholder.addEventListener(MouseEvent.CLICK, this.onClickMap);
 			
 			placeholder.addElement(map);
+		}
+		
+		private function onClickMap(event:MouseEvent):void {
+			this.map.zoomIn();
 		}
 
 		protected function getAssignment():void 
@@ -83,8 +88,8 @@ package com.hg94.seti.view {
 			event.currentTarget.removeEventListener(event.type, getAssignmentResultHandler);
 			this._assignment = (event.currentTarget as GetAssignmentRequest).assignment;
 			this.target = this._assignment.observationRange.observation.target;
-			this.addMarkerForTarget(this.target);
-			map.flyTo(this.target.getGoogleSkyCoordinates(), map.getZoom() + 3, map.getAttitude(), 3);
+			//this.addMarkerForTarget(this.target);
+			map.flyTo(this.target.getGoogleSkyCoordinates(), map.getZoom() + 5, map.getAttitude(), 3);
 			
 			/*
 			_targetSet = (event.currentTarget as TargetListRequest).targetSet;
@@ -116,7 +121,7 @@ package com.hg94.seti.view {
 		{
 			var opts:MapOptions = new MapOptions();
 			opts.mapTypes = [Sky.VISIBLE_MAP_TYPE];
-			opts.zoom = 2;
+			opts.zoom = 4;
 			opts.backgroundFillStyle = new FillStyle();
 			opts.backgroundFillStyle.color = 0x000000;
 			event.target.setInitOptions(opts);

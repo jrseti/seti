@@ -12055,3 +12055,151 @@ Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue 
   [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1
   [1m[36mTarget Load (0.3ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
 Completed 200 OK in 116ms (Views: 1.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 13:13:27 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 13:13:27 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered home/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 23ms (Views: 22.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue Feb 22 13:13:37 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as XML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAssignment Load (0.2ms)[0m  SELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = 4 LIMIT 1
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 3 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 114ms (Views: 2.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 13:15:10 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 13:15:10 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered home/index.html.erb within layouts/application (18.1ms)
+Completed 200 OK in 24ms (Views: 23.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue Feb 22 13:15:20 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as XML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAssignment Load (0.1ms)[0m  SELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = 4 LIMIT 1
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 3 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1
+  [1m[36mTarget Load (0.3ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 132ms (Views: 2.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 13:17:02 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 7ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 13:17:03 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered home/index.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 24ms (Views: 23.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue Feb 22 13:17:12 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as XML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAssignment Load (0.2ms)[0m  SELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = 4 LIMIT 1
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 3 LIMIT 1[0m
+  [1m[35mObservation Load (0.3ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 66ms (Views: 2.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 13:22:31 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (36.8ms)
+Completed 200 OK in 87ms (Views: 86.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 13:22:35 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered home/index.html.erb within layouts/application (29.8ms)
+Completed 200 OK in 41ms (Views: 39.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 13:23:09 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 13:23:09 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 28ms (Views: 26.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 13:26:43 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 33ms (Views: 32.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 13:26:44 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered home/index.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 25ms (Views: 24.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue Feb 22 13:26:56 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as XML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAssignment Load (0.2ms)[0m  SELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = 4 LIMIT 1
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 3 LIMIT 1[0m
+  [1m[35mObservation Load (0.3ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 136ms (Views: 2.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 13:27:26 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 13:27:27 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered home/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 25ms (Views: 24.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue Feb 22 13:27:34 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as XML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAssignment Load (0.3ms)[0m  SELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = 4 LIMIT 1
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 3 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1
+  [1m[36mTarget Load (0.3ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Completed 200 OK in 131ms (Views: 1.9ms | ActiveRecord: 1.2ms)
