@@ -2,8 +2,7 @@
 
 <table>
   <tr>
-    <th>First name</th>
-    <th>Last name</th>
+    <th>Name</th>
     <th>Provider</th>
     <th>UID</th>
     <th></th>
@@ -13,8 +12,7 @@
 
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.first_name %></td>
-    <td><%= user.last_name %></td>
+    <td><%= user.name %></td>
     <td><%= user.provider %></td>
     <td><%= user.uid %></td>
     <td><%= link_to 'Show', user %></td>

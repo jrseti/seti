@@ -13,7 +13,7 @@
 <% @assignments.each do |assignment| %>
   <tr>
     <td><%= assignment.observation_range.friendly_name %></td>
-    <td><%= assignment.user.friendly_name %></td>
+    <td><%= assignment.user.name %></td>
     <td><%= assignment.status %></td>
     <td><%= link_to 'Show', assignment %></td>
     <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>

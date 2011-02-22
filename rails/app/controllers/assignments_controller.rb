@@ -40,9 +40,9 @@ class AssignmentsController < ApplicationController
   # POST /assignments
   # POST /assignments.xml
   def create
-    @user = User.find(params[:assignment][:user])
-    @observation_range = ObservationRange.find(params[:assignment][:observation_range])
-    @assignment = Assignment.new(:user => @user, :observation_range => @observation_range, :status => params[:assignment][:status])
+    #@user = User.find(params[:assignment][:user])
+    #@observation_range = ObservationRange.find(params[:assignment][:observation_range])
+    @assignment = Assignment.new(params[:assignment])
 
     respond_to do |format|
       if @assignment.save

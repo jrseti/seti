@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110222004420) do
+ActiveRecord::Schema.define(:version => 20110222015406) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "observation_range_id"
@@ -46,13 +46,11 @@ ActiveRecord::Schema.define(:version => 20110222004420) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "facebook_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "uid"
     t.string   "provider"
+    t.string   "name"
   end
 
 end
