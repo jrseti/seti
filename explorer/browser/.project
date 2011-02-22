@@ -27,6 +27,11 @@
 			<location>/Users/francispotter/Documents/Git/SETIQuest/explorer/skin/src</location>
 		</link>
 		<link>
+			<name>bin-debug</name>
+			<type>2</type>
+			<location>/Users/francispotter/Documents/Git/SETIQuest/rails/public/flex</location>
+		</link>
+		<link>
 			<name>bin-release</name>
 			<type>2</type>
 			<location>/Users/francispotter/Documents/Git/SETIQuest/rails/public/flex</location>

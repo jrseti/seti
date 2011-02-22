@@ -3,5 +3,33 @@
 			   xmlns:s="library://ns.adobe.com/flex/spark"
 			   xmlns:view="com.hg94.seti.view.*"
 			   backgroundColor="#000000">
+	<s:creationComplete>
+		<![CDATA[
+		trace("Authentication provider:" + this.parameters["provider"]);
+		trace("Authentication token:" + this.parameters["token"]);
+		var httpService:HTTPService = new HTTPService();
+		httpService.url = "http://localhost.seti.hg94.com:3000/users.xml";
+		httpService.resultFormat = HTTPService.RESULT_FORMAT_E4X;
+		httpService.method = "GET" // Shouldn't I reference a static constant here?
+		httpService.addEventListener(ResultEvent.RESULT, this.onHTTPServiceResult);
+		httpService.addEventListener(FaultEvent.FAULT, this.onHTTPServiceFault);
+		httpService.send();
+		]]>
+	</s:creationComplete>
+	<fx:Script>
+		<![CDATA[
+			import mx.rpc.events.FaultEvent;
+			import mx.rpc.events.ResultEvent;
+			import mx.rpc.http.HTTPService;
+			private function onHTTPServiceFault(event:FaultEvent):void {
+				trace("FAULT");
+			}
+			private function onHTTPServiceResult(event:ResultEvent):void {
+				var resultXML:XML = event.result as XML;
+				trace(resultXML.toString());
+			}
+
+		]]>
+	</fx:Script>
 	<view:SETIQuestExplorer/>
 </s:Application>
