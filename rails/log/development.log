@@ -9255,3 +9255,63 @@ Started GET "/users" for 127.0.0.1 at Mon Feb 21 23:39:19 -0800 2011
   [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"
 Rendered users/index.html.erb within layouts/application (4.9ms)
 Completed 200 OK in 23ms (Views: 9.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 07:29:22 -0800 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 18ms (Views: 17.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/Main.html" for 127.0.0.1 at Tue Feb 22 07:29:22 -0800 2011
+
+ActionController::RoutingError (No route matches "/Main.html"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
+
+
+Started GET "/public/images/rails.png" for 127.0.0.1 at Tue Feb 22 07:34:41 -0800 2011
+
+ActionController::RoutingError (No route matches "/public/images/rails.png"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 07:36:13 -0800 2011
+  Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered home/index.html.erb within layouts/application (53.4ms)
+Completed 200 OK in 59ms (Views: 58.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/Main.html" for 127.0.0.1 at Tue Feb 22 07:36:13 -0800 2011
+
+ActionController::RoutingError (No route matches "/Main.html"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 07:36:33 -0800 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 07:37:00 -0800 2011
+  Processing by HomeController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered home/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/data/getobservations.txt" for 127.0.0.1 at Tue Feb 22 07:37:11 -0800 2011
+
+ActionController::RoutingError (No route matches "/assets/data/getobservations.txt"):
+  
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.8ms)
