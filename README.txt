@@ -25,9 +25,9 @@ Then log in using your Facebook credentials
 Then go back to the rails directory and do this:
 
 rails console
-u = User.first()
+u = User.first
 u.role = :admin
-u.save()
+u.save
 exit
 
 Now refresh your browser.
