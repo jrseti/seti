@@ -44,9 +44,9 @@ package com.hg94.seti.controller {
 			observationRange.loMHz = observationRangeXML["lo-mhz"];
 			observationRange.hiMHz = observationRangeXML["hi-mhz"];
 			observationRange.filenameCollection = new ArrayCollection();
-			var urlFormat:String = observationXML["url-format"];
-			for each (var filenamePart:String in observationRangeXML["filename-part-text"][0].split("\r\n")) {
-				observationRange.filenameCollection.addItem(urlFormat.replace("%s", filenamePart));
+			var baseURL:String = observationXML["base-url"];
+			for each (var urlPart:String in observationRangeXML["url-part-list"][0].split("\r\n")) {
+				observationRange.filenameCollection.addItem(baseURL + "/" + urlPart);
 			}
 			this.assignment = new Assignment(observationRange);
 			this.dispatchEvent(event.clone());
