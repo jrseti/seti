@@ -14,8 +14,8 @@ Make sure you have the latest version of Rails
 
 To build:
 
+bundle
 rake db:migrate
-rails bundle
 rails server
 
 Then point your browser to http://localhost.seti.hg94.com/
