@@ -17095,3 +17095,5 @@ Started GET "/?debug=true" for 127.0.0.1 at Wed Feb 23 09:34:49 -0800 2011
   [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
 Rendered home/index.html.erb within layouts/application (15.7ms)
 Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" LIMIT 1
