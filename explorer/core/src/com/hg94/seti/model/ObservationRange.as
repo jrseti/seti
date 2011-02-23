@@ -1,6 +1,6 @@
 package com.hg94.seti.model {
 
-    public class ObservationRange {
+    [Bindable] public class ObservationRange {
 		
 		public var observation:Observation;
 		

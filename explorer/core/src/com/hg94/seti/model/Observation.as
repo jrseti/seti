@@ -1,17 +1,16 @@
 package com.hg94.seti.model {
     import mx.collections.ArrayCollection;
+    import mx.formatters.DateFormatter;
 
 
 
     /** Represents an observation of a single Target on a single day
      */
 
-    public class Observation {
+    [Bindable] public class Observation {
 
-        [Bindable]
         public var target:Target;
 
-        [Bindable]
         public var date:Date;
 
         /**********************************************************************************
@@ -27,18 +26,6 @@ package com.hg94.seti.model {
          */
 
         protected var _date:Date;
-
-
-        /** Lowest wavelength represented (in MHz)
-         */
-
-        protected var _minWavelength:Number;
-
-
-        /** Highest wavelength represented (in MHz)
-         */
-
-        protected var _maxWavelength:Number;
 
 
         /** Set of waterfall tile URLs
@@ -79,11 +66,13 @@ package com.hg94.seti.model {
         public function get waterfallTiles():ArrayCollection {
             return this._waterfallTiles;
         }
-
-
-        public function get averageWavelength():int {
-            return Math.round((this._maxWavelength+this._minWavelength)/2);
-        }
+		
+		
+		public function get friendlyDate():String {
+			var dateFormatter:DateFormatter = new DateFormatter();
+			dateFormatter.formatString = "MMMM D, YYYY";
+			return dateFormatter.format(this.date);
+		}
 
 
         // Constructor
@@ -108,16 +97,5 @@ package com.hg94.seti.model {
         public function addWaterfallTile(waterfallTile:WaterfallTile):void {
             this._waterfallTiles.addItem(waterfallTile);
         }
-
-        public function get minWavelength():Number {
-            return _minWavelength;
-        }
-
-        public function get maxWavelength():Number {
-            return _maxWavelength;
-        }
-
-
-
     }
 }

@@ -29,12 +29,19 @@ package com.hg94.seti.controller {
 			var observationRangeXML:XML = assignmentXML["observation-range"][0];
 			var observationXML:XML = observationRangeXML["observation"][0];
 			var targetXML:XML = observationXML["target"][0];
-			var target:Target = new Target(targetXML.name);
+			var target:Target = new Target();
+			target.name = targetXML["name"];
+			target.description = targetXML["description"];
 			target.rightAscension = targetXML["right-ascension"];
 			target.declination = targetXML["declination"];
-			trace("Assigned to target:" + target.friendlyName);
-			var observation:Observation = new Observation(new Date(), target);
+			trace("Assigned to target:" + target.name);
+			var observationDateString:String = observationXML["date"];
+			var observationDateArray:Array = observationDateString.split("-");
+			var observationDate:Date = new Date(observationDateArray[0], int(observationDateArray[1]) - 1, observationDateArray[2]);
+			var observation:Observation = new Observation(observationDate, target);
 			var observationRange:ObservationRange = new ObservationRange(observation);
+			observationRange.loMHz = observationRangeXML["lo-mhz"];
+			observationRange.hiMHz = observationRangeXML["hi-mhz"];
 			this.assignment = new Assignment(observationRange);
 			this.dispatchEvent(event.clone());
 		}

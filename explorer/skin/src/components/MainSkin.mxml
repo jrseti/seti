@@ -2,10 +2,9 @@
 <s:Group xmlns:s="library://ns.adobe.com/flex/spark"
 		 xmlns:fx="http://ns.adobe.com/mxml/2009"
 		 xmlns:fc="http://ns.adobe.com/flashcatalyst/2009"
-		 xmlns:skinnablecomponents="com.hg94.seti.skinnablecomponents.*"
 		 xmlns:d="http://ns.adobe.com/fxg/2008/dt"
 		 xmlns:components="components.*"
-		 xmlns:skinnablecomponents2="skinnablecomponents.*"
+		 xmlns:skinnablecomponents="skinnablecomponents.*"
 		 xmlns:lib="assets.graphics.setiQuestExplorerLogo.*"
 		 xmlns:graphics="assets.graphics.*"
 		 width="800" height="480" fc:manageBounds="false"
@@ -13,17 +12,7 @@
 	<fx:Script>
 		<![CDATA[
 			
-
-			
-
-
-			
-
-
-			
-
-
-			
+			[Bindable] public var model:Object;
 
 
 			protected function categoryButton_clickHandler():void
@@ -153,6 +142,7 @@
 
 	</fx:Script>
 	<s:states>
+<!--
 		<s:State fc:color="0xcc0000" name="Loading_Firsttime"/>
 		<s:State fc:color="0x0081cc" name="Tutorial1"/>
 		<s:State fc:color="0x00cc21" name="Tutorial2"/>
@@ -166,9 +156,23 @@
 		<s:State fc:color="0x510900" name="Loading_Othertimes"/>
 		<s:State fc:color="0xbbcc00" name="Tutorial4"/>
 		<s:State fc:color="0x9308ff" name="Tutorial5"/>
+-->		
+		<s:State name="Loading_Firsttime"/>
+		<s:State name="Loading_Othertimes"/>
+		<s:State name="Tutorial1"/>
+		<s:State name="Tutorial2"/>
+		<s:State name="Tutorial3"/>
+		<s:State name="Tutorial4"/>
+		<s:State name="Tutorial5"/>
 		<s:State name="Tutorial6"/>
 		<s:State name="Tutorial7"/>
 		<s:State name="Tutorial8"/>
+		<s:State name="DataViz"/>
+		<s:State name="Assignment"/>
+		<s:State name="Categorize"/>
+		<s:State name="Signal"/>
+		<s:State name="Settings"/>
+		<s:State name="ExploreSky"/>
 	</s:states>
 	<s:BitmapImage d:userLabel="Galaxy Image" includeIn="Loading_Othertimes,Loading_Firsttime" left="0" right="0" top="-9"
 				   bottom="-12" smooth="true"
@@ -227,34 +231,35 @@
 	<components:DataVizTileListPlaceholder id="dataVizTileListPlaceholder" itemCreationPolicy="immediate"
 										   d:userLabel="TileListPlaceholder"
 										   includeIn="Categorize,DataViz,Signal" left="0" right="0"
-										   top="40"
-/>
-	<s:RichText id="starNameText1" d:userLabel="Target_Name" includeIn="Assignment,DataViz,Signal"
-				left="10" bottom="72" width="394" height="20" color="#FFFFFF"
-				fontFamily="Myriad Pro Semibold" fontSize="24" lineHeight="100%"
-				tabStops="S0 S50 S100 S150 S200 S250 S300 S350 S400 S450 S500" text="Tau Ceti"/>
+										   top="40"/>
+	<s:RichText id="targetNameTextControl" d:userLabel="Target_Name"
+				includeIn="Assignment,DataViz,Signal" left="10" bottom="72" width="394" height="20"
+				color="#FFFFFF" fontFamily="Myriad Pro Semibold" fontSize="24" lineHeight="100%"
+				tabStops="S0 S50 S100 S150 S200 S250 S300 S350 S400 S450 S500"
+				text="{this.model.currentAssignment.observationRange.observation.target.name}"
+				bottom.Assignment="68" width.Assignment="316" height.Assignment="24"/>
 	<s:RichText id="observationDateField1" d:userLabel="Observation_Date" includeIn="Assignment,DataViz,Signal"
 				right="11" bottom="70" width="224" height="22" color="#FFFFFF"
 				fontFamily="Myriad Pro" fontSize="24" lineHeight="100%"
-				tabStops="S0 S50 S100 S150 S200" text="November 4, 2010" textAlign="end"/>
+				tabStops="S0 S50 S100 S150 S200" content="{this.model.currentAssignment.observationRange.observation.friendlyDate}" textAlign="end"/>
 	<s:RichText id="targetDescriptionField1" d:userLabel="Target_Description" includeIn="Assignment,DataViz"
 				left="10" bottom="11" width="288" height="52" color="#999999" fontFamily="Myriad Pro"
 				fontSize="16" lineHeight="100%" tabStops="S0 S50 S100 S150 S200 S250 S300"
-				whiteSpaceCollapse="preserve">
-		<s:content><s:p><s:span>Fourth star in the constellation Taurus</s:span></s:p><s:p><s:span>12 Light years away</s:span></s:p><s:p><s:span>Thought to have 7 planets</s:span></s:p></s:content>
-	</s:RichText>
+				whiteSpaceCollapse="preserve" content="{this.model.currentAssignment.observationRange.observation.target.description}"/>
+		<!--<s:content><s:p><s:span>Fourth star in the constellation Taurus</s:span></s:p><s:p><s:span>12 Light years away</s:span></s:p><s:p><s:span>Thought to have 7 planets</s:span></s:p></s:content>-->
+	<!--</s:RichText>-->
 	<s:RichText id="observationFrequencyField1" d:userLabel="Frequency"
 				includeIn="Assignment,DataViz,Signal" left="288" right="288" height="16"
 				color="#999999" fontFamily="Myriad Pro" fontSize="16" lineHeight="100%"
 				tabStops="S0 S50 S100 S150 S200" text="9999.99999 MHz" textAlign="center"
-				bottom.Assignment="68" text.Assignment="9999 - 9999 MHz"
+				bottom.Assignment="68" content.Assignment="{this.model.currentAssignment.observationRange.loMHz.toPrecision(8) + ' - ' + this.model.currentAssignment.observationRange.hiMHz.toPrecision(8) + ' MHz'}"
 				top.DataViz="396"
 				top.Signal="396"/>
 	<s:RichText id="observationCoordinatesField1" d:userLabel="Target_Coordinates"
 				includeIn="Assignment,DataViz" right="13" bottom="51" width="224" height="16"
 				color="#666666" fontFamily="Myriad Pro" fontSize="12" lineHeight="100%"
-				tabStops="S0 S50 S100 S150 S200" text="RA: 34.576, Decl: -15.676" textAlign="end"
-				text.Assignment="RA: 34.576, Decl: -15.476"/>
+				tabStops="S0 S50 S100 S150 S200" textAlign="end"
+				content="{'RA: ' + this.model.currentAssignment.observationRange.observation.target.rightAscension.toPrecision(6) + ', Decl: ' + this.model.currentAssignment.observationRange.observation.target.declination.toPrecision(6)}"/>
 	<s:RichText includeIn="Categorize" left="10" top="393" width="178" height="37" color="#FFFFFF"
 				fontFamily="Arial" fontSize="16" tabStops="S0 S50 S100 S150 S200"
 				whiteSpaceCollapse="preserve">
@@ -306,28 +311,28 @@
 				text.Tutorial7="Scroll through the data from left to right, and indicate when you see an interesting pattern..."
 				x.Tutorial8="421" y.Tutorial8="353" height.Tutorial8="91"
 				text.Tutorial8="Then categorize the pattern if it fits one of the known signal types displayed..."/>
-	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="9" buttonMode="true"
+	<skinnablecomponents:CategoryButton includeIn="Categorize" y="393" right="9" buttonMode="true"
 										 click="categoryButton_clickHandler()"
 										 skinClass="components.CategoryButtonSkin_Unknown"/>
-	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="85" buttonMode="true"
+	<skinnablecomponents:CategoryButton includeIn="Categorize" y="393" right="85" buttonMode="true"
 										 click="categoryButton_clickHandler_1()"
 										 skinClass="components.CategoryButtonSkin_Radar"/>
-	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="159" buttonMode="true"
+	<skinnablecomponents:CategoryButton includeIn="Categorize" y="393" right="159" buttonMode="true"
 										 click="categoryButton_clickHandler_2()"
 										 skinClass="components.CategoryButtonSkin_Modulation"/>
-	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="237" buttonMode="true"
+	<skinnablecomponents:CategoryButton includeIn="Categorize" y="393" right="237" buttonMode="true"
 										 click="categoryButton_clickHandler_3()"
 										 skinClass="components.CategoryButtonSkin_Broadband"/>
-	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="394" right="312" buttonMode="true"
+	<skinnablecomponents:CategoryButton includeIn="Categorize" y="394" right="312" buttonMode="true"
 										 click="categoryButton_clickHandler_4()"
 										 skinClass="components.CategoryButtonSkin_Pulse"/>
-	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="385" buttonMode="true"
+	<skinnablecomponents:CategoryButton includeIn="Categorize" y="393" right="385" buttonMode="true"
 										 click="categoryButton_clickHandler_5()"
 										 skinClass="components.CategoryButtonSkin_Squiggle"/>
-	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="460" buttonMode="true"
+	<skinnablecomponents:CategoryButton includeIn="Categorize" y="393" right="460" buttonMode="true"
 										 click="categoryButton_clickHandler_6()"
 										 skinClass="components.CategoryButtonSkin_Diagonal"/>
-	<skinnablecomponents2:CategoryButton includeIn="Categorize" y="393" right="533" buttonMode="true"
+	<skinnablecomponents:CategoryButton includeIn="Categorize" y="393" right="533" buttonMode="true"
 										 click="categoryButton_clickHandler_7()"
 										 skinClass="components.CategoryButtonSkin_Local"/>
 	<s:Button includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Tutorial3,Tutorial2,Tutorial1"

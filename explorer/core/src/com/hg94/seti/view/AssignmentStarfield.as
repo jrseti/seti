@@ -26,6 +26,7 @@ package com.hg94.seti.view {
 	import com.hg94.seti.controller.GetAssignmentRequest;
 	import com.hg94.seti.controller.TargetListRequest;
 	import com.hg94.seti.model.Assignment;
+	import com.hg94.seti.model.Model;
 	import com.hg94.seti.model.Observation;
 	import com.hg94.seti.model.Target;
 	import com.hg94.seti.model.TargetSet;
@@ -48,14 +49,17 @@ package com.hg94.seti.view {
 		protected var _targetSet:TargetSet;
 		protected var _targetArray:Array = [];
 		
-		protected var _assignment:Assignment;
+		//protected var _assignment:Assignment;
 
 		
 		private var map:Map3D;
 		
 		public var target:Target;
 		
-		public function AssignmentStarfield(placeholder:AssignmentStarfieldPlaceholder) {
+		protected var _model:Model;
+		
+		public function AssignmentStarfield(placeholder:AssignmentStarfieldPlaceholder, model:Model) {
+			this._model = model;
 			//this.starfieldSkin.zoomInButton.addEventListener(MouseEvent.CLICK, this.zoomInButton_clickHandler);
 			//this.starfieldSkin.zoomOutButton.addEventListener(MouseEvent.CLICK, this.zoomOutButton_clickHandler);
 			
@@ -86,8 +90,9 @@ package com.hg94.seti.view {
 		private function getAssignmentResultHandler(event:ResultEvent):void 
 		{
 			event.currentTarget.removeEventListener(event.type, getAssignmentResultHandler);
-			this._assignment = (event.currentTarget as GetAssignmentRequest).assignment;
-			this.target = this._assignment.observationRange.observation.target;
+			this._model.currentAssignment = (event.currentTarget as GetAssignmentRequest).assignment;
+			this._model.tempTargetName = this._model.currentAssignment.observationRange.observation.target.name;
+			this.target = this._model.currentAssignment.observationRange.observation.target;
 			//this.addMarkerForTarget(this.target);
 			map.flyTo(this.target.getGoogleSkyCoordinates(), map.getZoom() + 5, map.getAttitude(), 3);
 			
@@ -152,11 +157,12 @@ package com.hg94.seti.view {
 			return this.target.declination.toString();
 		}
 		
-		[Bindable (event="click")]
+		/*[Bindable (event="click")]
 		private function get friendlyName():String
 		{
 			return this.target.friendlyName;
 		}
+		*/
 		
 		protected function get maxZoomLevel():Number
 		{

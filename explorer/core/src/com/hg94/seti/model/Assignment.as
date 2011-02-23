@@ -1,7 +1,7 @@
 package com.hg94.seti.model {
     import flash.utils.describeType;
 
-    public class Assignment {
+    [Bindable] public class Assignment {
         public var user:User;
 
         public var dateAssigned:String;

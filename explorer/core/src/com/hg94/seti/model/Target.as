@@ -6,7 +6,7 @@ package com.hg94.seti.model {
     /** Represents a position in outer space, and does coordinate transformations
      */
 
-    public class Target {
+    [Bindable] public class Target {
 
         public var observations:Vector.<Observation> = new Vector.<Observation>();
 
@@ -33,7 +33,7 @@ package com.hg94.seti.model {
         /** The name of the target
          */
 
-        protected var _friendlyName:String
+        public var name:String
 
 
         /** The default observation, typically the most recent
@@ -48,7 +48,6 @@ package com.hg94.seti.model {
         // Getters and Setters
 
 
-        [Bindable]
         public function get rightAscension():Number {
             return this._rightAscension;
         }
@@ -57,7 +56,6 @@ package com.hg94.seti.model {
             _rightAscension = value;
         }
 
-        [Bindable]
         public function get declination():Number {
             return this._declination;
         }
@@ -72,11 +70,7 @@ package com.hg94.seti.model {
         }
 
 
-        public function get friendlyName():String {
-            return this._friendlyName;
-        }
 
-        [Bindable]
         public function set defaultObservation(defaultObservation:Observation):void {
             this._defaultObservation = defaultObservation;
         }
@@ -87,9 +81,7 @@ package com.hg94.seti.model {
 
         // Constructor
 
-        function Target(friendlyName:String):void {
-            this._friendlyName = friendlyName;
-        }
+        function Target():void {}
 
 
 

@@ -19,6 +19,8 @@
 			import skinnablecomponents.CategoryButton;
 			
 			private var skinnablecomponents_CategoryButton_obj:skinnablecomponents.CategoryButton;
+			
+
 			protected function button_clickHandler():void
 			{
 				const state:String = currentState;
@@ -32,6 +34,6 @@
 	<s:states>
 		<s:State fc:color="0xff5f08" name="MainState"/>
 	</s:states>
-	<components:MainSkin left="0" right="-1" top="0" bottom="0">
+	<components:MainSkin left="4" right="-5" top="0" bottom="0">
 	</components:MainSkin>
 </s:Application>

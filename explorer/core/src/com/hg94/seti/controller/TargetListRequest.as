@@ -52,7 +52,7 @@ package com.hg94.seti.controller
 				var ra:Number = parseFloat(radec.split(",")[0]);
 				var dec:Number = Math.abs(parseFloat(radec.split(",")[1]));
 				
-				var target:Target = new Target(friendlyName);
+				var target:Target = new Target();
 				target.setSETICoordinates(ra, dec);
 				
 				var date:Date = new Date(dateString.split("-")[0], dateString.split("-")[1], dateString.split("-")[2]);
@@ -66,7 +66,7 @@ package com.hg94.seti.controller
 				observation.
 				
 				target.description = "[Description to be completed]";
-				switch (target.friendlyName) {
+				switch (target.name) {
 					case "Gliese 581":
 						target.description = "A red dwarf star with spectral type M3V, located 20.3 light years away from Earth in the constellation Libra."
 						break;
