@@ -4,5 +4,4 @@
   <allow-access-from domain="*.seti.hg94.com"/> 
   <allow-access-from domain="*.setiquest.org"/> 
   <allow-access-from domain="*.seti.org"/> 
-  <allow-access-from domain="*.hathersagegroup.com"/> 
 </cross-domain-policy>
