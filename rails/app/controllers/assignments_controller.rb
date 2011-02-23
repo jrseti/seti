@@ -62,7 +62,11 @@ class AssignmentsController < ApplicationController
   # For now, just return assignment number one.
   
   def current_assignment_for_user
-    @assignment = Assignment.find(4)
+    @assignment = Assignment.find_by_user_id_and_status(current_user.id, "IN_PROGRESS")
+    
+    if @assignment.nil?
+      # Create a new assignment
+    end
 
     respond_to do |format|
       format.html {render :action => 'show'}# show.html.erb

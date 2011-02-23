@@ -13218,3 +13218,1295 @@ Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue 
   [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1[0m
   [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
 Completed 200 OK in 65ms (Views: 2.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 21:18:05 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 21:18:05 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue Feb 22 21:18:11 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as XML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAssignment Load (0.2ms)[0m  [1mSELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = 4 LIMIT 1[0m
+  [1m[35mObservationRange Load (0.3ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 3 LIMIT 1
+  [1m[36mObservation Load (0.3ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Completed 200 OK in 68ms (Views: 2.0ms | ActiveRecord: 1.1ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110221072852)
+Migrating to CreateTargets (20110221173715)
+Migrating to CreateObservations (20110221210559)
+Migrating to CreateObservationRanges (20110221220523)
+Migrating to CreateAssignments (20110221221459)
+Migrating to AddUidAndProviderToUsers (20110222004420)
+Migrating to RemoveFacebookIdFromUsers (20110222014616)
+Migrating to RemovePartialNamesFromUsers (20110222015346)
+Migrating to AddNameToUsers (20110222015406)
+Migrating to AddRoleToUsers (20110222024940)
+Migrating to AddFilenamePartsToObservationRanges (20110223054146)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.5ms)[0m  [1mALTER TABLE "observation_ranges" ADD "filename_part_text" text[0m
+  [1m[35mSQL (11.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110223054146')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("assignments")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("observation_ranges")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("observations")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("targets")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 21:43:28 -0800 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 20ms (Views: 20.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/observation_ranges" for 127.0.0.1 at Tue Feb 22 21:43:32 -0800 2011
+  Processing by ObservationRangesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mObservationRange Load (0.1ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges"[0m
+  [1m[35mObservation Load (0.3ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1
+  [1m[36mTarget Load (27.7ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observation_ranges/index.html.erb within layouts/application (56.9ms)
+Completed 200 OK in 91ms (Views: 44.9ms | ActiveRecord: 28.2ms)
+
+
+Started GET "/observation_ranges/3/edit" for 127.0.0.1 at Tue Feb 22 21:43:34 -0800 2011
+  Processing by ObservationRangesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mObservationRange Load (0.1ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 3 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 3 LIMIT 1
+  [1m[36mObservation Load (0.3ms)[0m  [1mSELECT "observations".* FROM "observations"[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1
+Rendered observation_ranges/_form.html.erb (32.3ms)
+Rendered observation_ranges/edit.html.erb within layouts/application (38.1ms)
+Completed 200 OK in 156ms (Views: 74.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/targets" for 127.0.0.1 at Tue Feb 22 21:43:55 -0800 2011
+  Processing by TargetsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets"
+Rendered targets/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 54ms (Views: 35.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Tue Feb 22 21:43:58 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations"
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1[0m
+Rendered observations/index.html.erb within layouts/application (94.5ms)
+Completed 200 OK in 132ms (Views: 114.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/observations/1/edit" for 127.0.0.1 at Tue Feb 22 21:44:00 -0800 2011
+  Processing by ObservationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mObservation Load (0.1ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.3ms)[0m  [1mSELECT "targets".* FROM "targets"[0m
+Rendered observations/_form.html.erb (18.2ms)
+Rendered observations/edit.html.erb within layouts/application (28.0ms)
+Completed 200 OK in 87ms (Views: 67.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/observations/1" for 127.0.0.1 at Tue Feb 22 21:44:08 -0800 2011
+  Processing by ObservationsController#update as HTML
+  Parameters: {"commit"=>"Update Observation", "observation"=>{"date(1i)"=>"2010", "date(2i)"=>"11", "target_id"=>"1", "date(3i)"=>"6"}, "authenticity_token"=>"QCUW55gRNyR2swDF2RZ6JwwgPL7m/ECTI2kTtVnJcFU=", "utf8"=>"✓", "id"=>"1"}
+  [1m[35mObservation Load (0.1ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mUPDATE "observations" SET "date" = '2010-11-06', "updated_at" = '2011-02-23 05:44:08.045894' WHERE "observations"."id" = 1[0m
+Redirected to http://localhost.seti.hg94.com:3000/observations/1
+Completed 302 Found in 26ms
+
+
+Started GET "/observations/1" for 127.0.0.1 at Tue Feb 22 21:44:08 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mObservation Load (0.1ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observations/show.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 120ms (Views: 27.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Tue Feb 22 21:44:10 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mObservation Load (0.3ms)[0m  [1mSELECT "observations".* FROM "observations"[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1
+Rendered observations/index.html.erb within layouts/application (22.4ms)
+Completed 200 OK in 47ms (Views: 26.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/observations/5" for 127.0.0.1 at Tue Feb 22 21:44:13 -0800 2011
+  Processing by ObservationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QCUW55gRNyR2swDF2RZ6JwwgPL7m/ECTI2kTtVnJcFU=", "id"=>"5"}
+  [1m[36mObservation Load (0.1ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  DELETE FROM "observations" WHERE "observations"."id" = 5
+Redirected to http://localhost.seti.hg94.com:3000/observations
+Completed 302 Found in 62ms
+
+
+Started GET "/observations" for 127.0.0.1 at Tue Feb 22 21:44:14 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations"
+  [1m[36mTarget Load (0.3ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 2 LIMIT 1
+Rendered observations/index.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 119ms (Views: 25.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/observations/6" for 127.0.0.1 at Tue Feb 22 21:44:15 -0800 2011
+  Processing by ObservationsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QCUW55gRNyR2swDF2RZ6JwwgPL7m/ECTI2kTtVnJcFU=", "id"=>"6"}
+  [1m[36mObservation Load (0.3ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 6 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 6 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  DELETE FROM "observations" WHERE "observations"."id" = 6
+Redirected to http://localhost.seti.hg94.com:3000/observations
+Completed 302 Found in 35ms
+
+
+Started GET "/observations" for 127.0.0.1 at Tue Feb 22 21:44:16 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mObservation Load (0.3ms)[0m  SELECT "observations".* FROM "observations"
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observations/index.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 53ms (Views: 25.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/observation_ranges" for 127.0.0.1 at Tue Feb 22 21:44:17 -0800 2011
+  Processing by ObservationRangesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges"[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1
+Rendered observation_ranges/index.html.erb within layouts/application (9.8ms)
+Completed   in 36ms
+
+ActionView::Template::Error (undefined method `friendly_name' for nil:NilClass):
+    11: 
+    12: <% @observation_ranges.each do |observation_range| %>
+    13:   <tr>
+    14:     <td><%= observation_range.observation.friendly_name %></td>
+    15:     <td><%= observation_range.lo_mhz %></td>
+    16:     <td><%= observation_range.hi_mhz %></td>
+    17:     <td><%= observation_range.status %></td>
+  app/views/observation_ranges/index.html.erb:14:in `_app_views_observation_ranges_index_html_erb___1470217673_2174510520_0'
+  app/views/observation_ranges/index.html.erb:12:in `each'
+  app/views/observation_ranges/index.html.erb:12:in `_app_views_observation_ranges_index_html_erb___1470217673_2174510520_0'
+  app/controllers/observation_ranges_controller.rb:10:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.6ms)
+  [1m[36mObservationRange Load (0.4ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges"[0m
+  [1m[35mObservationRange Load (0.4ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges"
+
+
+Started GET "/observation_ranges" for 127.0.0.1 at Tue Feb 22 21:45:05 -0800 2011
+  Processing by ObservationRangesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mObservationRange Load (0.2ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges"
+  [1m[36mObservation Load (0.1ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1[0m
+Rendered observation_ranges/index.html.erb within layouts/application (8.8ms)
+Completed   in 33ms
+
+ActionView::Template::Error (undefined method `friendly_name' for nil:NilClass):
+    11: 
+    12: <% @observation_ranges.each do |observation_range| %>
+    13:   <tr>
+    14:     <td><%= observation_range.observation.friendly_name %></td>
+    15:     <td><%= observation_range.lo_mhz %></td>
+    16:     <td><%= observation_range.hi_mhz %></td>
+    17:     <td><%= observation_range.status %></td>
+  app/views/observation_ranges/index.html.erb:14:in `_app_views_observation_ranges_index_html_erb___1470217673_2172459080_0'
+  app/views/observation_ranges/index.html.erb:12:in `each'
+  app/views/observation_ranges/index.html.erb:12:in `_app_views_observation_ranges_index_html_erb___1470217673_2172459080_0'
+  app/controllers/observation_ranges_controller.rb:10:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.7ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.4ms)
+
+
+Started GET "/observation_ranges" for 127.0.0.1 at Tue Feb 22 21:45:07 -0800 2011
+  Processing by ObservationRangesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges"[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1
+Rendered observation_ranges/index.html.erb within layouts/application (10.4ms)
+Completed   in 37ms
+
+ActionView::Template::Error (undefined method `friendly_name' for nil:NilClass):
+    11: 
+    12: <% @observation_ranges.each do |observation_range| %>
+    13:   <tr>
+    14:     <td><%= observation_range.observation.friendly_name %></td>
+    15:     <td><%= observation_range.lo_mhz %></td>
+    16:     <td><%= observation_range.hi_mhz %></td>
+    17:     <td><%= observation_range.status %></td>
+  app/views/observation_ranges/index.html.erb:14:in `_app_views_observation_ranges_index_html_erb___1470217673_2170691700_0'
+  app/views/observation_ranges/index.html.erb:12:in `each'
+  app/views/observation_ranges/index.html.erb:12:in `_app_views_observation_ranges_index_html_erb___1470217673_2170691700_0'
+  app/controllers/observation_ranges_controller.rb:10:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (74.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (83.9ms)
+
+
+Started GET "/observation_ranges" for 127.0.0.1 at Tue Feb 22 21:45:42 -0800 2011
+  Processing by ObservationRangesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mObservationRange Load (0.3ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges"
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1[0m
+Rendered observation_ranges/index.html.erb within layouts/application (13.8ms)
+Completed   in 46ms
+
+ActionView::Template::Error (undefined method `friendly_name' for nil:NilClass):
+    11: 
+    12: <% @observation_ranges.each do |observation_range| %>
+    13:   <tr>
+    14:     <td><%= observation_range.observation.friendly_name %></td>
+    15:     <td><%= observation_range.lo_mhz %></td>
+    16:     <td><%= observation_range.hi_mhz %></td>
+    17:     <td><%= observation_range.status %></td>
+  app/views/observation_ranges/index.html.erb:14:in `_app_views_observation_ranges_index_html_erb___1470217673_2173713740_0'
+  app/views/observation_ranges/index.html.erb:12:in `each'
+  app/views/observation_ranges/index.html.erb:12:in `_app_views_observation_ranges_index_html_erb___1470217673_2173713740_0'
+  app/controllers/observation_ranges_controller.rb:10:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (6.6ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.5ms)
+
+
+Started GET "/observation_ranges" for 127.0.0.1 at Tue Feb 22 21:45:42 -0800 2011
+  Processing by ObservationRangesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges"[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1
+Rendered observation_ranges/index.html.erb within layouts/application (9.6ms)
+Completed   in 34ms
+
+ActionView::Template::Error (undefined method `friendly_name' for nil:NilClass):
+    11: 
+    12: <% @observation_ranges.each do |observation_range| %>
+    13:   <tr>
+    14:     <td><%= observation_range.observation.friendly_name %></td>
+    15:     <td><%= observation_range.lo_mhz %></td>
+    16:     <td><%= observation_range.hi_mhz %></td>
+    17:     <td><%= observation_range.status %></td>
+  app/views/observation_ranges/index.html.erb:14:in `_app_views_observation_ranges_index_html_erb___1470217673_2171921080_0'
+  app/views/observation_ranges/index.html.erb:12:in `each'
+  app/views/observation_ranges/index.html.erb:12:in `_app_views_observation_ranges_index_html_erb___1470217673_2171921080_0'
+  app/controllers/observation_ranges_controller.rb:10:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.4ms)
+
+
+Started GET "/observation_ranges" for 127.0.0.1 at Tue Feb 22 21:45:45 -0800 2011
+  Processing by ObservationRangesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mObservationRange Load (0.1ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges"
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1[0m
+Rendered observation_ranges/index.html.erb within layouts/application (10.1ms)
+Completed   in 108ms
+
+ActionView::Template::Error (undefined method `friendly_name' for nil:NilClass):
+    11: 
+    12: <% @observation_ranges.each do |observation_range| %>
+    13:   <tr>
+    14:     <td><%= observation_range.observation.friendly_name %></td>
+    15:     <td><%= observation_range.lo_mhz %></td>
+    16:     <td><%= observation_range.hi_mhz %></td>
+    17:     <td><%= observation_range.status %></td>
+  app/views/observation_ranges/index.html.erb:14:in `_app_views_observation_ranges_index_html_erb___1470217673_2171755480_0'
+  app/views/observation_ranges/index.html.erb:12:in `each'
+  app/views/observation_ranges/index.html.erb:12:in `_app_views_observation_ranges_index_html_erb___1470217673_2171755480_0'
+  app/controllers/observation_ranges_controller.rb:10:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.1ms)
+
+
+Started GET "/targets" for 127.0.0.1 at Tue Feb 22 21:46:20 -0800 2011
+  Processing by TargetsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets"[0m
+Rendered targets/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 31ms (Views: 14.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Tue Feb 22 21:46:21 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mObservation Load (0.1ms)[0m  [1mSELECT "observations".* FROM "observations"[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observations/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 40ms (Views: 21.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/observation_ranges" for 127.0.0.1 at Tue Feb 22 21:46:22 -0800 2011
+  Processing by ObservationRangesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mObservationRange Load (0.2ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges"
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 5 LIMIT 1[0m
+Rendered observation_ranges/index.html.erb within layouts/application (9.3ms)
+Completed   in 33ms
+
+ActionView::Template::Error (undefined method `friendly_name' for nil:NilClass):
+    11: 
+    12: <% @observation_ranges.each do |observation_range| %>
+    13:   <tr>
+    14:     <td><%= observation_range.observation.friendly_name %></td>
+    15:     <td><%= observation_range.lo_mhz %></td>
+    16:     <td><%= observation_range.hi_mhz %></td>
+    17:     <td><%= observation_range.status %></td>
+  app/views/observation_ranges/index.html.erb:14:in `_app_views_observation_ranges_index_html_erb___1470217673_2174169300_0'
+  app/views/observation_ranges/index.html.erb:12:in `each'
+  app/views/observation_ranges/index.html.erb:12:in `_app_views_observation_ranges_index_html_erb___1470217673_2174169300_0'
+  app/controllers/observation_ranges_controller.rb:10:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.0ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.8ms)
+  [1m[36mObservationRange Load (0.3ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges"[0m
+  [1m[35mObservationRange Load (0.7ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges"
+  [1m[36mObservationRange Load (0.4ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges"[0m
+  [1m[35mObservationRange Load (0.4ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges"
+  [1m[36mObservationRange Load (0.3ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges"[0m
+  [1m[35mObservationRange Load (0.4ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges"
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (0.4ms)[0m  DELETE FROM "observation_ranges" WHERE "observation_ranges"."id" = 3
+  [1m[36mObservationRange Load (0.3ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges"[0m
+
+
+Started GET "/observation_ranges" for 127.0.0.1 at Tue Feb 22 21:49:23 -0800 2011
+  Processing by ObservationRangesController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mObservationRange Load (0.1ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges"[0m
+Rendered observation_ranges/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 28ms (Views: 9.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/observation_ranges/new" for 127.0.0.1 at Tue Feb 22 21:49:25 -0800 2011
+  Processing by ObservationRangesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations"[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observation_ranges/_form.html.erb (103.9ms)
+Rendered observation_ranges/new.html.erb within layouts/application (109.9ms)
+Completed 200 OK in 156ms (Views: 135.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/observation_ranges" for 127.0.0.1 at Tue Feb 22 21:50:29 -0800 2011
+  Processing by ObservationRangesController#create as HTML
+  Parameters: {"commit"=>"Create Observation range", "authenticity_token"=>"QCUW55gRNyR2swDF2RZ6JwwgPL7m/ECTI2kTtVnJcFU=", "utf8"=>"✓", "observation_range"=>{"observation_id"=>"1", "hi_mhz"=>"1418.453867", "filename_part_text"=>"0756/chan-0756-4-1418.387201-1418.387467\r\n0756/chan-0756-5-1418.387467-1418.387734\r\n0756/chan-0756-6-1418.387734-1418.388001\r\n0756/chan-0756-7-1418.388001-1418.388267\r\n0755/chan-0755-0-1418.388267-1418.388534\r\n0755/chan-0755-1-1418.388534-1418.388801\r\n0755/chan-0755-2-1418.388801-1418.389067\r\n0755/chan-0755-3-1418.389067-1418.389334\r\n0755/chan-0755-4-1418.389334-1418.389601\r\n0755/chan-0755-5-1418.389601-1418.389867\r\n0755/chan-0755-6-1418.389867-1418.390134\r\n0755/chan-0755-7-1418.390134-1418.390401\r\n0754/chan-0754-0-1418.390401-1418.390667\r\n0754/chan-0754-1-1418.390667-1418.390934\r\n0754/chan-0754-2-1418.390934-1418.391201\r\n0754/chan-0754-3-1418.391201-1418.391467\r\n0754/chan-0754-4-1418.391467-1418.391734\r\n0754/chan-0754-5-1418.391734-1418.392001\r\n0754/chan-0754-6-1418.392001-1418.392267\r\n0754/chan-0754-7-1418.392267-1418.392534\r\n0753/chan-0753-0-1418.392534-1418.392801\r\n0753/chan-0753-1-1418.392801-1418.393067\r\n0753/chan-0753-2-1418.393067-1418.393334\r\n0753/chan-0753-3-1418.393334-1418.393601\r\n0753/chan-0753-4-1418.393601-1418.393867\r\n0753/chan-0753-5-1418.393867-1418.394134\r\n0753/chan-0753-6-1418.394134-1418.394401\r\n0753/chan-0753-7-1418.394401-1418.394667\r\n0752/chan-0752-0-1418.394667-1418.394934\r\n0752/chan-0752-1-1418.394934-1418.395201\r\n0752/chan-0752-2-1418.395201-1418.395467\r\n0752/chan-0752-3-1418.395467-1418.395734\r\n0752/chan-0752-4-1418.395734-1418.396001\r\n0752/chan-0752-5-1418.396001-1418.396267\r\n0752/chan-0752-6-1418.396267-1418.396534\r\n0752/chan-0752-7-1418.396534-1418.396801\r\n0751/chan-0751-0-1418.396801-1418.397067\r\n0751/chan-0751-1-1418.397067-1418.397334\r\n0751/chan-0751-2-1418.397334-1418.397601\r\n0751/chan-0751-3-1418.397601-1418.397867\r\n0751/chan-0751-4-1418.397867-1418.398134\r\n0751/chan-0751-5-1418.398134-1418.398401\r\n0751/chan-0751-6-1418.398401-1418.398667\r\n0751/chan-0751-7-1418.398667-1418.398934\r\n0750/chan-0750-0-1418.398934-1418.399201\r\n0750/chan-0750-1-1418.399201-1418.399467\r\n0750/chan-0750-2-1418.399467-1418.399734\r\n0750/chan-0750-3-1418.399734-1418.400001\r\n0750/chan-0750-4-1418.400001-1418.400267\r\n0750/chan-0750-5-1418.400267-1418.400534\r\n0750/chan-0750-6-1418.400534-1418.400801\r\n0750/chan-0750-7-1418.400801-1418.401067\r\n0749/chan-0749-0-1418.401067-1418.401334\r\n0749/chan-0749-1-1418.401334-1418.401601\r\n0749/chan-0749-2-1418.401601-1418.401867\r\n0749/chan-0749-3-1418.401867-1418.402134\r\n0749/chan-0749-4-1418.402134-1418.402401\r\n0749/chan-0749-5-1418.402401-1418.402667\r\n0749/chan-0749-6-1418.402667-1418.402934\r\n0749/chan-0749-7-1418.402934-1418.403201\r\n0748/chan-0748-0-1418.403201-1418.403467\r\n0748/chan-0748-1-1418.403467-1418.403734\r\n0748/chan-0748-2-1418.403734-1418.404001\r\n0748/chan-0748-3-1418.404001-1418.404267\r\n0748/chan-0748-4-1418.404267-1418.404534\r\n0748/chan-0748-5-1418.404534-1418.404801\r\n0748/chan-0748-6-1418.404801-1418.405067\r\n0748/chan-0748-7-1418.405067-1418.405334\r\n0747/chan-0747-0-1418.405334-1418.405601\r\n0747/chan-0747-1-1418.405601-1418.405867\r\n0747/chan-0747-2-1418.405867-1418.406134\r\n0747/chan-0747-3-1418.406134-1418.406401\r\n0747/chan-0747-4-1418.406401-1418.406667\r\n0747/chan-0747-5-1418.406667-1418.406934\r\n0747/chan-0747-6-1418.406934-1418.407201\r\n0747/chan-0747-7-1418.407201-1418.407467\r\n0746/chan-0746-0-1418.407467-1418.407734\r\n0746/chan-0746-1-1418.407734-1418.408001\r\n0746/chan-0746-2-1418.408001-1418.408267\r\n0746/chan-0746-3-1418.408267-1418.408534\r\n0746/chan-0746-4-1418.408534-1418.408801\r\n0746/chan-0746-5-1418.408801-1418.409067\r\n0746/chan-0746-6-1418.409067-1418.409334\r\n0746/chan-0746-7-1418.409334-1418.409601\r\n0745/chan-0745-0-1418.409601-1418.409867\r\n0745/chan-0745-1-1418.409867-1418.410134\r\n0745/chan-0745-2-1418.410134-1418.410401\r\n0745/chan-0745-3-1418.410401-1418.410667\r\n0745/chan-0745-4-1418.410667-1418.410934\r\n0745/chan-0745-5-1418.410934-1418.411201\r\n0745/chan-0745-6-1418.411201-1418.411467\r\n0745/chan-0745-7-1418.411467-1418.411734\r\n0744/chan-0744-0-1418.411734-1418.412001\r\n0744/chan-0744-1-1418.412001-1418.412267\r\n0744/chan-0744-2-1418.412267-1418.412534\r\n0744/chan-0744-3-1418.412534-1418.412801\r\n0744/chan-0744-4-1418.412801-1418.413067\r\n0744/chan-0744-5-1418.413067-1418.413334\r\n0744/chan-0744-6-1418.413334-1418.413601\r\n0744/chan-0744-7-1418.413601-1418.413867\r\n0743/chan-0743-0-1418.413867-1418.414134\r\n0743/chan-0743-1-1418.414134-1418.414401\r\n0743/chan-0743-2-1418.414401-1418.414667\r\n0743/chan-0743-3-1418.414667-1418.414934\r\n0743/chan-0743-4-1418.414934-1418.415201\r\n0743/chan-0743-5-1418.415201-1418.415467\r\n0743/chan-0743-6-1418.415467-1418.415734\r\n0743/chan-0743-7-1418.415734-1418.416001\r\n0742/chan-0742-0-1418.416001-1418.416267\r\n0742/chan-0742-1-1418.416267-1418.416534\r\n0742/chan-0742-2-1418.416534-1418.416801\r\n0742/chan-0742-3-1418.416801-1418.417067\r\n0742/chan-0742-4-1418.417067-1418.417334\r\n0742/chan-0742-5-1418.417334-1418.417601\r\n0742/chan-0742-6-1418.417601-1418.417867\r\n0742/chan-0742-7-1418.417867-1418.418134\r\n0741/chan-0741-0-1418.418134-1418.418401\r\n0741/chan-0741-1-1418.418401-1418.418667\r\n0741/chan-0741-2-1418.418667-1418.418934\r\n0741/chan-0741-3-1418.418934-1418.419201\r\n0741/chan-0741-4-1418.419201-1418.419467\r\n0741/chan-0741-5-1418.419467-1418.419734\r\n0741/chan-0741-6-1418.419734-1418.420001\r\n0741/chan-0741-7-1418.420001-1418.420267\r\n0740/chan-0740-0-1418.420267-1418.420534\r\n0740/chan-0740-1-1418.420534-1418.420801\r\n0740/chan-0740-2-1418.420801-1418.421067\r\n0740/chan-0740-3-1418.421067-1418.421334\r\n0740/chan-0740-4-1418.421334-1418.421601\r\n0740/chan-0740-5-1418.421601-1418.421867\r\n0740/chan-0740-6-1418.421867-1418.422134\r\n0740/chan-0740-7-1418.422134-1418.422401\r\n0739/chan-0739-0-1418.422401-1418.422667\r\n0739/chan-0739-1-1418.422667-1418.422934\r\n0739/chan-0739-2-1418.422934-1418.423201\r\n0739/chan-0739-3-1418.423201-1418.423467\r\n0739/chan-0739-4-1418.423467-1418.423734\r\n0739/chan-0739-5-1418.423734-1418.424001\r\n0739/chan-0739-6-1418.424001-1418.424267\r\n0739/chan-0739-7-1418.424267-1418.424534\r\n0738/chan-0738-0-1418.424534-1418.424801\r\n0738/chan-0738-1-1418.424801-1418.425067\r\n0738/chan-0738-2-1418.425067-1418.425334\r\n0738/chan-0738-3-1418.425334-1418.425601\r\n0738/chan-0738-4-1418.425601-1418.425867\r\n0738/chan-0738-5-1418.425867-1418.426134\r\n0738/chan-0738-6-1418.426134-1418.426401\r\n0738/chan-0738-7-1418.426401-1418.426667\r\n0737/chan-0737-0-1418.426667-1418.426934\r\n0737/chan-0737-1-1418.426934-1418.427201\r\n0737/chan-0737-2-1418.427201-1418.427467\r\n0737/chan-0737-3-1418.427467-1418.427734\r\n0737/chan-0737-4-1418.427734-1418.428001\r\n0737/chan-0737-5-1418.428001-1418.428267\r\n0737/chan-0737-6-1418.428267-1418.428534\r\n0737/chan-0737-7-1418.428534-1418.428801\r\n0736/chan-0736-0-1418.428801-1418.429067\r\n0736/chan-0736-1-1418.429067-1418.429334\r\n0736/chan-0736-2-1418.429334-1418.429601\r\n0736/chan-0736-3-1418.429601-1418.429867\r\n0736/chan-0736-4-1418.429867-1418.430134\r\n0736/chan-0736-5-1418.430134-1418.430401\r\n0736/chan-0736-6-1418.430401-1418.430667\r\n0736/chan-0736-7-1418.430667-1418.430934\r\n0735/chan-0735-0-1418.430934-1418.431201\r\n0735/chan-0735-1-1418.431201-1418.431467\r\n0735/chan-0735-2-1418.431467-1418.431734\r\n0735/chan-0735-3-1418.431734-1418.432001\r\n0735/chan-0735-4-1418.432001-1418.432267\r\n0735/chan-0735-5-1418.432267-1418.432534\r\n0735/chan-0735-6-1418.432534-1418.432801\r\n0735/chan-0735-7-1418.432801-1418.433067\r\n0734/chan-0734-0-1418.433067-1418.433334\r\n0734/chan-0734-1-1418.433334-1418.433601\r\n0734/chan-0734-2-1418.433601-1418.433867\r\n0734/chan-0734-3-1418.433867-1418.434134\r\n0734/chan-0734-4-1418.434134-1418.434401\r\n0734/chan-0734-5-1418.434401-1418.434667\r\n0734/chan-0734-6-1418.434667-1418.434934\r\n0734/chan-0734-7-1418.434934-1418.435201\r\n0733/chan-0733-0-1418.435201-1418.435467\r\n0733/chan-0733-1-1418.435467-1418.435734\r\n0733/chan-0733-2-1418.435734-1418.436001\r\n0733/chan-0733-3-1418.436001-1418.436267\r\n0733/chan-0733-4-1418.436267-1418.436534\r\n0733/chan-0733-5-1418.436534-1418.436801\r\n0733/chan-0733-6-1418.436801-1418.437067\r\n0733/chan-0733-7-1418.437067-1418.437334\r\n0732/chan-0732-0-1418.437334-1418.437601\r\n0732/chan-0732-1-1418.437601-1418.437867\r\n0732/chan-0732-2-1418.437867-1418.438134\r\n0732/chan-0732-3-1418.438134-1418.438401\r\n0732/chan-0732-4-1418.438401-1418.438667\r\n0732/chan-0732-5-1418.438667-1418.438934\r\n0732/chan-0732-6-1418.438934-1418.439201\r\n0732/chan-0732-7-1418.439201-1418.439467\r\n0731/chan-0731-0-1418.439467-1418.439734\r\n0731/chan-0731-1-1418.439734-1418.440001\r\n0731/chan-0731-2-1418.440001-1418.440267\r\n0731/chan-0731-3-1418.440267-1418.440534\r\n0731/chan-0731-4-1418.440534-1418.440801\r\n0731/chan-0731-5-1418.440801-1418.441067\r\n0731/chan-0731-6-1418.441067-1418.441334\r\n0731/chan-0731-7-1418.441334-1418.441601\r\n0730/chan-0730-0-1418.441601-1418.441867\r\n0730/chan-0730-1-1418.441867-1418.442134\r\n0730/chan-0730-2-1418.442134-1418.442401\r\n0730/chan-0730-3-1418.442401-1418.442667\r\n0730/chan-0730-4-1418.442667-1418.442934\r\n0730/chan-0730-5-1418.442934-1418.443201\r\n0730/chan-0730-6-1418.443201-1418.443467\r\n0730/chan-0730-7-1418.443467-1418.443734\r\n0729/chan-0729-0-1418.443734-1418.444001\r\n0729/chan-0729-1-1418.444001-1418.444267\r\n0729/chan-0729-2-1418.444267-1418.444534\r\n0729/chan-0729-3-1418.444534-1418.444801\r\n0729/chan-0729-4-1418.444801-1418.445067\r\n0729/chan-0729-5-1418.445067-1418.445334\r\n0729/chan-0729-6-1418.445334-1418.445601\r\n0729/chan-0729-7-1418.445601-1418.445867\r\n0728/chan-0728-0-1418.445867-1418.446134\r\n0728/chan-0728-1-1418.446134-1418.446401\r\n0728/chan-0728-2-1418.446401-1418.446667\r\n0728/chan-0728-3-1418.446667-1418.446934\r\n0728/chan-0728-4-1418.446934-1418.447201\r\n0728/chan-0728-5-1418.447201-1418.447467\r\n0728/chan-0728-6-1418.447467-1418.447734\r\n0728/chan-0728-7-1418.447734-1418.448001\r\n0727/chan-0727-0-1418.448001-1418.448267\r\n0727/chan-0727-1-1418.448267-1418.448534\r\n0727/chan-0727-2-1418.448534-1418.448801\r\n0727/chan-0727-3-1418.448801-1418.449067\r\n0727/chan-0727-4-1418.449067-1418.449334\r\n0727/chan-0727-5-1418.449334-1418.449601\r\n0727/chan-0727-6-1418.449601-1418.449867\r\n0727/chan-0727-7-1418.449867-1418.450134\r\n0726/chan-0726-0-1418.450134-1418.450401\r\n0726/chan-0726-1-1418.450401-1418.450667\r\n0726/chan-0726-2-1418.450667-1418.450934\r\n0726/chan-0726-3-1418.450934-1418.451201\r\n0726/chan-0726-4-1418.451201-1418.451467\r\n0726/chan-0726-5-1418.451467-1418.451734\r\n0726/chan-0726-6-1418.451734-1418.452001\r\n0726/chan-0726-7-1418.452001-1418.452267\r\n0725/chan-0725-0-1418.452267-1418.452534\r\n0725/chan-0725-1-1418.452534-1418.452801\r\n0725/chan-0725-2-1418.452801-1418.453067\r\n0725/chan-0725-3-1418.453067-1418.453334\r\n0725/chan-0725-4-1418.453334-1418.453601\r\n0725/chan-0725-5-1418.453601-1418.453867\r\n", "lo_mhz"=>"1418.387201", "status"=>"IN_PROGRESS"}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "observation_ranges" ("hi_mhz", "updated_at", "observation_id", "status", "filename_part_text", "created_at", "lo_mhz") VALUES (1418.453867, '2011-02-23 05:50:29.451986', 1, 'IN_PROGRESS', '0756/chan-0756-4-1418.387201-1418.387467
+0756/chan-0756-5-1418.387467-1418.387734
+0756/chan-0756-6-1418.387734-1418.388001
+0756/chan-0756-7-1418.388001-1418.388267
+0755/chan-0755-0-1418.388267-1418.388534
+0755/chan-0755-1-1418.388534-1418.388801
+0755/chan-0755-2-1418.388801-1418.389067
+0755/chan-0755-3-1418.389067-1418.389334
+0755/chan-0755-4-1418.389334-1418.389601
+0755/chan-0755-5-1418.389601-1418.389867
+0755/chan-0755-6-1418.389867-1418.390134
+0755/chan-0755-7-1418.390134-1418.390401
+0754/chan-0754-0-1418.390401-1418.390667
+0754/chan-0754-1-1418.390667-1418.390934
+0754/chan-0754-2-1418.390934-1418.391201
+0754/chan-0754-3-1418.391201-1418.391467
+0754/chan-0754-4-1418.391467-1418.391734
+0754/chan-0754-5-1418.391734-1418.392001
+0754/chan-0754-6-1418.392001-1418.392267
+0754/chan-0754-7-1418.392267-1418.392534
+0753/chan-0753-0-1418.392534-1418.392801
+0753/chan-0753-1-1418.392801-1418.393067
+0753/chan-0753-2-1418.393067-1418.393334
+0753/chan-0753-3-1418.393334-1418.393601
+0753/chan-0753-4-1418.393601-1418.393867
+0753/chan-0753-5-1418.393867-1418.394134
+0753/chan-0753-6-1418.394134-1418.394401
+0753/chan-0753-7-1418.394401-1418.394667
+0752/chan-0752-0-1418.394667-1418.394934
+0752/chan-0752-1-1418.394934-1418.395201
+0752/chan-0752-2-1418.395201-1418.395467
+0752/chan-0752-3-1418.395467-1418.395734
+0752/chan-0752-4-1418.395734-1418.396001
+0752/chan-0752-5-1418.396001-1418.396267
+0752/chan-0752-6-1418.396267-1418.396534
+0752/chan-0752-7-1418.396534-1418.396801
+0751/chan-0751-0-1418.396801-1418.397067
+0751/chan-0751-1-1418.397067-1418.397334
+0751/chan-0751-2-1418.397334-1418.397601
+0751/chan-0751-3-1418.397601-1418.397867
+0751/chan-0751-4-1418.397867-1418.398134
+0751/chan-0751-5-1418.398134-1418.398401
+0751/chan-0751-6-1418.398401-1418.398667
+0751/chan-0751-7-1418.398667-1418.398934
+0750/chan-0750-0-1418.398934-1418.399201
+0750/chan-0750-1-1418.399201-1418.399467
+0750/chan-0750-2-1418.399467-1418.399734
+0750/chan-0750-3-1418.399734-1418.400001
+0750/chan-0750-4-1418.400001-1418.400267
+0750/chan-0750-5-1418.400267-1418.400534
+0750/chan-0750-6-1418.400534-1418.400801
+0750/chan-0750-7-1418.400801-1418.401067
+0749/chan-0749-0-1418.401067-1418.401334
+0749/chan-0749-1-1418.401334-1418.401601
+0749/chan-0749-2-1418.401601-1418.401867
+0749/chan-0749-3-1418.401867-1418.402134
+0749/chan-0749-4-1418.402134-1418.402401
+0749/chan-0749-5-1418.402401-1418.402667
+0749/chan-0749-6-1418.402667-1418.402934
+0749/chan-0749-7-1418.402934-1418.403201
+0748/chan-0748-0-1418.403201-1418.403467
+0748/chan-0748-1-1418.403467-1418.403734
+0748/chan-0748-2-1418.403734-1418.404001
+0748/chan-0748-3-1418.404001-1418.404267
+0748/chan-0748-4-1418.404267-1418.404534
+0748/chan-0748-5-1418.404534-1418.404801
+0748/chan-0748-6-1418.404801-1418.405067
+0748/chan-0748-7-1418.405067-1418.405334
+0747/chan-0747-0-1418.405334-1418.405601
+0747/chan-0747-1-1418.405601-1418.405867
+0747/chan-0747-2-1418.405867-1418.406134
+0747/chan-0747-3-1418.406134-1418.406401
+0747/chan-0747-4-1418.406401-1418.406667
+0747/chan-0747-5-1418.406667-1418.406934
+0747/chan-0747-6-1418.406934-1418.407201
+0747/chan-0747-7-1418.407201-1418.407467
+0746/chan-0746-0-1418.407467-1418.407734
+0746/chan-0746-1-1418.407734-1418.408001
+0746/chan-0746-2-1418.408001-1418.408267
+0746/chan-0746-3-1418.408267-1418.408534
+0746/chan-0746-4-1418.408534-1418.408801
+0746/chan-0746-5-1418.408801-1418.409067
+0746/chan-0746-6-1418.409067-1418.409334
+0746/chan-0746-7-1418.409334-1418.409601
+0745/chan-0745-0-1418.409601-1418.409867
+0745/chan-0745-1-1418.409867-1418.410134
+0745/chan-0745-2-1418.410134-1418.410401
+0745/chan-0745-3-1418.410401-1418.410667
+0745/chan-0745-4-1418.410667-1418.410934
+0745/chan-0745-5-1418.410934-1418.411201
+0745/chan-0745-6-1418.411201-1418.411467
+0745/chan-0745-7-1418.411467-1418.411734
+0744/chan-0744-0-1418.411734-1418.412001
+0744/chan-0744-1-1418.412001-1418.412267
+0744/chan-0744-2-1418.412267-1418.412534
+0744/chan-0744-3-1418.412534-1418.412801
+0744/chan-0744-4-1418.412801-1418.413067
+0744/chan-0744-5-1418.413067-1418.413334
+0744/chan-0744-6-1418.413334-1418.413601
+0744/chan-0744-7-1418.413601-1418.413867
+0743/chan-0743-0-1418.413867-1418.414134
+0743/chan-0743-1-1418.414134-1418.414401
+0743/chan-0743-2-1418.414401-1418.414667
+0743/chan-0743-3-1418.414667-1418.414934
+0743/chan-0743-4-1418.414934-1418.415201
+0743/chan-0743-5-1418.415201-1418.415467
+0743/chan-0743-6-1418.415467-1418.415734
+0743/chan-0743-7-1418.415734-1418.416001
+0742/chan-0742-0-1418.416001-1418.416267
+0742/chan-0742-1-1418.416267-1418.416534
+0742/chan-0742-2-1418.416534-1418.416801
+0742/chan-0742-3-1418.416801-1418.417067
+0742/chan-0742-4-1418.417067-1418.417334
+0742/chan-0742-5-1418.417334-1418.417601
+0742/chan-0742-6-1418.417601-1418.417867
+0742/chan-0742-7-1418.417867-1418.418134
+0741/chan-0741-0-1418.418134-1418.418401
+0741/chan-0741-1-1418.418401-1418.418667
+0741/chan-0741-2-1418.418667-1418.418934
+0741/chan-0741-3-1418.418934-1418.419201
+0741/chan-0741-4-1418.419201-1418.419467
+0741/chan-0741-5-1418.419467-1418.419734
+0741/chan-0741-6-1418.419734-1418.420001
+0741/chan-0741-7-1418.420001-1418.420267
+0740/chan-0740-0-1418.420267-1418.420534
+0740/chan-0740-1-1418.420534-1418.420801
+0740/chan-0740-2-1418.420801-1418.421067
+0740/chan-0740-3-1418.421067-1418.421334
+0740/chan-0740-4-1418.421334-1418.421601
+0740/chan-0740-5-1418.421601-1418.421867
+0740/chan-0740-6-1418.421867-1418.422134
+0740/chan-0740-7-1418.422134-1418.422401
+0739/chan-0739-0-1418.422401-1418.422667
+0739/chan-0739-1-1418.422667-1418.422934
+0739/chan-0739-2-1418.422934-1418.423201
+0739/chan-0739-3-1418.423201-1418.423467
+0739/chan-0739-4-1418.423467-1418.423734
+0739/chan-0739-5-1418.423734-1418.424001
+0739/chan-0739-6-1418.424001-1418.424267
+0739/chan-0739-7-1418.424267-1418.424534
+0738/chan-0738-0-1418.424534-1418.424801
+0738/chan-0738-1-1418.424801-1418.425067
+0738/chan-0738-2-1418.425067-1418.425334
+0738/chan-0738-3-1418.425334-1418.425601
+0738/chan-0738-4-1418.425601-1418.425867
+0738/chan-0738-5-1418.425867-1418.426134
+0738/chan-0738-6-1418.426134-1418.426401
+0738/chan-0738-7-1418.426401-1418.426667
+0737/chan-0737-0-1418.426667-1418.426934
+0737/chan-0737-1-1418.426934-1418.427201
+0737/chan-0737-2-1418.427201-1418.427467
+0737/chan-0737-3-1418.427467-1418.427734
+0737/chan-0737-4-1418.427734-1418.428001
+0737/chan-0737-5-1418.428001-1418.428267
+0737/chan-0737-6-1418.428267-1418.428534
+0737/chan-0737-7-1418.428534-1418.428801
+0736/chan-0736-0-1418.428801-1418.429067
+0736/chan-0736-1-1418.429067-1418.429334
+0736/chan-0736-2-1418.429334-1418.429601
+0736/chan-0736-3-1418.429601-1418.429867
+0736/chan-0736-4-1418.429867-1418.430134
+0736/chan-0736-5-1418.430134-1418.430401
+0736/chan-0736-6-1418.430401-1418.430667
+0736/chan-0736-7-1418.430667-1418.430934
+0735/chan-0735-0-1418.430934-1418.431201
+0735/chan-0735-1-1418.431201-1418.431467
+0735/chan-0735-2-1418.431467-1418.431734
+0735/chan-0735-3-1418.431734-1418.432001
+0735/chan-0735-4-1418.432001-1418.432267
+0735/chan-0735-5-1418.432267-1418.432534
+0735/chan-0735-6-1418.432534-1418.432801
+0735/chan-0735-7-1418.432801-1418.433067
+0734/chan-0734-0-1418.433067-1418.433334
+0734/chan-0734-1-1418.433334-1418.433601
+0734/chan-0734-2-1418.433601-1418.433867
+0734/chan-0734-3-1418.433867-1418.434134
+0734/chan-0734-4-1418.434134-1418.434401
+0734/chan-0734-5-1418.434401-1418.434667
+0734/chan-0734-6-1418.434667-1418.434934
+0734/chan-0734-7-1418.434934-1418.435201
+0733/chan-0733-0-1418.435201-1418.435467
+0733/chan-0733-1-1418.435467-1418.435734
+0733/chan-0733-2-1418.435734-1418.436001
+0733/chan-0733-3-1418.436001-1418.436267
+0733/chan-0733-4-1418.436267-1418.436534
+0733/chan-0733-5-1418.436534-1418.436801
+0733/chan-0733-6-1418.436801-1418.437067
+0733/chan-0733-7-1418.437067-1418.437334
+0732/chan-0732-0-1418.437334-1418.437601
+0732/chan-0732-1-1418.437601-1418.437867
+0732/chan-0732-2-1418.437867-1418.438134
+0732/chan-0732-3-1418.438134-1418.438401
+0732/chan-0732-4-1418.438401-1418.438667
+0732/chan-0732-5-1418.438667-1418.438934
+0732/chan-0732-6-1418.438934-1418.439201
+0732/chan-0732-7-1418.439201-1418.439467
+0731/chan-0731-0-1418.439467-1418.439734
+0731/chan-0731-1-1418.439734-1418.440001
+0731/chan-0731-2-1418.440001-1418.440267
+0731/chan-0731-3-1418.440267-1418.440534
+0731/chan-0731-4-1418.440534-1418.440801
+0731/chan-0731-5-1418.440801-1418.441067
+0731/chan-0731-6-1418.441067-1418.441334
+0731/chan-0731-7-1418.441334-1418.441601
+0730/chan-0730-0-1418.441601-1418.441867
+0730/chan-0730-1-1418.441867-1418.442134
+0730/chan-0730-2-1418.442134-1418.442401
+0730/chan-0730-3-1418.442401-1418.442667
+0730/chan-0730-4-1418.442667-1418.442934
+0730/chan-0730-5-1418.442934-1418.443201
+0730/chan-0730-6-1418.443201-1418.443467
+0730/chan-0730-7-1418.443467-1418.443734
+0729/chan-0729-0-1418.443734-1418.444001
+0729/chan-0729-1-1418.444001-1418.444267
+0729/chan-0729-2-1418.444267-1418.444534
+0729/chan-0729-3-1418.444534-1418.444801
+0729/chan-0729-4-1418.444801-1418.445067
+0729/chan-0729-5-1418.445067-1418.445334
+0729/chan-0729-6-1418.445334-1418.445601
+0729/chan-0729-7-1418.445601-1418.445867
+0728/chan-0728-0-1418.445867-1418.446134
+0728/chan-0728-1-1418.446134-1418.446401
+0728/chan-0728-2-1418.446401-1418.446667
+0728/chan-0728-3-1418.446667-1418.446934
+0728/chan-0728-4-1418.446934-1418.447201
+0728/chan-0728-5-1418.447201-1418.447467
+0728/chan-0728-6-1418.447467-1418.447734
+0728/chan-0728-7-1418.447734-1418.448001
+0727/chan-0727-0-1418.448001-1418.448267
+0727/chan-0727-1-1418.448267-1418.448534
+0727/chan-0727-2-1418.448534-1418.448801
+0727/chan-0727-3-1418.448801-1418.449067
+0727/chan-0727-4-1418.449067-1418.449334
+0727/chan-0727-5-1418.449334-1418.449601
+0727/chan-0727-6-1418.449601-1418.449867
+0727/chan-0727-7-1418.449867-1418.450134
+0726/chan-0726-0-1418.450134-1418.450401
+0726/chan-0726-1-1418.450401-1418.450667
+0726/chan-0726-2-1418.450667-1418.450934
+0726/chan-0726-3-1418.450934-1418.451201
+0726/chan-0726-4-1418.451201-1418.451467
+0726/chan-0726-5-1418.451467-1418.451734
+0726/chan-0726-6-1418.451734-1418.452001
+0726/chan-0726-7-1418.452001-1418.452267
+0725/chan-0725-0-1418.452267-1418.452534
+0725/chan-0725-1-1418.452534-1418.452801
+0725/chan-0725-2-1418.452801-1418.453067
+0725/chan-0725-3-1418.453067-1418.453334
+0725/chan-0725-4-1418.453334-1418.453601
+0725/chan-0725-5-1418.453601-1418.453867
+', '2011-02-23 05:50:29.451986', 1418.387201)
+Redirected to http://localhost.seti.hg94.com:3000/observation_ranges/4
+Completed 302 Found in 51ms
+
+
+Started GET "/observation_ranges/4" for 127.0.0.1 at Tue Feb 22 21:50:29 -0800 2011
+  Processing by ObservationRangesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observation_ranges/show.html.erb within layouts/application (30.3ms)
+Completed 200 OK in 78ms (Views: 58.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/observation_ranges/4" for 127.0.0.1 at Tue Feb 22 21:51:47 -0800 2011
+  Processing by ObservationRangesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mObservationRange Load (0.2ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observation_ranges/show.html.erb within layouts/application (27.4ms)
+Completed 200 OK in 52ms (Views: 31.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/observation_ranges/4" for 127.0.0.1 at Tue Feb 22 21:52:10 -0800 2011
+  Processing by ObservationRangesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observation_ranges/show.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 51ms (Views: 31.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/observation_ranges/4" for 127.0.0.1 at Tue Feb 22 21:52:26 -0800 2011
+  Processing by ObservationRangesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mObservationRange Load (0.2ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observation_ranges/show.html.erb within layouts/application (26.9ms)
+Completed 200 OK in 50ms (Views: 31.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/observation_ranges/4" for 127.0.0.1 at Tue Feb 22 21:54:10 -0800 2011
+  Processing by ObservationRangesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observation_ranges/show.html.erb within layouts/application (99.7ms)
+Completed 200 OK in 123ms (Views: 103.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/observations/1" for 127.0.0.1 at Tue Feb 22 21:54:12 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mObservation Load (0.1ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.4ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+Rendered observations/show.html.erb within layouts/application (17.4ms)
+Completed 200 OK in 47ms (Views: 25.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/observations" for 127.0.0.1 at Tue Feb 22 21:54:33 -0800 2011
+  Processing by ObservationsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations"[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observations/index.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 47ms (Views: 23.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/observations/1" for 127.0.0.1 at Tue Feb 22 21:54:34 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observations/show.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 52ms (Views: 24.6ms | ActiveRecord: 0.7ms)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110221072852)
+Migrating to CreateTargets (20110221173715)
+Migrating to CreateObservations (20110221210559)
+Migrating to CreateObservationRanges (20110221220523)
+Migrating to CreateAssignments (20110221221459)
+Migrating to AddUidAndProviderToUsers (20110222004420)
+Migrating to RemoveFacebookIdFromUsers (20110222014616)
+Migrating to RemovePartialNamesFromUsers (20110222015346)
+Migrating to AddNameToUsers (20110222015406)
+Migrating to AddRoleToUsers (20110222024940)
+Migrating to AddFilenamePartsToObservationRanges (20110223054146)
+Migrating to AddFilenameFormatStringToObservation (20110223055800)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mALTER TABLE "observations" ADD "url_format" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110223055800')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("assignments")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("observation_ranges")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("observations")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("targets")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+
+
+Started GET "/observations/1" for 127.0.0.1 at Tue Feb 22 22:01:06 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mObservation Load (0.1ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observations/show.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 40ms (Views: 21.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/observations/1/edit" for 127.0.0.1 at Tue Feb 22 22:01:09 -0800 2011
+  Processing by ObservationsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mObservation Load (0.1ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.3ms)[0m  SELECT "targets".* FROM "targets"
+Rendered observations/_form.html.erb (23.5ms)
+Rendered observations/edit.html.erb within layouts/application (30.1ms)
+Completed 200 OK in 61ms (Views: 36.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/observations/1" for 127.0.0.1 at Tue Feb 22 22:01:48 -0800 2011
+  Processing by ObservationsController#update as HTML
+  Parameters: {"commit"=>"Update Observation", "observation"=>{"date(1i)"=>"2010", "target_id"=>"1", "date(2i)"=>"11", "date(3i)"=>"6", "url_format"=>"http://184.73.240.15/analysis/2010-11-06-dorothy_tauceti_1420_1/images/chan-%s.png"}, "authenticity_token"=>"QCUW55gRNyR2swDF2RZ6JwwgPL7m/ECTI2kTtVnJcFU=", "utf8"=>"✓", "id"=>"1"}
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  UPDATE "observations" SET "updated_at" = '2011-02-23 06:01:48.804852', "url_format" = 'http://184.73.240.15/analysis/2010-11-06-dorothy_tauceti_1420_1/images/chan-%s.png' WHERE "observations"."id" = 1
+Redirected to http://localhost.seti.hg94.com:3000/observations/1
+Completed 302 Found in 40ms
+
+
+Started GET "/observations/1" for 127.0.0.1 at Tue Feb 22 22:01:48 -0800 2011
+  Processing by ObservationsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mObservation Load (0.1ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.3ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observations/show.html.erb within layouts/application (22.2ms)
+Completed 200 OK in 53ms (Views: 28.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 22:09:19 -0800 2011
+  Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 20ms (Views: 19.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 22:09:36 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 22:09:36 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered home/index.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 30ms (Views: 29.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue Feb 22 22:09:46 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as XML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAssignment Load (0.2ms)[0m  SELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = 4 LIMIT 1
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 3 LIMIT 1[0m
+Completed 200 OK in 40ms (Views: 2.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assignments" for 127.0.0.1 at Tue Feb 22 22:10:25 -0800 2011
+  Processing by AssignmentsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAssignment Load (0.2ms)[0m  [1mSELECT "assignments".* FROM "assignments"[0m
+  [1m[35mObservationRange Load (0.2ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 3 LIMIT 1
+Rendered assignments/index.html.erb within layouts/application (83.9ms)
+Completed   in 139ms
+
+ActionView::Template::Error (undefined method `friendly_name' for nil:NilClass):
+    10: 
+    11: <% @assignments.each do |assignment| %>
+    12:   <tr>
+    13:     <td><%= assignment.observation_range.friendly_name %></td>
+    14:     <td><%= assignment.user.name %></td>
+    15:     <td><%= assignment.status %></td>
+    16:     <td><%= link_to 'Show', assignment %> <%= link_to 'Edit', edit_assignment_path(assignment) %> <%= link_to 'Destroy', assignment, :confirm => 'Are you sure?', :method => :delete %></td>
+  app/views/assignments/index.html.erb:13:in `_app_views_assignments_index_html_erb___1439102675_2171189300_0'
+  app/views/assignments/index.html.erb:11:in `each'
+  app/views/assignments/index.html.erb:11:in `_app_views_assignments_index_html_erb___1439102675_2171189300_0'
+  app/controllers/assignments_controller.rb:10:in `index'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (23.8ms)
+
+
+Started GET "/observation_ranges" for 127.0.0.1 at Tue Feb 22 22:10:31 -0800 2011
+  Processing by ObservationRangesController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mObservationRange Load (0.2ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges"
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Rendered observation_ranges/index.html.erb within layouts/application (28.5ms)
+Completed 200 OK in 52ms (Views: 33.2ms | ActiveRecord: 1.0ms)
+  [1m[36mAssignment Load (0.5ms)[0m  [1mSELECT "assignments".* FROM "assignments"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM "assignments" WHERE "assignments"."id" = 4[0m
+  [1m[35mAssignment Load (0.2ms)[0m  SELECT "assignments".* FROM "assignments"
+
+
+Started GET "/assignments" for 127.0.0.1 at Tue Feb 22 22:11:06 -0800 2011
+  Processing by AssignmentsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAssignment Load (0.1ms)[0m  SELECT "assignments".* FROM "assignments"
+Rendered assignments/index.html.erb within layouts/application (77.9ms)
+Completed 200 OK in 101ms (Views: 83.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assignments/new" for 127.0.0.1 at Tue Feb 22 22:11:07 -0800 2011
+  Processing by AssignmentsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mObservationRange Load (0.3ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges"
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered assignments/_form.html.erb (45.7ms)
+Rendered assignments/new.html.erb within layouts/application (64.2ms)
+Completed 200 OK in 107ms (Views: 87.9ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/assignments" for 127.0.0.1 at Tue Feb 22 22:11:15 -0800 2011
+  Processing by AssignmentsController#create as HTML
+  Parameters: {"commit"=>"Create Assignment", "assignment"=>{"user_id"=>"5", "observation_range_id"=>"4", "status"=>"IN_PROGRESS"}, "authenticity_token"=>"QCUW55gRNyR2swDF2RZ6JwwgPL7m/ECTI2kTtVnJcFU=", "utf8"=>"✓"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "assignments" ("updated_at", "status", "user_id", "observation_range_id", "created_at") VALUES ('2011-02-23 06:11:15.731943', 'IN_PROGRESS', 5, 4, '2011-02-23 06:11:15.731943')[0m
+Redirected to http://localhost.seti.hg94.com:3000/assignments/5
+Completed 302 Found in 96ms
+
+
+Started GET "/assignments/5" for 127.0.0.1 at Tue Feb 22 22:11:15 -0800 2011
+  Processing by AssignmentsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mAssignment Load (0.1ms)[0m  SELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = 5 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "assignments".* FROM "assignments" WHERE "assignments"."id" = 5 LIMIT 1
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered assignments/show.html.erb within layouts/application (41.0ms)
+Completed 200 OK in 87ms (Views: 67.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assignments/current_assignment_for_user" for 127.0.0.1 at Tue Feb 22 22:12:01 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+Completed   in 16ms
+
+NoMethodError (undefined method `find_by_user' for #<Class:0x102e1dd10>):
+  app/controllers/assignments_controller.rb:65:in `current_assignment_for_user'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.5ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.0ms)
+
+
+Started GET "/assignments/current_assignment_for_user" for 127.0.0.1 at Tue Feb 22 22:12:26 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAssignment Load (0.1ms)[0m  SELECT "assignments".* FROM "assignments" WHERE "assignments"."user_id" = 5 LIMIT 1
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered assignments/show.html.erb within layouts/application (38.8ms)
+Completed 200 OK in 62ms (Views: 42.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assignments/current_assignment_for_user" for 127.0.0.1 at Tue Feb 22 22:12:54 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAssignment Load (0.2ms)[0m  SELECT "assignments".* FROM "assignments" WHERE "assignments"."user_id" = 5 AND "assignments"."status" = 'IN_PROGRESS' LIMIT 1
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1[0m
+  [1m[35mObservation Load (0.2ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered assignments/show.html.erb within layouts/application (37.8ms)
+Completed 200 OK in 60ms (Views: 41.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assignments/current_assignment_for_user" for 127.0.0.1 at Tue Feb 22 22:12:59 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAssignment Load (0.1ms)[0m  SELECT "assignments".* FROM "assignments" WHERE "assignments"."user_id" = 5 AND "assignments"."status" = 'IN_PROGRES' LIMIT 1
+Rendered assignments/show.html.erb within layouts/application (0.7ms)
+Completed   in 24ms
+
+ActionView::Template::Error (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id):
+    1: <h1>Assignment <%= @assignment.id%></h1>
+    2: 
+    3: <p id="notice"><%= notice %></p>
+    4: 
+  app/views/assignments/show.html.erb:1:in `_app_views_assignments_show_html_erb___339083036_2173698160_0'
+  app/controllers/assignments_controller.rb:68:in `current_assignment_for_user'
+  app/controllers/assignments_controller.rb:67:in `current_assignment_for_user'
+
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.3ms)
+Rendered /Library/Ruby/Gems/1.8/gems/actionpack-3.0.4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.6ms)
+
+
+Started GET "/assignments/current_assignment_for_user" for 127.0.0.1 at Tue Feb 22 22:20:03 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mAssignment Load (0.2ms)[0m  SELECT "assignments".* FROM "assignments" WHERE "assignments"."user_id" = 5 AND "assignments"."status" = 'IN_PROGRESS' LIMIT 1
+  [1m[36mObservationRange Load (0.2ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1[0m
+  [1m[35mObservation Load (0.3ms)[0m  SELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1
+  [1m[36mTarget Load (0.2ms)[0m  [1mSELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered assignments/show.html.erb within layouts/application (39.4ms)
+Completed 200 OK in 62ms (Views: 43.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 22:20:13 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 22:20:13 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (21.3ms)
+Completed 200 OK in 29ms (Views: 27.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue Feb 22 22:20:28 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as XML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAssignment Load (0.2ms)[0m  [1mSELECT "assignments".* FROM "assignments" WHERE "assignments"."user_id" = 5 AND "assignments"."status" = 'IN_PROGRESS' LIMIT 1[0m
+  [1m[35mObservationRange Load (0.2ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Completed 200 OK in 97ms (Views: 2.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 22:34:32 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 22:34:33 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 21ms (Views: 20.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue Feb 22 22:34:41 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as XML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAssignment Load (0.3ms)[0m  [1mSELECT "assignments".* FROM "assignments" WHERE "assignments"."user_id" = 5 AND "assignments"."status" = 'IN_PROGRESS' LIMIT 1[0m
+  [1m[35mObservationRange Load (0.2ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Completed 200 OK in 95ms (Views: 2.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 22:35:27 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 22:35:28 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (17.2ms)
+Completed 200 OK in 25ms (Views: 24.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue Feb 22 22:35:34 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as XML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAssignment Load (0.2ms)[0m  [1mSELECT "assignments".* FROM "assignments" WHERE "assignments"."user_id" = 5 AND "assignments"."status" = 'IN_PROGRESS' LIMIT 1[0m
+  [1m[35mObservationRange Load (0.2ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Completed 200 OK in 89ms (Views: 2.1ms | ActiveRecord: 1.0ms)
+  [1m[36mObservationRange Load (0.6ms)[0m  [1mSELECT "observation_ranges".* FROM "observation_ranges"[0m
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 22:36:45 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 8ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 22:36:46 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (23.7ms)
+Completed 200 OK in 32ms (Views: 30.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue Feb 22 22:36:52 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as XML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAssignment Load (0.2ms)[0m  [1mSELECT "assignments".* FROM "assignments" WHERE "assignments"."user_id" = 5 AND "assignments"."status" = 'IN_PROGRESS' LIMIT 1[0m
+  [1m[35mObservationRange Load (0.2ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Completed 200 OK in 86ms (Views: 2.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 22:43:57 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 42ms (Views: 41.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 22:43:58 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (81.9ms)
+Completed 200 OK in 87ms (Views: 86.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 22:47:32 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 22:47:32 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+Rendered home/index.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 26ms (Views: 25.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 22:48:00 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 22:48:00 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 32ms (Views: 30.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue Feb 22 22:48:07 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as XML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAssignment Load (0.2ms)[0m  [1mSELECT "assignments".* FROM "assignments" WHERE "assignments"."user_id" = 5 AND "assignments"."status" = 'IN_PROGRESS' LIMIT 1[0m
+  [1m[35mObservationRange Load (0.3ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1
+  [1m[36mObservation Load (0.3ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.3ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Completed 200 OK in 182ms (Views: 2.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 22:50:03 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 22:50:03 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 29ms (Views: 27.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue Feb 22 22:50:11 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as XML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAssignment Load (0.2ms)[0m  [1mSELECT "assignments".* FROM "assignments" WHERE "assignments"."user_id" = 5 AND "assignments"."status" = 'IN_PROGRESS' LIMIT 1[0m
+  [1m[35mObservationRange Load (0.2ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Completed 200 OK in 101ms (Views: 1.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 22:53:20 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 22:53:20 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 25ms (Views: 24.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue Feb 22 22:53:41 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as XML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAssignment Load (0.3ms)[0m  [1mSELECT "assignments".* FROM "assignments" WHERE "assignments"."user_id" = 5 AND "assignments"."status" = 'IN_PROGRESS' LIMIT 1[0m
+  [1m[35mObservationRange Load (0.3ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Completed 200 OK in 159ms (Views: 1.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 22:54:44 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 22:54:45 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 23ms (Views: 22.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue Feb 22 22:54:59 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as XML
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAssignment Load (0.2ms)[0m  [1mSELECT "assignments".* FROM "assignments" WHERE "assignments"."user_id" = 5 AND "assignments"."status" = 'IN_PROGRESS' LIMIT 1[0m
+  [1m[35mObservationRange Load (0.3ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.3ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Completed 200 OK in 103ms (Views: 2.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Feb 22 23:09:06 -0800 2011
+  Processing by HomeController#index as HTML
+Rendered home/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 43ms (Views: 42.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/?debug=true" for 127.0.0.1 at Tue Feb 22 23:09:10 -0800 2011
+  Processing by HomeController#index as HTML
+  Parameters: {"debug"=>"true"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+Rendered home/index.html.erb within layouts/application (20.1ms)
+Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assignments/current_assignment_for_user.xml" for 127.0.0.1 at Tue Feb 22 23:09:27 -0800 2011
+  Processing by AssignmentsController#current_assignment_for_user as XML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mAssignment Load (0.2ms)[0m  [1mSELECT "assignments".* FROM "assignments" WHERE "assignments"."user_id" = 5 AND "assignments"."status" = 'IN_PROGRESS' LIMIT 1[0m
+  [1m[35mObservationRange Load (0.2ms)[0m  SELECT "observation_ranges".* FROM "observation_ranges" WHERE "observation_ranges"."id" = 4 LIMIT 1
+  [1m[36mObservation Load (0.2ms)[0m  [1mSELECT "observations".* FROM "observations" WHERE "observations"."id" = 1 LIMIT 1[0m
+  [1m[35mTarget Load (0.2ms)[0m  SELECT "targets".* FROM "targets" WHERE "targets"."id" = 1 LIMIT 1
+Completed 200 OK in 166ms (Views: 2.0ms | ActiveRecord: 1.0ms)

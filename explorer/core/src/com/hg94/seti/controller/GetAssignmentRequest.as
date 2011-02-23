@@ -7,6 +7,7 @@ package com.hg94.seti.controller {
 	
 	import flash.events.EventDispatcher;
 	
+	import mx.collections.ArrayCollection;
 	import mx.rpc.events.FaultEvent;
 	import mx.rpc.events.ResultEvent;
 	import mx.rpc.http.HTTPService;
@@ -42,6 +43,11 @@ package com.hg94.seti.controller {
 			var observationRange:ObservationRange = new ObservationRange(observation);
 			observationRange.loMHz = observationRangeXML["lo-mhz"];
 			observationRange.hiMHz = observationRangeXML["hi-mhz"];
+			observationRange.filenameCollection = new ArrayCollection();
+			var urlFormat:String = observationXML["url-format"];
+			for each (var filenamePart:String in observationRangeXML["filename-part-text"][0].split("\r\n")) {
+				observationRange.filenameCollection.addItem(urlFormat.replace("%s", filenamePart));
+			}
 			this.assignment = new Assignment(observationRange);
 			this.dispatchEvent(event.clone());
 		}

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110222024940) do
+ActiveRecord::Schema.define(:version => 20110223055800) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "observation_range_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20110222024940) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "filename_part_text"
   end
 
   create_table "observations", :force => true do |t|
@@ -34,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20110222024940) do
     t.integer  "target_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "url_format"
   end
 
   create_table "targets", :force => true do |t|

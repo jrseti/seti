@@ -4,8 +4,6 @@ package com.hg94.seti.model
 		
 		public var currentAssignment:Assignment;
 		
-		public var tempTargetName:String;
-		
 		public function Model()
 		{
 		}

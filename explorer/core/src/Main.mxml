@@ -8,7 +8,6 @@
 	<fx:Script>
 		<![CDATA[
 			import com.hg94.seti.controller.IRemoteCall;
-			import com.hg94.seti.controller.ObservationRequest;
 			import com.hg94.seti.controller.RemoteCall;
 			import com.hg94.seti.controller.TargetListRequest;
 			import com.hg94.seti.model.Observation;
@@ -21,7 +20,6 @@
 			public var targetSet:TargetSet;
 			public var waterfallTile:WaterfallTile;
 			public var iRemoteCall:IRemoteCall;
-			public var observationRequest:ObservationRequest;
 			public var remoteCall:RemoteCall;
 			public var targetListRequest:TargetListRequest;
 

@@ -1,14 +1,17 @@
 package com.hg94.seti.view
 {
+	import com.hg94.seti.controller.GetAssignmentRequest;
 	import com.hg94.seti.model.Model;
 	import com.hg94.seti.view.AssignmentStarfield;
 	
 	import components.MainSkin;
 	
+	import flash.events.Event;
 	import flash.events.MouseEvent;
 	
 	import mx.binding.utils.BindingUtils;
 	import mx.events.FlexEvent;
+	import mx.rpc.events.ResultEvent;
 	
 	import spark.components.Group;
 	
@@ -32,13 +35,35 @@ package com.hg94.seti.view
 
 		private function creationCompleteHandler(event:FlexEvent):void {
 			this.assignmentStarfield = new AssignmentStarfield(this.mainSkin.assignmentStarfieldPlaceholder, this.model);
-			this.waterfallDataVisualization = new WaterfallDataVisualization(this.mainSkin.dataVizTileListPlaceholder);
-			this.mainSkin.viewDataButton.addEventListener(MouseEvent.CLICK, this.viewDataButtonClickHandler);
+			this.assignmentStarfield.addEventListener("READY", this.starfieldReadyHandler);
+			this.waterfallDataVisualization = new WaterfallDataVisualization(this.mainSkin.dataVizTileListPlaceholder, this.model);
+			//this.mainSkin.viewDataButton.addEventListener(MouseEvent.CLICK, this.viewDataButtonClickHandler);
 		}
 		
+		private function starfieldReadyHandler(event:Event):void {
+			this.getAssignment();
+		}
+		
+		protected function getAssignment():void 
+		{
+			var getAssignmentRequest:GetAssignmentRequest = new GetAssignmentRequest();
+			getAssignmentRequest.addEventListener(ResultEvent.RESULT, this.getAssignmentResultHandler);
+			getAssignmentRequest.getAssignment();
+		}
+		
+		private function getAssignmentResultHandler(event:ResultEvent):void 
+		{
+			event.currentTarget.removeEventListener(event.type, getAssignmentResultHandler);
+			this.model.currentAssignment = (event.currentTarget as GetAssignmentRequest).assignment;
+			this.assignmentStarfield.showTarget();
+			this.waterfallDataVisualization.showObservationRange();
+		}
+		
+		/*
 		private function viewDataButtonClickHandler(event:MouseEvent):void {
 			this.waterfallDataVisualization.target = this.assignmentStarfield.target; 
 		}
+		*/
 		
 		protected override function createChildren():void {
 			this.mainSkin = new MainSkin();

@@ -4,7 +4,7 @@
 
 <p>
   <b>Observation:</b>
-  <%= @observation_range.observation.friendly_name %>
+  <%= link_to @observation_range.observation.friendly_name, @observation_range.observation %>
 </p>
 
 <p>
@@ -32,6 +32,13 @@
   <b>Friendly Name:</b>
   <%= @observation_range.friendly_name %>
 </p>
+
+
+<p>
+  <b>List of filename parts:</b>
+  <pre><%= @observation_range.filename_part_text %></pre>
+</p>
+
 
 
 <%= link_to 'Edit', edit_observation_range_path(@observation_range) %> |

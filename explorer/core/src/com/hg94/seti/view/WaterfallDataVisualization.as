@@ -44,7 +44,8 @@
 
 package com.hg94.seti.view {
 
-	import com.hg94.seti.controller.ObservationRequest;
+	//import com.hg94.seti.controller.ObservationRequest;
+	import com.hg94.seti.model.Model;
 	import com.hg94.seti.model.Observation;
 	import com.hg94.seti.model.Target;
 	
@@ -52,6 +53,7 @@ package com.hg94.seti.view {
 	
 	import flash.events.Event;
 	
+	import mx.binding.utils.BindingUtils;
 	import mx.collections.ArrayCollection;
 	import mx.events.FlexEvent;
 
@@ -69,11 +71,16 @@ package com.hg94.seti.view {
 		[Bindable]
 		protected var _midFrequency:String;
 		
+		[Bindable]
+		protected var _model:Model;
+		
 		public var visualizationTileList:VisualizationTileList;
 		
-		public function WaterfallDataVisualization(dataVizTileListPlaceholder:DataVizTileListPlaceholder) {
+		public function WaterfallDataVisualization(dataVizTileListPlaceholder:DataVizTileListPlaceholder, model:Model) {
 			this.visualizationTileList = new VisualizationTileList();
 			dataVizTileListPlaceholder.addElement(this.visualizationTileList);
+			this._model = model;
+			//BindingUtils.bindProperty(this.visualizationTileList, "dataProvider", model, ["assignment", "observationRange", "filenameArray"]);
 		}
 		
 		private function onSkyButtonInteraction(event:Event):void
@@ -101,19 +108,21 @@ package com.hg94.seti.view {
 			{
 				target = value as Target;
 				*/
-		
+		/**
 		public function set target(target:Target):void {
 			var request:ObservationRequest = new ObservationRequest();
 			request.addEventListener(Event.COMPLETE, onObservationLoadComplete);
 			this.observation = target.defaultObservation;
 			request.observation = target.defaultObservation;
 			request.execute();
-			/*
+			
 			}
 			super.data = value;
-			*/
+			
 		}
-		
+		 */
+		public function showObservationRange():void {
+		/**
 		private function onObservationLoadComplete(event:Event):void {
 			//currentState = "exploring";
 			
@@ -121,9 +130,10 @@ package com.hg94.seti.view {
 			
 			var request:ObservationRequest = event.target as ObservationRequest;
 			
-			this.visualizationTileList.dataProvider = new ArrayCollection(request.imageUrls);
-			
+			*/
+			this.visualizationTileList.dataProvider = this._model.currentAssignment.observationRange.filenameCollection;
 		}
+			
 	}
 }
 /**

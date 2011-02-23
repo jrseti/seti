@@ -10,16 +10,24 @@
       </ul>
     </div>
   <% end %>
+  
+  <div class="field">
+    <%= f.label :target %><br />
+    <%= f.collection_select :target_id, Target.all, :id, :name %>
+  </div>
 
   <div class="field">
     <%= f.label :date %><br />
     <%= f.date_select :date %>
   </div>
   
+  
   <div class="field">
-    <%= f.label :target %><br />
-    <%= f.collection_select :target_id, Target.all, :id, :name %>
+    <%= f.label :url_format %><br />
+    <%= f.text_field :url_format%>
   </div>
+  
+  
   <div class="actions">
     <%= f.submit %>
   </div>

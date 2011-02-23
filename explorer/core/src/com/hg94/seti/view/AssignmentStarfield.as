@@ -35,13 +35,14 @@ package com.hg94.seti.view {
 	import components.StarfieldTargetMarkerSkin;
 	
 	import flash.events.Event;
+	import flash.events.EventDispatcher;
 	import flash.events.MouseEvent;
 	import flash.geom.Point;
 	
 	import mx.events.FlexEvent;
 	import mx.rpc.events.ResultEvent;
 	
-	public class AssignmentStarfield {
+	public class AssignmentStarfield extends EventDispatcher {
 			
 		//private static const HATHERSAGE_MAP_API_KEY:String = "ABQIAAAAEwk3rg5igZgbfHAAaPpdnhS3hwEVAxBLwgX-yCFBjg8qlFo5UxTVUCdE50GpyF9WvX4b62ZJcx0ASA";
 		private static const HATHERSAGE_MAP_API_KEY:String = "ABQIAAAAvfCXHyG3_fr2KItfFudhNhRu45k_GoSHRmy8AvsVANhoXVrYpRRD4K1belmVZubunzBgbbEjN4EtwQ";
@@ -79,37 +80,6 @@ package com.hg94.seti.view {
 		private function onClickMap(event:MouseEvent):void {
 			this.map.zoomIn();
 		}
-
-		protected function getAssignment():void 
-		{
-			var getAssignmentRequest:GetAssignmentRequest = new GetAssignmentRequest();
-			getAssignmentRequest.addEventListener(ResultEvent.RESULT, this.getAssignmentResultHandler);
-			getAssignmentRequest.getAssignment();
-		}
-		
-		private function getAssignmentResultHandler(event:ResultEvent):void 
-		{
-			event.currentTarget.removeEventListener(event.type, getAssignmentResultHandler);
-			this._model.currentAssignment = (event.currentTarget as GetAssignmentRequest).assignment;
-			this._model.tempTargetName = this._model.currentAssignment.observationRange.observation.target.name;
-			this.target = this._model.currentAssignment.observationRange.observation.target;
-			//this.addMarkerForTarget(this.target);
-			map.flyTo(this.target.getGoogleSkyCoordinates(), map.getZoom() + 5, map.getAttitude(), 3);
-			
-			/*
-			_targetSet = (event.currentTarget as TargetListRequest).targetSet;
-			
-			for each (var target:Target in this._targetSet.targetArray) {
-				_targetArray.push(target.getGoogleSkyCoordinates());
-				if (false)
-				{
-					addMarkerForTarget( target );
-				}
-			}
-			
-			goToAssignment();
-			*/
-		}
 		
 		private function addMarkerForTarget(target:Target):void
 		{
@@ -132,9 +102,34 @@ package com.hg94.seti.view {
 			event.target.setInitOptions(opts);
 		}
 		
+		
+		// TODO: Make a real event!!
+		
 		private function onMapReady(event:MapEvent):void
 		{
-			getAssignment();
+			var e:Event = new Event("READY");
+			this.dispatchEvent(e);
+		}
+		
+		public function showTarget():void {
+			this.target = this._model.currentAssignment.observationRange.observation.target;
+			//this.addMarkerForTarget(this.target);
+			map.flyTo(this.target.getGoogleSkyCoordinates(), map.getZoom() + 5, map.getAttitude(), 3);
+			
+			/*
+			_targetSet = (event.currentTarget as TargetListRequest).targetSet;
+			
+			for each (var target:Target in this._targetSet.targetArray) {
+			_targetArray.push(target.getGoogleSkyCoordinates());
+			if (false)
+			{
+			addMarkerForTarget( target );
+			}
+			}
+			
+			goToAssignment();
+			*/
+
 		}
 		
 		private function onMarkerInteraction(event:MapMouseEvent):void

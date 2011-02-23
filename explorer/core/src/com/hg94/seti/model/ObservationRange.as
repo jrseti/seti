@@ -1,4 +1,5 @@
 package com.hg94.seti.model {
+	import mx.collections.ArrayCollection;
 
     [Bindable] public class ObservationRange {
 		
@@ -7,6 +8,8 @@ package com.hg94.seti.model {
 		public var loMHz:Number;
 		
 		public var hiMHz:Number;
+		
+		public var filenameCollection:ArrayCollection;
 		
 		protected var _status:String = ObservationRangeStatus.NASCENT;
 
