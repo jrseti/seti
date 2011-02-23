@@ -5,9 +5,9 @@ bin-release
 bin-debug/
 *~
 .git_local/
-/rails/public/flex/
 *.log
 2010-11-06-dorothy_tauceti_1420_1/
-/log/
-/tmp/
+log/
+tmp/
 *.sqlite3
+.DS_STORE
