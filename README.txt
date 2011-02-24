@@ -19,6 +19,17 @@ sudo gem update
 To build, run these commands in the rails directory
 
 bundle
+
+If you are on windows and do not have sqllite previously installed, go here: http://www.sqlite.org/download.html and grab:
+	1. sqlite-shell-win32-x86-3070500.zip
+	2. sqlite-dll-win32-x86-3070500.zip
+	3. sqlite-analyzer-win32-x86-3070500.zip
+
+	or the latest versions of those files.
+
+Extract them and place all files into your ruby/bin dir.
+
+
 rake db:migrate
 rails server
 
