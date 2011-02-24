@@ -4,11 +4,20 @@
 # This method is designed to be either called from a controller, or run using the Rails console or runner, like so:
 #   rails runner 'require "./lib/populate_targets_observations"; populate_targets_observations'
 
+# It will return a hash containing two keys -- :observations and :targets -- whose values are arrays of record IDs
+# for Observations and Targets, respectively.
+
 require 'open-uri'
 
 OBSERVATIONS_URI = 'http://setiquest.dyndns.org/getobservations.php'
 
 def populate_targets_observations
+  
+  new_records = {
+    :observations => [],
+    :targets => []
+  }
+  
   # Load http://setiquest.dyndns.org/getobservations.php
   # Parse the fixed width file
 
@@ -65,6 +74,7 @@ def populate_targets_observations
         :right_ascension => right_ascension,
         :declination => declination)
       target.save!
+      new_records[:targets] << target.id
       ::Rails.logger.info "created new target: #{target.inspect}"
     end
 
@@ -75,9 +85,12 @@ def populate_targets_observations
       :base_url => base_url,
       :target => target)
     observation.save!
+    new_records[:observations] << observation.id
     ::Rails.logger.info "created new observation: #{observation.inspect}"
     
   end
+  
+  new_records
 end
 
 # If we're running this in the console, set up the Logger so we can see what's happening
