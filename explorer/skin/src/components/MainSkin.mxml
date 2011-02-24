@@ -248,7 +248,7 @@
 				whiteSpaceCollapse="preserve" content="{this.model.currentAssignment.observationRange.observation.target.description}"/>
 		<!--<s:content><s:p><s:span>Fourth star in the constellation Taurus</s:span></s:p><s:p><s:span>12 Light years away</s:span></s:p><s:p><s:span>Thought to have 7 planets</s:span></s:p></s:content>-->
 	<!--</s:RichText>-->
-	<s:RichText id="observationFrequencyField1" d:userLabel="Frequency"
+	<s:RichText id="frequencyMidpointField" d:userLabel="Frequency"
 				includeIn="Assignment,DataViz,Signal" left="288" right="288" height="16"
 				color="#999999" fontFamily="Myriad Pro" fontSize="16" lineHeight="100%"
 				tabStops="S0 S50 S100 S150 S200" text="9999.99999 MHz" textAlign="center"

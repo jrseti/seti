@@ -6,6 +6,8 @@ package com.hg94.seti.model
 		
 		public var currentAssignment:Assignment;
 		
+		public var currentMidFrequency:Number;
+		
 		public function Model()
 		{
 		}
