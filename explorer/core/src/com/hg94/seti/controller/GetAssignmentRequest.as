@@ -18,6 +18,22 @@ package com.hg94.seti.controller {
 		
 		public var assignment:Assignment;
 		
+		protected var _apiUrlRoot:String;
+		
+		public function GetAssignmentRequest(apiUrlRoot:String) {
+			this._apiUrlRoot = apiUrlRoot;
+		}
+		
+		public function getAssignment():void {
+			this.httpService = new HTTPService();
+			this.httpService.url = this._apiUrlRoot + "/assignments/current_assignment_for_user.xml";
+			this.httpService.resultFormat = HTTPService.RESULT_FORMAT_E4X;
+			this.httpService.method = "GET" // Shouldn't I reference a static constant here?
+			this.httpService.addEventListener(ResultEvent.RESULT, this.onHTTPServiceResult);
+			this.httpService.addEventListener(FaultEvent.FAULT, this.onHTTPServiceFault);
+			this.httpService.send();
+		}
+		
 		private function onHTTPServiceFault(event:FaultEvent):void {
 			this.httpService.removeEventListener(ResultEvent.RESULT, this.onHTTPServiceResult);
 			this.httpService.removeEventListener(FaultEvent.FAULT, this.onHTTPServiceFault);
@@ -50,16 +66,6 @@ package com.hg94.seti.controller {
 			}
 			this.assignment = new Assignment(observationRange);
 			this.dispatchEvent(event.clone());
-		}
-		
-		public function getAssignment():void {
-			this.httpService = new HTTPService();
-			this.httpService.url = "/assignments/current_assignment_for_user.xml";
-			this.httpService.resultFormat = HTTPService.RESULT_FORMAT_E4X;
-			this.httpService.method = "GET" // Shouldn't I reference a static constant here?
-			this.httpService.addEventListener(ResultEvent.RESULT, this.onHTTPServiceResult);
-			this.httpService.addEventListener(FaultEvent.FAULT, this.onHTTPServiceFault);
-			this.httpService.send();
 		}
 	}
 }

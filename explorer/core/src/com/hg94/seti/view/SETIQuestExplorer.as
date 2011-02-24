@@ -25,6 +25,8 @@ package com.hg94.seti.view
 		private var waterfallDataVisualization:WaterfallDataVisualization;
 		
 		[Bindable] protected var model:Model;
+		
+		public var api_url_root:String = "";
 
 		public function SETIQuestExplorer()
 		{
@@ -46,7 +48,7 @@ package com.hg94.seti.view
 		
 		protected function getAssignment():void 
 		{
-			var getAssignmentRequest:GetAssignmentRequest = new GetAssignmentRequest();
+			var getAssignmentRequest:GetAssignmentRequest = new GetAssignmentRequest(this.api_url_root);
 			getAssignmentRequest.addEventListener(ResultEvent.RESULT, this.getAssignmentResultHandler);
 			getAssignmentRequest.getAssignment();
 		}
