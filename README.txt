@@ -37,6 +37,13 @@ Then point your browser to http://localhost.seti.hg94.com:3000/
 
 Then log in using your Facebook credentials
 
+If you get this error:
+SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed
+
+If you are also running Ruby 1.9.x then there is a monkeypatch that may fix this issue. In the root rails dir there is a file named monkeypatch. Copy this file into rails/config/initializers. Then rename it to have a .rb extension. 
+
+restart the rails server. and try again. If it works then...
+
 Then go back to the rails directory and do this:
 
 rails console
