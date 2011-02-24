@@ -15,6 +15,7 @@ package com.hg94.seti.view
 	import mx.graphics.BitmapScaleMode;
 	import mx.rpc.events.ResultEvent;
 	
+	import spark.components.Button;
 	import spark.components.Group;
 	import spark.events.ElementExistenceEvent;
 	
@@ -64,10 +65,22 @@ package com.hg94.seti.view
 					case "dataVizTileListPlaceholder":
 						this.waterfallDataVisualization = new WaterfallDataVisualization(this.mainSkin.dataVizTileListPlaceholder, this.model);
 						break;
-					case "galaxyImage":
+					case "assignmentZoomInButton":
+						Button(event.element).addEventListener(MouseEvent.CLICK, this.zoomInButtonHandler);
+						break;
+					case "assignmentZoomOutButton":
+						Button(event.element).addEventListener(MouseEvent.CLICK, this.zoomOutButtonHandler);
 						break;
 				}
 			}
+		}
+		
+		private function zoomInButtonHandler(event:MouseEvent):void {
+			this.assignmentStarfield.zoomIn();
+		}
+		
+		private function zoomOutButtonHandler(event:MouseEvent):void {
+			this.assignmentStarfield.zoomOut();
 		}
 		
 		private function starfieldReadyHandler(event:Event):void {

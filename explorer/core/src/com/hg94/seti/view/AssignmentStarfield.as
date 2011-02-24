@@ -69,7 +69,6 @@ package com.hg94.seti.view {
 			map.percentHeight=100;
 			map.addEventListener(MapEvent.MAP_PREINITIALIZE,onMapPreinitialize);
 			map.addEventListener(MapEvent.MAP_READY,onMapReady);
-			placeholder.addEventListener(MouseEvent.CLICK, this.onClickMap);
 			
 			placeholder.addElement(map);
 
@@ -80,10 +79,6 @@ package com.hg94.seti.view {
 				this.target = assignment.observationRange.observation.target;
 				map.flyTo(this.target.getGoogleSkyCoordinates(), 6, map.getAttitude(), 3);
 			}
-		}
-		
-		private function onClickMap(event:MouseEvent):void {
-			this.map.zoomIn();
 		}
 		
 		private function addMarkerForTarget(target:Target):void
@@ -167,14 +162,14 @@ package com.hg94.seti.view {
 			return map.getMaxZoomLevel();
 		}
 
-		protected function zoomInButton_clickHandler(event:MouseEvent):void
+		public function zoomIn():void
 		{
 			if (map.getZoom() < maxZoomLevel){
 				this.map.zoomIn();
 			}
 		}
 		
-		protected function zoomOutButton_clickHandler(event:MouseEvent):void
+		public function zoomOut():void
 		{
 			if (map.getZoom() > map.getMinZoomLevel()){
 				this.map.zoomOut();

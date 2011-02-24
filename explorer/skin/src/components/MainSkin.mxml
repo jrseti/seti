@@ -379,9 +379,15 @@
 		<s:Button includeIn="Categorize" x="9" y="554" label="Cancel"
 				  skinClass="components.NextScreenButton"/>
 		<s:Button id="viewDataButton" includeIn="Assignment" right="12" bottom="10" label="Continue"
-				  click="button_clickHandler_1()" skinClass="components.ViewDataButton"/>
+				  buttonMode="true" click="button_clickHandler_1()"
+				  skinClass="components.ViewDataButton"/>
 		<s:Button id="skipAssignmentButton" includeIn="Assignment" right="129" bottom="10"
-				  label="Skip Assignment" skinClass="components.SkipAssignmentButton"/>
+				  label="Skip Assignment" buttonMode="true"
+				  skinClass="components.SkipAssignmentButton"/>
+		<s:Button id="assignmentZoomInButton" includeIn="Assignment" right="15" bottom="124"
+				  label="Button" buttonMode="true" skinClass="components.StarfieldSkinZoomInButton"/>
+		<s:Button id="assignmentZoomOutButton" includeIn="Assignment" right="56" bottom="124"
+				  label="Button" buttonMode="true" skinClass="components.StarfieldSkinZoomOutButton"/>
 	</fx:DesignLayer>
 	<s:transitions>
 		<s:Transition fromState="Loading_Firsttime" interruptionBehavior="stop" toState="Tutorial1">
