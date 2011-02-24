@@ -1,15 +1,19 @@
-# This method populates Targets and Observations, using a text file provided by SETI.
-# It basically follows the instructions here: https://github.com/hathersagegroup/seti/wiki/Populating-Targets-and-Observations
-
-# This method is designed to be either called from a controller, or run using the Rails console or runner, like so:
+# These methods handle populating models with data from SETI.
+# Generally, the methods are designed to be either called from a controller, or run using the Rails console or runner, like so:
 #   rails runner 'require "./lib/populate_targets_observations"; populate_targets_observations'
 
-# It will return a hash containing two keys -- :observations and :targets -- whose values are arrays of record IDs
-# for Observations and Targets, respectively.
-
 require 'open-uri'
+;;require 'pp'
 
 OBSERVATIONS_URI = 'http://setiquest.dyndns.org/getobservations.php'
+
+# images/chan-1536/chan-1536-0-1416.722134-1416.722401.png
+IMAGE_URL_REGEX = %r{([\d.]+)-([\d.]+)\.png$}
+
+# Populate Targets and Observations, using a text file provided by SETI.
+# It basically follows the instructions here: https://github.com/hathersagegroup/seti/wiki/Populating-Targets-and-Observations
+# It returns a hash containing two keys -- :observations and :targets -- whose values are arrays of record IDs
+# for Observations and Targets, respectively.
 
 def populate_targets_observations
   
@@ -90,6 +94,40 @@ def populate_targets_observations
     
   end
   
+  new_records
+end
+
+# Populate observation ranges, given an observation and option number of ranges.
+
+def populate_observation_ranges(observation, num_ranges=100)
+  observation_range = ObservationRange.find_by_observation_id(observation.id)
+  if observation_range
+    ::Rails.logger.info "Observation already has observation range -- skipping"
+    return
+  end
+  new_records = {
+    :observation_ranges => []
+  }
+  images_url = observation.base_url + '/getimages.php'
+  ::Rails.logger.info "fetching observations: #{images_url}"
+  all_images = open(images_url).readlines
+  images_per_range = all_images.count / num_ranges
+  images_per_range = all_images.count if images_per_range == 0
+  0.step(all_images.count - 1, images_per_range) do |i|
+    images = all_images[i, images_per_range]
+    images.first =~ IMAGE_URL_REGEX
+    lo_mhz = $1.to_f
+    images.last =~ IMAGE_URL_REGEX
+    hi_mhz = $2.to_f
+    observation_range = ObservationRange.new(
+      :url_part_list => images.join(''),
+      :lo_mhz => lo_mhz,
+      :hi_mhz => hi_mhz,
+      :observation => observation)
+    observation_range.save!
+    ::Rails.logger.info "created observation range: #{observation_range.inspect}"
+    new_records[:observation_ranges] << observation_range.id
+  end
   new_records
 end
 
