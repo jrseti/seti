@@ -69,8 +69,8 @@ package com.hg94.seti.view {
 		[Bindable]
 		protected var observationImages:ArrayCollection;
 		
-		[Bindable]
-		protected var _midFrequency:String;
+		//[Bindable]
+		//public var midFrequency:String;
 		
 		[Bindable]
 		protected var _model:Model;
@@ -81,6 +81,7 @@ package com.hg94.seti.view {
 			this.visualizationTileList = new VisualizationTileList();
 			dataVizTileListPlaceholder.addElement(this.visualizationTileList);
 			BindingUtils.bindSetter(this.setAssignment, model, ["currentAssignment"]);
+			BindingUtils.bindProperty(model, "currentMidFrequency", this.visualizationTileList, "midFrequency");
 			//this.visualizationTileList.addEventListener(FlexEvent.CREATION_COMPLETE, onCC);
 			//this._model = model;
 			//BindingUtils.bindProperty(this.visualizationTileList, "dataProvider", model, ["assignment", "observationRange", "filenameArray"]);

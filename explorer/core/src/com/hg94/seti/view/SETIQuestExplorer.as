@@ -71,6 +71,9 @@ package com.hg94.seti.view
 					case "assignmentZoomOutButton":
 						Button(event.element).addEventListener(MouseEvent.CLICK, this.zoomOutButtonHandler);
 						break;
+					case "frequencyMidpointField":
+						BindingUtils.bindProperty(event.element, "text", this.model, "currentMidFrequency");
+						break;
 				}
 			}
 		}
