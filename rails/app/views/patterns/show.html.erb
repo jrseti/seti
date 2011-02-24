@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Observation:</b>
+  <%= @pattern.observation.friendly_name %>
+</p>
+
+<p>
+  <b>Lo mhz:</b>
+  <%= @pattern.lo_mhz %>
+</p>
+
+<p>
+  <b>Hi mhz:</b>
+  <%= @pattern.hi_mhz %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @pattern.category %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @pattern.description %>
+</p>
+
+<p>
+  <b>Friendly Name:</b>
+  <%= @pattern.friendly_name %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_pattern_path(@pattern) %> |
+<%= link_to 'Back', patterns_path %>

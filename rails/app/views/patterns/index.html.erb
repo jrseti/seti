@@ -1,0 +1,28 @@
+<h1>Listing patterns</h1>
+
+<table>
+  <tr>
+    <th>Observation</th>
+    <th>Lo mhz</th>
+    <th>Hi mhz</th>
+    <th>Category</th>
+    <th>Description</th>
+    <th>Actions</th>
+  </tr>
+
+<% @patterns.each do |pattern| %>
+  <tr>
+    
+    <td><%= pattern.observation.friendly_name %></td>
+    <td><%= pattern.lo_mhz %></td>
+    <td><%= pattern.hi_mhz %></td>
+    <td><%= pattern.category %></td>
+    <td><%= pattern.description %></td>
+    <td><%= link_to 'Show', pattern %> | <%= link_to 'Edit', edit_pattern_path(pattern) %> |<%= link_to 'Destroy', pattern, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pattern', new_pattern_path %>

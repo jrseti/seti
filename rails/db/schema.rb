@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110223221403) do
+ActiveRecord::Schema.define(:version => 20110224194427) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "observation_range_id"
@@ -36,6 +36,26 @@ ActiveRecord::Schema.define(:version => 20110223221403) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "base_url"
+  end
+
+  create_table "pattern_marks", :force => true do |t|
+    t.decimal  "mhz"
+    t.string   "category"
+    t.date     "date"
+    t.integer  "pattern_id"
+    t.integer  "assignment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "patterns", :force => true do |t|
+    t.decimal  "lo_mhz"
+    t.decimal  "hi_mhz"
+    t.string   "category"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "observation_id"
   end
 
   create_table "targets", :force => true do |t|
