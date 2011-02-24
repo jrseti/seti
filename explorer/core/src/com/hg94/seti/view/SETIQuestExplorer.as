@@ -11,6 +11,8 @@ package com.hg94.seti.view
 	
 	import mx.binding.utils.BindingUtils;
 	import mx.events.FlexEvent;
+	import mx.graphics.BitmapFillMode;
+	import mx.graphics.BitmapScaleMode;
 	import mx.rpc.events.ResultEvent;
 	
 	import spark.components.Group;
@@ -30,6 +32,8 @@ package com.hg94.seti.view
 
 		public function SETIQuestExplorer()
 		{
+			this.percentHeight = 100;
+			this.percentWidth = 100;
 			this.model = new Model();
 			this.addEventListener(FlexEvent.CREATION_COMPLETE, this.creationCompleteHandler);
 			super();
@@ -40,6 +44,11 @@ package com.hg94.seti.view
 			this.assignmentStarfield.addEventListener("READY", this.starfieldReadyHandler);
 			this.waterfallDataVisualization = new WaterfallDataVisualization(this.mainSkin.dataVizTileListPlaceholder, this.model);
 			//this.mainSkin.viewDataButton.addEventListener(MouseEvent.CLICK, this.viewDataButtonClickHandler);
+			
+			this.mainSkin.galaxyImage.fillMode = BitmapFillMode.SCALE;
+			this.mainSkin.galaxyImage.scaleMode = BitmapScaleMode.STRETCH;
+			this.mainSkin.galaxyImage.percentHeight = 100;
+			this.mainSkin.galaxyImage.percentWidth = 100;
 		}
 		
 		private function starfieldReadyHandler(event:Event):void {
@@ -69,8 +78,13 @@ package com.hg94.seti.view
 		
 		protected override function createChildren():void {
 			this.mainSkin = new MainSkin();
+			this.mainSkin.percentHeight = 100;
+			this.mainSkin.percentWidth = 100;
 			this.mainSkin.model = this.model;
 			this.addElement(this.mainSkin);
+			
+			//scaleMode="stretch" fillMode="scale" height="100%" width="100%"
+			
 			super.createChildren();
 		}
 	}

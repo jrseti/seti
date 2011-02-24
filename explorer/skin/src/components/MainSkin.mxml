@@ -7,7 +7,7 @@
 		 xmlns:skinnablecomponents="skinnablecomponents.*"
 		 xmlns:lib="assets.graphics.setiQuestExplorerLogo.*"
 		 xmlns:graphics="assets.graphics.*"
-		 width="800" height="480" fc:manageBounds="false"
+		 fc:manageBounds="false" width="1024" height="600"
 		 >
 	<fx:Script>
 		<![CDATA[
@@ -174,8 +174,8 @@
 		<s:State name="Settings"/>
 		<s:State name="ExploreSky"/>
 	</s:states>
-	<s:BitmapImage d:userLabel="Galaxy Image" includeIn="Loading_Othertimes,Loading_Firsttime" left="0" right="0" top="-9"
-				   bottom="-12" smooth="true"
+	<s:BitmapImage id="galaxyImage" d:userLabel="Galaxy Image" itemCreationPolicy="immediate"
+				   includeIn="Loading_Othertimes,Loading_Firsttime" smooth="true"
 				   source="@Embed('/assets/images/SpiralGalaxyNGC2841.jpg')"/>
 	<s:Rect includeIn="Loading_Othertimes,Loading_Firsttime" left="0" right="0" top="0" bottom="0" alpha="0">
 	</s:Rect>
@@ -227,7 +227,7 @@
 			  skinClass="components.StarfieldSkinZoomInButton"/>
 	<components:AssignmentStarfieldPlaceholder id="assignmentStarfieldPlaceholder" itemCreationPolicy="immediate"
 											   includeIn="Assignment" left="0" right="0" top="40"
-											   height="340"/>
+											   bottom="100"/>
 	<components:DataVizTileListPlaceholder id="dataVizTileListPlaceholder" itemCreationPolicy="immediate"
 										   d:userLabel="TileListPlaceholder"
 										   includeIn="Categorize,DataViz,Signal" left="0" right="0"
@@ -261,7 +261,7 @@
 				tabStops="S0 S50 S100 S150 S200" textAlign="end"
 				content="{'RA: ' + this.model.currentAssignment.observationRange.observation.target.rightAscension.toPrecision(6) + ', Decl: ' + this.model.currentAssignment.observationRange.observation.target.declination.toPrecision(6)}"/>
 	<s:RichText includeIn="Categorize" left="10" top="393" width="178" height="37" color="#FFFFFF"
-				fontFamily="Arial" fontSize="16" tabStops="S0 S50 S100 S150 S200"
+				fontFamily="Myriad Pro" fontSize="16" tabStops="S0 S50 S100 S150 S200"
 				whiteSpaceCollapse="preserve">
 		<s:content><s:p><s:span>What type of signal</s:span></s:p><s:p><s:span>do you see above?</s:span></s:p></s:content>
 	</s:RichText>
@@ -311,30 +311,30 @@
 				text.Tutorial7="Scroll through the data from left to right, and indicate when you see an interesting pattern..."
 				x.Tutorial8="421" y.Tutorial8="353" height.Tutorial8="91"
 				text.Tutorial8="Then categorize the pattern if it fits one of the known signal types displayed..."/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" y="393" right="9" buttonMode="true"
-										 click="categoryButton_clickHandler()"
-										 skinClass="components.CategoryButtonSkin_Unknown"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" y="393" right="85" buttonMode="true"
-										 click="categoryButton_clickHandler_1()"
-										 skinClass="components.CategoryButtonSkin_Radar"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" y="393" right="159" buttonMode="true"
-										 click="categoryButton_clickHandler_2()"
-										 skinClass="components.CategoryButtonSkin_Modulation"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" y="393" right="237" buttonMode="true"
-										 click="categoryButton_clickHandler_3()"
-										 skinClass="components.CategoryButtonSkin_Broadband"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" y="394" right="312" buttonMode="true"
-										 click="categoryButton_clickHandler_4()"
-										 skinClass="components.CategoryButtonSkin_Pulse"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" y="393" right="385" buttonMode="true"
-										 click="categoryButton_clickHandler_5()"
-										 skinClass="components.CategoryButtonSkin_Squiggle"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" y="393" right="460" buttonMode="true"
-										 click="categoryButton_clickHandler_6()"
-										 skinClass="components.CategoryButtonSkin_Diagonal"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" y="393" right="533" buttonMode="true"
-										 click="categoryButton_clickHandler_7()"
-										 skinClass="components.CategoryButtonSkin_Local"/>
+	<skinnablecomponents:CategoryButton includeIn="Categorize" right="9" top="393" buttonMode="true"
+										click="categoryButton_clickHandler()"
+										skinClass="components.CategoryButtonSkin_Unknown"/>
+	<skinnablecomponents:CategoryButton includeIn="Categorize" right="85" top="393" buttonMode="true"
+										click="categoryButton_clickHandler_1()"
+										skinClass="components.CategoryButtonSkin_Radar"/>
+	<skinnablecomponents:CategoryButton includeIn="Categorize" right="159" top="393"
+										buttonMode="true" click="categoryButton_clickHandler_2()"
+										skinClass="components.CategoryButtonSkin_Modulation"/>
+	<skinnablecomponents:CategoryButton includeIn="Categorize" right="237" top="393"
+										buttonMode="true" click="categoryButton_clickHandler_3()"
+										skinClass="components.CategoryButtonSkin_Broadband"/>
+	<skinnablecomponents:CategoryButton includeIn="Categorize" right="312" top="394"
+										buttonMode="true" click="categoryButton_clickHandler_4()"
+										skinClass="components.CategoryButtonSkin_Pulse"/>
+	<skinnablecomponents:CategoryButton includeIn="Categorize" right="385" top="393"
+										buttonMode="true" click="categoryButton_clickHandler_5()"
+										skinClass="components.CategoryButtonSkin_Squiggle"/>
+	<skinnablecomponents:CategoryButton includeIn="Categorize" right="460" top="393"
+										buttonMode="true" click="categoryButton_clickHandler_6()"
+										skinClass="components.CategoryButtonSkin_Diagonal"/>
+	<skinnablecomponents:CategoryButton includeIn="Categorize" right="533" top="393"
+										buttonMode="true" click="categoryButton_clickHandler_7()"
+										skinClass="components.CategoryButtonSkin_Local"/>
 	<s:Button includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
 			  right="0" top="0" label="Button" click="button_clickHandler_5()"
 			  skinClass="components.ControlBarButton_Tutorial"
@@ -376,9 +376,9 @@
 		<s:RichText includeIn="DataViz,Signal" left="392" right="392" top="385" height="9"
 					color="#999999" fontFamily="Arial" fontSize="20" tabStops="S0" text="^"
 					textAlign="center"/>
-		<s:Button includeIn="Categorize" x="9" y="432" label="Cancel"
+		<s:Button includeIn="Categorize" x="9" y="554" label="Cancel"
 				  skinClass="components.NextScreenButton"/>
-		<s:Button id="viewDataButton" includeIn="Assignment" x="678" y="434" label="View Data" itemCreationPolicy="immediate"
+		<s:Button id="viewDataButton" includeIn="Assignment" right="12" bottom="10" label="View Data"
 				  click="button_clickHandler_1()" skinClass="components.ViewDataButton"/>
 	</fx:DesignLayer>
 	<s:transitions>

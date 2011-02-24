@@ -11,7 +11,7 @@
 			   xmlns:lib2="assets.graphics.HathersageGroupLogo.*"
 			   xmlns:components="components.*"
 			   xmlns:lib3="assets.graphics.DataVizView.*" width="100%" height="100%"
-			   fc:previewWidth="800" fc:previewHeight="480"
+			   fc:previewWidth="1024" fc:previewHeight="600"
 			   backgroundColor="#000000" preloaderChromeColor="#000000">
 	<fx:Style source="Main.css"/>
 	<fx:Script>

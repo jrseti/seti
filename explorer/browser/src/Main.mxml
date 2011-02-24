@@ -4,5 +4,5 @@
 			   xmlns:view="com.hg94.seti.view.*"
 			   backgroundColor="#000000">
 	<fx:Style source="Main.css"/>
-	<view:SETIQuestExplorer/>
+	<view:SETIQuestExplorer height="480" width="800"/>
 </s:Application>

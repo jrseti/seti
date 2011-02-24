@@ -3,6 +3,6 @@
 			   xmlns:s="library://ns.adobe.com/flex/spark"
 			   xmlns:view="com.hg94.seti.view.*"
 			   backgroundColor="#000000"
-			   firstView="com.hg94.seti.views.SETIQuestExplorerView"
-			   >
+			   firstView="com.hg94.seti.views.SETIQuestExplorerView">
+	<fx:Style source="Main.css"/>
 </s:ViewNavigatorApplication>
