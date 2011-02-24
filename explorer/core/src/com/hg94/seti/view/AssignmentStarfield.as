@@ -112,6 +112,7 @@ package com.hg94.seti.view {
 		private function onMapReady(event:MapEvent):void
 		{
 			map.enableContinuousZoom();
+			map.addEventListener(MapEvent.FLY_TO_DONE, this.mapFlyToDoneHandler);
 			var e:Event = new Event("READY");
 			this.dispatchEvent(e);
 		}
@@ -119,8 +120,7 @@ package com.hg94.seti.view {
 		public function showTarget():void {
 			this.target = this._model.currentAssignment.observationRange.observation.target;
 			//this.addMarkerForTarget(this.target);
-			map.addEventListener(MapEvent.FLY_TO_DONE, this.mapFlyToDoneHandler);
-			map.addEventListener(MapEvent.TILES_LOADED, this.mapTilesLoadedHandler);
+			//map.addEventListener(MapEvent.TILES_LOADED, this.mapTilesLoadedHandler);
 			map.flyTo(this.target.getGoogleSkyCoordinates(), 6, map.getAttitude(), 3);
 			//map.panTo(this.target.getGoogleSkyCoordinates());
 			

@@ -174,7 +174,7 @@
 		<s:State name="Settings"/>
 		<s:State name="ExploreSky"/>
 	</s:states>
-	<s:BitmapImage id="galaxyImage" d:userLabel="Galaxy Image" itemCreationPolicy="immediate"
+	<s:BitmapImage id="galaxyImage" d:userLabel="Galaxy Image"
 				   includeIn="Loading_Othertimes,Loading_Firsttime" smooth="true"
 				   source="@Embed('/assets/images/SpiralGalaxyNGC2841.jpg')"/>
 	<s:Rect includeIn="Loading_Othertimes,Loading_Firsttime" left="0" right="0" top="0" bottom="0" alpha="0">
@@ -378,8 +378,10 @@
 					textAlign="center"/>
 		<s:Button includeIn="Categorize" x="9" y="554" label="Cancel"
 				  skinClass="components.NextScreenButton"/>
-		<s:Button id="viewDataButton" includeIn="Assignment" right="12" bottom="10" label="View Data"
+		<s:Button id="viewDataButton" includeIn="Assignment" right="12" bottom="10" label="Continue"
 				  click="button_clickHandler_1()" skinClass="components.ViewDataButton"/>
+		<s:Button id="skipAssignmentButton" includeIn="Assignment" right="129" bottom="10"
+				  label="Skip Assignment" skinClass="components.SkipAssignmentButton"/>
 	</fx:DesignLayer>
 	<s:transitions>
 		<s:Transition fromState="Loading_Firsttime" interruptionBehavior="stop" toState="Tutorial1">
