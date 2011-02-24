@@ -19,6 +19,7 @@ package com.hg94.seti.view {
 	import com.google.maps.MapEvent;
 	import com.google.maps.MapMouseEvent;
 	import com.google.maps.MapOptions;
+	import com.google.maps.View;
 	import com.google.maps.extras.planetary.Sky;
 	import com.google.maps.overlays.Marker;
 	import com.google.maps.overlays.MarkerOptions;
@@ -75,6 +76,7 @@ package com.hg94.seti.view {
 			placeholder.addEventListener(MouseEvent.CLICK, this.onClickMap);
 			
 			placeholder.addElement(map);
+			
 		}
 		
 		private function onClickMap(event:MouseEvent):void {
@@ -99,6 +101,8 @@ package com.hg94.seti.view {
 			opts.zoom = 4;
 			opts.backgroundFillStyle = new FillStyle();
 			opts.backgroundFillStyle.color = 0x000000;
+			opts.continuousZoom = true;
+			//opts.viewMode = View.VIEWMODE_ORTHOGONAL;
 			event.target.setInitOptions(opts);
 		}
 		
@@ -107,6 +111,7 @@ package com.hg94.seti.view {
 		
 		private function onMapReady(event:MapEvent):void
 		{
+			map.enableContinuousZoom();
 			var e:Event = new Event("READY");
 			this.dispatchEvent(e);
 		}
@@ -114,7 +119,10 @@ package com.hg94.seti.view {
 		public function showTarget():void {
 			this.target = this._model.currentAssignment.observationRange.observation.target;
 			//this.addMarkerForTarget(this.target);
-			map.flyTo(this.target.getGoogleSkyCoordinates(), map.getZoom() + 5, map.getAttitude(), 3);
+			map.addEventListener(MapEvent.FLY_TO_DONE, this.mapFlyToDoneHandler);
+			map.addEventListener(MapEvent.TILES_LOADED, this.mapTilesLoadedHandler);
+			map.flyTo(this.target.getGoogleSkyCoordinates(), 6, map.getAttitude(), 3);
+			//map.panTo(this.target.getGoogleSkyCoordinates());
 			
 			/*
 			_targetSet = (event.currentTarget as TargetListRequest).targetSet;
@@ -130,6 +138,21 @@ package com.hg94.seti.view {
 			goToAssignment();
 			*/
 
+		}
+		
+		private function mapFlyToDoneHandler(event:MapEvent):void {
+			trace("FlyTo done!");
+			this.map.zoomIn(this.target.getGoogleSkyCoordinates(), true, true);
+		}
+		
+		private function doNextZoom():void {
+			if (this.map.getZoom() < 8) {
+				this.map.zoomIn();
+			}
+		}
+		
+		private function mapTilesLoadedHandler(event:MapEvent):void {
+			trace("Tiles loaded");
 		}
 		
 		private function onMarkerInteraction(event:MapMouseEvent):void
