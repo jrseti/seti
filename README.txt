@@ -8,9 +8,13 @@ There are several Flex projects and a Rails project.
 Rails Project
 -------------
 
-(Please add detail here if you can.)
+If you don't have the latest version of Ruby and Rails, then do this:
 
-Make sure you have the latest version of Rails
+ruby -v
+sudo gem update --system
+ruby -v
+sudo gem update
+
 
 To build, run these commands in the rails directory
 
@@ -30,7 +34,7 @@ u.role = :admin
 u.save
 exit
 
-Now refresh your browser.
+Now refresh your browser. You should get admin controls and be able to see the Flex app.
 
 
 Flex Projects
