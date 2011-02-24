@@ -40,28 +40,24 @@ package com.hg94.seti.view {
 	import flash.events.MouseEvent;
 	import flash.geom.Point;
 	
+	import mx.binding.utils.BindingUtils;
 	import mx.events.FlexEvent;
 	import mx.rpc.events.ResultEvent;
 	
 	public class AssignmentStarfield extends EventDispatcher {
 			
-		//private static const HATHERSAGE_MAP_API_KEY:String = "ABQIAAAAEwk3rg5igZgbfHAAaPpdnhS3hwEVAxBLwgX-yCFBjg8qlFo5UxTVUCdE50GpyF9WvX4b62ZJcx0ASA";
 		private static const HATHERSAGE_MAP_API_KEY:String = "ABQIAAAAvfCXHyG3_fr2KItfFudhNhRu45k_GoSHRmy8AvsVANhoXVrYpRRD4K1belmVZubunzBgbbEjN4EtwQ";
 		
 		protected var _targetSet:TargetSet;
 		protected var _targetArray:Array = [];
 		
-		//protected var _assignment:Assignment;
-
-		
 		private var map:Map3D;
 		
 		public var target:Target;
 		
-		protected var _model:Model;
-		
 		public function AssignmentStarfield(placeholder:AssignmentStarfieldPlaceholder, model:Model) {
-			this._model = model;
+			BindingUtils.bindSetter(this.setAssignment, model, ["currentAssignment"]);
+			
 			//this.starfieldSkin.zoomInButton.addEventListener(MouseEvent.CLICK, this.zoomInButton_clickHandler);
 			//this.starfieldSkin.zoomOutButton.addEventListener(MouseEvent.CLICK, this.zoomOutButton_clickHandler);
 			
@@ -76,7 +72,14 @@ package com.hg94.seti.view {
 			placeholder.addEventListener(MouseEvent.CLICK, this.onClickMap);
 			
 			placeholder.addElement(map);
-			
+
+		}
+		
+		private function setAssignment(assignment:Assignment):void {
+			if (assignment) {
+				this.target = assignment.observationRange.observation.target;
+				map.flyTo(this.target.getGoogleSkyCoordinates(), 6, map.getAttitude(), 3);
+			}
 		}
 		
 		private function onClickMap(event:MouseEvent):void {
@@ -117,31 +120,8 @@ package com.hg94.seti.view {
 			this.dispatchEvent(e);
 		}
 		
-		public function showTarget():void {
-			this.target = this._model.currentAssignment.observationRange.observation.target;
-			//this.addMarkerForTarget(this.target);
-			//map.addEventListener(MapEvent.TILES_LOADED, this.mapTilesLoadedHandler);
-			map.flyTo(this.target.getGoogleSkyCoordinates(), 6, map.getAttitude(), 3);
-			//map.panTo(this.target.getGoogleSkyCoordinates());
-			
-			/*
-			_targetSet = (event.currentTarget as TargetListRequest).targetSet;
-			
-			for each (var target:Target in this._targetSet.targetArray) {
-			_targetArray.push(target.getGoogleSkyCoordinates());
-			if (false)
-			{
-			addMarkerForTarget( target );
-			}
-			}
-			
-			goToAssignment();
-			*/
-
-		}
 		
 		private function mapFlyToDoneHandler(event:MapEvent):void {
-			trace("FlyTo done!");
 			this.map.zoomIn(this.target.getGoogleSkyCoordinates(), true, true);
 		}
 		

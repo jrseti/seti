@@ -27,5 +27,6 @@
 		</s:fill.down>
 	</s:Rect>
 	<s:RichText id="labelDisplay" left="3" right="3" top="11" bottom="8" color="#CCCCCC"
-				fontFamily="Myriad Pro" fontSize="16" tabStops="S0 S50" textAlign="center"/>
+				fontFamily="Myriad Pro" fontSize="16" tabStops="S0 S50" textAlign="center"
+				fontSize.up="18" tabStops.up="S0 S50 S100"/>
 </s:Skin>

@@ -45,6 +45,7 @@
 package com.hg94.seti.view {
 
 	//import com.hg94.seti.controller.ObservationRequest;
+	import com.hg94.seti.model.Assignment;
 	import com.hg94.seti.model.Model;
 	import com.hg94.seti.model.Observation;
 	import com.hg94.seti.model.Target;
@@ -79,8 +80,14 @@ package com.hg94.seti.view {
 		public function WaterfallDataVisualization(dataVizTileListPlaceholder:DataVizTileListPlaceholder, model:Model) {
 			this.visualizationTileList = new VisualizationTileList();
 			dataVizTileListPlaceholder.addElement(this.visualizationTileList);
-			this._model = model;
+			BindingUtils.bindSetter(this.setAssignment, model, ["currentAssignment"]);
+			//this.visualizationTileList.addEventListener(FlexEvent.CREATION_COMPLETE, onCC);
+			//this._model = model;
 			//BindingUtils.bindProperty(this.visualizationTileList, "dataProvider", model, ["assignment", "observationRange", "filenameArray"]);
+		}
+		
+		protected function setAssignment(assignment:Assignment):void {
+			this.visualizationTileList.dataProvider = assignment.observationRange.filenameCollection;
 		}
 		
 		private function onSkyButtonInteraction(event:Event):void
@@ -121,7 +128,7 @@ package com.hg94.seti.view {
 			
 		}
 		 */
-		public function showObservationRange():void {
+		//public function showObservationRange():void {
 		/**
 		private function onObservationLoadComplete(event:Event):void {
 			//currentState = "exploring";
@@ -131,8 +138,8 @@ package com.hg94.seti.view {
 			var request:ObservationRequest = event.target as ObservationRequest;
 			
 			*/
-			this.visualizationTileList.dataProvider = this._model.currentAssignment.observationRange.filenameCollection;
-		}
+			//this.visualizationTileList.dataProvider = this._model.currentAssignment.observationRange.filenameCollection;
+		//}
 			
 	}
 }

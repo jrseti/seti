@@ -41,26 +41,33 @@ package com.hg94.seti.view
 		}
 
 		private function creationCompleteHandler(event:FlexEvent):void {
-			this.assignmentStarfield = new AssignmentStarfield(this.mainSkin.assignmentStarfieldPlaceholder, this.model);
-			this.assignmentStarfield.addEventListener("READY", this.starfieldReadyHandler);
-			this.waterfallDataVisualization = new WaterfallDataVisualization(this.mainSkin.dataVizTileListPlaceholder, this.model);
-			//this.mainSkin.viewDataButton.addEventListener(MouseEvent.CLICK, this.viewDataButtonClickHandler);
-			
-			this.mainSkin.addEventListener(ElementExistenceEvent.ELEMENT_ADD, this.elementAddHandler);
-			
 			this.mainSkin.galaxyImage.fillMode = BitmapFillMode.SCALE;
 			this.mainSkin.galaxyImage.scaleMode = BitmapScaleMode.STRETCH;
 			this.mainSkin.galaxyImage.percentHeight = 100;
 			this.mainSkin.galaxyImage.percentWidth = 100;
+			
+			this.mainSkin.addEventListener(ElementExistenceEvent.ELEMENT_ADD, this.elementAddHandler);
+			
 		}
 		
 		private function elementAddHandler(event:ElementExistenceEvent):void {
 			trace(event.element);
-			if (event.element["id"] && event.element["id"] == "skipAssignmentButton") {
-				this.mainSkin.skipAssignmentButton.addEventListener(MouseEvent.CLICK, this.skipAssignmentButtonClickHandler);
-				trace("Added event handler");
+			if (event.element["id"]) {
+				switch (event.element["id"]) {
+					case "skipAssignmentButton":
+						this.mainSkin.skipAssignmentButton.addEventListener(MouseEvent.CLICK, this.skipAssignmentButtonClickHandler);
+						break;
+					case "assignmentStarfieldPlaceholder":
+						this.assignmentStarfield = new AssignmentStarfield(this.mainSkin.assignmentStarfieldPlaceholder, this.model);
+						this.assignmentStarfield.addEventListener("READY", this.starfieldReadyHandler);
+						break;
+					case "dataVizTileListPlaceholder":
+						this.waterfallDataVisualization = new WaterfallDataVisualization(this.mainSkin.dataVizTileListPlaceholder, this.model);
+						break;
+					case "galaxyImage":
+						break;
+				}
 			}
-
 		}
 		
 		private function starfieldReadyHandler(event:Event):void {
@@ -82,8 +89,7 @@ package com.hg94.seti.view
 		{
 			event.currentTarget.removeEventListener(event.type, getAssignmentResultHandler);
 			this.model.currentAssignment = (event.currentTarget as GetAssignmentRequest).assignment;
-			this.assignmentStarfield.showTarget();
-			this.waterfallDataVisualization.showObservationRange();
+			//this.waterfallDataVisualization.showObservationRange();
 		}
 		
 		/*
