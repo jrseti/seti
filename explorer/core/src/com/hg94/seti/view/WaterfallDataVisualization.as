@@ -81,7 +81,7 @@ package com.hg94.seti.view {
 			this.visualizationTileList = new VisualizationTileList();
 			dataVizTileListPlaceholder.addElement(this.visualizationTileList);
 			BindingUtils.bindSetter(this.setAssignment, model, ["currentAssignment"]);
-			BindingUtils.bindProperty(model, "currentMidFrequency", this.visualizationTileList, "midFrequency");
+			BindingUtils.bindProperty(model, "currentMHzMidpoint", this.visualizationTileList, "midFrequency");
 			//this.visualizationTileList.addEventListener(FlexEvent.CREATION_COMPLETE, onCC);
 			//this._model = model;
 			//BindingUtils.bindProperty(this.visualizationTileList, "dataProvider", model, ["assignment", "observationRange", "filenameArray"]);

@@ -1,6 +1,7 @@
 package com.hg94.seti.view
 {
 	import com.hg94.seti.controller.GetAssignmentRequest;
+	import com.hg94.seti.controller.PostPatternMarkRequest;
 	import com.hg94.seti.model.Model;
 	import com.hg94.seti.view.AssignmentStarfield;
 	
@@ -15,6 +16,8 @@ package com.hg94.seti.view
 	import mx.graphics.BitmapScaleMode;
 	import mx.rpc.events.ResultEvent;
 	
+	import skinnablecomponents.CategoryButton;
+	
 	import spark.components.Button;
 	import spark.components.Group;
 	import spark.events.ElementExistenceEvent;
@@ -28,7 +31,7 @@ package com.hg94.seti.view
 		
 		private var waterfallDataVisualization:WaterfallDataVisualization;
 		
-		[Bindable] protected var model:Model;
+		[Bindable] public var model:Model;
 		
 		public var api_url_root:String = "";
 
@@ -63,7 +66,9 @@ package com.hg94.seti.view
 						this.assignmentStarfield.addEventListener("READY", this.starfieldReadyHandler);
 						break;
 					case "dataVizTileListPlaceholder":
-						this.waterfallDataVisualization = new WaterfallDataVisualization(this.mainSkin.dataVizTileListPlaceholder, this.model);
+						if (!this.waterfallDataVisualization) {
+							this.waterfallDataVisualization = new WaterfallDataVisualization(this.mainSkin.dataVizTileListPlaceholder, this.model);
+						}
 						break;
 					case "assignmentZoomInButton":
 						Button(event.element).addEventListener(MouseEvent.CLICK, this.zoomInButtonHandler);
@@ -71,11 +76,20 @@ package com.hg94.seti.view
 					case "assignmentZoomOutButton":
 						Button(event.element).addEventListener(MouseEvent.CLICK, this.zoomOutButtonHandler);
 						break;
-					case "frequencyMidpointField":
-						BindingUtils.bindProperty(event.element, "text", this.model, "currentMidFrequency");
+					/*case "iSeeAPatternButton":
+						Button(event.element).addEventListener(MouseEvent.CLICK, this.iSeeAPatternButtonHandler);
 						break;
+					*/
 				}
 			}
+			if (event.element is CategoryButton) {
+				CategoryButton(event.element).addEventListener(MouseEvent.CLICK, this.categoryButtonHandler);
+			}
+		}
+		
+		private function categoryButtonHandler(event:MouseEvent):void {
+			var postPatternMarkRequest:PostPatternMarkRequest = new PostPatternMarkRequest(this.api_url_root);
+			postPatternMarkRequest.postPatternMark(this.model.currentAssignment, this.model.currentMHzMidpoint);
 		}
 		
 		private function zoomInButtonHandler(event:MouseEvent):void {

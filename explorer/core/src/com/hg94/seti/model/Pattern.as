@@ -1,7 +1,7 @@
 package com.hg94.seti.model {
 
-    public class Signal {
-        public function Signal() {
+    public class Pattern {
+        public function Pattern() {
         }
 
         public var frequencyRange:Array = [];

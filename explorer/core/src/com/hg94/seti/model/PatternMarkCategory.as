@@ -1,7 +1,7 @@
 package com.hg94.seti.model {
     import flash.utils.describeType;
 
-    public class SignalMarkCategory {
+    public class PatternMarkCategory {
         public static const LOCAL:String = "LOCAL";
 
         public static const DIAGONAL:String = "DIAGONAL";
@@ -21,14 +21,14 @@ package com.hg94.seti.model {
 
         public static function valuesToArray():Array {
             var coll:Array = new Array();
-            var classInfo:XML = describeType(SignalMarkCategory);
+            var classInfo:XML = describeType(PatternMarkCategory);
             var constants:XMLList = classInfo..constant;
             var i:uint = 0;
             var l:uint = constants.length();
             for(i = 0;i<l;++i) {
                 var constant:XML = constants[i] as XML;
                 var constantName:String = constant.@name.toString();
-                var constantValue:String = SignalMarkCategory[constantName] as String;
+                var constantValue:String = PatternMarkCategory[constantName] as String;
                 coll.push(constantValue);
             }
             coll.sort(Array.CASEINSENSITIVE);
@@ -36,7 +36,7 @@ package com.hg94.seti.model {
         }
 
         public static function isValid(value:String):Boolean {
-            var coll:Array = SignalMarkCategory.valuesToArray();
+            var coll:Array = PatternMarkCategory.valuesToArray();
             for each(var item:String in coll) {
                 if(item==value) {
                     return true;

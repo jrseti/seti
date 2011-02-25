@@ -80,6 +80,7 @@
 				for each (var url:String in this.dataProvider) {
 				//{
 					//var imageUrl:String = dataProvider.getItemAt(i).toString();
+					trace("Loading " + url);
 					waterfallContentCache.load( url);
 				}
 			}
