@@ -17,49 +17,49 @@
 
 			protected function categoryButton_clickHandler():void
 			{
-				currentState='Signal';
+				currentState='ThankYou';
 			}
 
 
 			protected function categoryButton_clickHandler_1():void
 			{
-				currentState='Signal';
+				currentState='ThankYou';
 			}
 
 
 			protected function categoryButton_clickHandler_2():void
 			{
-				currentState='Signal';
+				currentState='ThankYou';
 			}
 
 
 			protected function categoryButton_clickHandler_3():void
 			{
-				currentState='Signal';
+				currentState='ThankYou';
 			}
 
 
 			protected function categoryButton_clickHandler_4():void
 			{
-				currentState='Signal';
+				currentState='ThankYou';
 			}
 
 
 			protected function categoryButton_clickHandler_5():void
 			{
-				currentState='Signal';
+				currentState='ThankYou';
 			}
 
 
 			protected function categoryButton_clickHandler_6():void
 			{
-				currentState='Signal';
+				currentState='ThankYou';
 			}
 
 
 			protected function categoryButton_clickHandler_7():void
 			{
-				currentState='Signal';
+				currentState='ThankYou';
 			}
 
 
@@ -91,10 +91,10 @@
 			protected function button_clickHandler():void
 			{
 				const state:String = currentState;
-				if ( state == 'Loading_Othertimes' ) {
+				if ( state == 'Splash_Loading' ) {
 					currentState='Assignment';
 				}
-				if ( state == 'Loading_Firsttime' ) {
+				if ( state == 'Splash_WithButton' ) {
 					currentState='Tutorial1';
 				}
 				if ( state == 'Tutorial1' ) {
@@ -127,7 +127,10 @@
 				if ( state == 'DataViz' ) {
 					currentState='Categorize';
 				}
-				if ( state == 'Signal' ) {
+				if ( state == 'ThankYou' ) {
+					currentState='DataViz';
+				}
+				if ( state == 'Pattern' ) {
 					currentState='DataViz';
 				}
 			}
@@ -150,6 +153,21 @@
 				currentState='DataViz';
 			}
 
+
+			protected function button_clickHandler_4():void
+			{
+				const state:String = currentState;
+				if ( state == 'DataViz' ) {
+					currentState='Assignment';
+				}
+			}
+
+
+			protected function button_clickHandler_9():void
+			{
+				currentState='Assignment';
+			}
+
 		]]>
 
 	</fx:Script>
@@ -169,8 +187,8 @@
 		<s:State fc:color="0xbbcc00" name="Tutorial4"/>
 		<s:State fc:color="0x9308ff" name="Tutorial5"/>
 -->		
-		<s:State name="Loading_Firsttime"/>
-		<s:State name="Loading_Othertimes"/>
+		<s:State name="Splash_WithButton"/>
+		<s:State name="Splash_Loading"/>
 		<s:State name="Tutorial1"/>
 		<s:State name="Tutorial2"/>
 		<s:State name="Tutorial3"/>
@@ -182,24 +200,26 @@
 		<s:State name="DataViz"/>
 		<s:State name="Assignment"/>
 		<s:State name="Categorize"/>
-		<s:State name="Signal"/>
+		<s:State name="ThankYou"/>
 		<s:State name="Settings"/>
 		<s:State name="ExploreSky"/>
+		<s:State name="Pattern"/>
 	</s:states>
 	<s:BitmapImage id="galaxyImage" d:userLabel="Galaxy Image"
-				   includeIn="Loading_Othertimes,Loading_Firsttime" smooth="true"
+				   includeIn="Splash_Loading,Splash_WithButton" smooth="true"
 				   source="@Embed('/assets/images/SpiralGalaxyNGC2841.jpg')"/>
-	<s:Rect includeIn="Loading_Othertimes,Loading_Firsttime" left="0" right="0" top="0" bottom="0" alpha="0">
+	<s:Rect includeIn="Splash_Loading,Splash_WithButton" left="0" right="0" top="0" bottom="0" alpha="0">
 	</s:Rect>
-	<s:Path includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
+	<s:Path includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,ThankYou,Pattern,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
 			alpha="1" blendMode="normal" data="M 0 0 L 1024 0 L 1024 40 L 0 40 L 0 0 Z"
 			winding="evenOdd"
 			left.Assignment="0" right.Assignment="0" top.Assignment="0"
 			left.Categorize="0" right.Categorize="0" top.Categorize="0"
 			left.DataViz="0" right.DataViz="0" top.DataViz="0"
 			x.ExploreSky="0" y.ExploreSky="0" width.ExploreSky="800"
+			left.Pattern="0" right.Pattern="0" top.Pattern="0"
 			left.Settings="0" right.Settings="0" top.Settings="0"
-			left.Signal="0" right.Signal="0" top.Signal="0"
+			left.ThankYou="0" right.ThankYou="0" top.ThankYou="0"
 			left.Tutorial1="0" right.Tutorial1="0" top.Tutorial1="0"
 			left.Tutorial2="0" right.Tutorial2="0" top.Tutorial2="0"
 			left.Tutorial3="0" right.Tutorial3="0" top.Tutorial3="0"
@@ -216,21 +236,21 @@
 		</s:fill>
 	</s:Path>
 	<s:Button id="starfieldButton1"
-			  includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
+			  includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,ThankYou,Pattern,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
 			  right="180" top="0" label="Button" click="button_clickHandler_8()"
 			  skinClass="components.ControlBarButton_Assignment"
 			  enabled.Assignment="false"/>
 	<s:Button id="datavizButton1"
-			  includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
+			  includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,ThankYou,Pattern,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
 			  right="120" top="0" label="Button" click="button_clickHandler_7()"
 			  skinClass="components.ControlBarButton_DataViz"
 			  enabled.DataViz="false"/>
 	<s:Button id="settingsButton1"
-			  includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
+			  includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,ThankYou,Pattern,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
 			  right="60" top="0" label="Button" click="button_clickHandler_6()"
 			  skinClass="components.ControlBarButton_Settings"
 			  enabled.Settings="false"/>
-	<s:RichText id="splashMessageField" includeIn="Loading_Othertimes,Loading_Firsttime" left="10" bottom="7" width="139" height="17" color="#CCCCCC"
+	<s:RichText id="splashMessageField" includeIn="Splash_Loading,Splash_WithButton" left="10" bottom="7" width="139" height="17" color="#CCCCCC"
 				fontFamily="Myriad Pro" fontSize="16" tabStops="S0 S50 S100"
 				text="{this.model.splashMessage}" textAlign="left" whiteSpaceCollapse="preserve"/>
 	<s:Button id="zoomOutButton1" includeIn="ExploreSky" right="49" bottom="27"
@@ -242,15 +262,15 @@
 											   bottom="100"/>
 	<components:DataVizTileListPlaceholder id="dataVizTileListPlaceholder"
 										   d:userLabel="TileListPlaceholder"
-										   includeIn="Categorize,DataViz,Signal" left="0" right="0"
+										   includeIn="DataViz,ThankYou,Pattern,Categorize" left="0" right="0"
 										   top="40"/>
 	<s:RichText id="targetNameTextControl" d:userLabel="Target_Name"
-				includeIn="Assignment,DataViz,Signal" left="10" bottom="72" width="394" height="20"
+				includeIn="DataViz,Assignment,ThankYou,Pattern" left="10" bottom="72" width="394" height="20"
 				color="#FFFFFF" fontFamily="Myriad Pro Semibold" fontSize="24" lineHeight="100%"
 				tabStops="S0 S50 S100 S150 S200 S250 S300 S350 S400 S450 S500"
 				text="{this.model.currentAssignment.observationRange.observation.target.name}"
 				bottom.Assignment="68" width.Assignment="316" height.Assignment="24"/>
-	<s:RichText id="observationDateField1" d:userLabel="Observation_Date" includeIn="Assignment,DataViz,Signal"
+	<s:RichText id="observationDateField1" d:userLabel="Observation_Date" includeIn="DataViz,Assignment,ThankYou,Pattern"
 				right="11" bottom="70" width="224" height="22" color="#FFFFFF"
 				fontFamily="Myriad Pro" fontSize="24" lineHeight="100%"
 				tabStops="S0 S50 S100 S150 S200" content="{this.model.currentAssignment.observationRange.observation.friendlyDate}" textAlign="end"/>
@@ -277,7 +297,7 @@
 				whiteSpaceCollapse="preserve">
 		<s:content><s:p><s:span>What type of pattern</s:span></s:p><s:p><s:span>do you see above?</s:span></s:p></s:content>
 	</s:RichText>
-	<s:Rect d:userLabel="Rectangle" includeIn="Signal" left="10" bottom="12" width="62" height="48">
+	<s:Rect d:userLabel="Rectangle" includeIn="Pattern" left="10" bottom="12" width="62" height="48">
 		<s:fill>
 			<s:LinearGradient rotation="90">
 				<s:GradientEntry alpha="1" color="#504f50" ratio="0"/>
@@ -285,12 +305,12 @@
 			</s:LinearGradient>
 		</s:fill>
 	</s:Rect>
-	<s:RichText includeIn="Signal" left="81" bottom="13" width="187" height="44" color="#FFFFFF"
+	<s:RichText includeIn="Pattern" left="81" bottom="13" width="187" height="44" color="#FFFFFF"
 				fontFamily="Arial" fontSize="12" tabStops="S0 S50 S100" textAlign="start"
 				whiteSpaceCollapse="preserve">
 		<s:content><s:p><s:span>Categorized as Diagonal</s:span></s:p><s:p><s:span>Believed to be an artificial satellite in declining orbit</s:span></s:p></s:content>
 	</s:RichText>
-	<s:Rect includeIn="Signal" right="370" bottom="12" width="62" height="48">
+	<s:Rect includeIn="Pattern" right="370" bottom="12" width="62" height="48">
 		<s:fill>
 			<s:LinearGradient rotation="90">
 				<s:GradientEntry alpha="1" color="#504f50" ratio="0"/>
@@ -298,7 +318,7 @@
 			</s:LinearGradient>
 		</s:fill>
 	</s:Rect>
-	<s:RichText includeIn="Signal" right="162" bottom="16" width="202" height="41" color="#FFFFFF"
+	<s:RichText includeIn="Pattern" right="162" bottom="16" width="202" height="41" color="#FFFFFF"
 				fontFamily="Arial" fontSize="12" tabStops="S0 S50 S100" textAlign="start"
 				whiteSpaceCollapse="preserve">
 		<s:content><s:p><s:span>Discovered by Francis Potter</s:span></s:p><s:p><s:span>February 11, 2011</s:span></s:p><s:p><s:span>Marked by 279 citizen scientists</s:span></s:p></s:content>
@@ -347,68 +367,79 @@
 	<skinnablecomponents:CategoryButton includeIn="Categorize" right="533" top="393"
 										buttonMode="true" click="categoryButton_clickHandler_7()"
 										skinClass="components.CategoryButtonSkin_Local"/>
-	<s:Button includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
+	<s:Button includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,ThankYou,Pattern,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
 			  right="0" top="0" label="Button" click="button_clickHandler_5()"
 			  skinClass="components.ControlBarButton_Tutorial"
 			  enabled.Tutorial1="false"/>
-	<s:BitmapImage includeIn="ExploreSky,Settings,Signal,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Tutorial3,Tutorial2"
+	<s:BitmapImage d:userLabel="Image_SETIQuestExplorerLogoSmall"
+				   includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,ThankYou,Pattern,Tutorial4,Tutorial3,Tutorial2"
 				   left="12" top="8" smooth="true" source="@Embed('/assets/images/Image3.png')"/>
-	<fx:DesignLayer d:userLabel="Layer_1">
-		<graphics:Graphic1 id="graphic11" d:userLabel="SetiQuestExplorerLogo"
-						   includeIn="Loading_Othertimes,Tutorial1,Loading_Firsttime"
-						   left.Loading_Firsttime="9" top.Loading_Firsttime="7"
-						   width.Loading_Firsttime="569" height.Loading_Firsttime="79"
-						   blendMode.Loading_Firsttime="overlay"
-						   left.Loading_Othertimes="9" top.Loading_Othertimes="7"
-						   width.Loading_Othertimes="569" height.Loading_Othertimes="79"
-						   blendMode.Loading_Othertimes="overlay"
-						   x.Tutorial1="9" y.Tutorial1="8" width.Tutorial1="175"
-						   height.Tutorial1="24">
-			<graphics:filters>
-				<s:GlowFilter includeIn="Loading_Othertimes,Loading_Firsttime" alpha="1.0" blurX="12" blurY="12" color="#000000"
-							  inner="false" knockout="false" quality="2" strength="1"/>
-			</graphics:filters>
-		</graphics:Graphic1>
-		<s:Button includeIn="Loading_Firsttime,Loading_Othertimes,Signal,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
-				  right="12" bottom="10" click="button_clickHandler()"
-				  skinClass="components.NextScreenButton"
-				  height.Loading_Firsttime="36" label.Loading_Firsttime="Begin"
-				  buttonMode.Loading_Firsttime="true"
-				  label.Loading_Othertimes="Begin"
-				  height.Signal="36" label.Signal="Continue" buttonMode.Signal="true"
-				  label.Tutorial1="Next &gt;" buttonMode.Tutorial1="true"
-				  label.Tutorial2="Next &gt;" buttonMode.Tutorial2="true"
-				  label.Tutorial3="Next &gt;" buttonMode.Tutorial3="true"
-				  label.Tutorial4="Next &gt;" buttonMode.Tutorial4="true"
-				  label.Tutorial5="Next &gt;" buttonMode.Tutorial5="true"
-				  label.Tutorial6="Next &gt;" buttonMode.Tutorial6="true"
-				  label.Tutorial7="Next &gt;" buttonMode.Tutorial7="true"
-				  label.Tutorial8="Get Started" buttonMode.Tutorial8="true"/>
-		<s:RichText d:userLabel="MHz Range" includeIn="DataViz,Signal" left="392" right="392"
-					top="385" height="9" color="#999999" fontFamily="Arial" fontSize="20"
-					tabStops="S0" text="^" textAlign="center"/>
-		<s:Button includeIn="Categorize" x="9" y="554" label="Cancel" click="button_clickHandler_3()"
-				  skinClass="components.NextScreenButton"/>
-		<s:Button id="viewDataButton" includeIn="Assignment" right="12" bottom="10" width="127"
-				  label="Continue" buttonMode="true" click="button_clickHandler_1()"
-				  skinClass="components.ViewDataButton"/>
-		<s:Button id="skipAssignmentButton" includeIn="Assignment,DataViz" right="148" bottom="10"
-				  label="Skip Assignment" buttonMode="true"
-				  skinClass="components.SkipAssignmentButton"/>
-		<s:Button id="assignmentZoomInButton" includeIn="Assignment" right="15" bottom="124"
-				  label="Button" buttonMode="true" skinClass="components.StarfieldSkinZoomInButton"/>
-		<s:Button id="assignmentZoomOutButton" includeIn="Assignment" right="56" bottom="124"
-				  label="Button" buttonMode="true" skinClass="components.StarfieldSkinZoomOutButton"/>
-		<s:Button id="iSeeAPatternButton" includeIn="DataViz" right="12" bottom="10" width="127"
-				  label="I see a Pattern!" buttonMode="true" click="button_clickHandler_2()"
-				  skinClass="components.NextScreenButton"/>
-		<s:RichText id="mhzMidpointField" d:userLabel="MHz Center" includeIn="DataViz,Signal"
-					left="288" right="288" top="396" height="16" color="#999999"
-					fontFamily="Myriad Pro" fontSize="16" lineHeight="100%"
-					tabStops="S0 S50 S100 S150 S200" text="{this.model.currentMHzMidpoint.toPrecision(8) + ' MHz'}" textAlign="center"/>
-	</fx:DesignLayer>
+	<graphics:Graphic1 id="graphic11" d:userLabel="Image_SetiQuestExplorerLogo_Big"
+					   includeIn="Splash_Loading,Splash_WithButton,Tutorial1"
+					   left.Splash_Loading="9" top.Splash_Loading="7" width.Splash_Loading="569"
+					   height.Splash_Loading="79" blendMode.Splash_Loading="overlay"
+					   left.Splash_WithButton="9" top.Splash_WithButton="7"
+					   width.Splash_WithButton="569" height.Splash_WithButton="79"
+					   blendMode.Splash_WithButton="overlay"
+					   x.Tutorial1="9" y.Tutorial1="8" width.Tutorial1="175" height.Tutorial1="24">
+		<graphics:filters>
+			<s:GlowFilter includeIn="Splash_Loading,Splash_WithButton" alpha="1.0" blurX="12" blurY="12" color="#000000"
+						  inner="false" knockout="false" quality="2" strength="1"/>
+		</graphics:filters>
+	</graphics:Graphic1>
+	<s:Button d:userLabel="Button_NextScreen"
+			  includeIn="Pattern,ThankYou,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
+			  right="12" bottom="10" buttonMode="true" click="button_clickHandler()"
+			  skinClass="components.NextScreenButton"
+			  height.Pattern="36" label.Pattern="Continue"
+			  label.ThankYou="Continue"
+			  label.Tutorial1="Next &gt;"
+			  label.Tutorial2="Next &gt;"
+			  label.Tutorial3="Next &gt;"
+			  label.Tutorial4="Next &gt;"
+			  label.Tutorial5="Next &gt;"
+			  label.Tutorial6="Next &gt;"
+			  label.Tutorial7="Next &gt;"
+			  label.Tutorial8="Get Started"/>
+	<s:RichText d:userLabel="Text_MHzCenterPointer" includeIn="DataViz,ThankYou,Pattern" left="392"
+				right="392" top="385" height="9" color="#999999" fontFamily="Arial" fontSize="20"
+				tabStops="S0" text="^" textAlign="center"/>
+	<s:Button d:userLabel="Button_CancelCategorization" includeIn="Categorize" x="9" y="554"
+			  label="Cancel" click="button_clickHandler_3()" skinClass="components.NextScreenButton"/>
+	<s:Button id="viewDataButton" d:userLabel="Button_ContinueToDataViz" includeIn="Assignment"
+			  right="12" bottom="10" width="127" label="Continue" buttonMode="true"
+			  click="button_clickHandler_1()" skinClass="components.ViewDataButton"/>
+	<s:Button id="skipAssignmentButton" d:userLabel="Button_NextAssignment"
+			  includeIn="Assignment,DataViz" right="148" bottom="10" label="Skip Assignment"
+			  buttonMode="true" click="button_clickHandler_4()"
+			  skinClass="components.SkipAssignmentButton"
+			  label.DataViz="Next Assignment"/>
+	<s:Button id="assignmentZoomInButton" d:userLabel="Button_StarfieldZoomIn" includeIn="Assignment"
+			  right="15" bottom="124" label="Button" buttonMode="true"
+			  skinClass="components.StarfieldSkinZoomInButton"/>
+	<s:Button id="assignmentZoomOutButton" d:userLabel="Button_StarfieldZoomOut"
+			  includeIn="Assignment" right="56" bottom="124" label="Button" buttonMode="true"
+			  skinClass="components.StarfieldSkinZoomOutButton"/>
+	<s:Button id="iSeeAPatternButton" d:userLabel="Button_ISeeAPattern" includeIn="DataViz"
+			  right="12" bottom="10" width="127" label="I see a Pattern!" buttonMode="true"
+			  click="button_clickHandler_2()" skinClass="components.NextScreenButton"/>
+	<s:RichText id="mhzMidpointField" d:userLabel="Text_MHzCenter" includeIn="DataViz,ThankYou,Pattern"
+				left="288" right="288" top="396" height="16" color="#999999" fontFamily="Myriad Pro"
+				fontSize="16" lineHeight="100%" tabStops="S0 S50 S100 S150 S200"
+				text="{this.model.currentMHzMidpoint.toPrecision(8) + ' MHz'}" textAlign="center"/>
+	<s:RichText d:userLabel="Text_ThankYou" includeIn="ThankYou" left="311" right="312" bottom="25"
+				height="66" color="#CCCCCC" fontFamily="Myriad Pro" fontSize="12"
+				tabStops="S0 S50 S100 S150 S200 S250" textAlign="center"
+				whiteSpaceCollapse="preserve">
+		<s:content><s:p><s:span fontFamily="Myriad Pro Black" fontSize="34">Thank You!</s:span></s:p><s:p><s:span fontSize="18">The Pattern you found has been recorded.</s:span></s:p></s:content>
+	</s:RichText>
+	<s:Button includeIn="Splash_WithButton" right="26" bottom="22" width="139" height="45"
+			  label="Begin" click="button_clickHandler_9()" skinClass="components.Button_Begin"/>
+	<s:RichText id="labelDisplay1" d:userLabel="Text_Loading" includeIn="Splash_Loading" x="842"
+				y="543" width="132" height="27" color="#FEFFCA" fontFamily="Myriad Pro Black"
+				fontSize="25" tabStops="S0 S50 S100" text="Loading..." textAlign="center"/>
 	<s:transitions>
-		<s:Transition fromState="Loading_Firsttime" interruptionBehavior="stop" toState="Tutorial1">
+		<s:Transition fromState="Splash_WithButton" interruptionBehavior="stop" toState="Tutorial1">
 			<s:Parallel>
 				<s:Parallel target="{graphic11}">
 					<s:Animate duration="500">
