@@ -6,15 +6,9 @@ package com.hg94.seti.model
 		
 		public var currentAssignment:Assignment;
 				
-		private var _currentMHzMidpoint:Number;
+		public var currentMHzMidpoint:Number;
 		
-		public function set currentMHzMidpoint(currentMHzMidpoint:Number):void {
-			this._currentMHzMidpoint = currentMHzMidpoint;
-		}
-		
-		public function get currentMHzMidpoint():Number {
-			return this._currentMHzMidpoint;
-		}
+		public var splashMessage:String; 
 		
 		public function Model()
 		{

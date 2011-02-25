@@ -102,7 +102,9 @@ package com.hg94.seti.view {
 		}
 		
 		protected function setAssignment(assignment:Assignment):void {
-			this.visualizationTileList.dataProvider = assignment.observationRange.filenameCollection;
+			if (assignment) {
+				this.visualizationTileList.dataProvider = assignment.observationRange.filenameCollection;
+			}
 		}
 		
 		private function onSkyButtonInteraction(event:Event):void

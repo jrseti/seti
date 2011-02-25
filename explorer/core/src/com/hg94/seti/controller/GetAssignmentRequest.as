@@ -31,6 +31,7 @@ package com.hg94.seti.controller {
 			this.httpService.method = "GET" // Shouldn't I reference a static constant here?
 			this.httpService.addEventListener(ResultEvent.RESULT, this.onHTTPServiceResult);
 			this.httpService.addEventListener(FaultEvent.FAULT, this.onHTTPServiceFault);
+			trace("Calling " + this.httpService.url);
 			this.httpService.send();
 		}
 		

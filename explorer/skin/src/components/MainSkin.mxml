@@ -230,9 +230,9 @@
 			  right="60" top="0" label="Button" click="button_clickHandler_6()"
 			  skinClass="components.ControlBarButton_Settings"
 			  enabled.Settings="false"/>
-	<s:RichText includeIn="Loading_Othertimes,Loading_Firsttime" left="10" bottom="7" width="139" height="17" color="#CCCCCC"
+	<s:RichText id="splashMessageField" includeIn="Loading_Othertimes,Loading_Firsttime" left="10" bottom="7" width="139" height="17" color="#CCCCCC"
 				fontFamily="Myriad Pro" fontSize="16" tabStops="S0 S50 S100"
-				text="Pre-Release Version" textAlign="center" whiteSpaceCollapse="preserve"/>
+				text="{this.model.splashMessage}" textAlign="left" whiteSpaceCollapse="preserve"/>
 	<s:Button id="zoomOutButton1" includeIn="ExploreSky" right="49" bottom="27"
 			  skinClass="components.StarfieldSkinZoomOutButton"/>
 	<s:Button id="zoomInButton1" includeIn="ExploreSky" right="9" bottom="27"

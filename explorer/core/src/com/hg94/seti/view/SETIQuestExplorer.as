@@ -9,6 +9,7 @@ package com.hg94.seti.view
 	
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.system.Capabilities;
 	
 	import mx.binding.utils.BindingUtils;
 	import mx.events.FlexEvent;
@@ -24,6 +25,9 @@ package com.hg94.seti.view
 	
 	public class SETIQuestExplorer extends Group
 	{
+		private static var DEBUG_AIR_URL_ROOT:String = "http://localhost.seti.hg94.com:3000";
+		
+		private static var PUBLIC_AIR_URL_ROOT:String = "http://heroku.seti.hg94.com";
 		
 		public var mainSkin:MainSkin;
 
@@ -33,13 +37,26 @@ package com.hg94.seti.view
 		
 		[Bindable] public var model:Model;
 		
-		public var api_url_root:String = "";
+		protected var _api_url_root:String;
 
 		public function SETIQuestExplorer()
 		{
+			
+			// Determine what URL to use for the server
+			
+			if (Capabilities.playerType == "ActiveX" || Capabilities.playerType == "PlugIn") {
+				this._api_url_root = "";
+			} else if (Capabilities.isDebugger) {
+				this._api_url_root = SETIQuestExplorer.DEBUG_AIR_URL_ROOT;
+			} else {
+				this._api_url_root = SETIQuestExplorer.PUBLIC_AIR_URL_ROOT; 
+			}
+			trace("URL Root set to " + this._api_url_root);
+			
 			this.percentHeight = 100;
 			this.percentWidth = 100;
 			this.model = new Model();
+			this.model.splashMessage = "[[" + Capabilities.playerType + "|" + Capabilities.isDebugger + "]]";
 			this.addEventListener(FlexEvent.CREATION_COMPLETE, this.creationCompleteHandler);
 			super();
 		}
@@ -90,7 +107,7 @@ package com.hg94.seti.view
 		}
 		
 		private function categoryButtonHandler(event:MouseEvent):void {
-			var postPatternMarkRequest:PostPatternMarkRequest = new PostPatternMarkRequest(this.api_url_root);
+			var postPatternMarkRequest:PostPatternMarkRequest = new PostPatternMarkRequest(this._api_url_root);
 			postPatternMarkRequest.postPatternMark(this.model.currentAssignment, this.model.currentMHzMidpoint);
 		}
 		
@@ -112,7 +129,8 @@ package com.hg94.seti.view
 		
 		protected function getAssignment():void 
 		{
-			var getAssignmentRequest:GetAssignmentRequest = new GetAssignmentRequest(this.api_url_root);
+			trace("So now the url root is " + this._api_url_root);
+			var getAssignmentRequest:GetAssignmentRequest = new GetAssignmentRequest(this._api_url_root);
 			getAssignmentRequest.addEventListener(ResultEvent.RESULT, this.getAssignmentResultHandler);
 			getAssignmentRequest.getAssignment();
 		}
