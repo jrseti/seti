@@ -4,7 +4,7 @@
 
 <p>
   <b>Observation range:</b>
-  <%= @assignment.observation_range.friendly_name %>
+  <%= link_to @assignment.observation_range.friendly_name, @assignment.observation_range %>
 </p>
 
 <p>
@@ -16,6 +16,12 @@
   <b>Status:</b>
   <%= @assignment.status %>
 </p>
+
+<p>
+  <b>Friendly Name:</b>
+    <%= @assignment.friendly_name %>
+  </p>
+  
 
 
 <%= link_to 'Edit', edit_assignment_path(@assignment) %> |

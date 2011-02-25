@@ -2,6 +2,9 @@ package com.hg94.seti.model {
     import flash.utils.describeType;
 
     [Bindable] public class Assignment {
+		
+		public var id:int;
+		
         public var user:User;
 
         public var dateAssigned:String;
@@ -14,8 +17,7 @@ package com.hg94.seti.model {
 
         protected var _status:String = AssignmentStatus.NASCENT;
 
-		public function Assignment(observationRange:ObservationRange) {
-			this.observationRange = observationRange;
+		public function Assignment() {
 		}
 		
 

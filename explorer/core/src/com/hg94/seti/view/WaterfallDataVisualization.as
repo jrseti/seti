@@ -55,8 +55,10 @@ package com.hg94.seti.view {
 	import flash.events.Event;
 	
 	import mx.binding.utils.BindingUtils;
+	import mx.binding.utils.ChangeWatcher;
 	import mx.collections.ArrayCollection;
 	import mx.events.FlexEvent;
+	import mx.events.PropertyChangeEvent;
 
 	public class WaterfallDataVisualization {
 /*
@@ -78,13 +80,25 @@ package com.hg94.seti.view {
 		public var visualizationTileList:VisualizationTileList;
 		
 		public function WaterfallDataVisualization(dataVizTileListPlaceholder:DataVizTileListPlaceholder, model:Model) {
+			this._model = model;
 			this.visualizationTileList = new VisualizationTileList();
 			dataVizTileListPlaceholder.addElement(this.visualizationTileList);
 			BindingUtils.bindSetter(this.setAssignment, model, ["currentAssignment"]);
-			BindingUtils.bindProperty(model, "currentMidFrequency", this.visualizationTileList, "midFrequency");
+			//BindingUtils.bindProperty(model, "currentMHzMidpoint", this.visualizationTileList, "midFrequency");
+			ChangeWatcher.watch(this.visualizationTileList, "percentScrolled", this.visualizationTileListPercentScrolledChangeHandler)
+			//BindingUtils.bindSetter(this.setPercentScrolled, this.visualizationTileList, "percentScrolled");
 			//this.visualizationTileList.addEventListener(FlexEvent.CREATION_COMPLETE, onCC);
-			//this._model = model;
 			//BindingUtils.bindProperty(this.visualizationTileList, "dataProvider", model, ["assignment", "observationRange", "filenameArray"]);
+		}
+		
+		protected function visualizationTileListPercentScrolledChangeHandler(event:PropertyChangeEvent):void {
+			var percentScrolled:Number = event.newValue as Number;
+			trace("Updating to " + percentScrolled);
+			if (!isNaN(percentScrolled)) {
+				var loMHz:Number = this._model.currentAssignment.observationRange.loMHz;
+				var hiMHz:Number = this._model.currentAssignment.observationRange.hiMHz;
+				this._model.currentMHzMidpoint = loMHz + percentScrolled * (hiMHz - loMHz);
+			}
 		}
 		
 		protected function setAssignment(assignment:Assignment):void {

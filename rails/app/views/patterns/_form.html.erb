@@ -1,0 +1,39 @@
+<%= form_for(@pattern) do |f| %>
+  <% if @pattern.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pattern.errors.count, "error") %> prohibited this pattern from being saved:</h2>
+
+      <ul>
+      <% @pattern.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="field">
+    <%= f.label :observation %><br />
+    <%= f.collection_select :observation_id, Observation.all, :id, :friendly_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lo_mhz %><br />
+    <%= f.text_field :lo_mhz %>
+  </div>
+  <div class="field">
+    <%= f.label :hi_mhz %><br />
+    <%= f.text_field :hi_mhz %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

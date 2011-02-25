@@ -4,5 +4,6 @@
 			   xmlns:view="com.hg94.seti.view.*"
 			   backgroundColor="#000000"
 			   firstView="com.hg94.seti.views.SETIQuestExplorerView">
+	<!-- NOTE! SETIQUESTEXPLORERVIEW IS SET TO LOCALHOST! -->
 	<fx:Style source="Main.css"/>
 </s:ViewNavigatorApplication>

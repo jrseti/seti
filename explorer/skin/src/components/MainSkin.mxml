@@ -138,6 +138,18 @@
 				currentState='DataViz';
 			}
 
+
+			protected function button_clickHandler_2():void
+			{
+				currentState='Categorize';
+			}
+
+
+			protected function button_clickHandler_3():void
+			{
+				currentState='DataViz';
+			}
+
 		]]>
 
 	</fx:Script>
@@ -248,22 +260,22 @@
 				whiteSpaceCollapse="preserve" content="{this.model.currentAssignment.observationRange.observation.target.description}"/>
 		<!--<s:content><s:p><s:span>Fourth star in the constellation Taurus</s:span></s:p><s:p><s:span>12 Light years away</s:span></s:p><s:p><s:span>Thought to have 7 planets</s:span></s:p></s:content>-->
 	<!--</s:RichText>-->
-	<s:RichText id="frequencyMidpointField" d:userLabel="Frequency"
-				includeIn="Assignment,DataViz,Signal" left="288" right="288" height="16"
-				color="#999999" fontFamily="Myriad Pro" fontSize="16" lineHeight="100%"
-				tabStops="S0 S50 S100 S150 S200" text="9999.99999 MHz" textAlign="center"
-				bottom.Assignment="68" content.Assignment="{this.model.currentAssignment.observationRange.loMHz.toPrecision(8) + ' - ' + this.model.currentAssignment.observationRange.hiMHz.toPrecision(8) + ' MHz'}"
-				top.DataViz="396"
-				top.Signal="396"/>
+	<s:RichText id="mHzRangeField" d:userLabel="MHz Range" includeIn="Assignment" right="11"
+				bottom="50" width="256" height="16" color="#999999"
+				content="{this.model.currentAssignment.observationRange.loMHz.toPrecision(8) + ' - ' + this.model.currentAssignment.observationRange.hiMHz.toPrecision(8) + ' MHz'}"
+				fontFamily="Myriad Pro" fontSize="12" lineHeight="100%"
+				tabStops="S0 S50 S100 S150 S200 S250 S300 S350 S400"
+				textAlign="end"/>
 	<s:RichText id="observationCoordinatesField1" d:userLabel="Target_Coordinates"
-				includeIn="Assignment,DataViz" right="13" bottom="51" width="224" height="16"
-				color="#666666" fontFamily="Myriad Pro" fontSize="12" lineHeight="100%"
-				tabStops="S0 S50 S100 S150 S200" textAlign="end"
-				content="{'RA: ' + this.model.currentAssignment.observationRange.observation.target.rightAscension.toPrecision(6) + ', Decl: ' + this.model.currentAssignment.observationRange.observation.target.declination.toPrecision(6)}"/>
+				includeIn="Assignment" left="400" right="400" bottom="72" height="16"
+				color="#999999"
+				content="{'RA: ' + this.model.currentAssignment.observationRange.observation.target.rightAscension.toPrecision(6) + ', Decl: ' + this.model.currentAssignment.observationRange.observation.target.declination.toPrecision(6)}"
+				fontFamily="Myriad Pro" fontSize="16" lineHeight="100%"
+				tabStops="S0 S50 S100 S150 S200" textAlign="center"/>
 	<s:RichText includeIn="Categorize" left="10" top="393" width="178" height="37" color="#FFFFFF"
 				fontFamily="Myriad Pro" fontSize="16" tabStops="S0 S50 S100 S150 S200"
 				whiteSpaceCollapse="preserve">
-		<s:content><s:p><s:span>What type of signal</s:span></s:p><s:p><s:span>do you see above?</s:span></s:p></s:content>
+		<s:content><s:p><s:span>What type of pattern</s:span></s:p><s:p><s:span>do you see above?</s:span></s:p></s:content>
 	</s:RichText>
 	<s:Rect d:userLabel="Rectangle" includeIn="Signal" left="10" bottom="12" width="62" height="48">
 		<s:fill>
@@ -295,14 +307,14 @@
 				includeIn="Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
 				x="24" width="326" height="93" color="#FFFFFF" fontFamily="Myriad Pro" fontSize="24"
 				tabStops="S0 S50 S100 S150 S200 S250 S300 S350"
-				text="The Allen Telescope Array in California receives radio signals from target stars and galaxies..."
+				text="The Allen Telescope Array in California receives radio waves from target stars and galaxies..."
 				y.Tutorial1="62"
 				y.Tutorial2="146"
 				text.Tutorial2="The SETI Institute analyzes the data and generates visualizations..."
 				x.Tutorial3="25" y.Tutorial3="247" height.Tutorial3="58"
 				text.Tutorial3="Mostly we see only noise (static) in the visualizations..."
 				x.Tutorial4="24" y.Tutorial4="316" height.Tutorial4="115"
-				text.Tutorial4="Occasionally we see signals in the noise that represent airplanes, satellites, and radio transmitters on Earth..."
+				text.Tutorial4="Occasionally we see patterns in the noise that represent airplanes, satellites, and radio transmitters on Earth..."
 				x.Tutorial5="420" y.Tutorial5="62" height.Tutorial5="115"
 				text.Tutorial5="We're looking for signs of intelligent life, but of course nobody knows exactly what that will look like..."
 				x.Tutorial6="420" y.Tutorial6="187" height.Tutorial6="91"
@@ -310,7 +322,7 @@
 				x.Tutorial7="420" y.Tutorial7="292" height.Tutorial7="91"
 				text.Tutorial7="Scroll through the data from left to right, and indicate when you see an interesting pattern..."
 				x.Tutorial8="421" y.Tutorial8="353" height.Tutorial8="91"
-				text.Tutorial8="Then categorize the pattern if it fits one of the known signal types displayed..."/>
+				text.Tutorial8="Then categorize the pattern if it fits one of the known pattern types displayed..."/>
 	<skinnablecomponents:CategoryButton includeIn="Categorize" right="9" top="393" buttonMode="true"
 										click="categoryButton_clickHandler()"
 										skinClass="components.CategoryButtonSkin_Unknown"/>
@@ -357,10 +369,9 @@
 							  inner="false" knockout="false" quality="2" strength="1"/>
 			</graphics:filters>
 		</graphics:Graphic1>
-		<s:Button includeIn="DataViz,Loading_Firsttime,Loading_Othertimes,Signal,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
+		<s:Button includeIn="Loading_Firsttime,Loading_Othertimes,Signal,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
 				  right="12" bottom="10" click="button_clickHandler()"
 				  skinClass="components.NextScreenButton"
-				  height.DataViz="36" label.DataViz="I see a Signal!" buttonMode.DataViz="true"
 				  height.Loading_Firsttime="36" label.Loading_Firsttime="Begin"
 				  buttonMode.Loading_Firsttime="true"
 				  label.Loading_Othertimes="Begin"
@@ -373,21 +384,28 @@
 				  label.Tutorial6="Next &gt;" buttonMode.Tutorial6="true"
 				  label.Tutorial7="Next &gt;" buttonMode.Tutorial7="true"
 				  label.Tutorial8="Get Started" buttonMode.Tutorial8="true"/>
-		<s:RichText includeIn="DataViz,Signal" left="392" right="392" top="385" height="9"
-					color="#999999" fontFamily="Arial" fontSize="20" tabStops="S0" text="^"
-					textAlign="center"/>
-		<s:Button includeIn="Categorize" x="9" y="554" label="Cancel"
+		<s:RichText d:userLabel="MHz Range" includeIn="DataViz,Signal" left="392" right="392"
+					top="385" height="9" color="#999999" fontFamily="Arial" fontSize="20"
+					tabStops="S0" text="^" textAlign="center"/>
+		<s:Button includeIn="Categorize" x="9" y="554" label="Cancel" click="button_clickHandler_3()"
 				  skinClass="components.NextScreenButton"/>
-		<s:Button id="viewDataButton" includeIn="Assignment" right="12" bottom="10" label="Continue"
-				  buttonMode="true" click="button_clickHandler_1()"
+		<s:Button id="viewDataButton" includeIn="Assignment" right="12" bottom="10" width="127"
+				  label="Continue" buttonMode="true" click="button_clickHandler_1()"
 				  skinClass="components.ViewDataButton"/>
-		<s:Button id="skipAssignmentButton" includeIn="Assignment" right="129" bottom="10"
+		<s:Button id="skipAssignmentButton" includeIn="Assignment,DataViz" right="148" bottom="10"
 				  label="Skip Assignment" buttonMode="true"
 				  skinClass="components.SkipAssignmentButton"/>
 		<s:Button id="assignmentZoomInButton" includeIn="Assignment" right="15" bottom="124"
 				  label="Button" buttonMode="true" skinClass="components.StarfieldSkinZoomInButton"/>
 		<s:Button id="assignmentZoomOutButton" includeIn="Assignment" right="56" bottom="124"
 				  label="Button" buttonMode="true" skinClass="components.StarfieldSkinZoomOutButton"/>
+		<s:Button id="iSeeAPatternButton" includeIn="DataViz" right="12" bottom="10" width="127"
+				  label="I see a Pattern!" buttonMode="true" click="button_clickHandler_2()"
+				  skinClass="components.NextScreenButton"/>
+		<s:RichText id="mhzMidpointField" d:userLabel="MHz Center" includeIn="DataViz,Signal"
+					left="288" right="288" top="396" height="16" color="#999999"
+					fontFamily="Myriad Pro" fontSize="16" lineHeight="100%"
+					tabStops="S0 S50 S100 S150 S200" text="{this.model.currentMHzMidpoint.toPrecision(8) + ' MHz'}" textAlign="center"/>
 	</fx:DesignLayer>
 	<s:transitions>
 		<s:Transition fromState="Loading_Firsttime" interruptionBehavior="stop" toState="Tutorial1">

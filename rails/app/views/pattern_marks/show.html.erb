@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Mhz:</b>
+  <%= @pattern_mark.mhz %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @pattern_mark.category %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @pattern_mark.date %>
+</p>
+
+<p>
+  <b>Pattern:</b>
+  <%= @pattern_mark.pattern.friendly_name rescue "-" %>
+</p>
+
+<p>
+  <b>Assignment:</b>
+  <%= link_to @pattern_mark.assignment.friendly_name, @pattern_mark.assignment %>
+</p>
+
+
+<%= link_to 'Edit', edit_pattern_mark_path(@pattern_mark) %> |
+<%= link_to 'Back', pattern_marks_path %>

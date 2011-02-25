@@ -61,10 +61,12 @@ package com.hg94.seti.controller {
 			observationRange.hiMHz = observationRangeXML["hi-mhz"];
 			observationRange.filenameCollection = new ArrayCollection();
 			var baseURL:String = observationXML["base-url"];
-			for each (var urlPart:String in observationRangeXML["url-part-list"][0].split("\r\n")) {
+			for each (var urlPart:String in observationRangeXML["url-part-list"][0].split("\n")) {
 				observationRange.filenameCollection.addItem(baseURL + "/" + urlPart);
 			}
-			this.assignment = new Assignment(observationRange);
+			this.assignment = new Assignment();
+			this.assignment.id = assignmentXML["id"];
+			this.assignment.observationRange = observationRange;
 			this.dispatchEvent(event.clone());
 		}
 	}

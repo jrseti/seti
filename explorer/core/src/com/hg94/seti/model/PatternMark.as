@@ -1,7 +1,7 @@
 package com.hg94.seti.model {
 
-    public class SignalMark {
-        public var signal:Signal;
+    public class PatternMark {
+        public var signal:Pattern;
 
         public var date:String; //use epoch time
 
@@ -14,7 +14,7 @@ package com.hg94.seti.model {
         public var assignment:Assignment;
 
         public function set category(value:String):void {
-            if(SignalMarkCategory.isValid(value)) {
+            if(PatternMarkCategory.isValid(value)) {
                 _category = value;
             } else {
                 throw new Error("Invalid category set on SignalMark");
