@@ -38,12 +38,11 @@ package com.hg94.seti.view
 		[Bindable] public var model:Model;
 		
 		protected var _api_url_root:String;
+		
+		public var initialState:String;
 
 		public function SETIQuestExplorer()
 		{
-			
-			// Determine what URL to use for the server
-			
 			if (Capabilities.playerType == "ActiveX" || Capabilities.playerType == "PlugIn") {
 				this._api_url_root = "";
 			} else if (Capabilities.isDebugger) {
@@ -51,30 +50,36 @@ package com.hg94.seti.view
 			} else {
 				this._api_url_root = SETIQuestExplorer.PUBLIC_AIR_URL_ROOT; 
 			}
-			trace("URL Root set to " + this._api_url_root);
-			
 			this.percentHeight = 100;
 			this.percentWidth = 100;
 			this.model = new Model();
-			this.model.splashMessage = "[[" + Capabilities.playerType + "|" + Capabilities.isDebugger + "]]";
-			this.addEventListener(FlexEvent.CREATION_COMPLETE, this.creationCompleteHandler);
+			this.model.splashMessage = "Pre-Release Version";
 			super();
 		}
-
-		private function creationCompleteHandler(event:FlexEvent):void {
-			this.mainSkin.galaxyImage.fillMode = BitmapFillMode.SCALE;
-			this.mainSkin.galaxyImage.scaleMode = BitmapScaleMode.STRETCH;
-			this.mainSkin.galaxyImage.percentHeight = 100;
-			this.mainSkin.galaxyImage.percentWidth = 100;
-			
+		
+		protected override function createChildren():void {
+			this.mainSkin = new MainSkin();
+			this.mainSkin.percentHeight = 100;
+			this.mainSkin.percentWidth = 100;
+			this.mainSkin.model = this.model;
+			if (this.initialState) {
+				this.mainSkin.currentState = this.initialState;
+			}
 			this.mainSkin.addEventListener(ElementExistenceEvent.ELEMENT_ADD, this.elementAddHandler);
-			
+			this.addElement(this.mainSkin);
+			super.createChildren();
 		}
 		
 		private function elementAddHandler(event:ElementExistenceEvent):void {
 			trace(event.element);
 			if (event.element["id"]) {
 				switch (event.element["id"]) {
+					case "galaxyImage":
+						this.mainSkin.galaxyImage.fillMode = BitmapFillMode.SCALE;
+						this.mainSkin.galaxyImage.scaleMode = BitmapScaleMode.STRETCH;
+						this.mainSkin.galaxyImage.percentHeight = 100;
+						this.mainSkin.galaxyImage.percentWidth = 100;
+						break;
 					case "skipAssignmentButton":
 						this.mainSkin.skipAssignmentButton.addEventListener(MouseEvent.CLICK, this.skipAssignmentButtonClickHandler);
 						break;
@@ -95,10 +100,6 @@ package com.hg94.seti.view
 					case "assignmentZoomOutButton":
 						Button(event.element).addEventListener(MouseEvent.CLICK, this.zoomOutButtonHandler);
 						break;
-					/*case "iSeeAPatternButton":
-						Button(event.element).addEventListener(MouseEvent.CLICK, this.iSeeAPatternButtonHandler);
-						break;
-					*/
 				}
 			}
 			if (event.element is CategoryButton) {
@@ -139,25 +140,6 @@ package com.hg94.seti.view
 		{
 			event.currentTarget.removeEventListener(event.type, getAssignmentResultHandler);
 			this.model.currentAssignment = (event.currentTarget as GetAssignmentRequest).assignment;
-			//this.waterfallDataVisualization.showObservationRange();
-		}
-		
-		/*
-		private function viewDataButtonClickHandler(event:MouseEvent):void {
-			this.waterfallDataVisualization.target = this.assignmentStarfield.target; 
-		}
-		*/
-		
-		protected override function createChildren():void {
-			this.mainSkin = new MainSkin();
-			this.mainSkin.percentHeight = 100;
-			this.mainSkin.percentWidth = 100;
-			this.mainSkin.model = this.model;
-			this.addElement(this.mainSkin);
-			
-			//scaleMode="stretch" fillMode="scale" height="100%" width="100%"
-			
-			super.createChildren();
 		}
 	}
 }

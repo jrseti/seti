@@ -172,23 +172,8 @@
 
 	</fx:Script>
 	<s:states>
-<!--
-		<s:State fc:color="0xcc0000" name="Loading_Firsttime"/>
-		<s:State fc:color="0x0081cc" name="Tutorial1"/>
-		<s:State fc:color="0x00cc21" name="Tutorial2"/>
-		<s:State fc:color="0x0003a3" name="Tutorial3"/>
-		<s:State fc:color="0xff5f08" name="ExploreSky"/>
-		<s:State fc:color="0xdf08ff" name="DataViz"/>
-		<s:State fc:color="0x82ff36" name="Assignment"/>
-		<s:State fc:color="0x919410" name="Categorize"/>
-		<s:State fc:color="0xa30017" name="Signal"/>
-		<s:State fc:color="0x08ffb6" name="Settings"/>
-		<s:State fc:color="0x510900" name="Loading_Othertimes"/>
-		<s:State fc:color="0xbbcc00" name="Tutorial4"/>
-		<s:State fc:color="0x9308ff" name="Tutorial5"/>
--->		
-		<s:State name="Splash_WithButton"/>
 		<s:State name="Splash_Loading"/>
+		<s:State name="Splash_WithButton"/>
 		<s:State name="Tutorial1"/>
 		<s:State name="Tutorial2"/>
 		<s:State name="Tutorial3"/>
@@ -197,8 +182,8 @@
 		<s:State name="Tutorial6"/>
 		<s:State name="Tutorial7"/>
 		<s:State name="Tutorial8"/>
-		<s:State name="DataViz"/>
 		<s:State name="Assignment"/>
+		<s:State name="DataViz"/>
 		<s:State name="Categorize"/>
 		<s:State name="ThankYou"/>
 		<s:State name="Settings"/>
@@ -435,8 +420,8 @@
 	</s:RichText>
 	<s:Button includeIn="Splash_WithButton" right="26" bottom="22" width="139" height="45"
 			  label="Begin" click="button_clickHandler_9()" skinClass="components.Button_Begin"/>
-	<s:RichText id="labelDisplay1" d:userLabel="Text_Loading" includeIn="Splash_Loading" x="842"
-				y="543" width="132" height="27" color="#FEFFCA" fontFamily="Myriad Pro Black"
+	<s:RichText id="labelDisplay1" d:userLabel="Text_Loading" includeIn="Splash_Loading" right="50"
+				bottom="30" width="132" height="27" color="#FEFFCA" fontFamily="Myriad Pro Black"
 				fontSize="25" tabStops="S0 S50 S100" text="Loading..." textAlign="center"/>
 	<s:transitions>
 		<s:Transition fromState="Splash_WithButton" interruptionBehavior="stop" toState="Tutorial1">
