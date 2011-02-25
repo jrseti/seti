@@ -395,9 +395,9 @@
 			  right="12" bottom="10" width="127" label="Continue" buttonMode="true"
 			  click="button_clickHandler_1()" skinClass="components.ViewDataButton"/>
 	<s:Button id="skipAssignmentButton" d:userLabel="Button_NextAssignment"
-			  includeIn="Assignment,DataViz" right="148" bottom="10" label="Skip Assignment"
-			  buttonMode="true" click="button_clickHandler_4()"
-			  skinClass="components.SkipAssignmentButton"
+			  includeIn="Assignment,DataViz" label="Skip Assignment" buttonMode="true"
+			  click="button_clickHandler_4()" skinClass="components.SkipAssignmentButton"
+			  right="148" bottom="10" width="120"
 			  label.DataViz="Next Assignment"/>
 	<s:Button id="assignmentZoomInButton" d:userLabel="Button_StarfieldZoomIn" includeIn="Assignment"
 			  right="15" bottom="124" label="Button" buttonMode="true"
@@ -418,10 +418,10 @@
 				whiteSpaceCollapse="preserve">
 		<s:content><s:p><s:span fontFamily="Myriad Pro Black" fontSize="34">Thank You!</s:span></s:p><s:p><s:span fontSize="18">The Pattern you found has been recorded.</s:span></s:p></s:content>
 	</s:RichText>
-	<s:Button includeIn="Splash_WithButton" right="26" bottom="22" width="139" height="45"
+	<s:Button includeIn="Splash_WithButton" right="9" bottom="9" width="139" height="45"
 			  label="Begin" click="button_clickHandler_9()" skinClass="components.Button_Begin"/>
-	<s:RichText id="labelDisplay1" d:userLabel="Text_Loading" includeIn="Splash_Loading" right="50"
-				bottom="30" width="132" height="27" color="#FEFFCA" fontFamily="Myriad Pro Black"
+	<s:RichText id="labelDisplay1" d:userLabel="Text_Loading" includeIn="Splash_Loading" right="11"
+				bottom="8" width="132" height="27" color="#FEFFCA" fontFamily="Myriad Pro Black"
 				fontSize="25" tabStops="S0 S50 S100" text="Loading..." textAlign="center"/>
 	<s:transitions>
 		<s:Transition fromState="Splash_WithButton" interruptionBehavior="stop" toState="Tutorial1">

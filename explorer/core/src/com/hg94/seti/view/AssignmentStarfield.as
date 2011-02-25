@@ -68,16 +68,27 @@ package com.hg94.seti.view {
 			map.percentWidth=100;
 			map.percentHeight=100;
 			map.addEventListener(MapEvent.MAP_PREINITIALIZE,onMapPreinitialize);
+			map.addEventListener(Event.ADDED, this.mapAddedHandler);
 			map.addEventListener(MapEvent.MAP_READY,onMapReady);
 			
 			placeholder.addElement(map);
 
 		}
 		
+		
+		/** This is when the long painful load starts.
+		 * TODO: Make a real event
+		 */
+		
+		private function mapAddedHandler(event:Event):void {
+			var e:Event = new Event("FREEZE_STARTING");
+			this.dispatchEvent(e);
+		}
+		
 		private function setAssignment(assignment:Assignment):void {
 			if (assignment) {
 				this.target = assignment.observationRange.observation.target;
-				map.flyTo(this.target.getGoogleSkyCoordinates(), 6, map.getAttitude(), 3);
+				map.flyTo(this.target.getGoogleSkyCoordinates(), 6, map.getAttitude(), 10);
 			}
 		}
 		

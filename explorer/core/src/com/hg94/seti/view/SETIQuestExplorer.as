@@ -9,7 +9,9 @@ package com.hg94.seti.view
 	
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.events.TimerEvent;
 	import flash.system.Capabilities;
+	import flash.utils.Timer;
 	
 	import mx.binding.utils.BindingUtils;
 	import mx.events.FlexEvent;
@@ -38,8 +40,6 @@ package com.hg94.seti.view
 		[Bindable] public var model:Model;
 		
 		protected var _api_url_root:String;
-		
-		public var initialState:String;
 
 		public function SETIQuestExplorer()
 		{
@@ -62,12 +62,36 @@ package com.hg94.seti.view
 			this.mainSkin.percentHeight = 100;
 			this.mainSkin.percentWidth = 100;
 			this.mainSkin.model = this.model;
+			/*
 			if (this.initialState) {
 				this.mainSkin.currentState = this.initialState;
 			}
+			*/
+			this.mainSkin.currentState = "Splash_Loading";
+			var timer:Timer = new Timer(2000, 1);
+			timer.addEventListener(TimerEvent.TIMER, this.splashLoadingTimerHandler);
+			timer.start();
+			//this.mainSkin.addEventListener(Event.EXIT_FRAME, this.mainSkinEnterFrameHandlerSplashLoading);
 			this.mainSkin.addEventListener(ElementExistenceEvent.ELEMENT_ADD, this.elementAddHandler);
 			this.addElement(this.mainSkin);
 			super.createChildren();
+		}
+		
+		private function splashLoadingTimerHandler(event:Event):void {
+			trace("Timer");
+			event.target.removeEventListener(event.type, this.splashLoadingTimerHandler);
+			//this.mainSkin.removeEventListener(event.type, this.mainSkinEnterFrameHandlerSplashLoading);
+			this.mainSkin.currentState = "Assignment";
+			//this.mainSkin.addEventListener(Event.ENTER_FRAME, this.mainSkinEnterFrameHandlerAssignment);
+		}
+		
+		/**
+		 * Not fired right now. But it would be handy to leave the Splash up until the user is ready
+		 */
+		
+		private function mainSkinEnterFrameHandlerAssignment(event:Event):void {
+			this.mainSkin.removeEventListener(event.type, this.mainSkinEnterFrameHandlerAssignment);
+			this.mainSkin.currentState = "Splash_WithButton";
 		}
 		
 		private function elementAddHandler(event:ElementExistenceEvent):void {
@@ -86,6 +110,7 @@ package com.hg94.seti.view
 					case "assignmentStarfieldPlaceholder":
 						if (!this.assignmentStarfield) {
 							this.assignmentStarfield = new AssignmentStarfield(this.mainSkin.assignmentStarfieldPlaceholder, this.model);
+							this.assignmentStarfield.addEventListener("FREEZE_STARTING", this.starfieldFreezeStartingHandler);
 							this.assignmentStarfield.addEventListener("READY", this.starfieldReadyHandler);
 						}
 						break;
@@ -107,6 +132,17 @@ package com.hg94.seti.view
 			}
 		}
 		
+		private function starfieldFreezeStartingHandler(event:Event):void {
+			trace("");
+			//this.mainSkin.currentState = "Splash_Loading";
+		}
+		
+		private function starfieldReadyHandler(event:Event):void {
+			trace("");
+			//this.mainSkin.currentState = "Assignment";
+			this.getAssignment();
+		}
+		
 		private function categoryButtonHandler(event:MouseEvent):void {
 			var postPatternMarkRequest:PostPatternMarkRequest = new PostPatternMarkRequest(this._api_url_root);
 			postPatternMarkRequest.postPatternMark(this.model.currentAssignment, this.model.currentMHzMidpoint);
@@ -118,10 +154,6 @@ package com.hg94.seti.view
 		
 		private function zoomOutButtonHandler(event:MouseEvent):void {
 			this.assignmentStarfield.zoomOut();
-		}
-		
-		private function starfieldReadyHandler(event:Event):void {
-			this.getAssignment();
 		}
 		
 		private function skipAssignmentButtonClickHandler(event:MouseEvent):void {
