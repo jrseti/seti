@@ -95,8 +95,8 @@ package com.hg94.seti.view {
 			var percentScrolled:Number = event.newValue as Number;
 			trace("Updating to " + percentScrolled);
 			if (!isNaN(percentScrolled)) {
-				var loMHz = this._model.currentAssignment.observationRange.loMHz;
-				var hiMHz = this._model.currentAssignment.observationRange.hiMHz;
+				var loMHz:Number = this._model.currentAssignment.observationRange.loMHz;
+				var hiMHz:Number = this._model.currentAssignment.observationRange.hiMHz;
 				this._model.currentMHzMidpoint = loMHz + percentScrolled * (hiMHz - loMHz);
 			}
 		}

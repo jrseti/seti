@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
   
-  load_and_authorize_resource
+  #load_and_authorize_resource
   
   # GET /assignments
   # GET /assignments.xml
@@ -58,6 +58,8 @@ class AssignmentsController < ApplicationController
     end
   end
 
+
+
   # This is where the main app calls to get the next assignment for a user. It may create an assignment or return one that's already in progress.
   
   def current_assignment_for_user
@@ -68,7 +70,8 @@ class AssignmentsController < ApplicationController
     
     #if @assignment.nil?
       observation_range = ObservationRange.find(:first, :offset => rand(ObservationRange.count))
-      @assignment = Assignment.new(:user => current_user, :observation_range => observation_range, :status => :in_progress)
+      #@assignment = Assignment.new(:user => current_user, :observation_range => observation_range, :status => :in_progress)
+      @assignment = Assignment.new(:user => User.first, :observation_range => observation_range, :status => :in_progress)
     #end
     
 

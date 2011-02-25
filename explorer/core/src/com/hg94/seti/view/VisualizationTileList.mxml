@@ -11,7 +11,7 @@
 	http://opensource.adobe.com/wiki/display/flexsdk/Bounce+and+Pull+Effects+for+List+Specification
 	-->
 	<fx:Declarations>
-		<s:ContentCache id="waterfallContentCache" enableQueueing="true" enableCaching="true" maxCacheEntries="100" />
+		<s:ContentCache id="waterfallContentCache" enableQueueing="true" enableCaching="true" maxCacheEntries="300" />
 	</fx:Declarations>
 	<s:layout>
 		<s:HorizontalLayout gap="0"/>
