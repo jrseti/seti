@@ -260,16 +260,18 @@
 				whiteSpaceCollapse="preserve" content="{this.model.currentAssignment.observationRange.observation.target.description}"/>
 		<!--<s:content><s:p><s:span>Fourth star in the constellation Taurus</s:span></s:p><s:p><s:span>12 Light years away</s:span></s:p><s:p><s:span>Thought to have 7 planets</s:span></s:p></s:content>-->
 	<!--</s:RichText>-->
-	<s:RichText id="frequencyMidpointField" d:userLabel="MHz Range" includeIn="Assignment" left="288"
-				right="288" bottom="68" height="16" color="#999999"
+	<s:RichText id="mHzRangeField" d:userLabel="MHz Range" includeIn="Assignment" right="11"
+				bottom="50" width="256" height="16" color="#999999"
 				content="{this.model.currentAssignment.observationRange.loMHz.toPrecision(8) + ' - ' + this.model.currentAssignment.observationRange.hiMHz.toPrecision(8) + ' MHz'}"
-				fontFamily="Myriad Pro" fontSize="16" lineHeight="100%"
-				tabStops="S0 S50 S100 S150 S200" text="9999.99999 MHz" textAlign="center"/>
+				fontFamily="Myriad Pro" fontSize="12" lineHeight="100%"
+				tabStops="S0 S50 S100 S150 S200 S250 S300 S350 S400"
+				textAlign="end"/>
 	<s:RichText id="observationCoordinatesField1" d:userLabel="Target_Coordinates"
-				includeIn="Assignment,DataViz" right="13" bottom="51" width="224" height="16"
-				color="#666666" fontFamily="Myriad Pro" fontSize="12" lineHeight="100%"
-				tabStops="S0 S50 S100 S150 S200" textAlign="end"
-				content="{'RA: ' + this.model.currentAssignment.observationRange.observation.target.rightAscension.toPrecision(6) + ', Decl: ' + this.model.currentAssignment.observationRange.observation.target.declination.toPrecision(6)}"/>
+				includeIn="Assignment" left="400" right="400" bottom="72" height="16"
+				color="#999999"
+				content="{'RA: ' + this.model.currentAssignment.observationRange.observation.target.rightAscension.toPrecision(6) + ', Decl: ' + this.model.currentAssignment.observationRange.observation.target.declination.toPrecision(6)}"
+				fontFamily="Myriad Pro" fontSize="16" lineHeight="100%"
+				tabStops="S0 S50 S100 S150 S200" textAlign="center"/>
 	<s:RichText includeIn="Categorize" left="10" top="393" width="178" height="37" color="#FFFFFF"
 				fontFamily="Myriad Pro" fontSize="16" tabStops="S0 S50 S100 S150 S200"
 				whiteSpaceCollapse="preserve">
@@ -387,10 +389,10 @@
 					tabStops="S0" text="^" textAlign="center"/>
 		<s:Button includeIn="Categorize" x="9" y="554" label="Cancel" click="button_clickHandler_3()"
 				  skinClass="components.NextScreenButton"/>
-		<s:Button id="viewDataButton" includeIn="Assignment" right="12" bottom="10" label="Continue"
-				  buttonMode="true" click="button_clickHandler_1()"
+		<s:Button id="viewDataButton" includeIn="Assignment" right="12" bottom="10" width="127"
+				  label="Continue" buttonMode="true" click="button_clickHandler_1()"
 				  skinClass="components.ViewDataButton"/>
-		<s:Button id="skipAssignmentButton" includeIn="Assignment" right="129" bottom="10"
+		<s:Button id="skipAssignmentButton" includeIn="Assignment,DataViz" right="148" bottom="10"
 				  label="Skip Assignment" buttonMode="true"
 				  skinClass="components.SkipAssignmentButton"/>
 		<s:Button id="assignmentZoomInButton" includeIn="Assignment" right="15" bottom="124"

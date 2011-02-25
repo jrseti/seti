@@ -25,15 +25,11 @@
 			import mx.collections.ArrayCollection;
 			import mx.collections.IList;
 			
-			
 			[Bindable]
-			public var midFrequency:Number;
+			public var percentScrolled:Number;
 			
 			[Bindable]
 			public var model:Model; 
-			
-			protected var minWavelength:Number;
-			protected var maxWavelength:Number;
 			
 			/**
 			 * TODO: Listen for press-and-hold or long touch on the list.
@@ -63,8 +59,8 @@
 				// start precaching of the images
 				startPrecachingImages();
 				
-				setMinMaxHz();
-				callLater(computeFreq);
+				//setMinMaxHz();
+				callLater(this.updatePercentScrolled);
 			}
 			
 			//-----------------------------------------------------------------
@@ -94,13 +90,14 @@
 			}
 			
 			protected function onViewportUpdate(event:Event=null):void{
-				computeFreq();
+				this.updatePercentScrolled();
 			}
 			
 			protected function onCreationComplete(event:Event=null):void{
 				ChangeWatcher.watch(scroller.viewport, "horizontalScrollPosition", onViewportUpdate);
 			}
-			
+
+			/**
 			protected function setMinMaxHz():void{
 				var dp:ArrayCollection = dataProvider as ArrayCollection;
 				var firstFile:String = dp.getItemAt(0).toString();
@@ -112,8 +109,12 @@
 					++i;
 				}
 				
-				minWavelength = Number(getMhzFromFileName(firstFile)[0]);
-				maxWavelength = Number(getMhzFromFileName(lastFile)[1]);			
+				//minWavelength = Number(getMhzFromFileName(firstFile)[0]);
+				//maxWavelength = Number(getMhzFromFileName(lastFile)[1]);
+				minWavelength = 0.0;
+				maxWavelength = 100.0
+				
+				trace(this.minWavelength + ", " + this.maxWavelength);
 			}
 			
 			protected function getMhzFromFileName(file:String):Array{
@@ -124,24 +125,30 @@
 				var last:String = stuff[stuff.length-1].toString().split(".")[0].toString();
 				return [first, last];
 			}
+			 */
 			
-			protected function computeFreq():void{
+			protected function updatePercentScrolled():void{
 				
 				var max:Number = dataGroup.contentWidth;
 				var current:Number = scroller.viewport.horizontalScrollPosition;
 				//var toEnd:Number = Math.abs(visualizationTileList.layout.getHorizontalScrollPositionDelta(NavigationUnit.END));
 				//var toBeginning:Number = Math.abs(visualizationTileList.layout.getHorizontalScrollPositionDelta(NavigationUnit.HOME));
-				if (current == 0){
-					var fractional:Number = (scroller.viewport.width/max) * (maxWavelength - minWavelength);
-					midFrequency = minWavelength + (fractional/2);
-					return;
+				if (current == 0) {
+					//var fractional:Number = (scroller.viewport.width/max) * (maxWavelength - minWavelength);
+					//this.percentScrolled = scroller.viewport.width/max/2
+					//midFrequency = minWavelength + (fractional/2);
+					//return;
+					current = scroller.viewport.width / 2;
 				}
-				
-				var percThrough:Number = current/max;
-				var freq:Number = ((maxWavelength - minWavelength) * percThrough) + minWavelength;
-				if (!isNaN(freq)){
-					midFrequency = freq;
+				this.percentScrolled = current/max;
+				/*
+					var percThrough:Number = current/max;
+					var freq:Number = ((maxWavelength - minWavelength) * percThrough) + minWavelength;
+					if (!isNaN(freq)){
+						midFrequency = freq;
+					}
 				}
+				*/
 			}
 		]]>
 	</fx:Script>

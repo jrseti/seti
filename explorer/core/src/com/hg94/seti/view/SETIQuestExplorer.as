@@ -62,8 +62,10 @@ package com.hg94.seti.view
 						this.mainSkin.skipAssignmentButton.addEventListener(MouseEvent.CLICK, this.skipAssignmentButtonClickHandler);
 						break;
 					case "assignmentStarfieldPlaceholder":
-						this.assignmentStarfield = new AssignmentStarfield(this.mainSkin.assignmentStarfieldPlaceholder, this.model);
-						this.assignmentStarfield.addEventListener("READY", this.starfieldReadyHandler);
+						if (!this.assignmentStarfield) {
+							this.assignmentStarfield = new AssignmentStarfield(this.mainSkin.assignmentStarfieldPlaceholder, this.model);
+							this.assignmentStarfield.addEventListener("READY", this.starfieldReadyHandler);
+						}
 						break;
 					case "dataVizTileListPlaceholder":
 						if (!this.waterfallDataVisualization) {
