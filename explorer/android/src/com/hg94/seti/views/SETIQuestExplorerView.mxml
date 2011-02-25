@@ -7,5 +7,5 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<view:SETIQuestExplorer height="100%" width="100%" api_url_root="http://localhost.seti.hg94.com:3000"/>
+	<view:SETIQuestExplorer height="100%" width="100%" api_url_root="http://heroku.seti.hg94.com"/>
 </s:View>

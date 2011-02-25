@@ -52,8 +52,9 @@
 			
 			override public function set dataProvider(value:IList):void{
 				
-				// clear existing cache
-				waterfallContentCache.removeAllCacheEntries();
+				// clear existing cache - very important when going to a new assignment
+				this.waterfallContentCache.removeAllQueueEntries();
+				this.waterfallContentCache.removeAllCacheEntries();
 				
 				super.dataProvider = value;
 				// start precaching of the images

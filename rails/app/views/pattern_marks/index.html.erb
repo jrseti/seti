@@ -12,11 +12,11 @@
 
 <% @pattern_marks.each do |pattern_mark| %>
   <tr>
-    <td><%= pattern_mark.pattern.observation.friendly_name %></td>
+    <td><%= pattern_mark.pattern.observation.friendly_name rescue "-" %></td>
     <td><%= pattern_mark.mhz %></td>
     <td><%= pattern_mark.category %></td>
     <td><%= pattern_mark.date %></td>
-    <td><%= pattern_mark.assignment.user.name %></td>
+    <td><%= pattern_mark.assignment.user.name rescue "-" %></td>
     <td><%= link_to 'Show', pattern_mark %> | <%= link_to 'Edit', edit_pattern_mark_path(pattern_mark) %> | <%= link_to 'Destroy', pattern_mark, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
