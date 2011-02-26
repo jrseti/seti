@@ -405,7 +405,7 @@
 	<s:RichText d:userLabel="Text_MHzCenterPointer" includeIn="DataViz,ThankYou,Pattern" left="392"
 				right="392" top="385" height="9" color="#999999" fontFamily="Arial" fontSize="20"
 				tabStops="S0" text="^" textAlign="center"/>
-	<s:Button d:userLabel="Button_CancelCategorization" includeIn="Categorize" x="9" y="554"
+	<s:Button d:userLabel="Button_CancelCategorization" includeIn="Categorize" left="9" bottom="10"
 			  label="Cancel" click="button_clickHandler_3()" skinClass="components.NextScreenButton"/>
 	<s:Button id="viewDataButton" d:userLabel="Button_ContinueToDataViz" includeIn="Assignment"
 			  right="12" bottom="10" width="127" label="Continue" buttonMode="true"
