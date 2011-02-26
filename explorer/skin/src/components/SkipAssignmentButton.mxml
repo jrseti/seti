@@ -26,10 +26,6 @@
 			<s:SolidColor color="#197BCE"/>
 		</s:fill.down>
 	</s:Rect>
-	<s:RichText id="labelDisplay" left="3" right="3" color="#CCCCCC" fontFamily="Myriad Pro"
-				fontSize="12" tabStops="S0 S50 S100" textAlign="center"
-				top.disabled="11" bottom.disabled="7"
-				top.down="11" bottom.down="7"
-				top.over="11" bottom.over="7"
-				top.up="13" bottom.up="5" fontSize.up="13"/>
+	<s:RichText id="labelDisplay" left="3" right="3" top="13" bottom="5" color="#CCCCCC"
+				fontFamily="Myriad Pro" fontSize="13" tabStops="S0 S50 S100" textAlign="center"/>
 </s:Skin>

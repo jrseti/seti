@@ -395,9 +395,9 @@
 			  right="12" bottom="10" width="127" label="Continue" buttonMode="true"
 			  click="button_clickHandler_1()" skinClass="components.ViewDataButton"/>
 	<s:Button id="skipAssignmentButton" d:userLabel="Button_NextAssignment"
-			  includeIn="Assignment,DataViz" label="Skip Assignment" buttonMode="true"
+			  includeIn="Assignment,DataViz" width="120" label="Skip Assignment" buttonMode="true"
 			  click="button_clickHandler_4()" skinClass="components.SkipAssignmentButton"
-			  right="148" bottom="10" width="120"
+			  right="148" bottom="10"
 			  label.DataViz="Next Assignment"/>
 	<s:Button id="assignmentZoomInButton" d:userLabel="Button_StarfieldZoomIn" includeIn="Assignment"
 			  right="15" bottom="124" label="Button" buttonMode="true"
