@@ -189,18 +189,20 @@
 		<s:State name="Settings"/>
 		<s:State name="ExploreSky"/>
 		<s:State name="Pattern"/>
+		<s:State name="Error_NoConnection"/>
 	</s:states>
 	<s:BitmapImage id="galaxyImage" d:userLabel="Galaxy Image"
 				   includeIn="Splash_Loading,Splash_WithButton" smooth="true"
 				   source="@Embed('/assets/images/SpiralGalaxyNGC2841.jpg')"/>
 	<s:Rect includeIn="Splash_Loading,Splash_WithButton" left="0" right="0" top="0" bottom="0" alpha="0">
 	</s:Rect>
-	<s:Path includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,ThankYou,Pattern,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
+	<s:Path includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Error_NoConnection,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Pattern,ThankYou,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
 			alpha="1" blendMode="normal" data="M 0 0 L 1024 0 L 1024 40 L 0 40 L 0 0 Z"
 			winding="evenOdd"
 			left.Assignment="0" right.Assignment="0" top.Assignment="0"
 			left.Categorize="0" right.Categorize="0" top.Categorize="0"
 			left.DataViz="0" right.DataViz="0" top.DataViz="0"
+			left.Error_NoConnection="0" right.Error_NoConnection="0" top.Error_NoConnection="0"
 			x.ExploreSky="0" y.ExploreSky="0" width.ExploreSky="800"
 			left.Pattern="0" right.Pattern="0" top.Pattern="0"
 			left.Settings="0" right.Settings="0" top.Settings="0"
@@ -221,17 +223,20 @@
 		</s:fill>
 	</s:Path>
 	<s:Button id="starfieldButton1"
-			  includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,ThankYou,Pattern,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
+			  includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Error_NoConnection,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Pattern,ThankYou,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
 			  right="180" top="0" label="Button" click="button_clickHandler_8()"
 			  skinClass="components.ControlBarButton_Assignment"
-			  enabled.Assignment="false"/>
+			  enabled.Assignment="false"
+			  enabled.Tutorial2="true"/>
 	<s:Button id="datavizButton1"
-			  includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,ThankYou,Pattern,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
+			  includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Error_NoConnection,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Pattern,ThankYou,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
 			  right="120" top="0" label="Button" click="button_clickHandler_7()"
 			  skinClass="components.ControlBarButton_DataViz"
-			  enabled.DataViz="false"/>
+			  enabled.Categorize="false"
+			  enabled.DataViz="false"
+			  enabled.ThankYou="false"/>
 	<s:Button id="settingsButton1"
-			  includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,ThankYou,Pattern,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
+			  includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Error_NoConnection,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Pattern,ThankYou,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
 			  right="60" top="0" label="Button" click="button_clickHandler_6()"
 			  skinClass="components.ControlBarButton_Settings"
 			  enabled.Settings="false"/>
@@ -272,11 +277,12 @@
 				tabStops="S0 S50 S100 S150 S200 S250 S300 S350 S400"
 				textAlign="end"/>
 	<s:RichText id="observationCoordinatesField1" d:userLabel="Target_Coordinates"
-				includeIn="Assignment" left="400" right="400" bottom="72" height="16"
+				includeIn="Assignment" left="0" right="0" bottom="72" height="16"
 				color="#999999"
-				content="{'RA: ' + this.model.currentAssignment.observationRange.observation.target.rightAscension.toPrecision(6) + ', Decl: ' + this.model.currentAssignment.observationRange.observation.target.declination.toPrecision(6)}"
 				fontFamily="Myriad Pro" fontSize="16" lineHeight="100%"
-				tabStops="S0 S50 S100 S150 S200" textAlign="center"/>
+				tabStops="S0 S50 S100 S150 S200" textAlign="center"
+				content="{'RA: ' + this.model.currentAssignment.observationRange.observation.target.rightAscension.toPrecision(6) + ', Decl: ' + this.model.currentAssignment.observationRange.observation.target.declination.toPrecision(6)}"
+				/>
 	<s:RichText includeIn="Categorize" left="10" top="393" width="178" height="37" color="#FFFFFF"
 				fontFamily="Myriad Pro" fontSize="16" tabStops="S0 S50 S100 S150 S200"
 				whiteSpaceCollapse="preserve">
@@ -309,12 +315,12 @@
 		<s:content><s:p><s:span>Discovered by Francis Potter</s:span></s:p><s:p><s:span>February 11, 2011</s:span></s:p><s:p><s:span>Marked by 279 citizen scientists</s:span></s:p></s:content>
 	</s:RichText>
 	<s:RichText id="richtext1" d:userLabel="TutorialText"
-				includeIn="Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
-				x="24" width="326" height="93" color="#FFFFFF" fontFamily="Myriad Pro" fontSize="24"
+				includeIn="Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
+				width="326" height="93" color="#FFFFFF" fontFamily="Myriad Pro" fontSize="24"
 				tabStops="S0 S50 S100 S150 S200 S250 S300 S350"
 				text="The Allen Telescope Array in California receives radio waves from target stars and galaxies..."
-				y.Tutorial1="62"
-				y.Tutorial2="146"
+				x.Tutorial1="24" y.Tutorial1="62"
+				x.Tutorial2="24" y.Tutorial2="146"
 				text.Tutorial2="The SETI Institute analyzes the data and generates visualizations..."
 				x.Tutorial3="25" y.Tutorial3="247" height.Tutorial3="58"
 				text.Tutorial3="Mostly we see only noise (static) in the visualizations..."
@@ -328,39 +334,49 @@
 				text.Tutorial7="Scroll through the data from left to right, and indicate when you see an interesting pattern..."
 				x.Tutorial8="421" y.Tutorial8="353" height.Tutorial8="91"
 				text.Tutorial8="Then categorize the pattern if it fits one of the known pattern types displayed..."/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" right="9" top="393" buttonMode="true"
+	<skinnablecomponents:CategoryButton includeIn="Categorize" right="10" top="393" buttonMode="true"
 										click="categoryButton_clickHandler()"
 										skinClass="components.CategoryButtonSkin_Unknown"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" right="85" top="393" buttonMode="true"
+	<skinnablecomponents:CategoryButton includeIn="Categorize" right="86" top="393" buttonMode="true"
 										click="categoryButton_clickHandler_1()"
 										skinClass="components.CategoryButtonSkin_Radar"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" right="159" top="393"
+	<skinnablecomponents:CategoryButton includeIn="Categorize" right="160" top="393"
 										buttonMode="true" click="categoryButton_clickHandler_2()"
 										skinClass="components.CategoryButtonSkin_Modulation"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" right="237" top="393"
+	<skinnablecomponents:CategoryButton includeIn="Categorize" right="238" top="393"
 										buttonMode="true" click="categoryButton_clickHandler_3()"
 										skinClass="components.CategoryButtonSkin_Broadband"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" right="312" top="394"
+	<skinnablecomponents:CategoryButton includeIn="Categorize" right="313" top="394"
 										buttonMode="true" click="categoryButton_clickHandler_4()"
 										skinClass="components.CategoryButtonSkin_Pulse"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" right="385" top="393"
+	<skinnablecomponents:CategoryButton includeIn="Categorize" right="386" top="393"
 										buttonMode="true" click="categoryButton_clickHandler_5()"
 										skinClass="components.CategoryButtonSkin_Squiggle"/>
 	<skinnablecomponents:CategoryButton includeIn="Categorize" right="460" top="393"
 										buttonMode="true" click="categoryButton_clickHandler_6()"
 										skinClass="components.CategoryButtonSkin_Diagonal"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" right="533" top="393"
+	<skinnablecomponents:CategoryButton includeIn="Categorize" right="534" top="393"
 										buttonMode="true" click="categoryButton_clickHandler_7()"
 										skinClass="components.CategoryButtonSkin_Local"/>
-	<s:Button includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,ThankYou,Pattern,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
+	<s:Button includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Error_NoConnection,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Pattern,ThankYou,Tutorial4,Tutorial3,Tutorial2,Tutorial1"
 			  right="0" top="0" label="Button" click="button_clickHandler_5()"
 			  skinClass="components.ControlBarButton_Tutorial"
-			  enabled.Tutorial1="false"/>
+			  enabled.Error_NoConnection="true"
+			  enabled.Tutorial1="false"
+			  enabled.Tutorial2="false"
+			  enabled.Tutorial3="false"
+			  enabled.Tutorial4="false"
+			  enabled.Tutorial5="false"
+			  enabled.Tutorial6="false"
+			  enabled.Tutorial7="false"
+			  enabled.Tutorial8="false"/>
 	<s:BitmapImage d:userLabel="Image_SETIQuestExplorerLogoSmall"
 				   includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,ThankYou,Pattern,Tutorial4,Tutorial3,Tutorial2"
 				   left="12" top="8" smooth="true" source="@Embed('/assets/images/Image3.png')"/>
 	<graphics:Graphic1 id="graphic11" d:userLabel="Image_SetiQuestExplorerLogo_Big"
-					   includeIn="Splash_Loading,Splash_WithButton,Tutorial1"
+					   includeIn="Error_NoConnection,Splash_Loading,Splash_WithButton,Tutorial1"
+					   x.Error_NoConnection="9" y.Error_NoConnection="8"
+					   width.Error_NoConnection="175" height.Error_NoConnection="24"
 					   left.Splash_Loading="9" top.Splash_Loading="7" width.Splash_Loading="569"
 					   height.Splash_Loading="79" blendMode.Splash_Loading="overlay"
 					   left.Splash_WithButton="9" top.Splash_WithButton="7"
@@ -423,6 +439,10 @@
 	<s:RichText id="labelDisplay1" d:userLabel="Text_Loading" includeIn="Splash_Loading" right="11"
 				bottom="8" width="132" height="27" color="#FEFFCA" fontFamily="Myriad Pro Black"
 				fontSize="25" tabStops="S0 S50 S100" text="Loading..." textAlign="center"/>
+	<s:RichText id="richtext0" d:userLabel="Text_Error" includeIn="Error_NoConnection" left="370"
+				right="371" top="201" height="93" color="#FFFFFF" fontFamily="Myriad Pro"
+				fontSize="24" tabStops="S0 S50 S100 S150 S200 S250 S300 S350"
+				text="Sorry, there appears to be a problem connecting to the internet. Please try later."/>
 	<s:transitions>
 		<s:Transition fromState="Splash_WithButton" interruptionBehavior="stop" toState="Tutorial1">
 			<s:Parallel>
