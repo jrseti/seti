@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Group xmlns:s="library://ns.adobe.com/flex/spark"
+		 xmlns:fx="http://ns.adobe.com/mxml/2009"
+		 width="80" height="80">
+	<s:Line xFrom="0" y="0" xTo="19">
+		<s:stroke>
+			<s:SolidColorStroke caps="none" color="#FDFF00" joints="miter" miterLimit="4" weight="1"/>
+		</s:stroke>
+	</s:Line>
+	<s:Line xFrom="60" y="0" xTo="79">
+		<s:stroke>
+			<s:SolidColorStroke caps="none" color="#FDFF00" joints="miter" miterLimit="4" weight="1"/>
+		</s:stroke>
+	</s:Line>
+	<s:Line xFrom="0" y="79" xTo="19">
+		<s:stroke>
+			<s:SolidColorStroke caps="none" color="#FDFF00" joints="miter" miterLimit="4" weight="1"/>
+		</s:stroke>
+	</s:Line>
+	<s:Line xFrom="60" y="79" xTo="79">
+		<s:stroke>
+			<s:SolidColorStroke caps="none" color="#FDFF00" joints="miter" miterLimit="4" weight="1"/>
+		</s:stroke>
+	</s:Line>
+	<s:Line yFrom="0" x="0" yTo="19">
+		<s:stroke>
+			<s:SolidColorStroke caps="none" color="#FDFF00" joints="miter" miterLimit="4" weight="1"/>
+		</s:stroke>
+	</s:Line>
+	<s:Line yFrom="60" x="0" yTo="79">
+		<s:stroke>
+			<s:SolidColorStroke caps="none" color="#FDFF00" joints="miter" miterLimit="4" weight="1"/>
+		</s:stroke>
+	</s:Line>
+	<s:Line yFrom="0" x="79" yTo="19">
+		<s:stroke>
+			<s:SolidColorStroke caps="none" color="#FDFF00" joints="miter" miterLimit="4" weight="1"/>
+		</s:stroke>
+	</s:Line>
+	<s:Line yFrom="60" x="79" yTo="79">
+		<s:stroke>
+			<s:SolidColorStroke caps="none" color="#FDFF00" joints="miter" miterLimit="4" weight="1"/>
+		</s:stroke>
+	</s:Line>
+</s:Group>

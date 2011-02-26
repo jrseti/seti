@@ -33,7 +33,9 @@
 	</fx:Script>
 	<s:states>
 		<s:State fc:color="0xff5f08" name="MainState"/>
+		<s:State name="Library"/>
 	</s:states>
-	<components:MainSkin left="0" right="-256" top="0" bottom="0">
+	<components:MainSkin includeIn="MainState" left="0" right="-256" top="0" bottom="0">
 	</components:MainSkin>
+	<components:Graphic_Marker includeIn="Library" x="486" y="279"/>
 </s:Application>

@@ -33,6 +33,7 @@ package com.hg94.seti.view {
 	import com.hg94.seti.model.TargetSet;
 	
 	import components.AssignmentStarfieldPlaceholder;
+	import components.Graphic_Marker;
 	import components.StarfieldTargetMarkerSkin;
 	
 	import flash.events.Event;
@@ -46,24 +47,24 @@ package com.hg94.seti.view {
 	
 	public class AssignmentStarfield extends EventDispatcher {
 			
-		private static const HATHERSAGE_MAP_API_KEY:String = "ABQIAAAAvfCXHyG3_fr2KItfFudhNhRu45k_GoSHRmy8AvsVANhoXVrYpRRD4K1belmVZubunzBgbbEjN4EtwQ";
+		private static const GOOGLE_MAPS_API_KEY:String = "ABQIAAAAvfCXHyG3_fr2KItfFudhNhRu45k_GoSHRmy8AvsVANhoXVrYpRRD4K1belmVZubunzBgbbEjN4EtwQ";
 		
-		protected var _targetSet:TargetSet;
-		protected var _targetArray:Array = [];
+		private static const GOOGLE_MAPS_API_URL:String = "http://seti.hg94.com";
 		
 		private var map:Map3D;
 		
 		public var target:Target;
 		
+		protected var _marker:Marker;
+		
+		
+		
 		public function AssignmentStarfield(placeholder:AssignmentStarfieldPlaceholder, model:Model) {
 			BindingUtils.bindSetter(this.setAssignment, model, ["currentAssignment"]);
 			
-			//this.starfieldSkin.zoomInButton.addEventListener(MouseEvent.CLICK, this.zoomInButton_clickHandler);
-			//this.starfieldSkin.zoomOutButton.addEventListener(MouseEvent.CLICK, this.zoomOutButton_clickHandler);
-			
 			map = new Map3D();
-			map.key=HATHERSAGE_MAP_API_KEY;
-			map.url="http://seti.hg94.com"
+			map.key=GOOGLE_MAPS_API_KEY;
+			map.url=GOOGLE_MAPS_API_URL
 			map.sensor="false"
 			map.percentWidth=100;
 			map.percentHeight=100;
@@ -72,7 +73,7 @@ package com.hg94.seti.view {
 			map.addEventListener(MapEvent.MAP_READY,onMapReady);
 			
 			placeholder.addElement(map);
-
+			
 		}
 		
 		
@@ -88,14 +89,26 @@ package com.hg94.seti.view {
 		private function setAssignment(assignment:Assignment):void {
 			if (assignment) {
 				this.target = assignment.observationRange.observation.target;
-				map.flyTo(this.target.getGoogleSkyCoordinates(), 6, map.getAttitude(), 10);
+				var latLng:LatLng = this.target.getGoogleSkyCoordinates();
+				if (this._marker) {
+					this._marker.setLatLng(latLng)
+				} else {
+					this._marker = new Marker(latLng);
+					var markerOptions:MarkerOptions = this._marker.getOptions();
+					markerOptions.icon = new Graphic_Marker();
+					markerOptions.iconOffset = new Point(-40,-40); 
+					this._marker.setOptions(markerOptions);
+					this.map.addOverlay(this._marker);
+				}
+				this._marker.hide();
+				this.map.flyTo(this.target.getGoogleSkyCoordinates(), 6, this.map.getAttitude(), 3);
 			}
 		}
 		
 		private function addMarkerForTarget(target:Target):void
 		{
 			var marker:Marker = new Marker(target.getGoogleSkyCoordinates());
-			marker.addEventListener(MapMouseEvent.CLICK, onMarkerInteraction);
+			//marker.addEventListener(MapMouseEvent.CLICK, onMarkerInteraction);
 			var markerOptions:MarkerOptions = marker.getOptions();
 			markerOptions.icon = new StarfieldTargetMarkerSkin();
 			markerOptions.iconOffset = new Point(-8,-8); 
@@ -128,26 +141,23 @@ package com.hg94.seti.view {
 		
 		
 		private function mapFlyToDoneHandler(event:MapEvent):void {
+			this._marker.show();
 			this.map.zoomIn(this.target.getGoogleSkyCoordinates(), true, true);
 		}
 		
-		private function doNextZoom():void {
-			if (this.map.getZoom() < 8) {
-				this.map.zoomIn();
-			}
-		}
 		
 		private function mapTilesLoadedHandler(event:MapEvent):void {
 			trace("Tiles loaded");
 		}
-		
+		/*
 		private function onMarkerInteraction(event:MapMouseEvent):void
 		{
 			var currentLatLng:LatLng = event.latLng;
 			var currentPoint:Point = map.fromLatLngToPoint(event.latLng);
-			this.target = this._targetSet.getTargetByGoogleSkyCoordinates(currentLatLng);
+			//this.target = this._targetSet.getTargetByGoogleSkyCoordinates(currentLatLng);
 			//navigator.pushView(com.hg94.seti.views.WaterfallExplorerView, this.target);
 		}
+		*/
 		
 		[Bindable (event="click")]
 		private function get rightAscension():String 

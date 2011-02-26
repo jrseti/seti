@@ -7,6 +7,8 @@ package com.hg94.seti.model {
      */
 
     [Bindable] public class Target {
+		
+		public var id:int;
 
         public var rightAscension:Number;
 

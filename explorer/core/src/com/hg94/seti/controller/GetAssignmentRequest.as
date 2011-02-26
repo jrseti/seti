@@ -48,6 +48,7 @@ package com.hg94.seti.controller {
 			var observationXML:XML = observationRangeXML["observation"][0];
 			var targetXML:XML = observationXML["target"][0];
 			var target:Target = new Target();
+			target.id = targetXML["id"];
 			target.name = targetXML["name"];
 			target.description = targetXML["description"];
 			target.rightAscension = targetXML["right-ascension"];
