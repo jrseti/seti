@@ -1,5 +1,6 @@
 package com.hg94.seti.controller {
 
+	import com.hg94.core.android.AndroidSessionIDManager;
 	import com.hg94.seti.model.Assignment;
 	import com.hg94.seti.model.Observation;
 	import com.hg94.seti.model.ObservationRange;
@@ -31,6 +32,7 @@ package com.hg94.seti.controller {
 			this.httpService.method = "GET" // Shouldn't I reference a static constant here?
 			this.httpService.addEventListener(ResultEvent.RESULT, this.onHTTPServiceResult);
 			this.httpService.addEventListener(FaultEvent.FAULT, this.onHTTPServiceFault);
+			AndroidSessionIDManager.instance.addCookieToHTTPService(this.httpService);
 			trace("Calling " + this.httpService.url);
 			this.httpService.send();
 		}

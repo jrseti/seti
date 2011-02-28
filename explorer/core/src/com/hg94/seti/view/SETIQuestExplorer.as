@@ -1,5 +1,6 @@
 package com.hg94.seti.view
 {
+	import com.hg94.core.SessionIDManager;
 	import com.hg94.seti.controller.GetAssignmentRequest;
 	import com.hg94.seti.controller.PostPatternMarkRequest;
 	import com.hg94.seti.model.Model;
@@ -32,6 +33,8 @@ package com.hg94.seti.view
 		private static var PUBLIC_AIR_URL_ROOT:String = "http://heroku.seti.hg94.com";
 		
 		public var mainSkin:MainSkin;
+		
+		public var sessionIDManager:SessionIDManager;
 
 		private var assignmentStarfield:AssignmentStarfield;
 		
@@ -39,17 +42,26 @@ package com.hg94.seti.view
 		
 		[Bindable] public var model:Model;
 		
-		protected var _api_url_root:String;
+		
+		/** Get the root to use for the API URL, also used for authentication.
+		 * 	Static method so it can be called e.g. from an AndroidView.
+		 */
+		
+		public static function get api_url_root():String {
+			if (Capabilities.playerType == "ActiveX" || Capabilities.playerType == "PlugIn") {
+				return "";
+			} else if (Capabilities.isDebugger) {
+				return SETIQuestExplorer.DEBUG_AIR_URL_ROOT;
+			} else {
+				return SETIQuestExplorer.PUBLIC_AIR_URL_ROOT; 
+			}
+			
+		}
+		
+		
 
 		public function SETIQuestExplorer()
 		{
-			if (Capabilities.playerType == "ActiveX" || Capabilities.playerType == "PlugIn") {
-				this._api_url_root = "";
-			} else if (Capabilities.isDebugger) {
-				this._api_url_root = SETIQuestExplorer.DEBUG_AIR_URL_ROOT;
-			} else {
-				this._api_url_root = SETIQuestExplorer.PUBLIC_AIR_URL_ROOT; 
-			}
 			this.percentHeight = 100;
 			this.percentWidth = 100;
 			this.model = new Model();
@@ -144,7 +156,7 @@ package com.hg94.seti.view
 		}
 		
 		private function categoryButtonHandler(event:MouseEvent):void {
-			var postPatternMarkRequest:PostPatternMarkRequest = new PostPatternMarkRequest(this._api_url_root);
+			var postPatternMarkRequest:PostPatternMarkRequest = new PostPatternMarkRequest(SETIQuestExplorer.api_url_root);
 			postPatternMarkRequest.postPatternMark(this.model.currentAssignment, this.model.currentMHzMidpoint);
 		}
 		
@@ -162,8 +174,7 @@ package com.hg94.seti.view
 		
 		protected function getAssignment():void 
 		{
-			trace("So now the url root is " + this._api_url_root);
-			var getAssignmentRequest:GetAssignmentRequest = new GetAssignmentRequest(this._api_url_root);
+			var getAssignmentRequest:GetAssignmentRequest = new GetAssignmentRequest(SETIQuestExplorer.api_url_root);
 			getAssignmentRequest.addEventListener(ResultEvent.RESULT, this.getAssignmentResultHandler);
 			getAssignmentRequest.getAssignment();
 		}

@@ -27,6 +27,7 @@
 	</s:creationComplete>
 	<fx:Script>
 		<![CDATA[
+			import androidviews.SETIQuestExplorerAndroidView;
 			import com.hg94.common.facebook.FacebookAirAndroid;
 			import com.hg94.seti.views.components.WebViewWrangler;
 			
@@ -59,7 +60,7 @@
 					FacebookAirAndroid.login(code);
 					webView.dispose();
 					
-					navigator.pushView(com.hg94.seti.views.SETIQuestExplorerView);
+					navigator.pushView(androidviews.SETIQuestExplorerAndroidView);
 				}
 			}
 			

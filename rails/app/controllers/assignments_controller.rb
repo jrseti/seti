@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
   
-  #load_and_authorize_resource
+  load_and_authorize_resource :except => :current_assignment_for_user
   
   # GET /assignments
   # GET /assignments.xml
@@ -71,7 +71,7 @@ class AssignmentsController < ApplicationController
     #if @assignment.nil?
       observation_range = ObservationRange.find(:first, :offset => rand(ObservationRange.count))
       #@assignment = Assignment.new(:user => current_user, :observation_range => observation_range, :status => :in_progress)
-      @assignment = Assignment.new(:user => User.first, :observation_range => observation_range, :status => :in_progress)
+      @assignment = Assignment.new(:user_id => current_user.id, :observation_range => observation_range, :status => :in_progress)
     #end
     
 
@@ -80,7 +80,7 @@ class AssignmentsController < ApplicationController
     respond_to do |format|
       if @assignment.save
         format.html { render :action => 'show' }# show.html.erb
-        format.xml  { render :xml => @assignment.to_xml(:include => {:observation_range => {:include => {:observation => {:include => :target}}}}) }
+        format.xml  { render :xml => @assignment.to_xml(:include => {:observation_range => {:include => {:observation => {:include => :target}}}}), :content_type => Mime::XML }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @assignment.errors, :status => :unprocessable_entity }

@@ -97,7 +97,7 @@
     <%if current_user%>
 
         | Logged in as <%=current_user.name%> | 
-        <%= link_to "Log Out", logout_path %>
+        <%= link_to "Log Out", logout_path %> 
     
           <%if current_user.role.to_sym == :admin%>
             <span style="float:right">

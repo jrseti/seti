@@ -1,0 +1,177 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android)
+
+Name: assets/META-INF/AIR/application.xml
+SHA1-Digest: hvoQ9o7L88JsyIv/Y8VrD7Wi/sk=
+
+Name: assets/assets/images/icon_72x72.png
+SHA1-Digest: Ts5C3zRB9S1QiblDL+cZwKIpqfM=
+
+Name: assets/Main.swf
+SHA1-Digest: ZrGfvOhnvhHZ+qOt66KfQ3R/7+Q=
+
+Name: assets/assets/images/Image.png
+SHA1-Digest: EOah89tMUWp7ebuI0Jrtqm2bvKQ=
+
+Name: res/raw/debuginfo
+SHA1-Digest: 7L/scY3nxFgbOcUfsZnlVxjtl6w=
+
+Name: assets/assets/images/AdobeLogo_192wBlack.jpg
+SHA1-Digest: 0/8WBHoUOHdNi9avBeYpGUpRDT4=
+
+Name: res/drawable-ldpi/icon.png
+SHA1-Digest: kcDu1Cu2/7s+cg9DCdBu2qWrgbE=
+
+Name: lib/armeabi-v7a/libNativeABI.so
+SHA1-Digest: 0AJBzFQr/W3tEOPuSpDhMgNqd8U=
+
+Name: assets/assets/images/Group.png
+SHA1-Digest: rVcwur5oHTjXFgFma4FpbTrVk14=
+
+Name: assets/com/.DS_Store
+SHA1-Digest: 28V1oXYMoUNkAgxGQkSbiM/eEZQ=
+
+Name: res/drawable-mdpi/icon.png
+SHA1-Digest: kcDu1Cu2/7s+cg9DCdBu2qWrgbE=
+
+Name: assets/assets/images/StarfieldView/Image_2.png
+SHA1-Digest: KDpU0OqUi9D7ycF5uFev94VjkNg=
+
+Name: assets/assets/images/SpiralGalaxyNGC2841.jpg
+SHA1-Digest: WIn/vzKHzFNMJ2OD2SBm+1jgDRU=
+
+Name: assets/assets/images/icon_16x16.png
+SHA1-Digest: dchgIwdlKHQVHAkn/4OGNPdhKc0=
+
+Name: assets/assets/images/FirefoxScreenSnapz005.png
+SHA1-Digest: VYLrWLLysZJHNqtXV7JeR/owl98=
+
+Name: assets/assets/images/catalystClipPaste1631746183963039467.png
+SHA1-Digest: wYOiOdOIFb+nYbSKTKmQNfZjR9I=
+
+Name: assets/assets/images/m1.png
+SHA1-Digest: FcJCvsSD0j2ga73iSokZe+Vm6kI=
+
+Name: assets/assets/images/catalystClipPaste6353388185123932358.png
+SHA1-Digest: TKaMgNlal+8z5dsgAPpBe/kW2Nw=
+
+Name: assets/assets/.DS_Store
+SHA1-Digest: Mv4EE0YJPWhDyd4un1cgzpAhxsE=
+
+Name: assets/com/hg94/.DS_Store
+SHA1-Digest: gdAqBy58IcQrQbO9EGfS1M+Xl2U=
+
+Name: assets/Main.css
+SHA1-Digest: hY/aS23z46zo946dxYYjvEujm7E=
+
+Name: assets/assets/images/AdobeLogo_908x1114.jpg
+SHA1-Digest: 2+qMgss+ZFGxSxy3x6M3lnRD0Hc=
+
+Name: assets/assets/images/AdobeLogo_192wBlack1.jpg
+SHA1-Digest: 0/8WBHoUOHdNi9avBeYpGUpRDT4=
+
+Name: assets/assets/images/Image2.png
+SHA1-Digest: EOah89tMUWp7ebuI0Jrtqm2bvKQ=
+
+Name: assets/assets/images/Image1.png
+SHA1-Digest: n83ZtDw4/Mvx90EkEjYIhB7OWxE=
+
+Name: assets/assets/images/catalystClipPaste24149126510297209.png
+SHA1-Digest: CYsd4x+/0KJA908IMx4BWX343Mk=
+
+Name: assets/assets/images/RasterizedItems.png
+SHA1-Digest: iD5qRGj1gjWAqano7LBOPa31BPU=
+
+Name: assets/assets/images/catalystClipPaste1916898104564578934.png
+SHA1-Digest: w4iD7Brs0gG6TG3mCm1dYZe3c4o=
+
+Name: assets/assets/images/m2.png
+SHA1-Digest: hQ/M6iPB0g8P4SwgtqgRplrgMdA=
+
+Name: assets/assets/images/catalystClipPaste296826651456612443.png
+SHA1-Digest: HckFpRSAstrQhx3UCdi9ZOe7Cms=
+
+Name: assets/assets/images/m5.png
+SHA1-Digest: LQARz4E9dZVhyST1xGDWUgFSnC8=
+
+Name: resources.arsc
+SHA1-Digest: BxyDDJJKtktZhioMlVXj899DwFQ=
+
+Name: assets/assets/images/catalystClipPaste9101929730235137090.png
+SHA1-Digest: nCMLOTyWTKTKPgpqF5WXmyOfbtE=
+
+Name: assets/assets/images/zoom-in.png
+SHA1-Digest: d2F1+oFQHlxCfpqM1DNUmBnQdZc=
+
+Name: assets/assets/data/getobservations.txt
+SHA1-Digest: HSL7EUZuJDXpoSwmIrKoQ0cIzjc=
+
+Name: assets/assets/images/icon_32x32.png
+SHA1-Digest: lkXtVUq3JNRPAXYC5zvm1VBzAf0=
+
+Name: assets/assets/images/setiQuestExplorerLogo1.gif
+SHA1-Digest: IanCrDAKoCLbQ1oCSvth8loy0Lg=
+
+Name: assets/assets/images/icon_48x48.png
+SHA1-Digest: blfiZOQsNn2oB27iwiVpHEHgWoE=
+
+Name: AndroidManifest.xml
+SHA1-Digest: CJEPgG8mXW+mWI/GJb0C+mntaNc=
+
+Name: assets/assets/images/catalystClipPaste2557830089627908089.png
+SHA1-Digest: 3fFd4CmXxi2QBvn+EbslpVz0sug=
+
+Name: assets/assets/images/m4.png
+SHA1-Digest: LQARz4E9dZVhyST1xGDWUgFSnC8=
+
+Name: assets/assets/images/catalystClipPaste2631330543473235134.png
+SHA1-Digest: H+Z/RABBR2bA8qgUEwFPJ05jva8=
+
+Name: assets/com/hg94/seti/.DS_Store
+SHA1-Digest: IExX7K6XcH9tu09JRflmK4pHM8E=
+
+Name: assets/.DS_Store
+SHA1-Digest: 3y++sUAKzaCQmjLBz2v0kvESHgc=
+
+Name: assets/assets/images/catalystClipPaste1988120709522550596.png
+SHA1-Digest: 6m4G1Sckh+TAg43AFr8pP0wfwiE=
+
+Name: assets/assets/images/Image3.png
+SHA1-Digest: 6k3FOh2SLqldazEEQ9OI0+JOjqc=
+
+Name: assets/assets/images/setiQuestExplorerLogo.gif
+SHA1-Digest: DLGxNfY2vYg4IJ0BXEWUEwnrYYo=
+
+Name: assets/assets/images/catalystClipPaste7706191209106165873.png
+SHA1-Digest: pITCAUSZajwJZo0AWMMX/WoXsUc=
+
+Name: assets/assets/images/SETIInstituteLogo_192wBlack.jpg
+SHA1-Digest: p95iDd4iIFJ9GyCp4gCz1U8jtX4=
+
+Name: classes.dex
+SHA1-Digest: nJJYfL9KEykJvsPUbVoiP5sM/Vg=
+
+Name: assets/assets/images/icon_128x128.png
+SHA1-Digest: Byb9u0s0bxITGYVBtlnwGAVKTfo=
+
+Name: assets/assets/images/m3.png
+SHA1-Digest: LQARz4E9dZVhyST1xGDWUgFSnC8=
+
+Name: assets/assets/images/catalystClipPaste3633135059732295079.png
+SHA1-Digest: dAFSNTtf947nVr3p7PochVDKjkY=
+
+Name: assets/assets/images/catalystClipPaste827400041864932800.png
+SHA1-Digest: M59H+udzvqWcr/5FSKSIOnSqVyE=
+
+Name: assets/assets/images/setiQuestExplorerLogo2.gif
+SHA1-Digest: Ix6dIsQ9U25FOojCSB9JoOXATQo=
+
+Name: assets/assets/images/zoom-out.png
+SHA1-Digest: hrr0KvFMmfSOBRBBF6OqExHV7c8=
+
+Name: assets/assets/images/catalystClipPaste2772260317681254827.png
+SHA1-Digest: FGxBmTEwfjPy0d2I/kTf45ydfDQ=
+
+Name: res/drawable-hdpi/icon.png
+SHA1-Digest: kcDu1Cu2/7s+cg9DCdBu2qWrgbE=
+

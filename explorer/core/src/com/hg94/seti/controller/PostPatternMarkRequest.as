@@ -1,5 +1,6 @@
 package com.hg94.seti.controller
 {
+	import com.hg94.core.android.AndroidSessionIDManager;
 	import com.hg94.seti.model.Assignment;
 	
 	import flash.events.EventDispatcher;
@@ -27,6 +28,7 @@ package com.hg94.seti.controller
 			this._httpService.method = "POST" // Shouldn't I reference a static constant here?
 			this._httpService.addEventListener(ResultEvent.RESULT, this.onHTTPServiceResult);
 			this._httpService.addEventListener(FaultEvent.FAULT, this.onHTTPServiceFault);
+			AndroidSessionIDManager.instance.addCookieToHTTPService(this._httpService);
 			var params:Object = new Object();
 			params["pattern_mark[category]"] = "CATEGORY";
 			if (!isNaN(mhz)) {

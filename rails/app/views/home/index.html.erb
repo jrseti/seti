@@ -10,7 +10,7 @@
   <%if current_user%>
   
   
-    <%if current_user.role.to_sym == :admin || current_user.role.to_sym == :explorer%>
+    <%if can? :explore, :all%>
     
   
       <div style="width:800px;margin-left:auto;margin-right:auto">  

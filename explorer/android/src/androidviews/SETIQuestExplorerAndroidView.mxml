@@ -4,6 +4,18 @@
 		actionBarVisible="false" 
 		xmlns:view="com.hg94.seti.view.*" 
 		backgroundColor="#000000">
+	<fx:Script>
+		<![CDATA[
+			import com.hg94.core.android.AndroidSessionIDManager;
+		]]>
+	</fx:Script>
+	<s:creationComplete>
+		<![CDATA[
+		if (AndroidSessionIDManager.instance.sessionID == "") {
+			this.navigator.pushView(androidviews.APIAuthenticationAndroidView);
+		}
+		]]>
+	</s:creationComplete>
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>

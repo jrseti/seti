@@ -40,7 +40,16 @@ class PatternMarksController < ApplicationController
   # POST /pattern_marks
   # POST /pattern_marks.xml
   def create
+    
     @pattern_mark = PatternMark.new(params[:pattern_mark])
+    
+    # It's today's date
+    @pattern_mark.date = Time.new.inspect
+    
+    
+    # Now look to see whether we have any Patterns within .005 MHz
+    
+    
 
     respond_to do |format|
       if @pattern_mark.save

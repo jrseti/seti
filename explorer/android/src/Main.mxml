@@ -3,6 +3,35 @@
 			   xmlns:s="library://ns.adobe.com/flex/spark"
 			   xmlns:view="com.hg94.seti.view.*"
 			   backgroundColor="#000000"
-			   firstView="com.hg94.seti.views.SETIQuestExplorerView">
+			   firstView="androidviews.SETIQuestExplorerAndroidView" creationComplete="handleCreationComplete(event);">
 	<fx:Style source="Main.css"/>
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			private function handleCreationComplete(event:FlexEvent):void {
+				if(Capabilities.cpuArchitecture=="ARM")
+				{
+					NativeApplication.nativeApplication.addEventListener(Event.ACTIVATE, this.handleActivate, false, 0, true);
+					NativeApplication.nativeApplication.addEventListener(Event.DEACTIVATE, handleDeactivate, false, 0, true);
+					NativeApplication.nativeApplication.addEventListener(KeyboardEvent.KEY_DOWN, handleKeys, false, 0, true);
+				}
+			}
+
+			private function handleActivate(event:Event):void
+			{
+				NativeApplication.nativeApplication.systemIdleMode = SystemIdleMode.KEEP_AWAKE;
+			}
+
+			private function handleDeactivate(event:Event):void
+			{
+				NativeApplication.nativeApplication.exit();
+			}
+
+			private function handleKeys(event:KeyboardEvent):void
+			{
+				if(event.keyCode == Keyboard.BACK)
+					NativeApplication.nativeApplication.exit();
+			}			
+		]]>
+	</fx:Script>
 </s:ViewNavigatorApplication>

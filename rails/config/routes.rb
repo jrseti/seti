@@ -20,6 +20,11 @@ Seti::Application.routes.draw do
   resources :users
 
   get "home/index"
+  
+  # A blank page which is the reidrect target for the AIR application
+  
+  match "/air_active" => "sessions#air_active"
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

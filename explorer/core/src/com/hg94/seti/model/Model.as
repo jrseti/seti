@@ -10,6 +10,8 @@ package com.hg94.seti.model
 		
 		public var splashMessage:String; 
 		
+		public var session_id:String;
+		
 		public function Model()
 		{
 		}
