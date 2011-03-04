@@ -39,3 +39,8 @@ gem 'omniauth'
 # Using Cancan for authorization
 
 gem 'cancan'
+
+
+# Using kaminari for pagination
+
+gem 'kaminari'

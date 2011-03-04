@@ -1,8 +1,11 @@
 class PatternMarksController < ApplicationController
+  
+  load_and_authorize_resource :except => :mark_pattern
+  
   # GET /pattern_marks
   # GET /pattern_marks.xml
   def index
-    @pattern_marks = PatternMark.all
+    @pattern_marks = PatternMark.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,6 +43,8 @@ class PatternMarksController < ApplicationController
   # POST /pattern_marks
   # POST /pattern_marks.xml
   def create
+
+    puts request.env['HTTP_COOKIE'] ? "CPM/Cookie: " + request.env['HTTP_COOKIE'] : "No Cookie"
     
     @pattern_mark = PatternMark.new(params[:pattern_mark])
     
@@ -61,6 +66,32 @@ class PatternMarksController < ApplicationController
       end
     end
   end
+
+
+  # Making a separate GET method for the app to actually mark a pattern.
+  # Not fully RESTful, but Rails seems to somehow delete or change session information on a POST from AIR
+  # http://stackoverflow.com/questions/5187582/rails-3-is-changing-session-id-on-post-from-air
+  
+  def mark_pattern
+    authorize! :explore, PatternMark
+
+    @pattern_mark = PatternMark.new(params[:pattern_mark])
+    
+    # It's today's date
+    @pattern_mark.date = Time.new.inspect
+
+    respond_to do |format|
+      if @pattern_mark.save
+        format.html { redirect_to(@pattern_mark, :notice => 'Pattern mark was successfully created.') }
+        format.xml  { render :xml => @pattern_mark, :status => :created, :location => @pattern_mark }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @pattern_mark.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+
 
   # PUT /pattern_marks/1
   # PUT /pattern_marks/1.xml

@@ -5,7 +5,7 @@ class AssignmentsController < ApplicationController
   # GET /assignments
   # GET /assignments.xml
   def index
-    @assignments = Assignment.all
+    @assignments = Assignment.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -63,6 +63,11 @@ class AssignmentsController < ApplicationController
   # This is where the main app calls to get the next assignment for a user. It may create an assignment or return one that's already in progress.
   
   def current_assignment_for_user
+
+    # This is just for debugging, until I figure out the session handling problem
+    
+    puts request.env['HTTP_COOKIE'] ? "CAFU/Cookie: " + request.env['HTTP_COOKIE'] : "No Cookie"
+    authorize! :explore, Assignment
     
     # Once this is working right, we'll check first to see whether the user is already in the middle of an assignment.
     

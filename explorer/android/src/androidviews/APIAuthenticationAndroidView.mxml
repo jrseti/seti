@@ -21,13 +21,12 @@
 		<![CDATA[
 		webView.addEventListener( LocationChangeEvent.LOCATION_CHANGE, onLocationChange);
 		webView.addEventListener( ErrorEvent.ERROR, onError );
-		
-		
 		]]>
 	</s:creationComplete>
 	<fx:Script>
 		<![CDATA[
 			import com.hg94.core.android.AndroidSessionIDManager;
+			import com.hg94.seti.model.Model;
 			import com.hg94.seti.view.SETIQuestExplorer;
 			import com.hg94.seti.views.components.WebViewWrangler;
 			
@@ -70,10 +69,7 @@
 */
 				if (event.location.indexOf("air_active") > 0) {
 					AndroidSessionIDManager.instance.parseSessionIDFromURLString(event.location);
-					trace("Leaving StageWebView");
-					this.webView.dispose();
-					//this.navigator.pushView(androidviews.SETIQuestExplorerAndroidView);
-					this.navigator.popView();				
+					this.hide();
 				}
 					
 			}
@@ -84,7 +80,16 @@
 			
 			
 			private function onError( event : ErrorEvent ) : void {
-				trace(event); // TODO: Handle this gracefully
+				trace("StageWebView error");
+				var model:Model = Model(this.data);
+				model.errorMessage = event.text;
+				this.hide();
+			}
+			
+			protected function hide():void {
+				trace("Leaving StageWebView");
+				this.webView.dispose();
+				this.navigator.popView();				
 			}
 		]]>
 	</fx:Script>

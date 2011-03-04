@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark"
+			   xmlns:view="com.hg94.seti.view.*"
+			   addedToStage="addedToStageHandler(event)"
+			   creationComplete="creationCompleteHandler(event)"
+			   backgroundColor="#000000"
+			   >
+	<fx:Script>
+		<![CDATA[
+			import com.hg94.core.AuthenticationSystem;
+			import com.hg94.core.android.AndroidAuthenticationSystem;
+			
+			import mx.events.FlexEvent;
+
+			private function creationCompleteHandler(event:FlexEvent):void {
+				if(Capabilities.cpuArchitecture=="ARM")
+				{
+					NativeApplication.nativeApplication.addEventListener(Event.ACTIVATE, this.handleActivate, false, 0, true);
+					NativeApplication.nativeApplication.addEventListener(Event.DEACTIVATE, handleDeactivate, false, 0, true);
+					NativeApplication.nativeApplication.addEventListener(KeyboardEvent.KEY_DOWN, handleKeys, false, 0, true);
+				}
+			}
+			
+			private function handleActivate(event:Event):void
+			{
+				NativeApplication.nativeApplication.systemIdleMode = SystemIdleMode.KEEP_AWAKE;
+			}
+			
+			private function handleDeactivate(event:Event):void
+			{
+				NativeApplication.nativeApplication.exit();
+			}
+			
+			private function handleKeys(event:KeyboardEvent):void
+			{
+				if(event.keyCode == Keyboard.BACK)
+					NativeApplication.nativeApplication.exit();
+			}			
+			protected function addedToStageHandler(event:Event):void
+			{
+				var rectangle:Rectangle = new Rectangle(0, 0, this.width, this.height);
+				this.explorer.authenticationSystem = new AndroidAuthenticationSystem(rectangle, this.stage);
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<view:SETIQuestExplorer id="explorer" height="100%" width="100%"/>
+</s:Application>

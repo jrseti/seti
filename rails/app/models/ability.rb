@@ -2,6 +2,7 @@ class Ability
   include CanCan::Ability
   
   def initialize(user)
+    user ||= User.new
     role = user.role.to_sym
     if role == :admin
       can :manage, :all

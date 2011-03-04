@@ -1,4 +1,6 @@
-<h1>Listing pattern_marks</h1>
+<h1>Pattern Marks</h1>
+
+<%= paginate @pattern_marks %>
 
 <table>
   <tr>
@@ -12,7 +14,7 @@
 
 <% @pattern_marks.each do |pattern_mark| %>
   <tr>
-    <td><%= pattern_mark.pattern.observation.friendly_name rescue "-" %></td>
+    <td><%= pattern_mark.assignment.observation_range.observation.friendly_name rescue "-" %></td>
     <td><%= pattern_mark.mhz %></td>
     <td><%= pattern_mark.category %></td>
     <td><%= pattern_mark.date %></td>

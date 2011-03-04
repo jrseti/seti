@@ -21,7 +21,8 @@
   <b>Friendly Name:</b>
     <%= @assignment.friendly_name %>
   </p>
-  
+
+<p><b>Created: </b><%=time_since(@assignment.created_at)%></p> 
 
 
 <%= link_to 'Edit', edit_assignment_path(@assignment) %> |

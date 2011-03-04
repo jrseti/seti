@@ -1,0 +1,23 @@
+<h1>Sessions</h1>
+
+<%= paginate @sessions %>
+<table>
+  <tr>
+    <th>User</th>
+    <th>Session ID</th>
+    <th>Created/Updated</th>
+    <th>Actions</th>
+  </tr>
+
+<% @sessions.each do |session| %>
+
+  <tr>
+    <td><%=User.find(Marshal.load(ActiveSupport::Base64.decode64(session.data))['user_id']).name rescue '-'%></td>
+    
+    <td><%= session.session_id %> 
+    <td><%= time_since(session.created_at) %><br/><%= time_since(session.updated_at) %></td>
+    <td><%= link_to 'Destroy', session, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+

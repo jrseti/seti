@@ -1,11 +1,13 @@
 Seti::Application.routes.draw do
   
-  resources :pattern_marks
+  resources :pattern_marks do
+    get :mark_pattern, :on => :collection
+  end
 
   resources :patterns
 
   match "/auth/:provider/callback" => "sessions#create"
-  match "/logout" => "sessions#destroy", :as => :logout
+  match "/logout" => "sessions#logout", :as => :logout
   
   resources :assignments do
     get :current_assignment_for_user, :on => :collection
@@ -17,8 +19,13 @@ Seti::Application.routes.draw do
 
   resources :targets
 
-  resources :users
-
+  resources :users do
+    get :show_self, :on => :collection
+  end
+  
+  resources :sessions
+  
+  
   get "home/index"
   
   # A blank page which is the reidrect target for the AIR application

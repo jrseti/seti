@@ -23,12 +23,7 @@
     <%= f.label :date %><br />
     <%= f.date_select :date %>
   </div>
-  
-  <div class="field">
-    <%= f.label :pattern %><br />
-    <%= f.collection_select :pattern_id, Pattern.all, :id, :friendly_name %>
-  </div>
-  
+
   <div class="field">
     <%= f.label :assignment %><br />
     <%= f.collection_select :assignment_id, Assignment.all, :id, :friendly_name %>

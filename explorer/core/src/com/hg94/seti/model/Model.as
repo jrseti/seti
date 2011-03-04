@@ -12,8 +12,8 @@ package com.hg94.seti.model
 		
 		public var session_id:String;
 		
-		public function Model()
-		{
-		}
+		public var errorMessage:String;
+		
+		public var user:User;
 	}
 }

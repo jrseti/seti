@@ -24,8 +24,9 @@ package com.hg94.seti.view {
 	import com.google.maps.overlays.Marker;
 	import com.google.maps.overlays.MarkerOptions;
 	import com.google.maps.styles.FillStyle;
-	import com.hg94.seti.controller.GetAssignmentRequest;
+	import com.hg94.seti.controller.GetAssignmentAPICall;
 	import com.hg94.seti.controller.TargetListRequest;
+	import com.hg94.seti.events.MapReadyEvent;
 	import com.hg94.seti.model.Assignment;
 	import com.hg94.seti.model.Model;
 	import com.hg94.seti.model.Observation;
@@ -129,14 +130,11 @@ package com.hg94.seti.view {
 		}
 		
 		
-		// TODO: Make a real event!!
-		
 		private function onMapReady(event:MapEvent):void
 		{
 			map.enableContinuousZoom();
 			map.addEventListener(MapEvent.FLY_TO_DONE, this.mapFlyToDoneHandler);
-			var e:Event = new Event("READY");
-			this.dispatchEvent(e);
+			this.dispatchEvent(event.clone());
 		}
 		
 		

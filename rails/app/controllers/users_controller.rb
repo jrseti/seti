@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  load_and_authorize_resource
+  load_and_authorize_resource :except => :show_self
   
   # GET /users
   # GET /users.xml
@@ -21,6 +21,24 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @user }
+    end
+  end
+
+  def show_self
+    if current_user
+      puts "There is a current user"
+      @user = current_user
+
+      respond_to do |format|
+        format.html { render :action => "show"}
+        format.xml  { render :xml => @user }
+      end
+    else
+      puts "There is no current user"
+      respond_to do |format|
+        session.destroy
+        format.xml  { render :xml => "<NotLoggedIn/>" }
+      end
     end
   end
 

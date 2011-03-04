@@ -24,8 +24,10 @@
 
 <p>
   <b>Assignment:</b>
-  <%= link_to @pattern_mark.assignment.friendly_name, @pattern_mark.assignment %>
+  <%= link_to @pattern_mark.assignment.friendly_name, @pattern_mark.assignment rescue "-" %>
 </p>
+
+<p><b>Created: </b><%=time_since(@pattern_mark.created_at)%></p> 
 
 
 <%= link_to 'Edit', edit_pattern_mark_path(@pattern_mark) %> |

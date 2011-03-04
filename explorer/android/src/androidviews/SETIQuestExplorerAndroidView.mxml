@@ -12,7 +12,7 @@
 	<s:creationComplete>
 		<![CDATA[
 		if (AndroidSessionIDManager.instance.sessionID == "") {
-			this.navigator.pushView(androidviews.APIAuthenticationAndroidView);
+			this.navigator.pushView(androidviews.APIAuthenticationAndroidView, this.explorer.model);
 		}
 		]]>
 	</s:creationComplete>

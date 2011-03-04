@@ -5,7 +5,7 @@ class ObservationRangesController < ApplicationController
   # GET /observation_ranges
   # GET /observation_ranges.xml
   def index
-    @observation_ranges = ObservationRange.all
+    @observation_ranges = ObservationRange.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
