@@ -371,25 +371,6 @@
 			  enabled.Tutorial6="false"
 			  enabled.Tutorial7="false"
 			  enabled.Tutorial8="false"/>
-	<s:BitmapImage d:userLabel="Image_SETIQuestExplorerLogoSmall"
-				   includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Tutorial8,Tutorial7,Tutorial6,Tutorial5,ThankYou,Pattern,Tutorial4,Tutorial3,Tutorial2"
-				   left="12" top="8" smooth="true" source="@Embed('/assets/images/Image3.png')"/>
-	<graphics:Graphic1 id="graphic11" d:userLabel="Image_SetiQuestExplorerLogo_Big"
-					   includeIn="Error_NoConnection,Splash_Loading,Splash_WithButton,Tutorial1,Skeleton"
-					   x.Error_NoConnection="9" y.Error_NoConnection="8"
-					   width.Error_NoConnection="175" height.Error_NoConnection="24"
-					   x.Skeleton="9" y.Skeleton="8" width.Skeleton="175" height.Skeleton="24"
-					   left.Splash_Loading="9" top.Splash_Loading="7" width.Splash_Loading="569"
-					   height.Splash_Loading="79" blendMode.Splash_Loading="overlay"
-					   left.Splash_WithButton="9" top.Splash_WithButton="7"
-					   width.Splash_WithButton="569" height.Splash_WithButton="79"
-					   blendMode.Splash_WithButton="overlay"
-					   x.Tutorial1="9" y.Tutorial1="8" width.Tutorial1="175" height.Tutorial1="24">
-		<graphics:filters>
-			<s:GlowFilter includeIn="Splash_Loading,Splash_WithButton" alpha="1.0" blurX="12" blurY="12" color="#000000"
-						  inner="false" knockout="false" quality="2" strength="1"/>
-		</graphics:filters>
-	</graphics:Graphic1>
 	<s:Button d:userLabel="Button_NextScreen"
 			  includeIn="Pattern,ThankYou,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
 			  right="12" bottom="10" buttonMode="true" click="button_clickHandler()"
@@ -439,29 +420,15 @@
 	<s:Button includeIn="Splash_WithButton" right="9" bottom="9" width="139" height="45"
 			  label="Begin" click="button_clickHandler_9()" skinClass="components.Button_Begin"/>
 	<s:RichText id="labelDisplay1" d:userLabel="Text_Loading" includeIn="Splash_Loading" right="11"
-				bottom="8" width="132" height="27" color="#FEFFCA" fontFamily="Myriad Pro Black"
-				fontSize="25" tabStops="S0 S50 S100" text="Loading..." textAlign="center"/>
+				bottom="8" width="256" height="27" color="#FEFFCA" fontFamily="Myriad Pro Black"
+				fontSize="25" tabStops="S0 S50 S100" text="Initializing..." textAlign="end"/>
 	<s:RichText color="#FFFFFF" fontFamily="Myriad Pro" fontSize="24" height="28" id="richtext0" includeIn="Error_NoConnection" left="40" tabStops="S0 S50 S100 S150 S200 S250 S300 S350" text="Sorry, there appears to be a problem." top="70" d:userLabel="Text_Error" whiteSpaceCollapse="preserve" width="370"/>
 	<s:RichText includeIn="Error_NoConnection" left="40" right="40" top="112" bottom="60"
 				color="#CCCCCC" fontFamily="Myriad Pro" fontSize="12"
 				tabStops="S0 S50 S100 S150 S200 S250 S300 S350" text="{this.model.errorMessage}"/>
+	<s:BitmapImage x="7" y="4" smooth="true" source="@Embed('/assets/images/LogoHorizontal_40h.png')">
+	</s:BitmapImage>
 	<s:transitions>
-		<s:Transition fromState="Splash_WithButton" interruptionBehavior="stop" toState="Tutorial1">
-			<s:Parallel>
-				<s:Parallel target="{graphic11}">
-					<s:Animate duration="500">
-						<s:SimpleMotionPath property="width"/>
-						<s:SimpleMotionPath property="height"/>
-					</s:Animate>
-					<s:Animate duration="500">
-						<s:SimpleMotionPath property="top"/>
-						<s:SimpleMotionPath property="y"/>
-						<s:SimpleMotionPath property="left"/>
-						<s:SimpleMotionPath property="x"/>
-					</s:Animate>
-				</s:Parallel>
-			</s:Parallel>
-		</s:Transition>
 		<s:Transition fromState="Tutorial1" interruptionBehavior="stop" toState="Tutorial2">
 			<s:Parallel>
 				<s:Animate duration="500" target="{richtext1}">
