@@ -336,28 +336,28 @@
 				text.Tutorial7="Scroll through the data from left to right, and indicate when you see an interesting pattern..."
 				x.Tutorial8="421" y.Tutorial8="353" height.Tutorial8="91"
 				text.Tutorial8="Then categorize the pattern if it fits one of the known pattern types displayed..."/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" right="10" top="393" buttonMode="true"
+	<skinnablecomponents:CategoryButton id="categoryButton_unknown" includeIn="Categorize" right="10" top="393" buttonMode="true"
 										click="categoryButton_clickHandler()"
 										skinClass="components.CategoryButtonSkin_Unknown"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" right="86" top="393" buttonMode="true"
+	<skinnablecomponents:CategoryButton id="categoryButton_radar" includeIn="Categorize" right="86" top="393" buttonMode="true"
 										click="categoryButton_clickHandler_1()"
 										skinClass="components.CategoryButtonSkin_Radar"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" right="160" top="393"
+	<skinnablecomponents:CategoryButton id="categoryButton_modulation" includeIn="Categorize" right="160" top="393"
 										buttonMode="true" click="categoryButton_clickHandler_2()"
 										skinClass="components.CategoryButtonSkin_Modulation"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" right="238" top="393"
+	<skinnablecomponents:CategoryButton id="categoryButton_broadband" includeIn="Categorize" right="238" top="393"
 										buttonMode="true" click="categoryButton_clickHandler_3()"
 										skinClass="components.CategoryButtonSkin_Broadband"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" right="313" top="394"
+	<skinnablecomponents:CategoryButton id="categoryButton_pulse" includeIn="Categorize" right="313" top="394"
 										buttonMode="true" click="categoryButton_clickHandler_4()"
 										skinClass="components.CategoryButtonSkin_Pulse"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" right="386" top="393"
+	<skinnablecomponents:CategoryButton id="categoryButton_squiggle" includeIn="Categorize" right="386" top="393"
 										buttonMode="true" click="categoryButton_clickHandler_5()"
 										skinClass="components.CategoryButtonSkin_Squiggle"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" right="460" top="393"
+	<skinnablecomponents:CategoryButton id="categoryButton_diagonal" includeIn="Categorize" right="460" top="393"
 										buttonMode="true" click="categoryButton_clickHandler_6()"
 										skinClass="components.CategoryButtonSkin_Diagonal"/>
-	<skinnablecomponents:CategoryButton includeIn="Categorize" right="534" top="393"
+	<skinnablecomponents:CategoryButton id="categoryButton_local" includeIn="Categorize" right="534" top="393"
 										buttonMode="true" click="categoryButton_clickHandler_7()"
 										skinClass="components.CategoryButtonSkin_Local"/>
 	<s:Button includeIn="Assignment,Categorize,DataViz,ExploreSky,Pattern,Settings,ThankYou,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"

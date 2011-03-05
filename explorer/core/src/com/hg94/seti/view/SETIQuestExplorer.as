@@ -46,6 +46,8 @@ package com.hg94.seti.view
 		
 		private static var PUBLIC_AIR_URL_ROOT:String = "http://stage.seti.hg94.com";
 		
+		private static var PATTERN_CATEGORY_CODES:Array = ["local", "diagonal", "squiggle", "pulse", "broadband", "modulation", "radar", "unknown"]
+		
 		
 		
 		// Public Variable Declarations
@@ -309,10 +311,17 @@ package com.hg94.seti.view
 		 */
 		
 		private function categoryButtonHandler(event:MouseEvent):void {
-			var postPatternMarkAPICall:PostPatternMarkAPICall = new PostPatternMarkAPICall(SETIQuestExplorer.api_url_root, this.authenticationSystem, this.model);
-			postPatternMarkAPICall.assignment = this.model.currentAssignment;
-			postPatternMarkAPICall.mhz = this.model.currentMHzMidpoint;
-			postPatternMarkAPICall.execute();
+			var buttonID:String = event.currentTarget.id;
+			if (buttonID.substr(0, 15) == "categoryButton_") {
+				var categoryName:String = buttonID.substr(15);
+				if (SETIQuestExplorer.PATTERN_CATEGORY_CODES.indexOf(categoryName) > 0) {
+					var postPatternMarkAPICall:PostPatternMarkAPICall = new PostPatternMarkAPICall(SETIQuestExplorer.api_url_root, this.authenticationSystem, this.model);
+					postPatternMarkAPICall.assignment = this.model.currentAssignment;
+					postPatternMarkAPICall.mhz = this.model.currentMHzMidpoint;
+					postPatternMarkAPICall.category = categoryName;
+					postPatternMarkAPICall.execute();
+				}
+			}
 		}
 		
 		private function zoomInButtonHandler(event:MouseEvent):void {
