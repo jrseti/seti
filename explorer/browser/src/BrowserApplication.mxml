@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:view="com.hg94.seti.view.*" 
+			   backgroundColor="#000000"
+			   >
+	<!--<fx:Style source="BrowserApplication.css"/>-->
+	<fx:Script>
+		<![CDATA[
+			import com.hg94.core.browser.BrowserAuthenticationSystem;
+			
+			import mx.events.FlexEvent;
+			
+			private function preinitializeHandler(event:Event):void {
+				this.explorer.authenticationSystem = new BrowserAuthenticationSystem();
+			}
+			
+			protected function explorer_creationCompleteHandler(event:FlexEvent):void
+			{
+				this.explorer.authenticationSystem = new BrowserAuthenticationSystem();
+				this.explorer.start();
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<view:SETIQuestExplorer id="explorer" 
+							height="480" width="800"
+							creationComplete="explorer_creationCompleteHandler(event)"
+							/>
+</s:Application>

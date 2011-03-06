@@ -172,32 +172,32 @@
 
 	</fx:Script>
 	<s:states>
-		<s:State name="Splash_Loading"/>
-		<s:State name="Splash_WithButton"/>
-		<s:State name="Tutorial1"/>
-		<s:State name="Tutorial2"/>
-		<s:State name="Tutorial3"/>
-		<s:State name="Tutorial4"/>
-		<s:State name="Tutorial5"/>
-		<s:State name="Tutorial6"/>
-		<s:State name="Tutorial7"/>
-		<s:State name="Tutorial8"/>
-		<s:State name="Assignment"/>
-		<s:State name="DataViz"/>
-		<s:State name="Categorize"/>
-		<s:State name="ThankYou"/>
-		<s:State name="Settings"/>
-		<s:State name="ExploreSky"/>
-		<s:State name="Pattern"/>
-		<s:State name="Error_NoConnection"/>
-		<s:State name="Skeleton"/>
+		<s:State fc:color="0xcc0000" name="Splash_Loading"/>
+		<s:State fc:color="0x0081cc" name="Splash_WithButton"/>
+		<s:State fc:color="0x00cc21" name="Tutorial1"/>
+		<s:State fc:color="0x0003a3" name="Tutorial2"/>
+		<s:State fc:color="0xff5f08" name="Tutorial3"/>
+		<s:State fc:color="0xdf08ff" name="Tutorial4"/>
+		<s:State fc:color="0x82ff36" name="Tutorial5"/>
+		<s:State fc:color="0x919410" name="Tutorial6"/>
+		<s:State fc:color="0xa30017" name="Tutorial7"/>
+		<s:State fc:color="0x08ffb6" name="Tutorial8"/>
+		<s:State fc:color="0x510900" name="Assignment"/>
+		<s:State fc:color="0xbbcc00" name="DataViz"/>
+		<s:State fc:color="0x9308ff" name="Categorize"/>
+		<s:State fc:color="0x157100" name="ThankYou"/>
+		<s:State fc:color="0x68b3ff" name="Settings"/>
+		<s:State fc:color="0xa30096" name="ExploreSky"/>
+		<s:State fc:color="0x00a38e" name="Pattern"/>
+		<s:State fc:color="0xfe4f8d" name="Error_NoConnection"/>
+		<s:State fc:color="0xcca3ff" name="Skeleton"/>
 	</s:states>
 	<s:BitmapImage id="galaxyImage" d:userLabel="Galaxy Image"
 				   includeIn="Splash_Loading,Splash_WithButton" smooth="true"
 				   source="@Embed('/assets/images/SpiralGalaxyNGC2841.jpg')"/>
 	<s:Rect includeIn="Splash_Loading,Splash_WithButton" left="0" right="0" top="0" bottom="0" alpha="0">
 	</s:Rect>
-	<s:Path includeIn="ExploreSky,Settings,DataViz,Assignment,Categorize,Error_NoConnection,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Pattern,ThankYou,Tutorial4,Tutorial3,Tutorial2,Tutorial1,Skeleton"
+	<s:Path includeIn="Assignment,Categorize,DataViz,Error_NoConnection,ExploreSky,Pattern,Settings,Skeleton,ThankYou,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
 			alpha="1" blendMode="normal" data="M 0 0 L 1024 0 L 1024 40 L 0 40 L 0 0 Z"
 			winding="evenOdd"
 			left.Assignment="0" right.Assignment="0" top.Assignment="0"
@@ -254,15 +254,15 @@
 											   bottom="100"/>
 	<components:DataVizTileListPlaceholder id="dataVizTileListPlaceholder"
 										   d:userLabel="TileListPlaceholder"
-										   includeIn="DataViz,ThankYou,Pattern,Categorize" left="0" right="0"
+										   includeIn="Categorize,DataViz,Pattern,ThankYou" left="0" right="0"
 										   top="40"/>
 	<s:RichText id="targetNameTextControl" d:userLabel="Target_Name"
-				includeIn="DataViz,Assignment,ThankYou,Pattern" left="10" bottom="72" width="394" height="20"
+				includeIn="Assignment,DataViz,Pattern,ThankYou" left="10" bottom="72" width="394" height="20"
 				color="#FFFFFF" fontFamily="Myriad Pro Semibold" fontSize="24" lineHeight="100%"
 				tabStops="S0 S50 S100 S150 S200 S250 S300 S350 S400 S450 S500"
 				text="{this.model.currentAssignment.observationRange.observation.target.name}"
 				bottom.Assignment="68" width.Assignment="316" height.Assignment="24"/>
-	<s:RichText id="observationDateField1" d:userLabel="Observation_Date" includeIn="DataViz,Assignment,ThankYou,Pattern"
+	<s:RichText id="observationDateField1" d:userLabel="Observation_Date" includeIn="Assignment,DataViz,Pattern,ThankYou"
 				right="11" bottom="70" width="224" height="22" color="#FFFFFF"
 				fontFamily="Myriad Pro" fontSize="24" lineHeight="100%"
 				tabStops="S0 S50 S100 S150 S200" content="{this.model.currentAssignment.observationRange.observation.friendlyDate}" textAlign="end"/>
@@ -394,9 +394,9 @@
 			  right="12" bottom="10" width="127" label="Continue" buttonMode="true"
 			  click="button_clickHandler_1()" skinClass="components.ViewDataButton"/>
 	<s:Button id="skipAssignmentButton" d:userLabel="Button_NextAssignment"
-			  includeIn="Assignment,DataViz" width="120" label="Skip Assignment" buttonMode="true"
-			  click="button_clickHandler_4()" skinClass="components.SkipAssignmentButton"
-			  right="148" bottom="10"
+			  includeIn="Assignment,DataViz" right="148" bottom="10" width="120"
+			  label="Skip Assignment" buttonMode="true" click="button_clickHandler_4()"
+			  skinClass="components.SkipAssignmentButton"
 			  label.DataViz="Next Assignment"/>
 	<s:Button id="assignmentZoomInButton" d:userLabel="Button_StarfieldZoomIn" includeIn="Assignment"
 			  right="15" bottom="124" label="Button" buttonMode="true"

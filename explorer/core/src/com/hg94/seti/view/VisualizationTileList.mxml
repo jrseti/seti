@@ -2,6 +2,7 @@
 <s:List xmlns:fx="http://ns.adobe.com/mxml/2009" 
 		xmlns:s="library://ns.adobe.com/flex/spark"
 		direction="ltr" width="100%"
+		height="100%"
 		verticalScrollPolicy="off"
 		click="onLongTouch(event)"
 		creationComplete="onCreationComplete()"

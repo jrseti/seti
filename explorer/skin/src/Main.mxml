@@ -34,8 +34,16 @@
 	<s:states>
 		<s:State fc:color="0xff5f08" name="MainState"/>
 		<s:State name="Library"/>
+		<s:State name="Library_Datavizscrollbar"/>
 	</s:states>
 	<components:MainSkin includeIn="MainState" left="0" right="-256" top="0" bottom="0">
 	</components:MainSkin>
 	<components:Graphic_Marker includeIn="Library" x="486" y="279"/>
+	<s:HScrollBar includeIn="Library" x="101" y="-118" fixedThumbSize="true"
+				  skinClass="components.HScrollbar_Dataviz"/>
+	<components:DataVizTileListPlaceholder includeIn="Library_Datavizscrollbar" x="0" y="0"
+										   width="1024" height="340">
+	</components:DataVizTileListPlaceholder>
+	<s:HScrollBar includeIn="Library_Datavizscrollbar" x="2" y="0" fixedThumbSize="true"
+				  skinClass="components.HScrollbar_Dataviz"/>
 </s:Application>

@@ -1,0 +1,22 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+
+/* Just make it red so we know the CSS is being applied. Take that out later. */
+
+s|List {
+	/*contentBackgroundColor: #FF0000;*/
+}
+
+
+
+/* Assign the scroll bar skin */
+
+s|List s|HScrollBar {
+	/*chromeColor: #00FF00;*/
+	/*skinClass: ClassReference("components.HScrollbar_Dataviz");*/
+}
+
+
+

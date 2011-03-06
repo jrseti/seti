@@ -1,6 +1,5 @@
 package com.hg94.seti.controller {
 	import com.hg94.core.IAuthenticationSystem;
-	import com.hg94.core.android.AndroidSessionIDManager;
 	import com.hg94.seti.model.Assignment;
 	
 	import flash.events.EventDispatcher;

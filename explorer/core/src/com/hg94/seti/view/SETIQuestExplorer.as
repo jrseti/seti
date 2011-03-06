@@ -44,7 +44,7 @@ package com.hg94.seti.view
 		
 		private static var DEBUG_AIR_URL_ROOT:String = "http://localhost.seti.hg94.com:3000";
 		
-		private static var PUBLIC_AIR_URL_ROOT:String = "http://stage.seti.hg94.com";
+		private static var PUBLIC_AIR_URL_ROOT:String = "http://live.seti.hg94.com";
 		
 		private static var PATTERN_CATEGORY_CODES:Array = ["local", "diagonal", "squiggle", "pulse", "broadband", "modulation", "radar", "unknown"]
 		
@@ -102,7 +102,6 @@ package com.hg94.seti.view
 			this.percentHeight = 100;
 			this.percentWidth = 100;
 			this.model = new Model();
-			this.model.splashMessage = "Pre-Release Version";
 			super();
 		}
 		
@@ -125,7 +124,9 @@ package com.hg94.seti.view
 			
 			
 			// Add the handler which will start the first API call
-			this.addEventListener(Event.ADDED_TO_STAGE, this.addedToStageHandler);
+			//this.addEventListener(Event.ADDED_TO_STAGE, this.addedToStageHandler);
+			//this.addEventListener(FlexEvent.CREATION_COMPLETE, this.addedToStageHandler);
+			
 			
 			// Listen for error messages. This will only work after mainSkin is set up.
 			ChangeWatcher.watch(this.model, "errorMessage", this.errorMessageChangeHandler)
@@ -135,14 +136,6 @@ package com.hg94.seti.view
 			
 			// Do the right thing
 			super.createChildren();
-		}
-
-		
-		/** Start the first API call
-		 */
-		
-		private function addedToStageHandler(event:Event):void {
-			this.getUser();
 		}
 		
 		
@@ -155,9 +148,10 @@ package com.hg94.seti.view
 		
 		
 		/** Step 3: Gets info about the current user. Mostly this is just a way of confirming we are logged in, and if not, then we will request authentication
+		 * 	This should be called on addedToStage (AIR) or creationComplete (browser)
 		 */
 		
-		protected function getUser():void {
+		public function start():void {
 			var getUserAPICall:GetUserAPICall = new GetUserAPICall(SETIQuestExplorer.api_url_root, this.authenticationSystem, this.model);
 			getUserAPICall.addEventListener(GetUserAPICallCompleteEvent.GET_USER_API_CALL_COMPLETE, this.getUserAPICallCompleteHandler);
 			getUserAPICall.execute();
