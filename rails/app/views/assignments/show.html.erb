@@ -24,6 +24,23 @@
 
 <p><b>Created: </b><%=time_since(@assignment.created_at)%></p> 
 
+<b><%= @assignment.pattern_marks.count%> Pattern Marks</b>
+<%if @assignment.pattern_marks.count > 0%>
+<table>
+  <tr>
+    <th>MHz</th>
+    <th>Category</th>
+    <th>Actions</th>
+  </tr>
+  <% @assignment.pattern_marks.each do |pattern_mark| %>
+  <tr>
+    <td><%= pattern_mark.mhz%></td>
+    <td><%= pattern_mark.category%></td>
+    <td><%= link_to "Show", pattern_mark%></td>
+  </tr>
+  <%end%>
+</table>
+<%end%>
 
 <%= link_to 'Edit', edit_assignment_path(@assignment) %> |
 <%= link_to 'Back', assignments_path %>

@@ -19,7 +19,7 @@
 
 <p>
   <b>Pattern:</b>
-  <%= @pattern_mark.pattern.friendly_name rescue "-" %>
+  <%= link_to @pattern_mark.pattern.friendly_name, @pattern_mark.pattern rescue "-" %>
 </p>
 
 <p>

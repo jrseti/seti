@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Pattern <%=@pattern.id%></h1>
+
 <p>
   <b>Observation:</b>
-  <%= @pattern.observation.friendly_name %>
+  <%= link_to @pattern.observation.friendly_name, @pattern.observation %>
 </p>
 
 <p>
@@ -30,7 +32,29 @@
   <%= @pattern.friendly_name %>
 </p>
 
+<b><%= @pattern.pattern_marks.count%> Pattern Marks</b>
+<% if @pattern.pattern_marks.count%>
+<table>
+  <tr>
+    <th>User</th>
+    <th>MHz</th>
+    <th>Category</th>
+    <th>Date</th>
+    <th>Actions</th>
+  </tr>
+<% @pattern.pattern_marks.each do |pattern_mark|%>
+  <tr>
+    <td><%= pattern_mark.assignment.user.name%></td>
+    <td><%= pattern_mark.mhz%></td>
+    <td><%= pattern_mark.category%></td>
+    <td><%= pattern_mark.date%></td>
+    <td><%= link_to "Show", pattern_mark%></td>
+  </tr>
+<%end%>
+</table>
+<%end%>
 
+<br/>
 
 <%= link_to 'Edit', edit_pattern_path(@pattern) %> |
 <%= link_to 'Back', patterns_path %>

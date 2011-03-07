@@ -75,10 +75,14 @@ class PatternMarksController < ApplicationController
   def mark_pattern
     authorize! :explore, PatternMark
 
-    @pattern_mark = PatternMark.new(params[:pattern_mark])
+    # Create the new pattern mark
     
-    # It's today's date
+    @pattern_mark = PatternMark.new(params[:pattern_mark])
     @pattern_mark.date = Time.new.inspect
+    @pattern_mark.assign_to_pattern
+
+
+    # And get back to the user (typically just the API)
 
     respond_to do |format|
       if @pattern_mark.save

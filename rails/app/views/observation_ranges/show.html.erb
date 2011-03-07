@@ -33,11 +33,25 @@
   <%= @observation_range.friendly_name %>
 </p>
 
-<b>Tiles</b><br/>
-<% @observation_range.url_part_list.lines.each do |line| %>
-  <%= link_to(line, @observation_range.observation.base_url + "/" + line) %><br/>
+<b><%= @observation_range.assignments.count%> Assignments</b><br/>
+<%if @observation_range.assignments.count > 0%>
+<table>
+  <tr>
+    <th>User</th>
+    <th>Created</th>
+    <th>Pattern Marks</th>
+    <th>Action</th>
+  </tr>
+<% @observation_range.assignments.each do |assignment| %>
+  <tr>
+    <td><%= assignment.user.name %></td>
+    <td><%= time_since(assignment.created_at)%></td>
+    <td><%= assignment.pattern_marks.count%></td>
+    <td><%= link_to "Show", assignment%>
+  </tr>
 <%end%>
-
+</table>
+<%end%>
 
 
 
