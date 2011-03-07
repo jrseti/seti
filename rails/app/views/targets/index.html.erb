@@ -12,7 +12,7 @@
 <% @targets.each do |target| %>
   <tr>
     <td><%= target.name %></td>
-    <td><%= target.description %></td>
+    <td><%= target.description[0...60] + (target.description.length>0 ? "..." : "") %></td>
     <td><%= target.right_ascension %></td>
     <td><%= target.declination %></td>
     <td><%= link_to 'Show', target %> <%= link_to 'Edit', edit_target_path(target) %> <%= link_to 'Destroy', target, :confirm => 'Are you sure?', :method => :delete %></td>

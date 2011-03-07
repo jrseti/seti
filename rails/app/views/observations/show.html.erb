@@ -25,5 +25,26 @@
 </p>
 
 
+
+<b><%= @observation.observation_ranges.count%> Observation Ranges</b>
+<table>
+  <tr>
+    <th>Lo MHz</th>
+    <th>Hi MHz</th>
+    <th>Status</th>
+    <th>No. of Assignments</th>
+    <th>Actions</th>
+  </tr>
+<% @observation.observation_ranges. each do |observation_range| %>
+  <tr>
+    <td><%= observation_range.lo_mhz %></td>
+    <td><%= observation_range.hi_mhz %></td>
+    <td><%= observation_range.status %></td>
+    <td><%= observation_range.assignments.count%></td>
+    <td><%= link_to 'Show', observation_range %></td>
+  </tr>
+<%end%>
+</table>
+
 <%= link_to 'Edit', edit_observation_path(@observation) %> |
 <%= link_to 'Back', observations_path %>

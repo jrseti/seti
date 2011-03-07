@@ -33,11 +33,11 @@
   <%= @observation_range.friendly_name %>
 </p>
 
+<b>Tiles</b><br/>
+<% @observation_range.url_part_list.lines.each do |line| %>
+  <%= link_to(line, @observation_range.observation.base_url + "/" + line) %><br/>
+<%end%>
 
-<p>
-  <b>List of url parts:</b>
-  <pre><%= @observation_range.url_part_list %></pre>
-</p>
 
 
 

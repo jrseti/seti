@@ -23,6 +23,21 @@
   <%= @target.declination %>
 </p>
 
+<b><%= @target.observations.count%> Observations</b>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Base URL</th>
+    <th>Actions</th>
+  </tr>
+<% @target.observations.each do |observation| %>
+  <tr>
+    <td><%= observation.date %></td>
+    <td><%= observation.base_url%></td>
+    <td><%= link_to 'Show', observation %></td>
+  </tr>
+<%end%>
+</table>
 
 <%= link_to 'Edit', edit_target_path(@target) %> |
 <%= link_to 'Back', targets_path %>
