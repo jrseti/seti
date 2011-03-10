@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
 
   protect_from_forgery
+
+  # See http://mattmccray.com/archive/2007/02/19/Sorta_Nested_Layouts/
+  def sub_layout
+    "admin" 
+  end
+  
   
   helper_method :current_user
   
@@ -36,7 +42,7 @@ class ApplicationController < ActionController::Base
   private
     def device_layout
       user_agent = request.env['HTTP_USER_AGENT']
-      if (user_agent.match('AdobeAIR') || user_agent.match('Android'))
+      if (user_agent.match('iPhone') || user_agent.match('iPad') || user_agent.match('iPod') || user_agent.match('Android'))
         return "mobile"
       else
         return "computer"

@@ -1,0 +1,32 @@
+
+
+<!-- Enable Browser History by replacing useBrowserHistory tokens with two hyphens -->
+<!-- BEGIN Browser History required section -->
+<link rel="stylesheet" type="text/css" href="/flash/history/history.css" />
+<script type="text/javascript" src="/flash/history/history.js"></script>
+<!-- END Browser History required section -->  
+    
+<script type="text/javascript" src="/flash/swfobject.js"></script>
+<script type="text/javascript">
+    // For version detection, set to min. required Flash Player version, or 0 (or 0.0.0), for no version detection. 
+    var swfVersionStr = "10.2.0";
+    // To use express install, set to playerProductInstall.swf, otherwise the empty string. 
+    var xiSwfUrlStr = "/flash/playerProductInstall.swf";
+    var flashvars = {};
+    var params = {};
+    params.quality = "high";
+    params.bgcolor = "<%=bgcolor%>";
+    params.allowscriptaccess = "sameDomain";
+    params.allowfullscreen = "true";
+    var attributes = {};
+    attributes.id = "<%=id%>";
+    attributes.name = "<%=id%>";
+    attributes.align = "middle";
+    swfobject.embedSWF(
+        "<%=url%>", "flashContent", 
+        "<%=width%>", "<%=height%>", 
+        swfVersionStr, xiSwfUrlStr, 
+        flashvars, params, attributes);
+    // JavaScript enabled so display the flashContent div in case it is not replaced with a swf object.
+    swfobject.createCSS("#flashContent", "display:block;text-align:left;");
+</script>

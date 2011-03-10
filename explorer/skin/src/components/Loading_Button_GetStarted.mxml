@@ -47,6 +47,6 @@
 	</s:Rect>
 	
 	<!-- label -->
-	<s:RichText id="labelDisplay" horizontalCenter="0" verticalCenter="1" verticalCenter.down="2"  textAlign="center" verticalAlign="middle" alpha.disabled="0.5" fontFamily="Arial"/>
+	<s:RichText id="labelDisplay" horizontalCenter="0" verticalCenter="1" verticalCenter.down="2"  textAlign="center" verticalAlign="middle" alpha.disabled="0.5" fontFamily="Myriad Pro"/>
 	
 </s:Skin>

@@ -6,6 +6,8 @@
 			   backgroundColor="#000000"
 			   >
 	<!--<fx:Style source="BrowserApplication.css"/>-->
+	<!-- Embed the fonts -->
+	<fx:Style source="SETICore.css"/>
 	<fx:Script>
 		<![CDATA[
 			import com.hg94.core.browser.BrowserAuthenticationSystem;

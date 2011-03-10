@@ -1,0 +1,151 @@
+body {
+	background-color: #000000;
+	color: #333333;
+	height: 100%;
+	overflow: auto;
+	width: 1024px; 
+	margin-left:auto; 
+	margin-right:auto;
+}
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+}
+
+html {
+	height: 100%;
+}
+
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+	color: #FFFF99;
+}
+
+a:hover {
+	color: #fff; 
+	background-color:#000;
+}
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+#notice {
+  color: green;
+}
+
+image.big_logo {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+}
+
+.home_notice p {
+	color: #AAAAAA;
+	font-size: 16px;
+}
+
+.call_to_action {
+	padding-top:20px;
+}
+
+.call_to_action a {
+	color:#3B5998;
+	font-size:20px;
+	font-weight:bold;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+#flashContent { display:none; }
+
+#explorer {
+	width: 800px;
+	margin-left:auto;
+	margin-right:auto;
+	border: 2px solid #444444;
+}
+
+#comments {
+	background-color: #888888;
+	margin-left:auto;
+	margin-right:auto;
+	padding: 10px;
+	margin-top: 20px;
+	color: #000000;
+	width: 780px;
+}
+ 
+#admin_background {
+	background-color: #222222;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	color: #DDDDDD;
+}
+
+#admin_workspace {
+	padding-top: 20px;
+}
+
+object:focus { outline:none; }
+table {
+	border-width: 1px;
+	border-spacing: 4px;
+	border-style: solid;
+	border-color: gray;
+	border-collapse: collapse;
+}
+table th {
+	border-width: 1px;
+	padding: 4px;
+	border-style: solid;
+	border-color: gray;
+	-moz-border-radius: 0px 0px 0px 0px;
+	background-color: #444444;
+}
+table td {
+	border-width: 1px;
+	padding: 4px;
+	border-style: solid;
+	border-color: gray;
+	-moz-border-radius: 0px 0px 0px 0px;
+	background-color: #333333;
+}

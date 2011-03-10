@@ -10,17 +10,18 @@ class SessionsController < ApplicationController
     puts "----- LOGIN: " + user.name + "(" + user.id.to_s + ") via " + request.env['HTTP_USER_AGENT']
     session[:user_id] = user.id
     user_agent = request.env['HTTP_USER_AGENT']
+    # We can't tell AIR for Android (via StageWebView) from Android browser -- ugh!
     if (user_agent.match('AdobeAIR') || user_agent.match('Android')) && can?(:explore, :all)
       redirect_to "/air_active?_session_id=" +  request.session_options[:id]
-    else 
-      redirect_to root_url, :notice => "Signed in"
+    else
+      redirect_to root_url
     end
   end
   
   # This is where we return nothing, so the AIR application knows we're done with authentication
   
   def air_active
-    render :air_active
+    render "static/home"
   end
 
 

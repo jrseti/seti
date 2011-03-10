@@ -2,44 +2,15 @@
 <html>
 <head>
   <title>setiQuest Explorer</title>
-  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag "global" %>
+  <%= stylesheet_link_tag "mobile" %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
-  <style type="text/css">
-  body {
-    background-color:#000000;
-    margin:0;
-  }
-  table {
-  	border-width: 1px;
-  	border-spacing: 4px;
-  	border-style: solid;
-  	border-color: gray;
-  	border-collapse: collapse;
-  	background-color: white;
-  }
-  table th {
-  	border-width: 1px;
-  	padding: 4px;
-  	border-style: solid;
-  	border-color: gray;
-  	background-color: white;
-  	-moz-border-radius: 0px 0px 0px 0px;
-  }
-  table td {
-  	border-width: 1px;
-  	padding: 4px;
-  	border-style: solid;
-  	border-color: gray;
-  	background-color: white;
-  	-moz-border-radius: 0px 0px 0px 0px;
-  }
-  </style>
-  
+  <%= yield :head%>
 </head>
 <body>
-<%= yield %>
+  <div id="main">
+    <%= render :partial=>"layouts/#{controller.sub_layout}" %>
+  </div>
 </body>
 </html>
-
-

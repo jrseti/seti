@@ -1,4 +1,7 @@
-<h1>All Observations</h1>
+<h1><%=Observation.count%> Observations</h1>
+
+<%= paginate @observations %>
+
 
 <table border="1">
   <tr>

@@ -27,6 +27,11 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <b>Created</b>
+  <%=time_since(@user.created_at)%>
+</p>
+
 
 
 

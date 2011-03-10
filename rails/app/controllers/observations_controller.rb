@@ -5,7 +5,7 @@ class ObservationsController < ApplicationController
   # GET /observations
   # GET /observations.xml
   def index
-    @observations = Observation.all
+    @observations = Observation.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

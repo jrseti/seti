@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <Graphic xmlns:fc="http://ns.adobe.com/flashcatalyst/2009" xmlns:d="http://ns.adobe.com/fxg/2008/dt" xmlns="http://ns.adobe.com/fxg/2008" version="2.0">
-	<RichText x="18" y="3" alpha="1" blendMode="normal" color="#000000" fontFamily="Arial" whiteSpaceCollapse="preserve" d:userLabel="setiQuestExplorer">
+	<RichText x="18" y="3" alpha="1" blendMode="normal" color="#000000" fontFamily="Myriad Pro" whiteSpaceCollapse="preserve" d:userLabel="setiQuestExplorer">
 		<content><p fontSize="18" color="#ffffff" fontFamily="Myriad Pro Black">seti<span fontSize="16" fontFamily="Myriad Pro Light">Q</span><span fontFamily="Myriad Pro Light">uest</span><span fontSize="17">E</span><span>xplorer</span></p></content>
 	</RichText>
 	<Group d:userLabel="Group_1">

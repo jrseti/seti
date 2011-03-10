@@ -1,0 +1,24 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+
+@font-face
+{
+	fontFamily: "Myriad Pro";
+	src: url("assets/fonts/MyriadPro-Regular.otf");
+	embedAsCFF: true;
+}
+@font-face
+{
+	fontFamily: "Myriad Pro Black";
+	src: url("assets/fonts/MyriadPro-Black.otf");
+	embedAsCFF: true;
+}
+@font-face
+{
+	fontFamily: "Myriad Pro Semibold";
+	src: url("assets/fonts/MyriadPro-Semibold.otf");
+	embedAsCFF: true;
+}
+

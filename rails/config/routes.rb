@@ -1,5 +1,9 @@
 Seti::Application.routes.draw do
   
+  get "static/setiquest_explorer"
+  
+  get "static/home"
+
   resources :pattern_marks do
     get :mark_pattern, :on => :collection
   end
@@ -24,9 +28,7 @@ Seti::Application.routes.draw do
   end
   
   resources :sessions
-  
-  
-  get "home/index"
+
   
   # A blank page which is the reidrect target for the AIR application
   
@@ -82,7 +84,7 @@ Seti::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => "home#index"
+  root :to => "static#home"
 
   # See how all your routes lay out with "rake routes"
 

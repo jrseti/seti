@@ -1,0 +1,23 @@
+<%flash_movie_settings = {
+  :id => 'SETIQuestExplorerBrowserApplication', 
+  :url => '/flash/explorer/BrowserApplication.swf', 
+  :width=>800, :height=>480, 
+  :bgcolor=>"#000000"
+  }%>
+
+<%=content_for :head do%>
+  <%= render :partial=>"flash_head", :locals => flash_movie_settings%>
+<%end%>
+<%if current_user%>
+  <%if can? :explore, :all%>
+    <div id="explorer">
+      <%= render :partial=>"flash_content", :locals => flash_movie_settings%>
+    </div>
+    <div id="comments">
+        <div id="fb-root"></div>
+        <script src="http://connect.facebook.net/en_US/all.js#appId=201723139838082&amp;xfbml=1"></script>
+        <fb:comments href="http://live.seti.hg94.com" num_posts="999" width="780"></fb:comments>
+      </div>
+      <br/><br/>
+  <%end%>
+<%end%>

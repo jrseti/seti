@@ -1,0 +1,50 @@
+<%user_agent = request.env['HTTP_USER_AGENT']%>
+<img src="/images/SQELogo_344x124.jpg" class="big_logo"/>
+<div class="home_notice">
+  <%if current_user%>
+    <%if can? :explore, :all%>
+      <p>Welcome to the Private Beta Program for setiQuest Explorer!</p>
+      <%if (user_agent.match('iPhone') || user_agent.match('iPad') || user_agent.match('iPod'))%>
+        <p>The iPhone/iPad version is under development. Please access setiQuest Explorer from a Mac OSX, Windows, or Linux personal computer.</p>
+      <%else%>
+        <%if user_agent.match('Android')%>
+          <p>setiQuest Explorer is best experienced in the Android application.
+            Please download it from the Android Market today. Requires Android 2.2 or higher.</p>
+            <div class="call_to_action">
+              <%= link_to "Download from Android Market", "market://search?q=pname:air.com.hg94.seti"%>
+            </div>
+          <%else%>
+            <p>You will be assigned targets in the sky and specific frequency ranges to view.
+              Click <b>CONTINUE</b> to view the data. X-axis is frequency, Y-axis is time, from a 3-minute observation. 
+              Scroll to the right to view more. Click <b>I SEE A PATTERN</b> when you see something. 
+              Enter your questions and comments in the Facebook comment area below the application</p>
+              <p><b>REMEMBER: This is a product under development.<br/>
+                We will be adding features and fixing bugs over the coming weeks</b></p>
+            <div class="call_to_action">
+              <%= link_to "Start Exploring!", {:controller => :static, :action => :setiquest_explorer}%>
+            </div>
+          <%end%>
+        <%end%>
+        <%if can? :manage, :all%>
+          <div class="call_to_action">
+            <%= link_to "Administration Interface", users_path %>
+          </div>
+        <%end%>
+    <%else%>
+      <p>Thanks for registering for the private beta program. We'll contact you when the program begins, with further information.</p>
+    <%end%>
+  <%else%>
+    <p>setiQuest Explorer is a web and mobile application for viewing radio telescope data from SETI targets and helping to identify and categorize patterns. It is a program of the SETI Institute, developed by The Hathersage Group, sponsored by Adobe Systems. If you would like to participate in the private beta program which begins in mid-March, then log in below using your Facebook credentials. We will not post to your wall, nor share your information with anyone.</p>
+    <div class="call_to_action">
+      <%= link_to "Log in using Facebook", "/auth/facebook"%></div>
+    </div>
+  <%end%>
+</div>
+
+ 
+
+
+
+
+
+

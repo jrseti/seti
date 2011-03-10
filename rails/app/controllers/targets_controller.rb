@@ -5,7 +5,7 @@ class TargetsController < ApplicationController
   # GET /targets
   # GET /targets.xml
   def index
-    @targets = Target.all
+    @targets = Target.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

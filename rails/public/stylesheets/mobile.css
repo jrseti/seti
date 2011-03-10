@@ -1,0 +1,11 @@
+.call_to_action a {
+	font-size:40px;
+}
+
+body, p, ol, ul, td {
+  font-size:   26px;
+}
+
+.home_notice p {
+	font-size: 32px;
+}
