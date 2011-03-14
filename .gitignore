@@ -11,3 +11,4 @@ tmp/
 *.sqlite3
 .DS_STORE
 bin/
+omniauth.rb
