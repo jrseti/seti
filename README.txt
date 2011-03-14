@@ -31,6 +31,9 @@ Extract them and place all files into your ruby/bin dir.
 
 
 rake db:migrate
+
+In order to get authentication working, you will need omniauth.rb, which you have to get separately from Francis or create yourself. We don't check API secrets into Github.
+
 rails server
 
 Then point your browser to http://localhost.seti.hg94.com:3000/
