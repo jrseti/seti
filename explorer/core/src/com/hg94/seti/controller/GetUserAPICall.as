@@ -35,7 +35,13 @@ package com.hg94.seti.controller {
 		override protected function handleResult(resultXML:XML):void {
 			var event:GetUserAPICallCompleteEvent = new GetUserAPICallCompleteEvent();
 			event.isLoggedIn = (resultXML.localName() == "user");
-			if (!event.isLoggedIn) {
+			if (event.isLoggedIn) {
+				var user:User = new User();
+				user.name = resultXML.name;
+				user.role = resultXML.role;
+				this._model["user"] = user;
+			} else {
+				this._model["user"] = null;
 				this._authenticationSystem.logout();
 			}
 			this.dispatchEvent(event);

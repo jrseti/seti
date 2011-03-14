@@ -3,7 +3,7 @@ package com.hg94.seti.view
 	import com.google.maps.MapEvent;
 	import com.hg94.core.AuthenticationEvent;
 	import com.hg94.core.IAuthenticationSystem;
-	import com.hg94.core.SessionIDManager;
+	import com.hg94.core.IAuthenticationSystemComponent;
 	import com.hg94.seti.controller.GetAssignmentAPICall;
 	import com.hg94.seti.controller.GetUserAPICall;
 	import com.hg94.seti.controller.PostPatternMarkAPICall;
@@ -17,6 +17,7 @@ package com.hg94.seti.view
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.events.TimerEvent;
+	import flash.geom.Rectangle;
 	import flash.system.Capabilities;
 	import flash.utils.Timer;
 	
@@ -35,7 +36,7 @@ package com.hg94.seti.view
 	import spark.components.Group;
 	import spark.events.ElementExistenceEvent;
 	
-	public class SETIQuestExplorer extends Group {
+	public class SETIQuestExplorer extends Group implements IAuthenticationSystemComponent {
 		
 		
 		
@@ -54,8 +55,6 @@ package com.hg94.seti.view
 		
 		
 		public var mainSkin:MainSkin;
-		
-		public var sessionIDManager:SessionIDManager;
 		
 		public var authenticationSystem:IAuthenticationSystem;
 		
@@ -139,7 +138,7 @@ package com.hg94.seti.view
 		}
 		
 		
-		/** Step 9: (Not really a step, but...) Handle all errors!
+		/** Step 3: (Not really a step, but...) Handle all errors!
 		 */
 		
 		private function errorMessageChangeHandler(event:PropertyChangeEvent):void {
@@ -147,7 +146,7 @@ package com.hg94.seti.view
 		}
 		
 		
-		/** Step 3: Gets info about the current user. Mostly this is just a way of confirming we are logged in, and if not, then we will request authentication
+		/** Step 4: Gets info about the current user. Mostly this is just a way of confirming we are logged in, and if not, then we will request authentication
 		 * 	This should be called on addedToStage (AIR) or creationComplete (browser)
 		 */
 		
@@ -158,20 +157,31 @@ package com.hg94.seti.view
 		}
 		
 		
-		/** Step 7: Based on whether the user is logged in, do the right thing
+		/** Step 5: Based on whether the user is logged in and their role, do the right thing.
 		 */
 		
 		private function getUserAPICallCompleteHandler(event:GetUserAPICallCompleteEvent):void {
-			
 			if (event.isLoggedIn) {
-				this.startTimer();
+				if (this.model.user.role == "admin" || this.model.user.role == "explorer") {  
+					this.startTimer();
+				} else {
+					this.mainSkin.currentState = "Login_Thanks";
+				}
 			} else {
-				this.authenticateUser();
+				this.mainSkin.currentState = "LogIn";
 			}
 		}
 		
 		
-		/** Authenticate the user. In AIR, this will throw a StageWebView up in front of the main screen.
+		/** Step 6: User has clicked "Login"
+		 */
+		
+		private function loginButtonClickHandler(event:MouseEvent):void {
+			this.authenticateUser();
+		}
+		
+		
+		/** Step 7: Authenticate the user. In AIR, this will throw a StageWebView up in front of the main screen.
 		 */
 		
 		protected function authenticateUser():void {
@@ -191,13 +201,14 @@ package com.hg94.seti.view
 		}
 		
 		
-		/** Step 10: Authentication successful. Get assignment
+		/** Step 9: Authentication successful. Start over to get the user information.
 		 */
 		
 		private function authenticationCompleteHandler(event:AuthenticationEvent):void {
 			event.target.removeEventListener(AuthenticationEvent.AUTHENTICATION_COMPLETE, this.authenticationCompleteHandler);
 			event.target.removeEventListener(ErrorEvent.ERROR, this.authenticationSystemErrorHandler);
-			this.startTimer();
+			this.mainSkin.currentState = "Splash_Loading";
+			this.start();
 		}		
 		
 		
@@ -244,24 +255,10 @@ package com.hg94.seti.view
 			trace(event.element);
 			if (event.element["id"]) {
 				switch (event.element["id"]) {
-					case "galaxyImage":
-						this.mainSkin.galaxyImage.fillMode = BitmapFillMode.SCALE;
-						this.mainSkin.galaxyImage.scaleMode = BitmapScaleMode.STRETCH;
-						this.mainSkin.galaxyImage.percentHeight = 100;
-						this.mainSkin.galaxyImage.percentWidth = 100;
-						break;
-					case "skipAssignmentButton":
-						this.mainSkin.skipAssignmentButton.addEventListener(MouseEvent.CLICK, this.skipAssignmentButtonClickHandler);
-						break;
 					case "assignmentStarfieldPlaceholder":
 						if (!this.assignmentStarfield) {
 							this.assignmentStarfield = new AssignmentStarfield(this.mainSkin.assignmentStarfieldPlaceholder, this.model);
 							this.assignmentStarfield.addEventListener(MapEvent.MAP_READY, this.mapReadyHandler);
-						}
-						break;
-					case "dataVizTileListPlaceholder":
-						if (!this.waterfallDataVisualization) {
-							this.waterfallDataVisualization = new WaterfallDataVisualization(this.mainSkin.dataVizTileListPlaceholder, this.model);
 						}
 						break;
 					case "assignmentZoomInButton":
@@ -269,6 +266,23 @@ package com.hg94.seti.view
 						break;
 					case "assignmentZoomOutButton":
 						Button(event.element).addEventListener(MouseEvent.CLICK, this.zoomOutButtonHandler);
+						break;
+					case "dataVizTileListPlaceholder":
+						if (!this.waterfallDataVisualization) {
+							this.waterfallDataVisualization = new WaterfallDataVisualization(this.mainSkin.dataVizTileListPlaceholder, this.model);
+						}
+						break;
+					case "galaxyImage":
+						this.mainSkin.galaxyImage.fillMode = BitmapFillMode.SCALE;
+						this.mainSkin.galaxyImage.scaleMode = BitmapScaleMode.STRETCH;
+						this.mainSkin.galaxyImage.percentHeight = 100;
+						this.mainSkin.galaxyImage.percentWidth = 100;
+						break;
+					case "loginButton":
+						this.mainSkin.loginButton.addEventListener(MouseEvent.CLICK, this.loginButtonClickHandler);
+						break; //foo
+					case "skipAssignmentButton":
+						this.mainSkin.skipAssignmentButton.addEventListener(MouseEvent.CLICK, this.skipAssignmentButtonClickHandler);
 						break;
 				}
 			}
@@ -328,6 +342,18 @@ package com.hg94.seti.view
 		
 		private function skipAssignmentButtonClickHandler(event:MouseEvent):void {
 			this.getAssignment();
+		}
+		
+		
+		
+		// Public methods
+		
+		
+		/** Return the rectangle of the entire skin, for AIR authentication.
+		 */
+		
+		public function getWebViewRegion():Rectangle {
+			return this.getBounds(this.stage);
 		}
 	}
 }

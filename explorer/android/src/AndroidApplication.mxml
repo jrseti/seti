@@ -5,6 +5,8 @@
 			   creationComplete="creationCompleteHandler(event)"
 			   backgroundColor="#000000"
 			   >
+	<!-- Embed the fonts -->
+	<fx:Style source="SETICore.css"/>
 	<fx:Script>
 		<![CDATA[
 			import com.hg94.core.AuthenticationSystem;
@@ -44,7 +46,12 @@
 					NativeApplication.nativeApplication.exit();
 			}			
 			
-			protected function explorer_creationCompleteHandler(event:FlexEvent):void
+			
+			/** The AndroidAuthenticationSystem cannot be instantiated until after the SETIQuestExplorer is AddedToStage.
+			 * 	That's because it needs the "stage" value, which is not yet set on creationComplete.
+			 */
+			
+			protected function explorer_addedToStageHandler(event:Event):void
 			{
 				var rectangle:Rectangle = new Rectangle(0, 0, this.width, this.height);
 				this.explorer.authenticationSystem = new AndroidAuthenticationSystem(rectangle, this.stage);
@@ -56,5 +63,5 @@
 	<fx:Declarations>
 		<!-- Place non-visual elements (e.g., services, value objects) here -->
 	</fx:Declarations>
-	<view:SETIQuestExplorer id="explorer" height="100%" width="100%" creationComplete="explorer_creationCompleteHandler(event)"/>
+	<view:SETIQuestExplorer id="explorer" height="100%" width="100%" addedToStage="explorer_addedToStageHandler(event)"/>
 </s:Application>

@@ -93,7 +93,7 @@ package com.hg94.seti.view {
 		
 		protected function visualizationTileListPercentScrolledChangeHandler(event:PropertyChangeEvent):void {
 			var percentScrolled:Number = event.newValue as Number;
-			trace("Updating to " + percentScrolled);
+			//trace("Updating to " + percentScrolled);
 			if (!isNaN(percentScrolled)) {
 				var loMHz:Number = this._model.currentAssignment.observationRange.loMHz;
 				var hiMHz:Number = this._model.currentAssignment.observationRange.hiMHz;

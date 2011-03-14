@@ -2,6 +2,7 @@ package com.hg94.core.browser
 {
 	import com.hg94.core.IAuthenticationSystem;
 	
+	import flash.events.ErrorEvent;
 	import flash.events.Event;
 	
 	import mx.rpc.http.HTTPService;
@@ -13,9 +14,13 @@ package com.hg94.core.browser
 			//TODO: implement function
 		}
 		
+		
+		/** Web app should make sure we are logged in; just throw an error if we aren't.
+		 */
+		
 		public function authenticate(urlRoot:String):void
 		{
-			//TODO: implement function
+			this.dispatchEvent(new ErrorEvent(ErrorEvent.ERROR))
 		}
 		
 		public function prepareHTTPService(httpService:HTTPService):void

@@ -94,9 +94,6 @@
 				if ( state == 'Splash_Loading' ) {
 					currentState='Assignment';
 				}
-				if ( state == 'Splash_WithButton' ) {
-					currentState='Tutorial1';
-				}
 				if ( state == 'Tutorial1' ) {
 					currentState='Tutorial2';
 				}
@@ -163,17 +160,13 @@
 			}
 
 
-			protected function button_clickHandler_9():void
-			{
-				currentState='Assignment';
-			}
+			
 
 		]]>
 
 	</fx:Script>
 	<s:states>
 		<s:State fc:color="0xcc0000" name="Splash_Loading"/>
-		<s:State fc:color="0x0081cc" name="Splash_WithButton"/>
 		<s:State fc:color="0x00cc21" name="Tutorial1"/>
 		<s:State fc:color="0x0003a3" name="Tutorial2"/>
 		<s:State fc:color="0xff5f08" name="Tutorial3"/>
@@ -191,13 +184,15 @@
 		<s:State fc:color="0x00a38e" name="Pattern"/>
 		<s:State fc:color="0xfe4f8d" name="Error_NoConnection"/>
 		<s:State fc:color="0xcca3ff" name="Skeleton"/>
+		<s:State name="LogIn"/>
+		<s:State name="Login_Thanks"/>
 	</s:states>
 	<s:BitmapImage id="galaxyImage" d:userLabel="Galaxy Image"
-				   includeIn="Splash_Loading,Splash_WithButton" smooth="true"
+				   includeIn="Splash_Loading" smooth="true"
 				   source="@Embed('/assets/images/SpiralGalaxyNGC2841.jpg')"/>
-	<s:Rect includeIn="Splash_Loading,Splash_WithButton" left="0" right="0" top="0" bottom="0" alpha="0">
+	<s:Rect includeIn="Splash_Loading" left="0" right="0" top="0" bottom="0" alpha="0">
 	</s:Rect>
-	<s:Path includeIn="Assignment,Categorize,DataViz,Error_NoConnection,ExploreSky,Pattern,Settings,Skeleton,ThankYou,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
+	<s:Path includeIn="ExploreSky,Settings,DataViz,Assignment,LogIn,Categorize,Error_NoConnection,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Pattern,ThankYou,Tutorial3,Tutorial2,Tutorial1,Login_Thanks,Skeleton"
 			alpha="1" blendMode="normal" data="M 0 0 L 1024 0 L 1024 40 L 0 40 L 0 0 Z"
 			winding="evenOdd"
 			left.Assignment="0" right.Assignment="0" top.Assignment="0"
@@ -205,6 +200,8 @@
 			left.DataViz="0" right.DataViz="0" top.DataViz="0"
 			left.Error_NoConnection="0" right.Error_NoConnection="0" top.Error_NoConnection="0"
 			x.ExploreSky="0" y.ExploreSky="0" width.ExploreSky="800"
+			left.LogIn="0" right.LogIn="0" top.LogIn="0"
+			left.Login_Thanks="0" right.Login_Thanks="0" top.Login_Thanks="0"
 			left.Pattern="0" right.Pattern="0" top.Pattern="0"
 			left.Settings="0" right.Settings="0" top.Settings="0"
 			left.Skeleton="0" right.Skeleton="0" top.Skeleton="0"
@@ -242,7 +239,7 @@
 			  right="60" top="0" label="Button" click="button_clickHandler_6()"
 			  skinClass="components.ControlBarButton_Settings"
 			  enabled.Settings="false"/>
-	<s:RichText id="splashMessageField" includeIn="Splash_Loading,Splash_WithButton" left="10" bottom="7" width="139" height="17" color="#CCCCCC"
+	<s:RichText id="splashMessageField" includeIn="Splash_Loading" left="10" bottom="7" width="139" height="17" color="#CCCCCC"
 				fontFamily="Myriad Pro" fontSize="16" tabStops="S0 S50 S100"
 				text="{this.model.splashMessage}" textAlign="left" whiteSpaceCollapse="preserve"/>
 	<s:Button id="zoomOutButton1" includeIn="ExploreSky" right="49" bottom="27"
@@ -299,7 +296,7 @@
 		</s:fill>
 	</s:Rect>
 	<s:RichText includeIn="Pattern" left="81" bottom="13" width="187" height="44" color="#FFFFFF"
-				fontFamily="Arial" fontSize="12" tabStops="S0 S50 S100" textAlign="start"
+				fontFamily="Myriad Pro" fontSize="12" tabStops="S0 S50 S100" textAlign="start"
 				whiteSpaceCollapse="preserve">
 		<s:content><s:p><s:span>Categorized as Diagonal</s:span></s:p><s:p><s:span>Believed to be an artificial satellite in declining orbit</s:span></s:p></s:content>
 	</s:RichText>
@@ -312,7 +309,7 @@
 		</s:fill>
 	</s:Rect>
 	<s:RichText includeIn="Pattern" right="162" bottom="16" width="202" height="41" color="#FFFFFF"
-				fontFamily="Arial" fontSize="12" tabStops="S0 S50 S100" textAlign="start"
+				fontFamily="Myriad Pro" fontSize="12" tabStops="S0 S50 S100" textAlign="start"
 				whiteSpaceCollapse="preserve">
 		<s:content><s:p><s:span>Discovered by Francis Potter</s:span></s:p><s:p><s:span>February 11, 2011</s:span></s:p><s:p><s:span>Marked by 279 citizen scientists</s:span></s:p></s:content>
 	</s:RichText>
@@ -393,7 +390,7 @@
 			  label.Tutorial7="Next &gt;"
 			  label.Tutorial8="Get Started"/>
 	<s:RichText d:userLabel="Text_MHzCenterPointer" includeIn="DataViz,Pattern" left="392"
-				right="392" top="385" height="9" color="#999999" fontFamily="Arial" fontSize="20"
+				right="392" top="385" height="9" color="#999999" fontFamily="Myriad Pro" fontSize="20"
 				tabStops="S0" text="^" textAlign="center"/>
 	<s:Button d:userLabel="Button_CancelCategorization" includeIn="Categorize" left="9" bottom="10"
 			  label="Cancel" click="button_clickHandler_3()" skinClass="components.NextScreenButton"/>
@@ -424,8 +421,6 @@
 				whiteSpaceCollapse="preserve">
 		<s:content><s:p><s:span fontFamily="Myriad Pro Black" fontSize="34">Thank You!</s:span></s:p><s:p><s:span fontSize="18">The Pattern you found has been recorded.</s:span></s:p></s:content>
 	</s:RichText>
-	<s:Button includeIn="Splash_WithButton" right="9" bottom="9" width="139" height="45"
-			  label="Begin" click="button_clickHandler_9()" skinClass="components.Button_Begin"/>
 	<s:RichText id="labelDisplay1" d:userLabel="Text_Loading" includeIn="Splash_Loading" right="11"
 				bottom="8" width="256" height="27" color="#FEFFCA" fontFamily="Myriad Pro Black"
 				fontSize="25" tabStops="S0 S50 S100" text="Initializing..." textAlign="end"/>
@@ -435,6 +430,16 @@
 				tabStops="S0 S50 S100 S150 S200 S250 S300 S350" text="{this.model.errorMessage}"/>
 	<s:BitmapImage x="7" y="4" smooth="true" source="@Embed('/assets/images/LogoHorizontal_40h.png')">
 	</s:BitmapImage>
+	<s:RichText id="richtext2" d:userLabel="TutorialText" includeIn="LogIn,Login_Thanks" left="24"
+				top="62" width="570" height="232" color="#ffffff" fontFamily="Myriad Pro"
+				fontSize="24" tabStops="S0 S50 S100 S150 S200 S250 S300 S350"
+				whiteSpaceCollapse="preserve"
+				color.Login_Thanks="#FFFFFF">
+		<s:content><s:p><s:span fontFamily="Myriad Pro Black" fontSize="24">Welcome!</s:span></s:p><s:p></s:p><s:p><s:span><![CDATA[Please log in using your ]]></s:span><s:span color="#3b5998" fontFamily="Myriad Pro Black" fontSize="24">Facebook</s:span><s:span><![CDATA[ username]]></s:span></s:p><s:p><s:span>to register for the private beta program.</s:span></s:p><s:p></s:p><s:p><s:span fontSize="18">(We won't post to your wall, sell your info, or do anything nasty... promise.)</s:span></s:p><s:p></s:p><s:p><s:span color="#999999" fontSize="14">No Facebook account? Email us for other authentication options.</s:span></s:p><s:p><s:span color="#999999" fontSize="12">setiquestexplorer@hathersagegroup.com</s:span></s:p></s:content>
+		<s:content.Login_Thanks><s:p><s:span fontFamily="Myriad Pro Black">Thanks for Registering!</s:span></s:p><s:p></s:p><s:p><s:span>We will email you when it's time to participate</s:span></s:p><s:p><s:span>in the private beta program.</s:span></s:p></s:content.Login_Thanks>
+	</s:RichText>
+	<s:Button id="loginButton" d:userLabel="Button_NextScreen" includeIn="LogIn" right="12" bottom="10"
+			  label="Log In &gt;" buttonMode="true" skinClass="components.NextScreenButton"/>
 	<s:transitions>
 		<s:Transition fromState="Tutorial1" interruptionBehavior="stop" toState="Tutorial2">
 			<s:Parallel>

@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
     user_agent = request.env['HTTP_USER_AGENT']
     # We can't tell AIR for Android (via StageWebView) from Android browser -- ugh!
-    if (user_agent.match('AdobeAIR') || user_agent.match('Android')) && can?(:explore, :all)
+    if user_agent.match('AdobeAIR') || user_agent.match('Android')
       redirect_to "/air_active?_session_id=" +  request.session_options[:id]
     else
       redirect_to root_url

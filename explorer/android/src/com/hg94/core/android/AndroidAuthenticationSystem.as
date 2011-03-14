@@ -21,7 +21,11 @@ package com.hg94.core.android
 	public class AndroidAuthenticationSystem  extends EventDispatcher implements IAuthenticationSystem
 	{
 
-		protected static var queryParameterName:String = "_session_id";
+		protected static var sessionIDParameterName:String = "_session_id";
+		
+		protected static var roleParameterName:String = "role";
+		
+		protected static var authenticationPath:String = "/auth/facebook";
 		
 		protected var rectangle:Rectangle;
 		
@@ -61,7 +65,7 @@ package com.hg94.core.android
 			this.stageWebView.addEventListener(ErrorEvent.ERROR,errorHandler);
 			this.stageWebView.addEventListener(LocationChangeEvent.LOCATION_CHANGING,locationChangingHandler);
 			this.stageWebView.addEventListener(LocationChangeEvent.LOCATION_CHANGE,locationChangeHandler);
-			this.stageWebView.loadURL(urlRoot);
+			this.stageWebView.loadURL(urlRoot + AndroidAuthenticationSystem.authenticationPath);
 		}
 		
 		/**
@@ -86,12 +90,22 @@ package com.hg94.core.android
 
 		private function locationChangeHandler(event:LocationChangeEvent):void {
 			if (event.location.indexOf("air_active") > 0) {
-				var offset:int = event.location.indexOf(AndroidAuthenticationSystem.queryParameterName);
 				
-				// Add one for the equals
-				var session_id:String = event.location.substr(offset + AndroidAuthenticationSystem.queryParameterName.length+1);
-				trace("New Session ID is " + session_id);
-				this.sessionID = session_id;
+				
+				// Get the query parameters as an object
+				
+				var query:String = event.location.split( "?" )[ 1 ];
+				var argStrings:Array = query.split( "&" );
+				var args:Object = {};
+				while(argStrings.length) {
+					var arg:Array = argStrings.shift().split("=");
+					args[arg[0]] = arg[1];
+				}
+
+				
+				// Use that to get the session ID
+				
+				this.sessionID = args[AndroidAuthenticationSystem.sessionIDParameterName];
 				this.saveSessionID();
 				this.stageWebView.dispose();
 				this.dispatchEvent(AuthenticationEvent.getCompleteEvent());
@@ -109,7 +123,7 @@ package com.hg94.core.android
 		
 		public function prepareHTTPService(httpService:HTTPService):void {
 			var headers:Object = httpService.headers;
-			headers["Cookie"] = AndroidAuthenticationSystem.queryParameterName + "=" + this.sessionID;
+			headers["Cookie"] = AndroidAuthenticationSystem.sessionIDParameterName + "=" + this.sessionID;
 		}
 		
 		protected function saveSessionID():void {
