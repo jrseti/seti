@@ -20,7 +20,11 @@ class User < ActiveRecord::Base
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["user_info"]["name"]
-      user.email = auth["extra"]["user_hash"]["email"]  rescue "-"
+      if auth["provider"] == 'facebook'
+        user.email = auth["extra"]["user_hash"]["email"]  rescue "-"
+      elsif auth["provider"] == "google"
+        user.email = auth["user_info"]["email"]  rescue "-"
+      end
       user.user_agent_at_creation = user_agent
     end
   end

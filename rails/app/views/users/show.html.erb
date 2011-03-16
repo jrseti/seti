@@ -37,7 +37,7 @@
   <%= @user.user_agent_at_creation%>
 </p>
 
-<%if @user.provider = 'facebook'%>
+<%if @user.provider == 'facebook'%>
 <p>
   <b><%= link_to "Facebook Profile", "http://www.facebook.com/profile.php?id=" + @user.uid%>
 </p>
