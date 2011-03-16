@@ -45,7 +45,7 @@ package com.hg94.seti.view
 		
 		private static var DEBUG_AIR_URL_ROOT:String = "http://localhost.seti.hg94.com:3000";
 		
-		private static var PUBLIC_AIR_URL_ROOT:String = "http://stage.seti.hg94.com";
+		private static var PUBLIC_AIR_URL_ROOT:String = "http://live.seti.hg94.com";
 		
 		private static var PATTERN_CATEGORY_CODES:Array = ["local", "diagonal", "squiggle", "pulse", "broadband", "modulation", "radar", "unknown"]
 		
