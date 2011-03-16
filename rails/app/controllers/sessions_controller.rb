@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       session[:token] = auth["credentials"]["token"]
     end
     session[:provider] = auth["provider"]
-    user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
+    user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth, request.env['HTTP_USER_AGENT'])
     puts "----- LOGIN: " + user.name + "(" + user.id.to_s + ") via " + request.env['HTTP_USER_AGENT']
     session[:user_id] = user.id
     user_agent = request.env['HTTP_USER_AGENT']

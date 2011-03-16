@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110302164427) do
+ActiveRecord::Schema.define(:version => 20110316032158) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "observation_range_id"
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20110302164427) do
     t.string   "name"
     t.string   "role"
     t.string   "email"
+    t.string   "user_agent_at_creation"
   end
 
 end

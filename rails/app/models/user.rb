@@ -15,12 +15,13 @@ class User < ActiveRecord::Base
     self.role ||= DEFAULT_ROLE
   end
 
-  def self.create_with_omniauth(auth)
+  def self.create_with_omniauth(auth, user_agent)
     create! do |user|
       user.provider = auth["provider"]
       user.uid = auth["uid"]
       user.name = auth["user_info"]["name"]
       user.email = auth["extra"]["user_hash"]["email"]  rescue "-"
+      user.user_agent_at_creation = user_agent
     end
   end
 

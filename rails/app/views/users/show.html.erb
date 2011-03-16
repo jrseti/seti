@@ -32,8 +32,16 @@
   <%=time_since(@user.created_at)%>
 </p>
 
+<p>
+  <b>User Agent (browser) at Creation</b>
+  <%= @user.user_agent_at_creation%>
+</p>
 
-
+<%if @user.provider = 'facebook'%>
+<p>
+  <b><%= link_to "Facebook Profile", "http://www.facebook.com/profile.php?id=" + @user.uid%>
+</p>
+<%end%>
 
 
 
