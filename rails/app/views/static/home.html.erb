@@ -29,6 +29,10 @@
           <div class="call_to_action">
             <%= link_to "Administration Interface", users_path %>
           </div>
+          <div class="call_to_action">
+            <%= link_to "Android APK File", "/android/setiQuestExplorer.apk" %>
+          </div>
+          
         <%end%>
     <%else%>
       <p>Thanks for registering for the private beta program. We'll contact you when the program begins, with further information.</p>
@@ -37,6 +41,9 @@
     <p>setiQuest Explorer is a web and mobile application for viewing radio telescope data from SETI targets and helping to identify and categorize patterns. It is a program of the SETI Institute, developed by The Hathersage Group, sponsored by Adobe Systems. If you would like to participate in the private beta program which begins in mid-March, then log in below using your Facebook credentials. We will not post to your wall, nor share your information with anyone.</p>
     <div class="call_to_action">
       <%= link_to "Log in using Facebook", "/auth/facebook"%></div>
+    </div>
+    <div class="call_to_action">
+      <%= link_to "Log in using Google", "/auth/google"%></div>
     </div>
   <%end%>
 </div>
