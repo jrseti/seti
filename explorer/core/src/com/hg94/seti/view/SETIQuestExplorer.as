@@ -176,18 +176,26 @@ package com.hg94.seti.view
 		/** Step 6: User has clicked "Login"
 		 */
 		
-		private function loginButtonClickHandler(event:MouseEvent):void {
-			this.authenticateUser();
+		protected function googleLoginButtonClickHandler(event:MouseEvent):void {
+			this.authenticateUser("google");
+		}
+		
+		protected function twitterLoginButtonClickHandler(event:MouseEvent):void {
+			this.authenticateUser("twitter");
+		}
+		
+		protected function facebookLoginButtonClickHandler(event:MouseEvent):void {
+			this.authenticateUser("facebook");
 		}
 		
 		
 		/** Step 7: Authenticate the user. In AIR, this will throw a StageWebView up in front of the main screen.
 		 */
 		
-		protected function authenticateUser():void {
+		protected function authenticateUser(provider:String):void {
 			this.authenticationSystem.addEventListener(AuthenticationEvent.AUTHENTICATION_COMPLETE, this.authenticationCompleteHandler);
 			this.authenticationSystem.addEventListener(ErrorEvent.ERROR, this.authenticationSystemErrorHandler);
-			this.authenticationSystem.authenticate(SETIQuestExplorer.api_url_root);
+			this.authenticationSystem.authenticate(SETIQuestExplorer.api_url_root, provider);
 		}
 		
 		
@@ -278,9 +286,17 @@ package com.hg94.seti.view
 						this.mainSkin.galaxyImage.percentHeight = 100;
 						this.mainSkin.galaxyImage.percentWidth = 100;
 						break;
-					case "loginButton":
-						this.mainSkin.loginButton.addEventListener(MouseEvent.CLICK, this.loginButtonClickHandler);
-						break; //foo
+					case "facebookLoginButton":
+						this.mainSkin.facebookLoginButton.addEventListener(MouseEvent.CLICK, this.facebookLoginButtonClickHandler);
+						break;
+					/*
+					case "twitterLoginButton":
+						this.mainSkin.twitterLoginButton.addEventListener(MouseEvent.CLICK, this.twitterLoginButtonClickHandler);
+						break;
+					*/
+					case "googleLoginButton":
+						this.mainSkin.googleLoginButton.addEventListener(MouseEvent.CLICK, this.googleLoginButtonClickHandler);
+						break;
 					case "skipAssignmentButton":
 						this.mainSkin.skipAssignmentButton.addEventListener(MouseEvent.CLICK, this.skipAssignmentButtonClickHandler);
 						break;
@@ -291,7 +307,7 @@ package com.hg94.seti.view
 			}
 		}
 
-
+		
 		/** Step 5: The Map is done initializing.
 		 */
 		

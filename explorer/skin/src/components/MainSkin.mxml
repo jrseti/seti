@@ -431,15 +431,21 @@
 	<s:BitmapImage x="7" y="4" smooth="true" source="@Embed('/assets/images/LogoHorizontal_40h.png')">
 	</s:BitmapImage>
 	<s:RichText id="richtext2" d:userLabel="TutorialText" includeIn="LogIn,Login_Thanks" left="24"
-				top="62" width="570" height="232" color="#ffffff" fontFamily="Myriad Pro"
-				fontSize="24" tabStops="S0 S50 S100 S150 S200 S250 S300 S350"
-				whiteSpaceCollapse="preserve"
+				top="62" width="570" height="232" fontFamily="Myriad Pro" fontSize="24"
+				tabStops="S0 S50 S100 S150 S200 S250 S300 S350" whiteSpaceCollapse="preserve"
+				top.LogIn="66" width.LogIn="593" height.LogIn="289" color.LogIn="#ffffff"
+				tabStops.LogIn="S0 S50 S100 S150 S200 S250 S300 S350 S400 S450 S500 S550 S600"
 				color.Login_Thanks="#FFFFFF">
-		<s:content><s:p><s:span fontFamily="Myriad Pro Black" fontSize="24">Welcome!</s:span></s:p><s:p></s:p><s:p><s:span><![CDATA[Please log in using your ]]></s:span><s:span color="#3b5998" fontFamily="Myriad Pro Black" fontSize="24">Facebook</s:span><s:span><![CDATA[ username]]></s:span></s:p><s:p><s:span>to register for the private beta program.</s:span></s:p><s:p></s:p><s:p><s:span fontSize="18">(We won't post to your wall, sell your info, or do anything nasty... promise.)</s:span></s:p><s:p></s:p><s:p><s:span color="#999999" fontSize="14">No Facebook account? Email us for other authentication options.</s:span></s:p><s:p><s:span color="#999999" fontSize="12">setiquestexplorer@hathersagegroup.com</s:span></s:p></s:content>
 		<s:content.Login_Thanks><s:p><s:span fontFamily="Myriad Pro Black">Thanks for Registering!</s:span></s:p><s:p></s:p><s:p><s:span>We will email you when it's time to participate</s:span></s:p><s:p><s:span>in the private beta program.</s:span></s:p></s:content.Login_Thanks>
+		<s:content.LogIn><s:p><s:span fontFamily="Myriad Pro Black" fontSize="24">Application in Private Beta</s:span></s:p><s:p></s:p><s:p><s:span color="#cccccc" fontSize="24">Want to help test the app?</s:span><s:span><![CDATA[    ]]></s:span><s:span color="#ffffff" fontFamily="Myriad Pro Bold" fontSize="24">Log in below.</s:span></s:p><s:p></s:p><s:p><s:span color="#cccccc" fontSize="24">Prefer to wait for the full release?</s:span><s:span><![CDATA[    ]]></s:span><s:span color="#ffffff" fontFamily="Myriad Pro Bold" fontSize="24">Check back later!</s:span></s:p><s:p><s:span color="#ffffff" fontFamily="Myriad Pro Bold" fontSize="24"/></s:p><s:p><s:span color="#cccccc" fontSize="24">Questions or comments?</s:span><s:span color="#ffffff" fontFamily="Myriad Pro Bold" fontSize="24"><![CDATA[    Email us.]]></s:span></s:p><s:p><s:span color="#ffffff" fontFamily="Myriad Pro Bold" fontSize="24"/></s:p><s:p><s:span color="#999999" fontSize="16">setiquestexplorer@hathersagegroup.com</s:span></s:p><s:p><s:span color="#ffffff" fontFamily="Myriad Pro Bold" fontSize="24"/></s:p><s:p><s:span color="#999999" fontSize="14"/></s:p></s:content.LogIn>
 	</s:RichText>
-	<s:Button id="loginButton" d:userLabel="Button_NextScreen" includeIn="LogIn" right="12" bottom="10"
-			  label="Log In &gt;" buttonMode="true" skinClass="components.NextScreenButton"/>
+	<s:RichText includeIn="LogIn" right="84" bottom="54" color="#FFFFFF" fontFamily="Myriad Pro"
+				fontSize="14" tabStops="S0 S50 S100 S150 S200 S250 S300"
+				text="Log in using your choice of:"/>
+	<s:Button id="googleLoginButton" includeIn="LogIn" right="12.05" bottom="10" label="Google"
+			  skinClass="components.LoginButton_Google"/>
+	<s:Button id="facebookLoginButton" includeIn="LogIn" right="134" bottom="10" label="Button"
+			  skinClass="components.LoginButton_Facebook"/>
 	<s:transitions>
 		<s:Transition fromState="Tutorial1" interruptionBehavior="stop" toState="Tutorial2">
 			<s:Parallel>

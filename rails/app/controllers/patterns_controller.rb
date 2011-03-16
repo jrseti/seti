@@ -1,4 +1,15 @@
 class PatternsController < ApplicationController
+  
+  
+  # Enable Cross-Site Forgery protection at the individual controller level on everything except Session
+  # The AIR app does its own cookie management, and isn't handling the hidden form elements correctly during Google OpenID authentication.
+
+  protect_from_forgery
+
+  
+  load_and_authorize_resource
+  
+  
   # GET /patterns
   # GET /patterns.xml
   def index

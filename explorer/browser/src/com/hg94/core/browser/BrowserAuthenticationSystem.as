@@ -18,7 +18,7 @@ package com.hg94.core.browser
 		/** Web app should make sure we are logged in; just throw an error if we aren't.
 		 */
 		
-		public function authenticate(urlRoot:String):void
+		public function authenticate(urlRoot:String, provider:String):void
 		{
 			this.dispatchEvent(new ErrorEvent(ErrorEvent.ERROR))
 		}

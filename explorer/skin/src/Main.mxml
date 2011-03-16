@@ -20,7 +20,7 @@
 			
 			private var skinnablecomponents_CategoryButton_obj:skinnablecomponents.CategoryButton;
 			
-
+			
 			protected function button_clickHandler():void
 			{
 				const state:String = currentState;

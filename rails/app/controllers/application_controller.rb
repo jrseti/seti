@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
 
-  protect_from_forgery
+  #Disable Cross-Site Request Forgery protection at the application level.
+  #The AIR app does its own cookie management, and isn't handling the hidden form elements correctly during Google OpenID authentication.
+  #protect_from_forgery
 
   # See http://mattmccray.com/archive/2007/02/19/Sorta_Nested_Layouts/
   def sub_layout

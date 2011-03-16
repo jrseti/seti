@@ -25,7 +25,7 @@ package com.hg94.core.android
 		
 		protected static var roleParameterName:String = "role";
 		
-		protected static var authenticationPath:String = "/auth/facebook";
+		protected static var authenticationPath:String = "/auth/";
 		
 		protected var rectangle:Rectangle;
 		
@@ -57,7 +57,7 @@ package com.hg94.core.android
 			}
 		}
 		
-		public function authenticate(urlRoot:String):void {
+		public function authenticate(urlRoot:String, provider:String):void {
 			this.stageWebView = new StageWebView();
 			this.stageWebView.stage = this.stage;
 			this.stageWebView.viewPort = this.rectangle;
@@ -65,7 +65,7 @@ package com.hg94.core.android
 			this.stageWebView.addEventListener(ErrorEvent.ERROR,errorHandler);
 			this.stageWebView.addEventListener(LocationChangeEvent.LOCATION_CHANGING,locationChangingHandler);
 			this.stageWebView.addEventListener(LocationChangeEvent.LOCATION_CHANGE,locationChangeHandler);
-			this.stageWebView.loadURL(urlRoot + AndroidAuthenticationSystem.authenticationPath);
+			this.stageWebView.loadURL(urlRoot + AndroidAuthenticationSystem.authenticationPath + provider);
 		}
 		
 		/**

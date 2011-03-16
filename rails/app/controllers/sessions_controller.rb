@@ -1,10 +1,16 @@
 class SessionsController < ApplicationController
+
+  # Cross-Site Forgery protection is not enabled on Session Controller (protect_from_forgery)
+  # The AIR app does its own cookie management, and isn't handling the hidden form elements correctly during Google OpenID authentication.
+
     
   # Create a new session, based on third party oauth authentication. Then redirect to air_login_complete if using air, other
   def create
     auth = request.env["omniauth.auth"]
     puts auth.to_yaml
-    session[:token] = auth["credentials"]["token"]
+    if auth["credentials"]
+      session[:token] = auth["credentials"]["token"]
+    end
     session[:provider] = auth["provider"]
     user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)
     puts "----- LOGIN: " + user.name + "(" + user.id.to_s + ") via " + request.env['HTTP_USER_AGENT']
@@ -12,6 +18,9 @@ class SessionsController < ApplicationController
     user_agent = request.env['HTTP_USER_AGENT']
     # We can't tell AIR for Android (via StageWebView) from Android browser -- ugh!
     if user_agent.match('AdobeAIR') || user_agent.match('Android')
+      puts "------- SESSION OPTIONS -------"
+      puts request.session_options.to_yaml
+      puts "-----------------------"
       redirect_to "/air_active?_session_id=" +  request.session_options[:id]
     else
       redirect_to root_url

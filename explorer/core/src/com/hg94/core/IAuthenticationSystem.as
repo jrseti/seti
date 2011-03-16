@@ -6,7 +6,7 @@ package com.hg94.core
 
 	public interface IAuthenticationSystem extends IEventDispatcher
 	{
-		function authenticate(urlRoot:String):void;
+		function authenticate(urlRoot:String, provider:String):void;
 		
 		function prepareHTTPService(httpService:HTTPService):void;
 		

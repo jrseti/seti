@@ -13,10 +13,20 @@
 }
 @font-face
 {
+	fontFamily: "Myriad Pro Bold";
+	src: url("/Library/Fonts/MyriadPro-Bold.otf");
+	embedAsCFF: true;
+}
+@font-face
+{
 	fontFamily: "Myriad Pro Semibold";
 	src: url("/Library/Fonts/MyriadPro-Semibold.otf");
 	embedAsCFF: true;
 }
+
+
+
+
 
 
 
