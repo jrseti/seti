@@ -28,10 +28,6 @@
 	</s:Rect>
 	<s:BitmapImage y="6" left="7" right="80" smooth="true"
 				   source="@Embed('/assets/images/Image4.png')"/>
-	<s:RichText y="11" height="17" color="#CCCCCC" fontFamily="Arial" fontSize="16" tabStops="S0 S50"
-				text="Google"
-				left.disabled="36" right.disabled="3"
-				left.down="36" right.down="3"
-				left.over="36" right.over="3"
-				left.up="34" right.up="5"/>
+	<s:RichText y="11" left="34" right="5" height="17" color="#CCCCCC" fontFamily="Myriad Pro"
+				fontSize="16" tabStops="S0 S50" text="Google"/>
 </s:Skin>
