@@ -1,3 +1,8 @@
+# Copyright 2011 Adobe Systems Incorporated. All Rights Reserved.
+# NOTICE: Adobe permits you to use, modify, and distribute this file
+#  in accordance with the terms of the Mozilla Public License (MPL) v1.1.
+#
+
 class ApplicationController < ActionController::Base
 
   #Disable Cross-Site Request Forgery protection at the application level.

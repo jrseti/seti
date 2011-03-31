@@ -1,16 +1,6 @@
-/**
-	<?xml version="1.0" encoding="utf-8"?>
-<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
-		xmlns:s="library://ns.adobe.com/flex/spark"
-		xmlns:components="components.*"
-		title="Stars" 
-		actionBarVisible="false"
-		creationComplete="view1_creationCompleteHandler(event)" xmlns:skinnablecomponents="com.hg94.seti.skinnablecomponents.*">
-	<s:states>
-	</s:states>
-	<fx:Script>
-		<![CDATA[
-		 */
+// Copyright 2011 Adobe Systems Incorporated. All Rights Reserved.
+// NOTICE: Adobe permits you to use, modify, and distribute this file
+//  in accordance with the terms of the Mozilla Public License (MPL) v1.1.
 
 package com.hg94.seti.view {
 
@@ -25,7 +15,6 @@ package com.hg94.seti.view {
 	import com.google.maps.overlays.MarkerOptions;
 	import com.google.maps.styles.FillStyle;
 	import com.hg94.seti.controller.GetAssignmentAPICall;
-	import com.hg94.seti.controller.TargetListRequest;
 	import com.hg94.seti.events.MapReadyEvent;
 	import com.hg94.seti.model.Assignment;
 	import com.hg94.seti.model.Model;

@@ -1,3 +1,8 @@
+# Copyright 2011 Adobe Systems Incorporated. All Rights Reserved.
+# NOTICE: Adobe permits you to use, modify, and distribute this file
+#  in accordance with the terms of the Mozilla Public License (MPL) v1.1.
+#
+
 class SessionsController < ApplicationController
 
   # Cross-Site Forgery protection is not enabled on Session Controller (protect_from_forgery)

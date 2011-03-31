@@ -1,3 +1,8 @@
+# Copyright 2011 Adobe Systems Incorporated. All Rights Reserved.
+# NOTICE: Adobe permits you to use, modify, and distribute this file
+#  in accordance with the terms of the Mozilla Public License (MPL) v1.1.
+#
+
 # These methods handle populating models with data from SETI.
 # Generally, the methods are designed to be either called from a controller, or run using the Rails console or runner, like so:
 #   rails runner 'require "./lib/seti_populate"; populate_targets_observations'

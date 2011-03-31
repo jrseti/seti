@@ -1,3 +1,8 @@
+# Copyright 2011 Adobe Systems Incorporated. All Rights Reserved.
+# NOTICE: Adobe permits you to use, modify, and distribute this file
+#  in accordance with the terms of the Mozilla Public License (MPL) v1.1.
+#
+
 module ApplicationHelper
   def time_since(date)
     date_string = date.getlocal.strftime(date_format_string)

@@ -10,6 +10,12 @@
 	<fx:Style source="SETICore.css"/>
 	<fx:Script>
 		<![CDATA[
+
+			// Copyright 2011 Adobe Systems Incorporated. All Rights Reserved.
+			// NOTICE: Adobe permits you to use, modify, and distribute this file
+			//  in accordance with the terms of the Mozilla Public License (MPL) v1.1.
+
+			
 			import com.hg94.core.browser.BrowserAuthenticationSystem;
 			
 			import mx.events.FlexEvent;
