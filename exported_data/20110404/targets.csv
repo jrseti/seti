@@ -1,0 +1,30 @@
+id, name, description, right_ascension, declination
+2, "Kepler Exoplanet 4", "", 19.041021, 50.135753
+3, "Exoplanet 060", "", 3.548611, -9.458056
+4, "Exoplanet 144", "", 0.655833, 21.250278
+5, "Exoplanet 202", "", 1.613333, 41.410556
+7, "Exoplanet 134", "", 0.744722, 20.448889
+8, "W3(OH) Maser", "", 2.451075, 61.8735
+10, "galanticenter-2", "", 5.760325, 28.936164
+11, "Pulsar B0809+74", "", 8.249861, 74.48492
+12, "Rosetta", "", 10.734, 11.735
+13, "Exoplanet 211", "", 19.483056, 47.969444
+14, "Exoplanet 225", "", 7.359167, 58.268056
+16, "Off galanticenter 3991 1", "", 6.760325, 28.936164
+17, "55cnc 1420", "", 8.87661, 28.33083
+19, "HD69830 1420 (neg. Dec)", "", 8.30665, -12.63217
+22, "Wow1 1430", "", 19.42528, -26.95
+18, "Tau Ceti", "A star the constellation Cetus that is similar to the Sun in mass and spectral type. Just under 12 light years from the Solar System.", 1.734467, -15.93748
+15, "Gliese 581", "A red dwarf star located 20.3 light years away in the constellation Libra. Planet g is thought to be in the star's habitable zone.", 15.324118, -7.72228
+9, "AMC-7", "This observation tracks a satellite moving overhead in orbit. Great for seeing cool signals, but not for ET.", 0.0, 0.0
+23, "Lagrange 3991", "This observation tracks a satellite moving overhead in orbit. Great for seeing cool signals, but not for ET. ", 0.0, 0.0
+24, "GPS-27 1575", "This observation tracks a satellite moving overhead in orbit. Great for seeing cool signals, but not for ET.", 0.0, 0.0
+6, "Crab Nebula and Pulsar", "A supernova remnant in the constellation Taurus. At center lies the Crab Pulsar, a neutron which emits pulses of radiation.", 5.575548, 22.01446
+21, "Epsilon Eridani", "A main-sequence star of spectral class K2, 10.5 light years away, the third closest star system visible to the naked eye.", 3.548846, -9.45826
+25, "1733-130-4462_1", "", 17.550752, -13.08043
+26, "0834+555_6670_1", "", 8.581918, 55.57252
+27, "0136+478_4462_1", "", 1.616276, 47.858084
+28, "1347+122_2008_1", "", 13.7926, 12.290066
+29, "3c295-2008_1", "", 14.189069, 52.202539
+30, "0228+673-2008_1", "", 2.48054, 67.35083
+20, "etaarietis 1420", "Eta Arietis is a white F-type main sequence dwarf star in the constellation Aries ~98.3 light years from Earth.", 2.21336, 21.21083
