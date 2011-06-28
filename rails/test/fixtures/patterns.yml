@@ -5,11 +5,9 @@ one:
   hi_mhz: 9.99
   category: MyString
   description: MyText
-  discoverer: 
 
 two:
   lo_mhz: 9.99
   hi_mhz: 9.99
   category: MyString
   description: MyText
-  discoverer: 
