@@ -1,0 +1,23 @@
+headers = %w{assignment_id other}
+
+FasterCSV.open("filename", "w", :write_headers => true, :headers => headers) do |csv|
+	records.each do |r|
+		csv << ...r...
+	end
+end
+
+Archive::Zip.archive('example1.zip', 'a_directory')
+
+assignments = Assignment.page()
+#pushed into csv
+assignments.each do |assignment|
+  csv << Target.where(:id => assignment.observation_range.observation.target_id.to_s)[0].name
+      << assignment.user_id	
+      << assignment.observation_range.observation.target.name
+      << assignment.observation_range.lo_mhz
+      << assignment.observation_range.hi_mhz
+end
+
+2 methods:
+ (1) Takes in date range and returns assignments falling within that range
+ (2) Takes in assignments array and creates zip with csv files; returns path to zip file
