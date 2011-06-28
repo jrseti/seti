@@ -3,6 +3,7 @@
 #  in accordance with the terms of the Mozilla Public License (MPL) v1.1.
 #
 
+
 class AssignmentsController < ApplicationController
 
   
@@ -14,6 +15,8 @@ class AssignmentsController < ApplicationController
   
   load_and_authorize_resource :except => :current_assignment_for_user
   
+  include CsvHelper
+  
   # GET /assignments
   # GET /assignments.xml
   # GET /assignments.csv
@@ -22,7 +25,7 @@ class AssignmentsController < ApplicationController
       @assignments = Assignment.where("created_at >= :start_date AND created_at <= :end_date",
         {:start_date => params[:start_date], :end_date => params[:end_date]})
     else
-      @assignments = Assignment.page(params[:page])
+      @assignments = Assignment.scoped
     end
     respond_to do |format|
       format.html do
@@ -34,23 +37,6 @@ class AssignmentsController < ApplicationController
         render_csv @assignments, "assignments_all.csv"
       end
     end
-  end
-
-  def render_csv(assignments, filename)
-    if request.env['HTTP_USER_AGENT'] =~ /msie/i
-      headers['Pragma'] = 'public'
-      headers["Content-type"] = "text/plain" 
-      headers['Cache-Control'] = 'no-cache, must-revalidate, post-check=0, pre-check=0'
-      headers['Expires'] = "0" 
-    else
-      headers["Content-Type"] ||= 'text/csv'
-    end  
-    headers['Content-Disposition'] = "attachment; filename=\"#{filename}\""
-    
-    csv_text = Assignment.csv_header
-    assignments.each {|assignment| csv_text += assignment.to_csv }
-
-    render :text => csv_text, :layout => false
   end
 
   # GET /assignments/1

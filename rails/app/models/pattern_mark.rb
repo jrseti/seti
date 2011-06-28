@@ -53,5 +53,18 @@ class PatternMark < ActiveRecord::Base
     self.pattern = found_pattern
     
   end
+  
+  def self.csv_header
+    %w{pattern_mark_id assignment_id mhz category}.to_csv
+  end
+  
+  def to_csv
+    [
+      self.id, 
+      self.assignment_id,
+      self.mhz,
+      self.category
+    ].to_csv
+  end
     
 end

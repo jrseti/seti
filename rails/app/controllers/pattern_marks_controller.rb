@@ -10,18 +10,30 @@ class PatternMarksController < ApplicationController
   # The AIR app does its own cookie management, and isn't handling the hidden form elements correctly during Google OpenID authentication.
 
   protect_from_forgery
-
   
   load_and_authorize_resource :except => :mark_pattern
   
+  include CsvHelper
+  
   # GET /pattern_marks
   # GET /pattern_marks.xml
+  # GET /pattern_marks.csv
   def index
-    @pattern_marks = PatternMark.page(params[:page])
-
+    if params[:start_date] && params[:end_date]
+      @pattern_marks = PatternMark.where("created_at >= :start_date AND created_at <= :end_date",
+        {:start_date => params[:start_date], :end_date => params[:end_date]})
+    else
+      @pattern_marks = PatternMark.scoped
+    end
     respond_to do |format|
-      format.html # index.html.erb
+      format.html do
+        @pattern_marks = @pattern_marks.page(params[:page])
+        render :html => @pattern_marks
+      end
       format.xml  { render :xml => @pattern_marks }
+      format.csv do
+        render_csv @pattern_marks, "pattern_marks_all.csv"
+      end
     end
   end
 
