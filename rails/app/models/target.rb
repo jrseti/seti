@@ -5,4 +5,7 @@
 
 class Target < ActiveRecord::Base
   has_many :observations
+  def friendly_name
+    name
+  end
 end
