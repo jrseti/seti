@@ -26,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New Pattern mark', new_pattern_mark_path %> | <%= link_to "Download as CSV", :format => :csv %>
+<%= link_to 'New Pattern mark', new_pattern_mark_path %> | <%= link_to "Download as CSV", :format => :csv, :start_date => @parameters[:start_date], :end_date => @parameters[:end_date] %>

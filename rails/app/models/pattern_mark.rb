@@ -55,7 +55,7 @@ class PatternMark < ActiveRecord::Base
   end
   
   def self.csv_header
-    %w{pattern_mark_id assignment_id mhz category}.to_csv
+    %w{pattern_mark_id assignment_id mhz category creation_date}.to_csv
   end
   
   def to_csv
@@ -63,7 +63,8 @@ class PatternMark < ActiveRecord::Base
       self.id, 
       self.assignment_id,
       self.mhz,
-      self.category
+      self.category,
+      self.created_at
     ].to_csv
   end
     

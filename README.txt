@@ -37,8 +37,8 @@ rake db:migrate
 All authentication is external, and uses omniauth. We did not check in the config file, because it contains the secret keys to our apps with Facebook and Twitter. So you will need to create /rails/config/initializers/omniauth.rb, and populate it with this code:
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  //provider :facebook, '***APP_ID***', '***APP_SECRET***', :display=>:touch
-  //provider :twitter, '***APP_ID***', '***APP_SECRET***'
+#  //provider :facebook, '***APP_ID***', '***APP_SECRET***', :display=>:touch
+#  //provider :twitter, '***APP_ID***', '***APP_SECRET***'
   provider :openid, nil, :name => 'google', :identifier => 'https://www.google.com/accounts/o8/id', :method => :get
 end
 

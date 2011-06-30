@@ -30,6 +30,7 @@ class AssignmentsController < ApplicationController
     respond_to do |format|
       format.html do
         @assignments = @assignments.page(params[:page])
+        @parameters = params
         render :html => @assignments
       end
       format.xml  { render :xml => @assignments }

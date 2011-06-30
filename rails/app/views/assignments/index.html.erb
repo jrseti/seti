@@ -22,4 +22,5 @@
 
 <br />
 
-<%= link_to 'New Assignment', new_assignment_path %> | <%= link_to "Download as CSV", :format => :csv %>
+<%= link_to 'New Assignment', new_assignment_path %> | <%= link_to "Download as CSV", :format => :csv, :start_date => @parameters[:start_date], :end_date => @parameters[:end_date] %>
+

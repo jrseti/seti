@@ -9,7 +9,7 @@ class Assignment < ActiveRecord::Base
   belongs_to :user
   has_many :pattern_marks
   def self.csv_header
-    %w{assignment_id target observation_date observation_range_lo observation_range_hi user_id}.to_csv
+    %w{assignment_id target observation_date observation_range_lo observation_range_hi user_id assigned_date}.to_csv
   end
   
   def friendly_name    
@@ -23,7 +23,8 @@ class Assignment < ActiveRecord::Base
       self.observation_range.observation.date,
       self.observation_range.lo_mhz,
       self.observation_range.hi_mhz,
-      self.user_id
+      self.user_id,
+      self.created_at
     ].to_csv
   end
 end

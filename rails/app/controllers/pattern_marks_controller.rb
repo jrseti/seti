@@ -28,6 +28,7 @@ class PatternMarksController < ApplicationController
     respond_to do |format|
       format.html do
         @pattern_marks = @pattern_marks.page(params[:page])
+        @parameters = params
         render :html => @pattern_marks
       end
       format.xml  { render :xml => @pattern_marks }
