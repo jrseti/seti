@@ -1,5 +1,13 @@
 <h1><%=PatternMark.count%> Pattern Marks</h1>
 
+<%= form_tag({:action=>:index}, {:method=>:get}) do%>
+  Start date (YYYY-MM-DD) <%= text_field_tag :start_date, params[:start_date] %> &nbsp;
+  End date (YYYY-MM-DD) <%= text_field_tag :end_date, params[:end_date] %> &nbsp;
+  <%= submit_tag "Filter by Date"%>
+<%end%>
+
+<br/><br/>
+
 <%= paginate @pattern_marks %>
 
 <table>

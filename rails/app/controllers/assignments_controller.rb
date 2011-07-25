@@ -21,7 +21,7 @@ class AssignmentsController < ApplicationController
   # GET /assignments.xml
   # GET /assignments.csv
   def index
-    if params[:start_date] && params[:end_date]
+    if params[:start_date] and params[:end_date] and params[:start_date].length==10 and params[:end_date].length==10
       @assignments = Assignment.where("created_at >= :start_date AND created_at <= :end_date",
         {:start_date => params[:start_date], :end_date => params[:end_date]})
     else
@@ -35,7 +35,12 @@ class AssignmentsController < ApplicationController
       end
       format.xml  { render :xml => @assignments }
       format.csv do
-        render_csv @assignments, "assignments_all.csv"
+        if params[:start_date] and params[:end_date] and params[:start_date].length==10 and params[:end_date].length==10
+          filename = "assignments_#{params[:start_date]}_#{params[:end_date]}.csv"
+        else
+          filename = "assignemnts_all.csv"
+        end
+        render_csv @assignments, filename
       end
     end
   end

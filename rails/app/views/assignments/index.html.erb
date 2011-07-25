@@ -1,5 +1,13 @@
 <h1><%=Assignment.count%> Assignments</h1>
 
+<%= form_tag({:action=>:index}, {:method=>:get}) do%>
+  Start date (YYYY-MM-DD) <%= text_field_tag :start_date, params[:start_date] %> &nbsp;
+  End date (YYYY-MM-DD) <%= text_field_tag :end_date, params[:end_date] %> &nbsp;
+  <%= submit_tag "Filter by Date"%>
+<%end%>
+
+<br/><br/>
+
 <%= paginate @assignments%>
 
 <table>
@@ -12,7 +20,7 @@
 
 <% @assignments.each do |assignment| %>
   <tr>
-    <td><%= assignment.observation_range.friendly_name %></td>
+    <td><%= assignment.observation_range.friendly_name rescue '-'%></td>
     <td><%= assignment.user.name %></td>
     <td><%= assignment.status %></td>
     <td><%= link_to 'Show', assignment %> <%= link_to 'Edit', edit_assignment_path(assignment) %> <%= link_to 'Destroy', assignment, :confirm => 'Are you sure?', :method => :delete %></td>
