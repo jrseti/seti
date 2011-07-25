@@ -20,25 +20,25 @@ class PatternMarksController < ApplicationController
   # GET /pattern_marks.csv
   def index
     if params[:start_date] and params[:end_date] and params[:start_date].length==10 and params[:end_date].length==10
-      @pattern_marks = PatternMark.where("created_at >= :start_date AND created_at <= :end_date",
+      @pattern_marks_set = PatternMark.where("created_at >= :start_date AND created_at <= :end_date",
         {:start_date => params[:start_date], :end_date => params[:end_date]})
     else
-      @pattern_marks = PatternMark.scoped
+      @pattern_marks_set = PatternMark.scoped
     end
     respond_to do |format|
       format.html do
-        @pattern_marks = @pattern_marks.page(params[:page])
+        @pattern_marks = @pattern_marks_set.page(params[:page])
         @parameters = params
         render :html => @pattern_marks
       end
-      format.xml  { render :xml => @pattern_marks }
+      format.xml  { render :xml => @pattern_marks_set }
       format.csv do
         if params[:start_date] and params[:end_date] and params[:start_date].length==10 and params[:end_date].length==10
           filename = "pattern_marks_#{params[:start_date]}_#{params[:end_date]}.csv"
         else
           filename = "pattern_marks_all.csv"
         end
-        render_csv @pattern_marks, filename
+        render_csv @pattern_marks_set, filename
       end
     end
   end

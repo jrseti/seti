@@ -1,4 +1,4 @@
-<h1><%=PatternMark.count%> Pattern Marks</h1>
+<h1><%=@pattern_marks_set.count%> Pattern Marks</h1>
 
 <%= form_tag({:action=>:index}, {:method=>:get}) do%>
   Start date (YYYY-MM-DD) <%= text_field_tag :start_date, params[:start_date] %> &nbsp;

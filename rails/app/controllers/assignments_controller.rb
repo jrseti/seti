@@ -22,25 +22,25 @@ class AssignmentsController < ApplicationController
   # GET /assignments.csv
   def index
     if params[:start_date] and params[:end_date] and params[:start_date].length==10 and params[:end_date].length==10
-      @assignments = Assignment.where("created_at >= :start_date AND created_at <= :end_date",
+      @assignments_set = Assignment.where("created_at >= :start_date AND created_at <= :end_date",
         {:start_date => params[:start_date], :end_date => params[:end_date]})
     else
-      @assignments = Assignment.scoped
+      @assignments_set = Assignment.scoped
     end
     respond_to do |format|
       format.html do
-        @assignments = @assignments.page(params[:page])
+        @assignments = @assignments_set.page(params[:page])
         @parameters = params
-        render :html => @assignments
+        render :action => :index
       end
-      format.xml  { render :xml => @assignments }
+      format.xml  { render :xml => @assignments_set }
       format.csv do
         if params[:start_date] and params[:end_date] and params[:start_date].length==10 and params[:end_date].length==10
           filename = "assignments_#{params[:start_date]}_#{params[:end_date]}.csv"
         else
           filename = "assignemnts_all.csv"
         end
-        render_csv @assignments, filename
+        render_csv @assignments_set, filename
       end
     end
   end
