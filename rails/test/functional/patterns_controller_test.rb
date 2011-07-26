@@ -2,6 +2,7 @@ require 'test_helper'
 
 class PatternsControllerTest < ActionController::TestCase
   setup do
+    login_as_administrator
     @pattern = patterns(:one)
   end
 

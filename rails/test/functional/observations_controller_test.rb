@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ObservationsControllerTest < ActionController::TestCase
   setup do
+    login_as_administrator
     @observation = observations(:one)
   end
 

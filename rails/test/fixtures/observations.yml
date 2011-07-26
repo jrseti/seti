@@ -2,8 +2,8 @@
 
 one:
   date: 2011-02-21
-  target: 
+  target: one
 
 two:
   date: 2011-02-21
-  target: 
+  target: two

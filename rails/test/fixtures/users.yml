@@ -1,2 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
+one:
+  uid: "francis"
+  provider: "facebook"
+  name: "Francis"
+  role: "admin"
+  email: user@domain.com
+  user_agent_at_creation: "facebook"
