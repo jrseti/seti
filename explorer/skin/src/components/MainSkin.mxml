@@ -7,8 +7,12 @@
 		 xmlns:skinnablecomponents="skinnablecomponents.*"
 		 xmlns:lib="assets.graphics.setiQuestExplorerLogo.*"
 		 xmlns:graphics="assets.graphics.*"
-		 fc:manageBounds="false" width="1024" height="600"
-		 >
+		 xmlns:ATE="http://ns.adobe.com/ate/2009"
+		 xmlns:ai="http://ns.adobe.com/ai/2009"
+		 xmlns:flm="http://ns.adobe.com/flame/2008"
+		 xmlns:lib2="assets.graphics.HathersageGroupLogo2011.*"
+		 xmlns:lib3="assets.graphics.SETIInstituteLogo.*"
+		 width="1024" height="600" fc:manageBounds="false">
 	<fx:Script>
 		<![CDATA[
 			
@@ -107,7 +111,7 @@
 					currentState='Tutorial5';
 				}
 				if ( state == 'Tutorial5' ) {
-					currentState='Tutorial6';
+					currentState='Assignment';
 				}
 				if ( state == 'Tutorial6' ) {
 					currentState='Tutorial7';
@@ -162,6 +166,18 @@
 
 			
 
+
+			protected function button_clickHandler_9():void
+			{
+				currentState='About';
+			}
+
+
+			protected function button_clickHandler_10():void
+			{
+				currentState='Tutorial1';
+			}
+
 		]]>
 
 	</fx:Script>
@@ -183,7 +199,7 @@
 		<s:State fc:color="0xa30096" name="ExploreSky"/>
 		<s:State fc:color="0x00a38e" name="Pattern"/>
 		<s:State fc:color="0xfe4f8d" name="Error_NoConnection"/>
-		<s:State fc:color="0xcca3ff" name="Skeleton"/>
+		<s:State fc:color="0xcca3ff" name="About"/>
 		<s:State name="LogIn"/>
 		<s:State name="Login_Thanks"/>
 	</s:states>
@@ -192,9 +208,10 @@
 				   source="@Embed('/assets/images/SpiralGalaxyNGC2841.jpg')"/>
 	<s:Rect includeIn="Splash_Loading" left="0" right="0" top="0" bottom="0" alpha="0">
 	</s:Rect>
-	<s:Path includeIn="ExploreSky,Settings,DataViz,Assignment,LogIn,Categorize,Error_NoConnection,Tutorial8,Tutorial7,Tutorial6,Tutorial5,Tutorial4,Pattern,ThankYou,Tutorial3,Tutorial2,Tutorial1,Login_Thanks,Skeleton"
+	<s:Path includeIn="ExploreSky,Settings,DataViz,Assignment,LogIn,Categorize,Error_NoConnection,Tutorial8,Tutorial7,Tutorial6,Tutorial5,ThankYou,Tutorial4,Pattern,Tutorial3,About,Tutorial2,Tutorial1,Login_Thanks"
 			alpha="1" blendMode="normal" data="M 0 0 L 1024 0 L 1024 40 L 0 40 L 0 0 Z"
 			winding="evenOdd"
+			left.About="0" right.About="0" top.About="0"
 			left.Assignment="0" right.Assignment="0" top.Assignment="0"
 			left.Categorize="0" right.Categorize="0" top.Categorize="0"
 			left.DataViz="0" right.DataViz="0" top.DataViz="0"
@@ -204,7 +221,6 @@
 			left.Login_Thanks="0" right.Login_Thanks="0" top.Login_Thanks="0"
 			left.Pattern="0" right.Pattern="0" top.Pattern="0"
 			left.Settings="0" right.Settings="0" top.Settings="0"
-			left.Skeleton="0" right.Skeleton="0" top.Skeleton="0"
 			left.ThankYou="0" right.ThankYou="0" top.ThankYou="0"
 			left.Tutorial1="0" right.Tutorial1="0" top.Tutorial1="0"
 			left.Tutorial2="0" right.Tutorial2="0" top.Tutorial2="0"
@@ -222,20 +238,20 @@
 		</s:fill>
 	</s:Path>
 	<s:Button id="starfieldButton1"
-			  includeIn="Assignment,Categorize,DataViz,ExploreSky,Pattern,Settings,ThankYou,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
+			  includeIn="About,Assignment,Categorize,DataViz,ExploreSky,Pattern,Settings,ThankYou,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
 			  right="180" top="0" label="Button" click="button_clickHandler_8()"
 			  skinClass="components.ControlBarButton_Assignment"
 			  enabled.Assignment="false"
 			  enabled.Tutorial2="true"/>
 	<s:Button id="datavizButton1"
-			  includeIn="Assignment,Categorize,DataViz,ExploreSky,Pattern,Settings,ThankYou,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
+			  includeIn="About,Assignment,Categorize,DataViz,ExploreSky,Pattern,Settings,ThankYou,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
 			  right="120" top="0" label="Button" click="button_clickHandler_7()"
 			  skinClass="components.ControlBarButton_DataViz"
 			  enabled.Categorize="false"
 			  enabled.DataViz="false"
 			  enabled.ThankYou="false"/>
 	<s:Button id="settingsButton1"
-			  includeIn="Assignment,Categorize,DataViz,ExploreSky,Pattern,Settings,ThankYou,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
+			  includeIn="About,Assignment,Categorize,DataViz,ExploreSky,Pattern,Settings,ThankYou,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
 			  right="60" top="0" label="Button" click="button_clickHandler_6()"
 			  skinClass="components.ControlBarButton_Settings"
 			  enabled.Settings="false"/>
@@ -314,19 +330,11 @@
 		<s:content><s:p><s:span>Discovered by Francis Potter</s:span></s:p><s:p><s:span>February 11, 2011</s:span></s:p><s:p><s:span>Marked by 279 citizen scientists</s:span></s:p></s:content>
 	</s:RichText>
 	<s:RichText id="richtext1" d:userLabel="TutorialText"
-				includeIn="Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
-				width="326" height="93" color="#FFFFFF" fontFamily="Myriad Pro" fontSize="24"
+				includeIn="Tutorial1,Tutorial6,Tutorial7,Tutorial8" width="326" color="#FFFFFF"
+				fontFamily="Myriad Pro" fontSize="24"
 				tabStops="S0 S50 S100 S150 S200 S250 S300 S350"
-				text="The Allen Telescope Array in California receives radio waves from target stars and galaxies..."
-				x.Tutorial1="24" y.Tutorial1="62"
-				x.Tutorial2="24" y.Tutorial2="146"
-				text.Tutorial2="The SETI Institute analyzes the data and generates visualizations..."
-				x.Tutorial3="25" y.Tutorial3="247" height.Tutorial3="58"
-				text.Tutorial3="Mostly we see only noise (static) in the visualizations..."
-				x.Tutorial4="24" y.Tutorial4="316" height.Tutorial4="115"
-				text.Tutorial4="Occasionally we see patterns in the noise that represent airplanes, satellites, and radio transmitters on Earth..."
-				x.Tutorial5="420" y.Tutorial5="62" height.Tutorial5="115"
-				text.Tutorial5="We're looking for signs of intelligent life, but of course nobody knows exactly what that will look like..."
+				x.Tutorial1="28" y.Tutorial1="62" width.Tutorial1="236" height.Tutorial1="30"
+				text.Tutorial1="Example of a &quot;Pattern&quot;..."
 				x.Tutorial6="420" y.Tutorial6="187" height.Tutorial6="91"
 				text.Tutorial6="You will be assigned to review some data from a target we've recently observed..."
 				x.Tutorial7="420" y.Tutorial7="292" height.Tutorial7="91"
@@ -357,9 +365,10 @@
 	<skinnablecomponents:CategoryButton id="categoryButton_local" includeIn="Categorize" right="534" top="393"
 										buttonMode="true" click="categoryButton_clickHandler_7()"
 										skinClass="components.CategoryButtonSkin_Local"/>
-	<s:Button includeIn="Assignment,Categorize,DataViz,ExploreSky,Pattern,Settings,ThankYou,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
+	<s:Button includeIn="About,Assignment,Categorize,DataViz,ExploreSky,Pattern,Settings,ThankYou,Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6,Tutorial7,Tutorial8"
 			  top="0" label="Button" click="button_clickHandler_5()"
 			  skinClass="components.ControlBarButton_Tutorial"
+			  right.About="0" enabled.About="false"
 			  right.Assignment="0"
 			  x.Categorize="964"
 			  right.DataViz="0"
@@ -385,7 +394,7 @@
 			  label.Tutorial2="Next &gt;"
 			  label.Tutorial3="Next &gt;"
 			  label.Tutorial4="Next &gt;"
-			  label.Tutorial5="Next &gt;"
+			  label.Tutorial5="Get Started"
 			  label.Tutorial6="Next &gt;"
 			  label.Tutorial7="Next &gt;"
 			  label.Tutorial8="Get Started"/>
@@ -446,44 +455,420 @@
 			  skinClass="components.LoginButton_Google"/>
 	<s:Button id="facebookLoginButton" includeIn="LogIn" right="134" bottom="10" label="Button"
 			  skinClass="components.LoginButton_Facebook"/>
+	<s:Button includeIn="Tutorial1,Tutorial2,Tutorial3,Tutorial4,Tutorial5,Tutorial6" right="132" bottom="10" label="About..."
+			  click="button_clickHandler_9()" skinClass="components.AboutButton"/>
+	<fx:DesignLayer d:id="2" d:userLabel="About">
+		<s:Rect includeIn="About" x="13.5" y="55.5" width="393" height="345">
+			<s:stroke>
+				<s:SolidColorStroke caps="none" color="#5C5C5C" joints="miter" miterLimit="4"
+									weight="1"/>
+			</s:stroke>
+			<s:fill>
+				<s:SolidColor color="#FFFFFF"/>
+			</s:fill>
+		</s:Rect>
+		<s:RichText d:id="3" d:userLabel="TheHathersageGroup" includeIn="About" x="41" y="114"
+					width="337" height="40" ai:aa="2" color="#000000" columnCount="1"
+					fontFamily="Myriad Pro" fontSize="36" kerning="on"
+					tabStops="S0 S50 S100 S150 S200 S250 S300 S350 S400 S450" flm:variant="1"
+					whiteSpaceCollapse="preserve">
+			<s:content><s:p><s:span fontFamily="Myriad Pro Light">The</s:span><s:span kerning="off" fontFamily="Myriad Pro Black">H</s:span><s:span fontFamily="Myriad Pro Black">ath</s:span><s:span kerning="off" fontFamily="Myriad Pro Black">e</s:span><s:span fontFamily="Myriad Pro Black">rsage</s:span><s:span fontFamily="Myriad Pro Light">Group</s:span></s:p></s:content>
+		</s:RichText>
+		<s:RichText id="richtext3" d:userLabel="AProjectOf" includeIn="About" x="41" y="90"
+					width="134" height="28" color="#666666" fontFamily="Myriad Pro" fontSize="18"
+					tabStops="S0 S50 S100" text="A Project of"/>
+		<s:RichText id="richtext4" d:userLabel="DataSuppliedBy" includeIn="About" x="55" y="180"
+					width="144" height="29" color="#666666" fontFamily="Myriad Pro" fontSize="14"
+					tabStops="S0 S50 S100" text="Data Supplied by" textAlign="center"/>
+		<s:RichText id="richtext5" d:userLabel="SponsoredBy" includeIn="About" x="258" y="180"
+					width="83" height="29" color="#666666" fontFamily="Myriad Pro" fontSize="14"
+					tabStops="S0 S50" text="Sponsored by" textAlign="center"/>
+		<s:Group includeIn="About" x="56" y="210">
+			<s:Group x="0" y="0">
+				<s:Group x="0" y="74">
+					<s:Group x="0" y="0">
+						<s:Group x="0" y="0">
+							<s:Group x="0" y="0">
+								<s:Path x="0.571" y="0.091" width="8.982" height="16.294"
+										data="M 7.867 10.004 C 5.758 8.988 3.934 8.113 3.934 6.275 C 3.934 3.621 6.676 3.336 7.855 3.336 C 9.566 3.336 10.488 3.627 12.195 4.297 L 12.41 4.381 L 12.938 0.906 L 12.797 0.854 C 11.27 0.313 9.416 0 7.719 0 C 3.027 0 0 2.582 0 6.576 C 0 10.648 3.066 12.094 5.773 13.361 C 8.09 14.449 10.09 15.393 10.09 17.68 C 10.09 20.361 7.445 21.336 5.672 21.336 C 3.75 21.336 1.506 20.469 0.861 20.203 L 0.633 20.109 L 0.25 23.633 L 0.395 23.68 C 1.926 24.182 3.559 24.662 5.262 24.662 C 10.836 24.662 14.029 22.047 14.029 17.481 C 14.029 12.973 10.758 11.395 7.867 10.004 Z"
+										winding="nonZero">
+									<s:fill>
+										<s:SolidColor color="#004693"/>
+									</s:fill>
+								</s:Path>
+								<s:Path x="12.832" y="0.357" width="8.659" height="15.762"
+										data="M 0 0 L 0 23.857 L 13.525 23.857 L 13.525 20.527 C 13.525 20.527 4.092 20.527 3.736 20.527 C 3.736 20.18 3.736 13.504 3.736 13.16 C 4.092 13.16 12.652 13.16 12.652 13.16 L 12.652 9.828 C 12.652 9.828 4.092 9.828 3.736 9.828 C 3.736 9.484 3.736 3.678 3.736 3.34 C 4.092 3.34 13.525 3.34 13.525 3.34 L 13.525 0 L 13.34 0 L 0 0 Z"
+										winding="nonZero">
+									<s:fill>
+										<s:SolidColor color="#004693"/>
+									</s:fill>
+								</s:Path>
+								<s:Path x="23.63" y="0.357" width="11.74" height="15.762"
+										data="M 0 0 L 0 3.34 C 0 3.34 6.945 3.34 7.301 3.34 C 7.301 3.699 7.301 23.857 7.301 23.857 L 11.035 23.857 C 11.035 23.857 11.035 3.699 11.035 3.34 C 11.391 3.34 18.336 3.34 18.336 3.34 L 18.336 0 L 18.152 0 L 0 0 Z"
+										winding="nonZero">
+									<s:fill>
+										<s:SolidColor color="#004693"/>
+									</s:fill>
+								</s:Path>
+								<s:Path x="38.413" y="0.357" width="2.393" height="15.762"
+										data="M 0 0 L 0 23.857 L 3.738 23.857 L 3.738 0 L 3.555 0 L 0 0 Z"
+										winding="nonZero">
+									<s:fill>
+										<s:SolidColor color="#004693"/>
+									</s:fill>
+								</s:Path>
+								<s:Path x="52.486" y="0.357" width="2.392" height="15.764"
+										data="M 0 0 L 0 23.861 L 3.736 23.861 L 3.736 0 L 3.551 0 L 0 0 Z"
+										winding="nonZero">
+									<s:fill>
+										<s:SolidColor color="#004693"/>
+									</s:fill>
+								</s:Path>
+								<s:Path x="58.268" y="3.571" width="9.901" height="12.428"
+										data="M 11.859 14.066 L 11.801 14.066 L 4.635 0 L 0 0 L 0 18.811 L 3.611 18.811 L 3.611 4.74 L 3.662 4.74 L 10.857 18.811 L 15.463 18.811 L 15.463 0 L 11.859 0 L 11.859 14.066 Z"
+										winding="nonZero">
+									<s:fill>
+										<s:SolidColor color="#004693"/>
+									</s:fill>
+								</s:Path>
+								<s:Path x="70.94" y="3.358" width="7.799" height="12.851"
+										data="M 3.932 5.576 C 3.932 3.527 5.607 2.965 6.902 2.965 C 8.223 2.965 9.539 3.258 10.727 3.773 L 11.074 0.672 C 9.703 0.215 8.199 0 6.582 0 C 3.258 0 0 1.535 0 5.74 C 0 11.961 8.25 10.481 8.25 14.063 C 8.25 15.758 6.336 16.488 4.91 16.488 C 3.422 16.488 1.936 16.035 0.646 15.334 L 0.295 18.731 C 2.152 19.184 3.07 19.453 5.125 19.453 C 8.922 19.453 12.182 17.891 12.182 13.77 C 12.182 7.463 3.932 8.84 3.932 5.576 Z"
+										winding="nonZero">
+									<s:fill>
+										<s:SolidColor color="#004693"/>
+									</s:fill>
+								</s:Path>
+								<s:Path x="80.573" y="3.571" width="9.313" height="12.428"
+										data="M 0 2.967 L 5.387 2.967 L 5.387 18.811 L 9.156 18.811 L 9.156 2.967 L 14.547 2.967 L 14.547 0 L 0 0 L 0 2.967 Z"
+										winding="nonZero">
+									<s:fill>
+										<s:SolidColor color="#004693"/>
+									</s:fill>
+								</s:Path>
+								<s:Rect x="93" y="4" width="2" height="12">
+									<s:fill>
+										<s:SolidColor color="#004693"/>
+									</s:fill>
+								</s:Rect>
+								<s:Path x="96.867" y="3.571" width="9.318" height="12.428"
+										data="M 0 2.967 L 5.395 2.967 L 5.395 18.811 L 9.164 18.811 L 9.164 2.967 L 14.555 2.967 L 14.555 0 L 0 0 L 0 2.967 Z"
+										winding="nonZero">
+									<s:fill>
+										<s:SolidColor color="#004693"/>
+									</s:fill>
+								</s:Path>
+								<s:Path x="108.324" y="3.571" width="9.834" height="12.639"
+										data="M 11.586 10.861 C 11.586 14.066 10.563 16.166 7.68 16.166 C 4.797 16.166 3.773 14.066 3.773 10.861 L 3.773 0 L 0 0 L 0 12.014 C 0 17.057 2.855 19.131 7.68 19.131 C 12.508 19.131 15.359 17.057 15.359 12.014 L 15.359 0 L 11.586 0 L 11.586 10.861 Z"
+										winding="nonZero">
+									<s:fill>
+										<s:SolidColor color="#004693"/>
+									</s:fill>
+								</s:Path>
+								<s:Path x="120.294" y="3.571" width="9.318" height="12.428"
+										data="M 0 2.967 L 5.391 2.967 L 5.391 18.811 L 9.164 18.811 L 9.164 2.967 L 14.555 2.967 L 14.555 0 L 0 0 L 0 2.967 Z"
+										winding="nonZero">
+									<s:fill>
+										<s:SolidColor color="#004693"/>
+									</s:fill>
+								</s:Path>
+								<s:Path x="131.837" y="3.571" width="7.141" height="12.428"
+										data="M 3.77 15.844 L 3.77 10.563 L 10.477 10.563 L 10.477 7.6 L 3.77 7.6 L 3.77 2.967 L 11.098 2.967 L 11.098 0 L 0 0 L 0 18.811 L 11.152 18.811 L 11.152 15.844 L 3.77 15.844 Z"
+										winding="nonZero">
+									<s:fill>
+										<s:SolidColor color="#004693"/>
+									</s:fill>
+								</s:Path>
+							</s:Group>
+						</s:Group>
+					</s:Group>
+				</s:Group>
+				<s:Group x="0" y="0">
+					<s:Group x="0" y="0">
+						<s:Group x="0" y="4">
+							<s:Path x="130.643" y="0.246" width="8.439" height="8.409"
+									data="M 13.156 6.579 C 13.156 2.945 10.215 0 6.582 0 C 2.949 0 0 2.945 0 6.579 C 0 10.213 2.949 13.158 6.582 13.158 C 10.215 13.158 13.156 10.213 13.156 6.579 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="106.295" y="14.288" width="5.314" height="8.343"
+									data="M 8.285 6.583 C 8.285 2.946 5.344 0 1.711 0 C 1.113 0 0.547 0.104 0 0.252 C 1.363 4.345 2.316 8.625 2.77 13.055 C 5.898 12.542 8.285 9.852 8.285 6.583 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="119.932" y="30.184" width="8.439" height="8.41"
+									data="M 6.578 0 C 2.945 0 0 2.945 0 6.582 C 0 10.215 2.945 13.16 6.578 13.16 C 10.215 13.16 13.156 10.215 13.156 6.582 C 13.156 2.945 10.215 0 6.578 0 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="108.972" y="42.611" width="8.442" height="8.41"
+									data="M 6.582 0 C 2.949 0 0 2.945 0 6.582 C 0 10.215 2.949 13.16 6.582 13.16 C 10.215 13.16 13.16 10.215 13.16 6.582 C 13.16 2.945 10.215 0 6.582 0 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="27.553" y="30.232" width="5.305" height="8.349"
+									data="M 0 6.485 C 0 10.12 2.947 13.065 6.58 13.065 C 7.17 13.065 7.729 12.964 8.271 12.819 C 6.951 8.718 6.061 4.43 5.65 0 C 2.463 0.456 0 3.172 0 6.485 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="33.844" y="0.241" width="6.831" height="7.759"
+									data="M 6.582 0 C 2.945 0 0 2.947 0 6.579 C 0 8.93 1.24 10.977 3.094 12.142 C 5.223 8.298 7.766 4.718 10.648 1.445 C 9.527 0.555 8.125 0 6.582 0 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="15" y="42.611" width="8.442" height="8.41"
+									data="M 6.582 0 C 2.945 0 0 2.945 0 6.582 C 0 10.215 2.945 13.16 6.582 13.16 C 10.215 13.16 13.16 10.215 13.16 6.582 C 13.16 2.945 10.215 0 6.582 0 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="8.279" y="21.775" width="8.439" height="8.41"
+									data="M 13.156 6.582 C 13.156 2.947 10.215 0 6.578 0 C 2.945 0 0 2.947 0 6.582 C 0 10.215 2.945 13.16 6.578 13.16 C 10.215 13.16 13.156 10.215 13.156 6.582 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="0.606" y="0.246" width="8.442" height="8.409"
+									data="M 6.582 0 C 2.945 0 0 2.945 0 6.579 C 0 10.213 2.945 13.158 6.582 13.158 C 10.213 13.158 13.16 10.213 13.16 6.579 C 13.16 2.945 10.213 0 6.582 0 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="110.236" y="0.836" width="5.911" height="5.885"
+									data="M 4.609 9.208 C 7.152 9.208 9.215 7.148 9.215 4.605 C 9.215 2.06 7.152 0 4.609 0 C 2.066 0 0 2.06 0 4.605 C 0 7.148 2.066 9.208 4.609 9.208 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="132.333" y="17.881" width="5.908" height="5.885"
+									data="M 4.602 0 C 2.063 0 0 2.06 0 4.605 C 0 7.148 2.063 9.208 4.602 9.208 C 7.148 9.208 9.211 7.148 9.211 4.605 C 9.211 2.06 7.148 0 4.602 0 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="132.333" y="44.464" width="5.908" height="5.886"
+									data="M 4.602 0 C 2.063 0 0 2.059 0 4.607 C 0 7.15 2.063 9.211 4.602 9.211 C 7.148 9.211 9.211 7.15 9.211 4.607 C 9.211 2.059 7.148 0 4.602 0 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="16.268" y="11.531" width="5.908" height="5.887"
+									data="M 4.602 9.212 C 7.152 9.212 9.211 7.151 9.211 4.606 C 9.211 2.063 7.152 0 4.602 0 C 2.059 0 0 2.063 0 4.606 C 0 7.151 2.059 9.212 4.602 9.212 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="1.451" y="44.464" width="5.908" height="5.886"
+									data="M 4.605 0 C 2.063 0 0 2.059 0 4.607 C 0 7.15 2.063 9.211 4.605 9.211 C 7.152 9.211 9.211 7.15 9.211 4.607 C 9.211 2.059 7.152 0 4.605 0 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+						</s:Group>
+						<s:Group x="34" y="0">
+							<s:Path x="54.414" y="0.198" width="8.331" height="6.943"
+									data="M 5.19 6.871 C 8.659 9.731 12.01 11.385 12.694 10.569 C 13.36 9.75 11.092 6.775 7.62 3.915 C 4.149 1.056 0.791 -0.605 0.122 0.21 C -0.552 1.029 1.721 4.006 5.19 6.871 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="9.256" y="0.142" width="8.352" height="6.923"
+									data="M 7.638 6.857 C 11.111 4.003 13.396 1.038 12.724 0.212 C 12.052 -0.605 8.687 1.044 5.21 3.889 C 1.73 6.743 -0.546 9.718 0.118 10.536 C 0.792 11.355 4.153 9.705 7.638 6.857 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="15.194" y="59.699" width="9.528" height="5.212"
+									data="M 8.189 2.333 C 4.177 0.311 0.531 -0.566 0.054 0.38 C -0.424 1.317 2.449 3.727 6.46 5.751 C 10.48 7.78 14.124 8.659 14.603 7.71 C 15.074 6.767 12.21 4.36 8.189 2.333 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="0.375" y="14.545" width="6.352" height="11.519"
+									data="M 7.788 0.098 C 5.622 -0.613 2.562 2.773 0.96 7.654 C -0.647 12.541 -0.19 17.073 1.98 17.785 C 4.155 18.498 7.214 15.122 8.812 10.235 C 10.417 5.348 9.962 0.811 7.788 0.098 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="62.009" y="10.031" width="7.953" height="11.415"
+									data="M 1.825 11.04 C 4.235 15.782 8.106 18.648 10.465 17.443 C 12.84 16.234 12.817 11.421 10.407 6.688 C 8.004 1.949 4.125 -0.919 1.754 0.276 C -0.613 1.487 -0.58 6.301 1.825 11.04 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="47.425" y="53.736" width="11.943" height="9.531"
+									data="M 6.013 2.322 C 1.259 5.291 -1.183 9.974 0.571 12.779 C 2.329 15.582 7.606 15.453 12.357 12.476 C 17.114 9.505 19.552 4.822 17.794 2.017 C 16.044 -0.784 10.771 -0.655 6.013 2.322 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="5.54" y="46.176" width="10.369" height="11.191"
+									data="M 12.574 4.843 C 8.968 0.546 3.992 -1.228 1.457 0.895 C -1.082 3.018 -0.219 8.225 3.379 12.53 C 6.974 16.833 11.953 18.6 14.492 16.479 C 17.027 14.348 16.17 9.145 12.574 4.843 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="9.888" y="14.215" width="13.983" height="14.516"
+									data="M 1.273 6.57 C -1.528 12.219 0.433 18.913 5.668 21.508 C 10.906 24.105 17.422 21.626 20.23 15.972 C 23.039 10.315 21.07 3.625 15.832 1.029 C 10.601 -1.571 4.082 0.919 1.273 6.57 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="13.584" y="30.859" width="21.86" height="21.834"
+									data="M 3.872 3.516 C -2.057 9.236 -1.065 19.873 6.075 27.291 C 13.228 34.709 23.82 36.091 29.753 30.377 C 35.679 24.666 34.689 14.019 27.54 6.608 C 20.396 -0.809 9.798 -2.19 3.872 3.516 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="50.556" y="24.62" width="22.392" height="20.889"
+									data="M 27.763 0 C 24.626 0 22.003 3.148 21.282 7.403 L 21.281 7.385 C 20.958 9.426 19.208 10.982 17.079 10.982 C 16.449 10.982 15.857 10.859 15.322 10.616 L 15.329 10.625 C 15.023 10.483 14.708 10.353 14.384 10.243 C 8.841 8.353 2.7 11.668 0.665 17.65 C -1.372 23.626 1.447 30.005 6.99 31.894 C 12.521 33.786 18.661 30.472 20.71 24.495 C 20.937 23.831 21.095 23.167 21.204 22.503 C 21.607 20.582 23.31 19.139 25.353 19.139 C 25.757 19.139 26.142 19.219 26.521 19.321 L 26.529 19.303 C 26.929 19.412 27.341 19.476 27.763 19.476 C 31.45 19.476 34.439 15.109 34.439 9.738 C 34.439 4.352 31.45 0 27.763 0 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+							<s:Path x="27.821" y="0.326" width="30.377" height="15.194"
+									data="M 31.898 20.91 C 36.859 24.489 42.988 24.481 45.574 20.898 C 48.164 17.312 46.231 11.493 41.273 7.918 C 36.953 4.795 31.754 4.403 28.77 6.728 L 28.775 6.712 C 28.086 7.304 27.115 7.553 26.184 7.239 C 25.481 7.007 24.93 6.499 24.627 5.875 L 24.617 5.9 C 22.781 2.45 18.164 0 12.746 0 C 5.707 0 0 4.122 0 9.215 C 0 14.299 5.707 18.424 12.746 18.424 C 16.984 18.424 20.729 16.922 23.047 14.616 L 23.043 14.638 C 23.777 13.934 24.883 13.697 25.891 14.093 C 26.531 14.348 27 14.819 27.297 15.39 L 27.297 15.385 C 28.191 17.402 29.758 19.363 31.898 20.91 Z"
+									winding="nonZero">
+								<s:fill>
+									<s:SolidColor color="#007CC1"/>
+								</s:fill>
+							</s:Path>
+						</s:Group>
+					</s:Group>
+					<s:Group x="140" y="4">
+						<s:Path x="0.732" y="0.923" width="5.861" height="3.198"
+								data="M 1.156 0.64 L 0 0.64 L 0 0 L 3.027 0 L 3.027 0.64 L 1.855 0.64 L 1.855 3.789 L 1.156 3.789 L 1.156 0.64 Z M 3.914 0 L 4.988 0 L 5.98 2.559 L 6.949 0 L 8.031 0 L 8.031 3.789 L 7.344 3.789 L 7.344 0.891 L 7.316 0.891 L 6.258 3.789 L 5.688 3.789 L 4.629 0.891 L 4.609 0.891 L 4.609 3.789 L 3.914 3.789 L 3.914 0 Z"
+								winding="nonZero">
+							<s:fill>
+								<s:SolidColor color="#007CC1"/>
+							</s:fill>
+						</s:Path>
+					</s:Group>
+				</s:Group>
+			</s:Group>
+		</s:Group>
+		<s:BitmapImage includeIn="About" x="258" y="199" width="92" height="113" smooth="true"
+					   source="@Embed('/assets/images/AdobeLogo_908x1115.jpg')"/>
+		<s:RichText id="richtext6" d:userLabel="DataSuppliedBy" includeIn="About" x="23" y="348"
+					width="370" height="24" color="#666666" fontFamily="Myriad Pro" fontSize="20"
+					tabStops="S0 S50 S100 S150 S200 S250 S300 S350" text="explorer.setiquest.org"
+					textAlign="center"/>
+		<s:Button d:userLabel="HelpButton" includeIn="About" right="12" bottom="10" label="Help..."
+				  click="button_clickHandler_10()" skinClass="components.AboutButton"/>
+		<s:RichText id="richtext7" d:userLabel="TutorialText" includeIn="Tutorial2" x="28" y="61.95"
+					width="602" height="32" color="#FFFFFF" fontFamily="Myriad Pro" fontSize="24"
+					tabStops="S0 S50 S100 S150 S200 S250 S300 S350"
+					text="We will ask you what type of Pattern you saw..."/>
+		<s:BitmapImage includeIn="Tutorial2" x="27" y="96" smooth="true"
+					   source="@Embed('/assets/images/FirefoxScreenSnapz004.png')"/>
+		<s:RichText id="richtext8" d:userLabel="TutorialText" includeIn="Tutorial3" x="28" y="61.95"
+					width="363.006" height="60.001" color="#FFFFFF" fontFamily="Myriad Pro" fontSize="24"
+					tabStops="S0 S50 S100 S150 S200 S250 S300 S350"
+					text="Scroll all the way to the right to finish your assignment..."/>
+		<s:BitmapImage includeIn="Tutorial3" x="26" y="125" width="600" height="255" smooth="true"
+					   source="@Embed('/assets/images/FirefoxScreenSnapz006.png')"/>
+		<s:RichText id="richtext9" d:userLabel="TutorialText" includeIn="Tutorial4" x="28" y="62"
+					width="355" height="82" color="#FFFFFF" fontFamily="Myriad Pro"
+					fontSize="24" tabStops="S0 S50 S100 S150 S200 S250 S300 S350"
+					text="You may be assigned the same star again, but a different observation or at a different frequency..."/>
+		<s:RichText id="richtext10" d:userLabel="TutorialText" includeIn="Tutorial5" x="28" y="61.95"
+					width="407" height="31" color="#FFFFFF" fontFamily="Myriad Pro"
+					fontSize="24" tabStops="S0 S50 S100 S150 S200 S250 S300 S350"
+					text="Just click &quot;Continue&quot; to keep exploring!"/>
+		<s:BitmapImage includeIn="Tutorial5" x="93" y="97" smooth="true"
+					   source="@Embed('/assets/images/FirefoxScreenSnapz008.png')"/>
+		<s:Ellipse includeIn="Tutorial5" x="207" y="230" width="175" height="90">
+			<s:stroke>
+				<s:SolidColorStroke caps="none" color="#FDFF00" joints="miter" miterLimit="4"
+									weight="8"/>
+			</s:stroke>
+		</s:Ellipse>
+		<s:Ellipse includeIn="Tutorial2" x="23" y="91" width="93" height="109">
+			<s:stroke>
+				<s:SolidColorStroke caps="none" color="#FDFF00" joints="miter" miterLimit="4"
+									weight="8"/>
+			</s:stroke>
+		</s:Ellipse>
+		<s:Line includeIn="Tutorial3" x="199" y="232" xTo="267" yFrom="1">
+			<s:stroke>
+				<s:SolidColorStroke caps="none" color="#FDFF00" joints="miter" miterLimit="4"
+									weight="8"/>
+			</s:stroke>
+		</s:Line>
+		<s:Line includeIn="Tutorial3" x="415" y="200" xFrom="49" yFrom="32">
+			<s:stroke>
+				<s:SolidColorStroke caps="none" color="#FDFF00" joints="miter" miterLimit="4"
+									weight="8"/>
+			</s:stroke>
+		</s:Line>
+		<s:Line includeIn="Tutorial3" x="415" y="232" xFrom="49" yTo="32">
+			<s:stroke>
+				<s:SolidColorStroke caps="none" color="#FDFF00" joints="miter" miterLimit="4"
+									weight="8"/>
+			</s:stroke>
+		</s:Line>
+		<s:BitmapImage includeIn="Tutorial1" x="28" y="100" smooth="true"
+					   source="@Embed('/assets/images/FirefoxScreenSnapz001.png')"/>
+		<s:BitmapImage includeIn="Tutorial1" x="147" y="358" smooth="true"
+					   source="@Embed('/assets/images/FirefoxScreenSnapz002.png')"/>
+		<s:Ellipse includeIn="Tutorial1" x="23" y="91" width="104" height="336">
+			<s:stroke>
+				<s:SolidColorStroke caps="none" color="#FDFF00" joints="miter" miterLimit="4"
+									weight="8"/>
+			</s:stroke>
+		</s:Ellipse>
+		<s:Ellipse includeIn="Tutorial1" x="144" y="362" width="146" height="43">
+			<s:stroke>
+				<s:SolidColorStroke caps="none" color="#FDFF00" joints="miter" miterLimit="4"
+									weight="8"/>
+			</s:stroke>
+		</s:Ellipse>
+		<s:BitmapImage includeIn="Tutorial4" x="26" y="150" width="451" height="250" smooth="true"
+					   source="@Embed('/assets/images/FirefoxScreenSnapz009.png')"/>
+		<s:Ellipse includeIn="Tutorial4" x="349" y="339" width="148" height="39">
+			<s:stroke>
+				<s:SolidColorStroke caps="none" color="#FDFF00" joints="miter" miterLimit="4"
+									weight="8"/>
+			</s:stroke>
+		</s:Ellipse>
+		<s:Ellipse includeIn="Tutorial4" x="15" y="332" width="148" height="39">
+			<s:stroke>
+				<s:SolidColorStroke caps="none" color="#FDFF00" joints="miter" miterLimit="4"
+									weight="8"/>
+			</s:stroke>
+		</s:Ellipse>
+	</fx:DesignLayer>
 	<s:transitions>
 		<s:Transition fromState="Tutorial1" interruptionBehavior="stop" toState="Tutorial2">
-			<s:Parallel>
-				<s:Animate duration="500" target="{richtext1}">
-					<s:SimpleMotionPath property="x"/>
-					<s:SimpleMotionPath property="y"/>
-				</s:Animate>
-			</s:Parallel>
-		</s:Transition>
-		<s:Transition fromState="Tutorial2" interruptionBehavior="stop" toState="Tutorial3">
-			<s:Parallel>
-				<s:Parallel target="{richtext1}">
-					<s:Animate duration="500">
-						<s:SimpleMotionPath property="x"/>
-						<s:SimpleMotionPath property="y"/>
-					</s:Animate>
-					<s:Animate duration="500">
-						<s:SimpleMotionPath property="width"/>
-						<s:SimpleMotionPath property="height"/>
-					</s:Animate>
-				</s:Parallel>
-			</s:Parallel>
-		</s:Transition>
-		<s:Transition fromState="Tutorial3" interruptionBehavior="stop" toState="Tutorial4">
-			<s:Parallel>
-				<s:Parallel target="{richtext1}">
-					<s:Animate duration="500">
-						<s:SimpleMotionPath property="x"/>
-						<s:SimpleMotionPath property="y"/>
-					</s:Animate>
-					<s:Animate duration="500">
-						<s:SimpleMotionPath property="width"/>
-						<s:SimpleMotionPath property="height"/>
-					</s:Animate>
-				</s:Parallel>
-			</s:Parallel>
-		</s:Transition>
-		<s:Transition fromState="Tutorial4" interruptionBehavior="stop" toState="Tutorial5">
 			<s:Parallel>
 				<s:Animate duration="500" target="{richtext1}">
 					<s:SimpleMotionPath property="x"/>
