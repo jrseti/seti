@@ -67,6 +67,7 @@ exit
 
 Now refresh your browser. You should get admin controls and be able to see the Flex app.
 
+To implement any test code, the controller test must have "login_as_administrator" in the setup block.
 
 Flex Projects
 -------------
