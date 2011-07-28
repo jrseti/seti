@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   
   # Note we're using "User" to mean basically someone who just registered.
   
-  DEFAULT_ROLE = :user
+  DEFAULT_ROLE = :explorer
 
   def initialize(params = nil)
     super
