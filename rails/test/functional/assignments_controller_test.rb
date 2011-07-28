@@ -2,6 +2,7 @@ require 'test_helper'
 
 class AssignmentsControllerTest < ActionController::TestCase
   setup do
+    login_as_administrator
     @assignment = assignments(:one)
   end
 

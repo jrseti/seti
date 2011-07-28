@@ -2,6 +2,7 @@ require 'test_helper'
 
 class PatternMarksControllerTest < ActionController::TestCase
   setup do
+    login_as_administrator
     @pattern_mark = pattern_marks(:one)
   end
 

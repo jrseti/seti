@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ObservationRangesControllerTest < ActionController::TestCase
   setup do
+    login_as_administrator
     @observation_range = observation_ranges(:one)
   end
 

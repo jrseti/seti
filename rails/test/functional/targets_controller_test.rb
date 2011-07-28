@@ -2,6 +2,7 @@ require 'test_helper'
 
 class TargetsControllerTest < ActionController::TestCase
   setup do
+    login_as_administrator
     @target = targets(:one)
   end
 
